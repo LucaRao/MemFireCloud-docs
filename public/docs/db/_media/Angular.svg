@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Angular</title>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="官网改版-文档-应用介绍页" transform="translate(-1317.000000, -624.000000)" fill-rule="nonzero">
+            <g id="编组-6" transform="translate(440.000000, 594.000000)">
+                <g id="Angular" transform="translate(877.837838, 30.000000)">
+                    <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="20" height="20"></rect>
+                    <polygon id="路径" fill="#DD0031" points="8.51171875 10.4726562 10 10.4726562 10 6.89453125"></polygon>
+                    <polygon id="路径" fill="#DD0031" points="7.83007813 12.046875 6.80664063 14.6015625 4.90820313 14.6015625 10 3.18359375 10 1.25 1.85351563 4.15429688 3.09570313 14.9257813 10 18.75 10 12.046875"></polygon>
+                    <polygon id="路径" fill="#C3002F" points="10 6.89453125 10 10.4726562 11.4882812 10.4726562"></polygon>
+                    <polygon id="路径" fill="#C3002F" points="10 1.25 10 3.18359375 15.0742187 14.6015625 13.1757812 14.6015625 12.1523437 12.046875 10 12.046875 10 18.75 16.9042969 14.9257813 18.1464844 4.15429688"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
