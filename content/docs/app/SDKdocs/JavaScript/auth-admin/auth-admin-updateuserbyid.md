@@ -1,0 +1,409 @@
+---
+    weight: 1
+    title: "updateUserById()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+updateUserById()用于更新用户数据。
+
+## 案例教程
+
+### 案例1 （更新用户的电子邮件地址）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { email: 'new@email.com' }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例2 （更新用户的密码）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { password: 'new_password' }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例3 （更新用户的元数据）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { user_metadata: { hello: 'world' } }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例4 （更新用户的应用程序元数据）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { app_metadata: { plan: 'trial' } }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例5 （确认用户的电子邮件地址）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { email_confirm: true }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例6 （确认用户的电话号码）
+
+{{< tabs tabTotal="6" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data: user, error } = await supabase.auth.admin.updateUserById(
+  '6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4',
+  { phone_confirm: true }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      uid
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+
+用户的唯一标识符。
+
+  </div>
+  
+</li>
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      attributes
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>AdminUserAttributes类型</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      app_metadata
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用于存储用户特定应用程序元数据的自定义数据对象。这映射到 auth.users.app_metadata 列。只有服务角色可以修改。app_metadata 应该是一个 JSON 对象，其中包含应用程序特定的信息，例如身份提供者、角色和其他访问控制信息。
+  
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      ban_duration
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+决定一个用户被禁止多长时间。
+
+确定用户被封禁的持续时间。封禁持续时间的格式遵循严格的十进制数字和单位后缀的顺序。有效的时间单位包括 "ns"、"us"（或 "µs"）、"ms"、"s"、"m"、"h"。例如，一些可能的持续时间包括：'300ms'、'2h45m'。将封禁持续时间设置为 'none' 将解除对用户的封禁。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      email
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+该用户的电子邮件。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      email_confirm
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+如果设置为 true，则确认用户的电子邮件地址。只有服务角色可以修改。
+
+  </div>
+  
+</li>
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      nonce
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+如果要更新用户的密码，则发送的重新认证的随机数。首先调用 reauthenticate() 来获取随机数。
+
+  </div>
+  
+</li>
+
+
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      password
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的密码。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      phone
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的电话。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      phone_confirm
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+如果设置为 true，则确认用户的电话号码。只有服务角色可以修改。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      user_metadata
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用于存储用户元数据的自定义数据对象。这映射到 auth.users.user_metadata 列。user_metadata 应该是一个 JSON 对象，其中包含用户特定的信息，例如他们的名字和姓氏。注意：在使用 GoTrueAdminApi 并想要修改用户的元数据时，将使用此属性代替 UserAttributes 数据。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+

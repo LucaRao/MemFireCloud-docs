@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Vue</title>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="官网改版-文档-应用介绍页" transform="translate(-477.000000, -704.000000)" fill-rule="nonzero">
+            <g id="编组-6" transform="translate(440.000000, 594.000000)">
+                <g id="编组-5备份-3" transform="translate(0.000000, 80.000000)">
+                    <g id="Vue" transform="translate(37.837838, 30.000000)">
+                        <rect id="矩形" fill="#000000" opacity="0" x="0" y="0" width="20" height="20"></rect>
+                        <polygon id="路径" fill="#41B883" points="12.0234375 2.4140625 15.2558594 2.4140625 10 11.5175781 4.74414063 2.4140625 1.24023438 2.4140625 10 17.5859375 18.7597656 2.41210938"></polygon>
+                        <polygon id="路径" fill="#34495E" points="15.2558594 2.4140625 12.0234375 2.4140625 10 5.91796875 7.9765625 2.4140625 4.74414062 2.4140625 10 11.5175781"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

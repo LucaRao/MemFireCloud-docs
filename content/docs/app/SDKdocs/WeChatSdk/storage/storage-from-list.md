@@ -1,0 +1,310 @@
+---
+    weight: 72
+    title: "from.list()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+from.list()用于列出存储桶内的所有文件。
+
+
+需要RLS策略权限:
+  - `buckets`表的权限: 无
+  - `objects`表的权限：`select`权限
+
+请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+
+
+
+
+## 案例教程
+
+### 案例1 （在存储桶中列出文件）
+
+{{< tabs tabTotal="2" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                   
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .list('folder', {
+    limit: 100,
+    offset: 0,
+    sortBy: { column: 'name', order: 'asc' },
+  })
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例2 （在存储桶中搜索文件）
+
+{{< tabs tabTotal="2" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                   
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .list('folder', {
+    limit: 100,
+    offset: 0,
+    sortBy: { column: 'name', order: 'asc' },
+    search: 'jon'
+  })
+                                                                              
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      路径（path）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+文件夹路径。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>SearchOptions类型</code>
+    </span>
+  </h4>
+
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      limit
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>数字类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+你希望返回的文件数量。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      offset
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>数字类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+起始位置。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      search
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+按照搜索字符串筛选文件的条件。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      sortBy
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>SortBy类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要排序的列。可以是FileObject中的任何列。
+
+  </div>
+
+
+
+
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      列（column）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      order
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+
+  
+</li>
+
+
+</ul>
+
+
+
+  
+</li>
+
+</ul>
+
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      parameters
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>FetchParameters类型</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      signal
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>AbortSignal类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+传入一个AbortController的信号来取消请求。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+
+

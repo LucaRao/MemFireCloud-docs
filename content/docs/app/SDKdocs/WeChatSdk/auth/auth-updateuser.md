@@ -1,0 +1,315 @@
+---
+    weight: 74
+    title: "updateUser()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+updateUser()用于更新用户信息，该方法用于更新已登录用户的用户数据。
+
+使用 updateUser() 方法之前，用户必须先登录。默认情况下，如果对用户的电子邮箱进行更新，这将向用户当前的电子邮箱和新的电子邮箱发送确认链接。
+若希望仅向用户的新电子邮箱发送确认链接，请在项目的[电子邮箱认证提供程序](https://cloud.memfiredb.com/db)设置中禁用 **Secure email change** 选项。这样可以避免同时向当前和新电子邮箱发送确认链接。
+
+
+## 案例教程
+### 案例1 （更新已认证用户的电子邮件地址）
+
+{{< tabs tabTotal="8" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.updateUser({email: 'new@email.com'})
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+发送一封“确认电子邮件更改”邮件至新的电子邮件地址。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+### 案例2 （更新已认证用户的密码）
+
+{{< tabs tabTotal="8" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.updateUser({password: 'new password'})
+  ```
+  
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+如果密码超过72个字符，它将被截断为前72个字符。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+### 案例3 （更新用户的元数据信息）
+
+{{< tabs tabTotal="8" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.updateUser({
+  data: { hello: 'world' }
+})
+  ```
+  
+
+
+{{% /tab %}}
+
+
+
+{{< /tabs >}}
+
+
+### 案例4 （使用一次性随机码更新用户的密码）
+
+{{< tabs tabTotal="8" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.updateUser({
+  password: 'new password',
+  nonce: '123456'
+})
+  ```
+  
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+如果启用了"安全密码更改"功能，则更新用户密码将需要一个一次性随机码（nonce）。该一次性随机码会发送到用户的电子邮件或电话号码。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+### 案例5 （设置微信用户昵称和头像）
+
+{{< tabs tabTotal="8" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+场景：配合[微信登录](/docs/app/auth/mandateswechatAuth)一起使用
+
+使用 SDK 操作如下：
+
+  ```ts
+const { data, error } = await supabase.auth.updateUser({"data": {"nickname": "张三", "arvatar": "url_of_arvatar"}})
+ 
+  ```
+  
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      attributes
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>UserAttributes类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+未提供说明。
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      用户数据（data）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+一个自定义的数据对象来存储用户的元数据。这映射到`auth.users.user_metadata`列。
+`data`应该是一个JSON对象，包括用户的具体信息，如他们的名字和姓氏。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      邮箱（email）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+该用户的电子邮件。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      密码（password）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的密码。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      电话（phone）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的电话。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      emailRedirectTo
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  
+</li>
+
+
+</ul>
+</li>
+
+</ul>

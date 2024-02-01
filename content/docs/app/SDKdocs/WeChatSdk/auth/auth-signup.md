@@ -1,0 +1,173 @@
+---
+    weight: 12
+    title: "signUp()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+创建一个新的用户。
+
+
+
+1. 默认情况下，用户在登录之前需要验证他们的电子邮件地址。要关闭此功能，请在您的[项目](https://cloud.memfiredb.com/db)中禁用 **确认电子邮** 选项。
+
+2. **确认电子邮件** 决定用户在注册后是否需要确认他们的电子邮件地址。
+
+* 如果启用了 **确认电子邮件** ，将返回一个`用户`对象，但`会话 (session)` 为空。
+
+* 如果禁用了 **确认电子邮** ，将返回一个`用户`对象和一个`会话 (session)`。
+
+3. 当用户确认他们的电子邮件地址时，默认情况下会重定向到 `SITE_URL`。您可以在项目中修改 `SITE_URL` 或在你的[项目](https://cloud.memfiredb.com/db)中添加其他重定向 URL。
+
+4. 如果对已确认的现有用户调用 signUp()：
+
+* 如果您的[项目](https://cloud.memfiredb.com/db)中启用了 **确认电子邮件** ，将返回一个混淆的（假的）的用户对象。
+* 如果禁用了 **确认电子邮件** ，将返回错误消息`用户已注册`。
+5. 要获取当前已登录的用户，请参阅 [getUser()](/docs/app/SDKdocs/WeChatSdk/auth/auth-getuser) 方法。
+
+
+## 案例教程
+
+### 案例1 （注册）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signUp({
+  email: 'example@email.com',
+  password: 'example-password',
+})
+  ```
+
+
+
+{{% /tab %}}
+
+
+{{% tab tabName="注意事项" %}}
+
+
+
+如果密码超过72个字符，它将被截断为前72个字符。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+### 案例2 （使用附加用户元数据进行注册）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signUp(
+  {
+    email: 'example@email.com',
+    password: 'example-password',
+    options: {
+      data: {
+        first_name: 'John',
+        age: 27,
+      }
+    }
+  }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+### 案例3 （使用重定向URL进行注册）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signUp(
+  {
+    email: 'example@email.com',
+    password: 'example-password',
+    options: {
+      emailRedirectTo: 'https://example.com/welcome'
+    }
+  }
+)
+  ```
+
+
+
+{{% /tab %}}
+
+
+{{% tab tabName="注意事项" %}}
+
+
+
+如果你希望在你的项目中添加额外的重定向URL，你可以查看重定向URL和通配符的相关内容来实现。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      credentials
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>SignUpWithPasswordCredentials</code> 
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+SignUpWithPasswordCredentials是使用密码进行身份验证的一种凭据类型。通常包含以下信息：
+
+1.email（电子邮件）：用户的电子邮件地址，作为账户的唯一标识符之一。
+
+2.password（密码）：用户选择的密码，用于以后登录时进行身份验证。
+
+3.可能还包含其他一些相关的字段，例如用户名、手机号码或其他自定义的用户信息。
+
+  </div>
+  
+
+</li>
+
+</ul>

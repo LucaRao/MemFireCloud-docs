@@ -1,0 +1,127 @@
+---
+    weight: 9
+    title: "快速入门: Flutter"
+    description: "了解如何在您的 Flutter 应用程序中使用 Supabase。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+## 第一步：在 MemFire Cloud 仪表板中[创建](https://cloud.memfiredb.com/project)一个新应用。
+
+应用准备就绪后，进入应用，在左侧菜单->表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。
+
+```bash
+  -- Create the table
+  CREATE TABLE countries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+  );
+  -- Insert some sample data into the table
+  INSERT INTO countries (name) VALUES ('United States');
+  INSERT INTO countries (name) VALUES ('Canada');
+  INSERT INTO countries (name) VALUES ('Mexico');
+```
+
+
+## 第二步：创建 Flutter 应用
+
+使用 flutter create 命令创建 Flutter 应用程序。如果您已有可用的应用程序，则可以跳过此步骤。
+
+```bash
+flutter create my_app
+```
+
+## 第三步：安装 Supabase 客户端库
+
+最快的入门方法是使用 supabase_flutter 客户端库，它提供了一些简便的API，用于在 Flutter 应用程序中使用 Supabase。
+在Flutter应用程序中打开pubspec.yaml文件，并将supabase_flutter添加为依赖项。
+
+```bash
+supabase_flutter: ^1.6.2
+```
+
+## 第四步：初始化 Supabase 客户端
+
+打开 lib/main.dart 并编辑 main 函数以使用您的项目 URL 和公共 API（匿名）密钥初始化 Supabase。
+
+```bash
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'YOUR_SUPABASE_URL',
+    anonKey: 'YOUR_SUPABASE_ANON_KEY',
+  );
+  runApp(MyApp());
+}
+```
+
+## 第五步：在应用程序中查询数据
+
+使用 FutureBuilder 在主页加载时获取数据并在 ListView 中显示查询结果。
+使用以下代码替换默认的 MyApp 和 MyHomePage 类。
+
+```js
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      title: 'Countries',
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final _future = Supabase.instance.client
+      .from('countries')
+      .select<List<Map<String, dynamic>>>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: FutureBuilder<List<Map<String, dynamic>>>(
+        future: _future,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          final countries = snapshot.data!;
+          return ListView.builder(
+            itemCount: countries.length,
+            itemBuilder: ((context, index) {
+              final country = countries[index];
+              return ListTile(
+                title: Text(country['name']),
+              );
+            }),
+          );
+        },
+      ),
+    );
+  }
+}
+```
+## 第六步：启动应用程序
+
+运行您的应用程序，默认情况下，应用程序应在您的网络浏览器中启动。
+请注意，supabase_flutter 与网络、iOS、Android、macOS 和 Windows 应用程序兼容。
+在 MacOS 上运行应用程序需要额外配置来设置权利。
+
+```bash
+flutter run
+```
+
+

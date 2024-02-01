@@ -1,0 +1,290 @@
+---
+    weight: 95
+    title: "signInWithOAuth()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+通过第三方服务商登录现有的用户。
+
+* 该方法用于使用第三方服务商进行登录。
+
+* MemFire Cloud支持许多不同的[第三方服务商](/docs/app/auth/auth)。
+
+
+
+## 案例教程
+
+### 案例1 （借助第三方服务商登陆）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github'
+})
+  ```
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+### 案例2 （使用带有重定向的第三方服务商登录）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github',
+  options: {
+    redirectTo: 'https://example.com/welcome'
+  }
+})
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+当第三方服务商成功验证用户后，服务商将用户重定向到`redirectTo`参数指定的URL。默认情况下，该参数为`SITE_URL`。调用此方法后不会立即重定向用户。
+
+请查看[重定向URL和通配符](/docs/app/auth/auth)以向您的项目添加其他重定向URL。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例3 （带有作用域(scopes)的登录）
+
+{{< tabs tabTotal="5" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github',
+  options: {
+    scopes: 'repo gist notifications'
+  }
+})
+const oAuthToken = data.session.provider_token // use to access provider API
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+如果你需要从OAuth服务商获取附加数据，你可以在请求中包含一个以空格分隔的作用域（scopes）列表，以获得OAuth服务商令牌。
+
+根据服务商的不同，你可能还需要在服务商的OAuth应用程序设置中指定这些作用域。作用域的列表将由你正在使用的第三方服务商记录，并且指定作用域将使你能够使用OAuth服务商令牌调用第三方服务商支持的其他API，以获取更多信息。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      credentials
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>SignInWithOAuthCredentials</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      提供者（provider）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>Provider类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+GoTrue支持的供应商之一。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      queryParams
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+一个查询参数的对象
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      redirectTo
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+一个在用户被确认后发送给他们的URL。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      scopes
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+以空格分隔的授予OAuth应用程序的作用域列表。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      skipBrowserRedirect
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+如果设置为true，不会立即重定向当前浏览器上下文以访问提供商的OAuth授权页面。
+
+  </div>
+  
+</li>
+
+
+</ul>
+
+</li>
+
+</ul>
+
+</li>
+
+</ul>

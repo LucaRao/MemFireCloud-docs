@@ -1,0 +1,101 @@
+---
+    weight: 6
+    title: "概述"
+    description: "Auto-generating and Realtime APIs."
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+## 无服务器 API
+Supabase直接从你的数据库模式中自动生成三种类型的API。
+
+- REST - 通过restful接口连接到你的数据库。
+- Realtime - 监听数据库的变化。
+- GraphQL - 使用类似于图形查询语言操作您的数据库。
+
+所有的API都是从您的数据库中自动生成的，其设计目的是让您无需编写一行代码就能尽可能快地构建。
+
+您可以直接从浏览器中使用它们（两层架构），或者作为您自己的API服务器（三层架构）的补充。
+
+## 特征
+
+- **即时自动生成**<br/>当您更新数据库时，可以通过API立即访问更改。
+
+- **自我记录**<br/>Supabase在Dashboard中生成文档，当您更改数据库时，这些文档会更新。
+
+- **安全**<br/>API配置为与PostgreSQL的行级安全一起工作，在启用密钥验证的API网关后面提供。
+
+- **速度快**<br/>我们的基本读取基准比Firebase快300%以上。API是Postgres之上的一个非常薄的层，它完成了大部分繁重的工作。
+
+- **可扩展**<br/>API可以同时处理数千个请求，并且适用于无服务器工作负载。
+
+## REST API [#rest-api-overview]
+
+Supabase使用 [PostgREST](https://postgrest.org/) 提供了一个RESTful API。这是在 Postgres 之上的一个非常薄的API层。
+它提供了你在 CRUD API 中需要的一切。
+
+Supabase的REST接口会自动根据你的数据库模式进行反射，并提供以下功能支持：
+
+- 基本的CRUD操作（创建/读取/更新/删除）
+- 深度嵌套的连接，允许你在一次获取中从多个表中获取数据
+- 可以与Postgres视图一起使用
+- 可以与Postgres函数一起使用
+- 可以与Postgres的安全模型一起使用（包括行级安全、角色和授权）
+
+Supabase的REST API将所有请求解析为单个SQL语句，从而实现快速的响应时间和高吞吐量。
+
+<div className="video-container">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/rPAJJFdtPw0"
+    frameBorder="1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
+参考:
+
+- [相关文档](https://postgrest.org/)
+- [开源代码](https://github.com/PostgREST/postgrest)
+
+## GraphQL API [#graphql-api-overview]
+
+Supabase使用 [pg_graphql](https://supabase.github.io/pg_graphql/) 来在 `https://<project_ref>.supabase.co/graphql/v1/` 上公开GraphQL API端点。
+您可以在控制台中自动检索和查询现有 Supabase项目的 GraphQL API，或手动导航到 `API 文档 > GraphQL > GraphiQL`。
+
+Supabase的GraphQL接口会自动根据你的数据库模式进行反射，并提供以下功能支持：
+
+- 基本的CRUD操作（创建/读取/更新/删除）
+- 支持表、视图、材料化视图和外部表
+- 表/视图之间任意深度的关联关系
+- 用户定义的计算字段
+- Postgres安全模型（包括行级安全、角色和授权）
+
+GraphQL API在单个往返中解析所有请求，因此响应时间快且吞吐量高。
+
+参考:
+- [相关文档](https://supabase.github.io/pg_graphql/)
+- [开源代码](https://github.com/supabase/pg_graphql)
+
+## Realtime API
+
+Supabase使用 [Realtime](https://github.com/supabase/realtime) 提供一个实时API。你可以使用它来通过websockets监听数据库的变化。
+Realtime 利用了 PostgreSQL 的内置逻辑复制功能。你可以通过管理 Postgres 发布功能来管理你的 Realtime API 。
+
+>在PostgreSQL数据库中，"发布"（Publication）是一种功能，用于将数据库的更改事件传播给订阅者。它允许你定义一组要发布的表，以及发布的细节和规则。
+
+## API URL 和 密钥
+您可以在控制台找到API URL 和 密钥 [Dashboard](https://supabase.com/dashboard/project/_/settings/api).
+
+<div className="video-container">
+  <iframe
+    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/docs/api/api-url-and-key.mp4"
+    frameBorder="1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
+

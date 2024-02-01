@@ -1,0 +1,88 @@
+---
+    weight: 99
+    title: "getUser()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+getUser()用于获取用户信息，当存在有效会话时，该方法获取当前用户的详细信息。
+
+* 与从本地会话获取信息不同，该方法从数据库中获取用户对象的信息。
+* 这个方法非常有用，因为它能够验证用户的访问令牌（JWT）在服务器端是否有效，从而用于检查用户是否已被授权。
+* 建议仅在需要最新的用户数据时使用此方法。对于更快的结果，推荐使用 `getSession().session.user`。这是因为 `getSession().session.user` 直接从本地会话获取数据速度较快。而 `Retrieve a user` 方法需要从数据库中获取数据会稍慢一些。
+
+
+
+## 案例教程
+### 案例1 （通过当前现有的会话获取已登录的用户信息）
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data: { user } } = await supabase.auth.getUser()
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例2 （使用自定义访问令牌 jwt 获取已登录的用户信息）
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data: { user } } = await supabase.auth.getUser(jwt)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      jwt
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+接收一个可选的访问令牌jwt。如果没有提供jwt，getUser()将试图从当前会话中获取jwt。
+
+  </div>
+  
+</li>
+
+</ul>

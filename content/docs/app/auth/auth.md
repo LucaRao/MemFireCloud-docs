@@ -1,0 +1,158 @@
+---
+    weight: 3
+    title: "概述"
+    description: "使用Supabase来认证和授权你的用户。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+## 概述
+
+每个认证系统都有两个部分。
+
+- **认证：**这个人应该被允许进入吗？如果是的话，他们是谁？
+- **授权：**一旦他们进入，他们被允许做什么？
+
+Supabase Auth被设计为既可以作为一个独立的产品，也可以与其他Supabase产品深度集成。
+Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我们尽可能地利用Postgres的内置Auth功能。
+
+下面是Supabase内置的Auth功能的2分钟快速浏览。
+
+<div className="video-container">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/6ow_jW4epf8"
+    frameBorder="1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
+## 身份认证
+
+你可以通过几种方式来验证你的用户。
+
+- 电子邮件和密码。
+- Magic links（一键登录）。
+- 社交媒体登录认证服务商。
+- 电话登录。
+
+
+
+### 配置第三方服务商
+
+你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 > 设置 > Auth Providers，并为每个提供商输入你的 `客户端ID`和 `密匙`。
+
+<img src="/docs/img/supabase-oauth-logins.png">
+
+### 重定向URLs和通配符
+
+当使用第三方提供商时，[Supabase客户端库](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth#sign-in-using-a-third-party-provider-with-redirect)将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到`redirectTo`参数中指定的URL。这个参数默认为[`SITE_URL`](/docs/reference/auth/config#site_url)。你可以修改`SITE_URL`或添加额外的重定向URL。
+
+你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见[支持模式的完整列表](https://pkg.go.dev/github.com/gobwas/glob#Compile)。
+
+#### Netlify预览URLs
+
+对于使用Netlify的部署，将`SITE_URL`设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。
+
+- `http://localhost:3000/*/*`
+- `https://**--my_org.netlify.app/*`
+
+#### Vercel预览网址
+
+对于使用Vercel的部署，将`SITE_URL`设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。
+
+- `http://localhost:3000/*/*`
+- `https://**vercel.app/*/*`
+
+Vercel为部署的URL提供了一个环境变量，称为`NEXT_PUBLIC_VERCEL_URL`。更多细节见[Vercel docs](https://vercel.com/docs/concepts/projects/environment-variables#system-environment-variables)。你可以使用这个变量，根据环境动态地重定向。
+
+```js
+const { data, error } = await supabase.auth.signInWithOAuth({
+  provider: 'github'
+  options: {
+    redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : "http://localhost:3000"
+  }
+}
+```
+
+#### 移动端深层链接 URI
+
+对于移动应用程序，您可以使用深度链接URI。例如，对于您的`SITE_URL`，您可以指定类似于`com.supabase://login-callback/`的内容，如果需要额外的重定向URL，则可以使用类似于`com.supabase.staging://login-callback/`的内容。
+
+## 授权
+
+当你需要细化的授权规则时，没有什么比PostgreSQL的行级安全（RLS）更重要了。
+
+策略是PostgreSQL的规则引擎。它们是非常强大和灵活的，允许你编写复杂的SQL规则，以满足你独特的业务需求。
+
+从我们的[行级安全指南](/docs/app/auth/mandates/row-level-security)开始吧。
+
+### 行级安全
+
+认证只解决了用户身份验证的问题，但并没有涉及用户在系统中的权限和访问级别。为了解决这个问题，您需要使用到PostgreSQL的[行级安全性（RLS）](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)的特性。该特性通过打开和关闭RLS选项，使得授权变得非常简单。
+
+<video width="99%" muted playsInline controls="true">
+  <source src="/docs/videos/rls-zoom2.mp4" type="video/mp4" muted playsInline />
+</video>
+
+### 策略
+
+[策略](https://www.postgresql.org/docs/current/sql-createpolicy.html)是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以适应你独特的业务需求。
+
+<video width="99%" muted playsInline controls="true">
+  <source src="/docs/videos/policies-zoom2.mp4" type="video/mp4" muted playsInline />
+</video>
+
+如果设置了策略(Policy)，你的数据库就成了规则引擎。就不需要编写如下复杂的查询语句：
+
+```js
+const loggedInUserId = 'd0714948'
+let { data, error } = await supabase
+  .from('users')
+  .select('user_id, name')
+  .eq('user_id', loggedInUserId)
+
+// console.log(data)
+// => { id: 'd0714948', name: 'Jane' }
+```
+
+你可以很方便的在数据库表上定义一个策略（policy），`auth.uid() = user_id`，策略生效后，你对数据库的所有请求仅返回将通过该策略的行记录，即：只能查询到当前登录用户的数据,简化代码如下：
+
+```js
+let { data, error } = await supabase.from('users').select('user_id, name')
+
+// console.log(data)
+// Still => { id: 'd0714948', name: 'Jane' }
+```
+
+### 它是如何工作的
+1. 用户注册后。MemFireCloud在`auth.users`表中创建一个新用户。
+2. MemFireCloud返回一个包含用户`UUID`的新JWT。
+3. 每个对数据库的请求都会发送JWT。
+4. Postgres检查JWT以确定发起请求的用户。
+5. 用户的UID可以在策略中用于限制对行的访问。
+ 
+MemFireCloud 在 Postgres 中提供了一个特殊函数 `auth.uid()` 。可以从JWT中提取用户的UID，在创建策略时特别有用。
+
+
+
+## 用户管理
+
+Supabase提供多个端点来验证和管理你的用户。
+
+- [注册](/docs/app/SDKdocs/JavaScript/auth/auth-signup)
+- [用密码登录](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithpassword)
+- [使用无密码/一次性密码（OTP）登录](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithotp)
+- [用OAuth登录](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth)
+- [退出登陆](/docs/app/SDKdocs/JavaScript/auth/auth-signout)
+
+当用户注册时，Supabase为他们分配了一个唯一的ID。你可以在你的数据库中的任何地方引用这个ID。例如，你可以创建一个`profiles`表，使用`user_id`字段引用`auth.users`表中的`id`。
+
+<video width="99%" muted playsInline controls="true">
+  <source src="/docs/videos/auth-zoom2.mp4" type="video/mp4" muted playsInline />
+</video>
+
+

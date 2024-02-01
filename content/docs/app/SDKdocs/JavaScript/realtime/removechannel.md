@@ -1,0 +1,73 @@
+---
+    weight: 1
+    title: "removeChannel()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+removeChannel()用于取消订阅并从实时（realtime）客户端移除实时（realtime）频道。
+
+移除频道是维护项目的实时服务性能以及在监听Postgres更改时维护数据库性能的好方法。
+在客户端断开连接后，MemFire Cloud会自动在30秒后进行清理，但是未使用的频道可能会导致性能下降，特别是当有更多客户端同时订阅时。
+
+
+
+## 案例教程
+
+### 案例1 
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+supabase.removeChannel(myChannel)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      频道（channel）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>default</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+实时（realtime）通道的名称。如果没有显式指定通道名称，系统将使用"default"作为默认值。
+
+  </div>
+  
+</li>
+
+</ul>
+

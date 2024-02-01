@@ -1,0 +1,89 @@
+---
+    weight: 80
+    title: "deleteUser()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+deleteUser()用于删除用户。这个过程需要使用 service_role 密钥。
+
+## 案例教程
+
+### 案例1 （移除一个用户）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.deleteUser(
+  '715ed5db-f090-4b8c-a067-640ecee36aa0'
+)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      id
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+你想删除的用户ID。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      shouldSoftDelete
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+* 当设置为 true 时，将对用户进行软删除操作（"软删除" 是一种在数据库中标记数据为已删除但不立即物理删除的操作方式。），即在认证模式（auth schema）中进行软删除。而当设置为 false 时，用户将被物理删除。
+* 默认情况下，"shouldSoftDelete" 参数的值为 false，这是为了保持向后兼容性。这意味着如果在调用删除用户的函数时不显式指定 "shouldSoftDelete" 参数，那么默认情况下用户将会被物理删除，而不是软删除。
+* 需要特别注意的是绝对不能将这个参数暴露给客户端浏览器。这是因为这个参数涉及到对数据进行软删除或物理删除的决定，是一个敏感的操作。确保在服务器端安全地处理这个参数，并且绝不要在客户端浏览器中传递敏感的 service_role 密钥。
+
+
+  </div>
+  
+</li>
+
+</ul>
+
+

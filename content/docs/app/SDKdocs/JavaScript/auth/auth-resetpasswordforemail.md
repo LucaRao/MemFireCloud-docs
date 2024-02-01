@@ -1,0 +1,190 @@
+---
+    weight: 26
+    title: "resetPasswordForEmail()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+resetPasswordForEmail() 方法会向一个电子邮件地址发送密码重置请求。
+
+* 密码重置流程包含两个主要步骤：1. 允许用户通过密码重置链接登录。2. 更新用户的密码。
+
+* `resetPasswordForEmail()` 方法仅会向用户的电子邮件发送密码重置链接。若要更新用户的密码，请参阅 `updateUser()` 方法。
+
+* 当密码恢复链接被点击时，会触发一个 `SIGNED_IN` 和 `PASSWORD_RECOVERY` 事件。你可以使用 `onAuthStateChange()` 方法来监听这些事件，并在其上调用一个回调函数。
+
+* 当用户点击邮件中的重置链接后，他们将被重定向回您的应用程序。您可以通过 `redirectTo` 参数配置用户重定向的URL。请参阅[重定向URL和通配符](/docs/app/auth/auth)，以添加其他重定向URL到您的项目中。
+
+* 成功重定向用户后，提示他们输入一个新密码并调用 `updateUser()` ，使用方法如下：
+
+```ts
+const { data, error } = await supabase.auth.updateUser({
+  password: new_password
+})
+```
+
+
+
+## 案例教程
+
+### 案例1 （重置密码）
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+  redirectTo: 'https://example.com/update-password',
+})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例2 （重置密码（React））
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+/**
+ * Step 1: Send the user an email to get a password reset token.
+ * This email contains a link which sends the user back to your application.
+ */
+const { data, error } = await supabase.auth
+  .resetPasswordForEmail('user@email.com')
+
+/**
+ * Step 2: Once the user is redirected back to your application,
+ * ask the user to reset their password.
+ */
+ useEffect(() => {
+   supabase.auth.onAuthStateChange(async (event, session) => {
+     if (event == "PASSWORD_RECOVERY") {
+       const newPassword = prompt("What would you like your new password to be?");
+       const { data, error } = await supabase.auth
+         .updateUser({ password: newPassword })
+
+       if (data) alert("Password updated successfully!")
+       if (error) alert("There was an error updating your password.")
+     }
+   })
+ }, [])
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      邮箱（email）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的电子邮件地址。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      captchaToken
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+当用户完成网站上的验证码时，收到的验证令牌。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      redirectTo
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+点击密码重置链接后，这是将用户重定向的URL。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+

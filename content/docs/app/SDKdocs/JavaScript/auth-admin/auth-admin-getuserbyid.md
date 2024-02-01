@@ -1,0 +1,67 @@
+---
+    weight: 60
+    title: "getUserById()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+getUserById()可以根据用户的 ID 获取用户信息。
+
+* 它将根据用户提供的用户 ID，在数据库中查找并获取相应的用户对象（user object）。用户对象包含了有关该用户的各种信息，比如用户名、电子邮件地址、角色等。
+* 执行这个操作需要使用 getUserById() 方法，并且这个方法需要提供用户的 ID 作为参数。这个 ID 映射到数据库中的 auth.users.id 列，用于唯一标识一个用户。
+
+
+
+## 案例教程
+
+### 案例1 （使用 access_token jwt 获取用户对象）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.getUserById(1)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      uid
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+
+用户的唯一标识符。此函数应该只在服务器上调用。绝对不要在浏览器中暴露你的 service_role 密钥。
+
+  </div>
+  
+</li>
+
+</ul>

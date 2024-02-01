@@ -1,0 +1,91 @@
+---
+    weight: 4
+    title: "概述"
+    description: "Use Supabase to manage your data."
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+## 数据库
+
+
+每个Supabase项目都带有一个完整的[Postgres](https://www.postgresql.org/)数据库，这是一个免费的开源数据库，被认为是世界上最稳定的和先进的数据库之一。
+
+
+## Postgres 或 PostgreSQL?
+
+PostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学伯克利分校编写的软件包。
+这个软件包包括一种叫做 "PostQUEL "的查询语言。
+
+1994年，Postgres95建立在POSTGRES代码之上，增加了一个SQL语言解释器作为PostQUEL的替代。
+最终，Postgres95被重新命名为PostgreSQL，以反映SQL查询能力。
+
+在这之后，许多人把它称为Postgres，因为这样不容易混淆。Supabase的宗旨是简单，所以我们也把它称为Postgres。
+
+
+## 功能
+
+### 表视图
+
+你不必是一个数据库专家就可以开始使用Supabase。我们的表视图使Postgres像电子表格一样容易使用。
+
+<img src="/docs/img/table-view.png">
+
+### 关系
+
+挖掘你的数据中的关系.
+
+<video width="99%" loop="" muted="" playsInline="" controls="true">
+  <source src="/docs/videos/relational-drilldown-zoom.mp4" type="video/mp4" />
+</video>
+
+### 克隆表
+
+你可以复制你的表格，就像你在电子表格里面一样。
+
+<video width="99%" muted playsInline controls={true}>
+  <source src="/docs/videos/duplicate-tables.mp4" type="video/mp4" muted playsInline />
+</video>
+
+### SQL编辑器
+
+Supabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以便以后运行!
+
+<video width="99%" muted playsInline controls={true}>
+  <source src="/docs/videos/favorites.mp4" type="video/mp4" muted playsInline />
+</video>
+
+### 附加功能
+
+- Supabase使用我们的[Realtime Server](https://github.com/supabase/realtime)对Postgres进行实时功能的扩展。
+- 每个项目都是一个完整的Postgres数据库，具有`postgres`级别的访问权限。
+- Supabase负责管理你的数据库备份。
+- 直接从CSV或EXCEL电子表格中导入数据。
+
+{{% alert context="info" %}}
+数据库备份**不**包括通过存储API存储的对象，因为数据库只包括关于这些对象的元数据。恢复一个旧的备份并不能恢复在那之后被删除的对象。
+{{% /alert %}}
+
+### 扩展
+
+为了扩展你的Postgres数据库的功能，你可以使用扩展。
+你可以通过点击Supabase仪表板上的一个按钮来启用Postgres扩展。
+
+<video width="99%" muted playsInline controls={true}>
+  <source src="/docs/videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
+</video>
+
+[了解更多](/docs/app/database/extensions/extensions)关于Supabase上提供的所有扩展。
+
+## 提示
+
+阅读关于重设数据库密码[这里](/docs/app/database/managing-passwords)和改变服务器时区[这里](/docs/app/database/managing-timezones)。
+
+
+## 下一步
+
+- 阅读更多关于[Postgres](/docs/postgres/server/about)
+- 登录: [MemFire Cloud](https://cloud.memfiredb.com/)
+
+

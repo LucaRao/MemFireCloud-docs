@@ -1,0 +1,134 @@
+---
+    weight: 75
+    title: "setSession()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+`setSession()`函数的主要目的，是用于设置当前会话的会话数据。
+当用户登录或进行其他需要会话数据的操作时，可以使用`setSession()`函数来更新或设置相关的会话信息。
+
+* 如果当前会话已过期，`setSession()`将负责刷新它以获取新的会话
+* 如果当前会话中的刷新令牌或访问令牌无效，将会抛出错误
+
+`setSession()`函数需要一个刷新令牌作为参数，然后利用这个刷新令牌来获取一个新的会话。刷新令牌是用于更新会话数据的重要凭证。
+
+刷新令牌是单次使用的，一旦被用来获取新的会话后，就会失效。
+
+为了保护系统免受重放攻击，所有项目默认启用[刷新令牌轮换功能](/docs/reference/auth/config#refresh_token_rotation_enabled)。重放攻击是指攻击者通过重复使用先前获取的令牌来模拟合法用户的行为，从而进行未经授权的操作。
+
+为了灵活性，MemFire Cloud允许你配置`REFRESH_TOKEN_REUSE_INTERVAL`，这是一个时间窗口，在这个窗口内，相同的刷新令牌可以在并发或离线问题的情况下多次使用。
+
+
+
+
+## 案例教程
+
+### 案例1 （刷新对话）
+
+{{< tabs tabTotal="2" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+  const { data, error } = supabase.auth.setSession({
+    access_token,
+    refresh_token
+  })
+  ```
+
+
+
+{{% /tab %}}
+
+
+{{% tab tabName="注意事项" %}}
+
+
+
+使用 refresh_token 设置会话数据，并返回当前会话状态；若 refresh_token 无效，则返回错误信息。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      当前会话（currentSession）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+当前的会话，它至少包含一个访问令牌和刷新令牌。
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      刷新令牌（refresh_token）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      访问令牌（access_token）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>

@@ -1,0 +1,86 @@
+---
+    weight: 5
+    title: "快速入门: React"
+    description: "了解如何在你的React App中使用Supabase。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+## 第一步：在 MemFire Cloud 仪表板中[创建](https://cloud.memfiredb.com/project)一个新应用。
+
+应用准备就绪后，进入应用，在左侧菜单->表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。
+
+```bash
+  -- Create the table
+  CREATE TABLE countries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+  );
+  -- Insert some sample data into the table
+  INSERT INTO countries (name) VALUES ('United States');
+  INSERT INTO countries (name) VALUES ('Canada');
+  INSERT INTO countries (name) VALUES ('Mexico');
+```
+
+
+## 第二步：创建 React 应用
+
+使用 Vite 模板创建 React 应用。
+
+```bash
+npm create vite@latest my-app -- --template react
+```
+
+## 第三步：安装 Supabase 客户端库
+
+最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 React 应用程序中使用 Supabase。
+导航到 React 应用程序并安装 supabase-js 。
+
+```bash
+cd my-app && npm install @supabase/supabase-js
+```
+
+## 第四步：在应用程序中查询数据
+
+在 App.jsx 中，使用您的项目 URL 和公共 API（匿名）密钥创建 Supabase 客户端。
+添加 getCountries 函数以获取数据并将查询结果显示到页面。
+
+```js
+  import { useEffect, useState } from "react";
+  import { createClient } from "@supabase/supabase-js";
+
+  const supabase = createClient("https://<project>.supabase.co", "<your-anon-key>");
+
+  function App() {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+      getCountries();
+    }, []);
+
+    async function getCountries() {
+      const { data } = await supabase.from("countries").select();
+      setCountries(data);
+    }
+
+    return (
+      <ul>
+        {countries.map((country) => (
+          <li key={country.name}>{country.name}</li>
+        ))}
+      </ul>
+    );
+  }
+
+  export default App;
+```
+## 第五步：启动应用程序
+
+启动应用程序，在浏览器中访问 http://localhost:5173，然后打开浏览器控制台，您应该会看到国家/地区列表。
+
+```bash
+npm run dev
+```
+
+

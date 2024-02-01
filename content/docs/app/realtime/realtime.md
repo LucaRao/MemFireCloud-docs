@@ -1,0 +1,58 @@
+---
+    weight: 8
+    title: "概述"
+    description: "Supabase Realtime with Broadcast, Presence, and Postgres CDC."
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+Supabase提供一个全球分布的[实时](https://github.com/supabase/realtime)服务器集群，实现了以下功能：
+
+- [广播](#broadcast)：以低延迟的方式从客户端向客户端发送短暂的信息。
+- [Presence](#presence)：跟踪和同步客户端之间的共享状态。
+- [Postgres CDC](#postgres-cdc)：听取Postgres数据库的变化，并将其发送给授权客户。
+
+[频道](https://hexdocs.pm/phoenix/channels.html) 是实时的基本构建块，它缩小了订阅客户端的数据流范围。
+ 你可以把一个频道想象成一个聊天室，参与者可以看到谁在网上，并发送和接收消息；类似于Discord或Slack频道。
+
+所有客户端都可以连接到一个频道，并利用内置的广播和呈现功能，而扩展功能（如PostgresCDC）必须在使用前启用。
+
+## 广播
+
+广播遵循[发布-订阅模式](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)，客户将消息发布到具有唯一标识符的频道。例如，一个用户可以向一个id为`room-1`的频道发送消息。
+
+其他客户可以通过订阅id为`room-1'的频道来选择实时接收该消息。如果这些客户在线并订阅了，那么他们将收到该消息。
+
+广播的工作原理是将你的客户端连接到最近的实时服务器，该服务器将与其他服务器通信，将消息转发给其他客户端。
+
+一个常见的用例是在网络游戏中与其他客户端分享用户的光标位置。
+
+## Presence
+
+Presence利用内存中无冲突的复制数据类型（CRDT），以最终一致的方式跟踪和同步共享状态。它计算现有状态和新的状态变化之间的差异，并通过广播向客户端发送必要的更新。
+
+当一个新客户端订阅了一个频道时，它将立即在一条消息中接收该频道的最新状态，而不是等待所有其他客户端发送各自的状态。
+
+客户可以随心所欲地来来去去，只要他们都订阅了同一频道，那么他们都将拥有彼此相同的状态。
+
+Presence的好处是，如果一个客户突然断开连接（例如，他们下线了），他们的状态将自动从共享状态中删除。如果你曾经试图建立一个处理意外断开连接的 "我在线 "功能，你就会体会到这是多么有用。
+
+
+## Postgres CDC
+
+Postgres变化数据捕获（CDC）使你能够监听数据库的变化，并根据[行级安全(RLS)](/docs/app/auth/mandates/row-level-security)策略将其广播给授权客户。
+
+这是由实时轮询你的数据库的逻辑复制槽的变化，将这些变化传递给[apply_rls](https://github.com/supabase/walrus#reading-wal)SQL函数以确定哪些客户端有权限，然后使用广播将这些变化发送给客户端。
+
+实时需要一个名为`supabase_realtime`的发布来确定哪些表需要轮询。你必须在客户端订阅想要监听数据库变化的频道之前，将表添加到这个发布中。
+
+我们强烈建议你在你的数据库表上启用RLS，并制定RLS策略以防止未经授权的人访问你的数据。
+
+
+## 参考资源
+
+- [快速快速入门](/docs/app/realtime/quickstart)
+- [实时：多人版本](https://supabase.com/blog/supabase-realtime-multiplayer-general-availability) blog post
+
+

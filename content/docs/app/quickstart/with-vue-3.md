@@ -1,0 +1,95 @@
+---
+    weight: 6
+    title: "快速入门: Vue"
+    description: "了解如何在你的Vue应用程序中使用Supabase。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+## 第一步：在 MemFire Cloud 仪表板中[创建](https://cloud.memfiredb.com/project)一个新应用。
+
+应用准备就绪后，进入应用，在左侧菜单->表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。
+
+```bash
+  -- Create the table
+  CREATE TABLE countries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+  );
+  -- Insert some sample data into the table
+  INSERT INTO countries (name) VALUES ('United States');
+  INSERT INTO countries (name) VALUES ('Canada');
+  INSERT INTO countries (name) VALUES ('Mexico');
+```
+
+
+## 第二步：创建 Vue 应用
+
+使用 npm init 命令创建 Vue 应用。
+
+```bash
+npm init vue@latest my-app
+```
+
+## 第三步：安装 Supabase 客户端库
+
+最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 Vue 应用程序中使用 Supabase。
+导航到 Vue 应用程序并安装 supabase-js 。
+
+```bash
+cd my-app && npm install @supabase/supabase-js
+```
+
+
+## 第四步：创建 Supabase 客户端
+
+在您的 Vue 应用程序中创建一个 /src/lib 目录，创建一个名为 supabaseClient.js 的文件，并添加以下代码以使用您的项目 URL 和公共 API（匿名）密钥初始化 Supabase 客户端。
+
+```bash
+  import { createClient } from '@supabase/supabase-js'
+
+  export const supabase = createClient('https://<project>.supabase.co', '<your-anon-key>')
+```
+
+
+## 第五步：在应用程序中查询数据
+
+将 App.vue 文件中的现有内容替换为以下代码。
+
+```js
+  <script setup>
+  import { ref, onMounted } from 'vue'
+  import { supabase } from './lib/supabaseClient'
+
+  const countries = ref([])
+
+  async function getCountries() {
+    const { data } = await supabase.from('countries').select()
+    countries.value = data
+  }
+
+  onMounted(() => {
+    getCountries()
+  })
+  </script>
+
+  <template>
+    <ul>
+      <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
+    </ul>
+  </template>
+```
+## 第六步：启动应用程序
+
+启动应用程序并在浏览器中访问 http://localhost:5173，您应该会看到国家/地区列表。
+
+```bash
+npm run dev
+```
+
+
+
+

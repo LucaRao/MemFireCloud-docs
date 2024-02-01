@@ -1,0 +1,508 @@
+---
+    weight: 52
+    title: "快速入门: Expo"
+    description: "了解如何在你的React Native App中使用Supabase。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+<img src="/docs/img/supabase-flutter-demo.png">
+
+### GitHub
+
+如果你在阅读指南时遇到困难，请参考[此版本](https://github.com/supabase/supabase/tree/master/examples/user-management/expo-user-management)
+
+
+
+## 构建应用程序
+
+让我们开始从头开始构建React Native应用。
+
+### 初始化一个React Native应用
+
+我们可以使用[`expo`](https://docs.expo.dev/get-started/create-a-new-app/)来初始化
+一个名为 "expo-user-management "的应用程序。
+
+```bash
+npx create-expo-app -t expo-template-blank-typescript expo-user-management
+
+cd expo-user-management
+```
+
+然后让我们安装额外的依赖项。[supabase-js](https://github.com/supabase/supabase-js)
+
+```bash
+npm install @supabase/supabase-js
+npm install react-native-elements @react-native-async-storage/async-storage react-native-url-polyfill
+```
+
+现在让我们创建一个辅助文件来初始化Supabase客户端。
+我们需要API URL和你[早些时候]复制的`anon`密钥（#get-the-api-keys）。
+这些变量将被暴露在浏览器上，这完全没有问题，因为我们有
+[行级安全](/docs/app/auth/auth#row-level-security)在我们的数据库上启用。
+
+```ts title=lib/supabase.ts
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = YOUR_REACT_NATIVE_SUPABASE_URL
+const supabaseAnonKey = YOUR_REACT_NATIVE_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    storage: AsyncStorage as any,
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+  },
+})
+```
+
+### 设置一个登录组件
+
+让我们建立一个React Native组件来管理登录和注册。
+用户将能够用他们的电子邮件和密码登录。
+
+```tsx title=components/Auth.tsx
+import React, { useState } from 'react'
+import { Alert, StyleSheet, View } from 'react-native'
+import { supabase } from '../lib/supabase'
+import { Button, Input } from 'react-native-elements'
+
+export default function Auth() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  async function signInWithEmail() {
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+
+    if (error) Alert.alert(error.message)
+    setLoading(false)
+  }
+
+  async function signUpWithEmail() {
+    setLoading(true)
+    const { error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+    })
+
+    if (error) Alert.alert(error.message)
+    setLoading(false)
+  }
+
+  return (
+    <View>
+      <View style={[styles.verticallySpaced, styles.mt20]}>
+        <Input
+          label="Email"
+          leftIcon={{ type: 'font-awesome', name: 'envelope' }}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          placeholder="email@address.com"
+          autoCapitalize={'none'}
+        />
+      </View>
+      <View style={styles.verticallySpaced}>
+        <Input
+          label="Password"
+          leftIcon={{ type: 'font-awesome', name: 'lock' }}
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          secureTextEntry={true}
+          placeholder="Password"
+          autoCapitalize={'none'}
+        />
+      </View>
+      <View style={[styles.verticallySpaced, styles.mt20]}>
+        <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
+      </View>
+      <View style={styles.verticallySpaced}>
+        <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 40,
+    padding: 12,
+  },
+  verticallySpaced: {
+    paddingTop: 4,
+    paddingBottom: 4,
+    alignSelf: 'stretch',
+  },
+  mt20: {
+    marginTop: 20,
+  },
+})
+```
+
+### 账户页面
+
+在用户登录后，我们可以允许他们编辑他们的个人资料细节和管理他们的账户。
+
+让我们为此创建一个新的组件，叫做`Account.tsx`。
+
+```tsx title=components/Account.tsx
+import { useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+import { StyleSheet, View, Alert } from 'react-native'
+import { Button, Input } from 'react-native-elements'
+import { Session } from '@supabase/supabase-js'
+
+export default function Account({ session }: { session: Session }) {
+  const [loading, setLoading] = useState(true)
+  const [username, setUsername] = useState('')
+  const [website, setWebsite] = useState('')
+  const [avatarUrl, setAvatarUrl] = useState('')
+
+  useEffect(() => {
+    if (session) getProfile()
+  }, [session])
+
+  async function getProfile() {
+    try {
+      setLoading(true)
+      if (!session?.user) throw new Error('No user on the session!')
+
+      let { data, error, status } = await supabase
+        .from('profiles')
+        .select(`username, website, avatar_url`)
+        .eq('id', session?.user.id)
+        .single()
+      if (error && status !== 406) {
+        throw error
+      }
+
+      if (data) {
+        setUsername(data.username)
+        setWebsite(data.website)
+        setAvatarUrl(data.avatar_url)
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert(error.message)
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  async function updateProfile({
+    username,
+    website,
+    avatar_url,
+  }: {
+    username: string
+    website: string
+    avatar_url: string
+  }) {
+    try {
+      setLoading(true)
+      if (!session?.user) throw new Error('No user on the session!')
+
+      const updates = {
+        id: session?.user.id,
+        username,
+        website,
+        avatar_url,
+        updated_at: new Date(),
+      }
+
+      let { error } = await supabase.from('profiles').upsert(updates)
+
+      if (error) {
+        throw error
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        Alert.alert(error.message)
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <View>
+      <View style={[styles.verticallySpaced, styles.mt20]}>
+        <Input label="Email" value={session?.user?.email} disabled />
+      </View>
+      <View style={styles.verticallySpaced}>
+        <Input label="Username" value={username || ''} onChangeText={(text) => setUsername(text)} />
+      </View>
+      <View style={styles.verticallySpaced}>
+        <Input label="Website" value={website || ''} onChangeText={(text) => setWebsite(text)} />
+      </View>
+
+      <View style={[styles.verticallySpaced, styles.mt20]}>
+        <Button
+          title={loading ? 'Loading ...' : 'Update'}
+          onPress={() => updateProfile({ username, website, avatar_url: avatarUrl })}
+          disabled={loading}
+        />
+      </View>
+
+      <View style={styles.verticallySpaced}>
+        <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 40,
+    padding: 12,
+  },
+  verticallySpaced: {
+    paddingTop: 4,
+    paddingBottom: 4,
+    alignSelf: 'stretch',
+  },
+  mt20: {
+    marginTop: 20,
+  },
+})
+```
+
+### 启动
+
+现在我们有了所有的组件，让我们更新`App.tsx`。
+
+```tsx title=App.tsx
+import 'react-native-url-polyfill/auto'
+import { useState, useEffect } from 'react'
+import { supabase } from './lib/supabase'
+import Auth from './components/Auth'
+import Account from './components/Account'
+import { View } from 'react-native'
+import { Session } from '@supabase/supabase-js'
+
+export default function App() {
+  const [session, setSession] = useState<Session | null>(null)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
+
+  return (
+    <View>
+      {session && session.user ? <Account key={session.user.id} session={session} /> : <Auth />}
+    </View>
+  )
+}
+```
+
+一旦完成，在终端窗口运行这个程序。
+
+```bash
+npm start
+```
+
+然后为你想测试的环境按下相应的键，你应该看到完成的应用程序。
+
+## 简介照片
+
+每个Supabase项目都配置了[存储](/docs/app/storage/storage)，用于管理大型文件，如
+照片和视频。
+
+### 额外的依赖安装
+
+你将需要一个在你将建立项目的环境下工作的文件选取器，在这个例子中我们将使用 react-native-document-picker。
+
+```bash
+expo install react-native-document-picker
+```
+
+### 创建一个上传小组件
+
+让我们为用户创建一个头像，以便他们可以上传个人资料照片。
+我们可以从创建一个新的组件开始。
+
+```tsx title=components/Avatar.tsx
+import { useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+import { StyleSheet, View, Alert, Image, Button } from 'react-native'
+import DocumentPicker, { isCancel, isInProgress, types } from 'react-native-document-picker'
+
+interface Props {
+  size: number
+  url: string | null
+  onUpload: (filePath: string) => void
+}
+
+export default function Avatar({ url, size = 150, onUpload }: Props) {
+  const [uploading, setUploading] = useState(false)
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
+  const avatarSize = { height: size, width: size }
+
+  useEffect(() => {
+    if (url) downloadImage(url)
+  }, [url])
+
+  async function downloadImage(path: string) {
+    try {
+      const { data, error } = await supabase.storage.from('avatars').download(path)
+
+      if (error) {
+        throw error
+      }
+
+      const fr = new FileReader()
+      fr.readAsDataURL(data)
+      fr.onload = () => {
+        setAvatarUrl(fr.result as string)
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log('Error downloading image: ', error.message)
+      }
+    }
+  }
+
+  async function uploadAvatar() {
+    try {
+      setUploading(true)
+
+      const file = await DocumentPicker.pickSingle({
+        presentationStyle: 'fullScreen',
+        copyTo: 'cachesDirectory',
+        type: types.images,
+        mode: 'open',
+      })
+
+      const photo = {
+        uri: file.fileCopyUri,
+        type: file.type,
+        name: file.name,
+      }
+
+      const formData = new FormData()
+      formData.append('file', photo)
+
+      const fileExt = file.name.split('.').pop()
+      const filePath = `${Math.random()}.${fileExt}`
+
+      let { error } = await supabase.storage.from('avatars').upload(filePath, formData)
+
+      if (error) {
+        throw error
+      }
+
+      onUpload(filePath)
+    } catch (error) {
+      if (isCancel(error)) {
+        console.warn('cancelled')
+        // User cancelled the picker, exit any dialogs or menus and move on
+      } else if (isInProgress(error)) {
+        console.warn('multiple pickers were opened, only the last will be considered')
+      } else if (error instanceof Error) {
+        Alert.alert(error.message)
+      } else {
+        throw error
+      }
+    } finally {
+      setUploading(false)
+    }
+  }
+
+  return (
+    <View>
+      {avatarUrl ? (
+        <Image
+          source={{ uri: avatarUrl }}
+          accessibilityLabel="Avatar"
+          style={[avatarSize, styles.avatar, styles.image]}
+        />
+      ) : (
+        <View style={[avatarSize, styles.avatar, styles.noImage]} />
+      )}
+      <View>
+        <Button
+          title={uploading ? 'Uploading ...' : 'Upload'}
+          onPress={uploadAvatar}
+          disabled={uploading}
+        />
+      </View>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  avatar: {
+    borderRadius: 5,
+    overflow: 'hidden',
+    maxWidth: '100%',
+  },
+  image: {
+    objectFit: 'cover',
+    paddingTop: 0,
+  },
+  noImage: {
+    backgroundColor: '#333',
+    border: '1px solid rgb(200, 200, 200)',
+    borderRadius: 5,
+  },
+})
+```
+
+### 添加新的小组件
+
+然后我们就可以把小部件添加到账户页面。
+
+```tsx title=components/Account.tsx
+// Import the new component
+import Avatar from './Avatar'
+
+// ...
+  return (
+    <View>
+      {/* Add to the body */}
+      <View>
+        <Avatar
+          size={200}
+          url={avatarUrl}
+          onUpload={(url: string) => {
+            setAvatarUrl(url)
+            updateProfile({ username, website, avatar_url: url })
+          }}
+        />
+      </View>
+      {/* ... */}
+    </View>
+  )
+}
+// ...
+```
+
+现在你需要运行预编译命令，使应用程序在你选择的平台上工作。
+
+```bash
+expo prebuild
+```
+
+## 下一步
+
+在这个阶段，你已经有了一个功能完备的应用程序!
+
+- 有问题吗？[在此提问](https://community.memfiredb.com/)
+- 请登录[MemFire Cloud](https://cloud.memfiredb.com/)
+
+

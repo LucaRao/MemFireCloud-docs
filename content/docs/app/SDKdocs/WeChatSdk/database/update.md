@@ -1,0 +1,296 @@
+---
+    weight: 40
+    title: "Update 数据"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+在表（table）或视图（view）执行 UPDATE 更新数据操作。
+
+* `update()` 应该始终与筛选器 (Filters) 结合使用，以便定位您希望更新的项目。
+
+
+## 案例教程
+
+### 案例1 （更新数据）
+
+{{< tabs tabTotal="10" >}}
+ 
+
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+create table
+  countries (id int8 primary key, name text);
+
+insert into
+  countries (id, name)
+values
+  (1, 'Taiwan');
+
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { error } = await supabase
+  .from('countries')
+  .update({ name: 'Australia' })
+  .eq('id', 1)
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+{
+  "status": 204,
+  "statusText": "No Content"
+}
+  ```
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+### 案例2 （更新一个记录并返回）
+
+{{< tabs tabTotal="10" >}}
+ 
+
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+create table
+  countries (id int8 primary key, name text);
+
+insert into
+  countries (id, name)
+values
+  (1, 'Singapore');
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase
+  .from('countries')
+  .update({ name: 'Australia' })
+  .eq('id', 1)
+  .select()
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Australia"
+    }
+  ],
+  "status": 200,
+  "statusText": "OK"
+}
+  ```
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例3 （更新JSON数据）
+
+{{< tabs tabTotal="10" >}}
+ 
+
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+create table
+  users (
+    id int8 primary key,
+    name text,
+    address jsonb
+  );
+
+insert into
+  users (id, name, address)
+values
+  (1, 'Michael', '{ "postcode": 90210 }');
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase
+  .from('users')
+  .update({
+    address: {
+      street: 'Melrose Place',
+      postcode: 90210
+    }
+  })
+  .eq('address->postcode', 90210)
+  .select()
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Michael",
+      "address": {
+        "street": "Melrose Place",
+        "postcode": 90210
+      }
+    }
+  ],
+  "status": 200,
+  "statusText": "OK"
+}
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+Postgres 提供了一些用于处理 JSON 数据的操作符。目前，只有更新整个 JSON 文档的功能。
+  
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      值（value）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>行类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要更新的值
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+命名的参数
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      count
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>exact</code> | <code>planned</code> | <code>estimated</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用来计算更新行的计数算法。
+
+exact:可以精确计算行数，但执行速度较慢。执行 "COUNT(*)"操作。
+
+planned:可以快速计算行数，但是结果可能略有偏差。使用了Postgres的统计数据。
+
+estimated:对于较小的数值使用精确计数，对于较大的数值使用计划计数。根据行数的大小决定使用精确计数或计划计数的算法。
+
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+

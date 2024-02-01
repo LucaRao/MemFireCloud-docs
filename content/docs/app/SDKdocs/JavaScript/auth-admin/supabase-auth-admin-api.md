@@ -1,0 +1,46 @@
+---
+    weight: 21
+    title: "Overview"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+- 在 `supabase.auth.admin` 命名空间下的任何方法都需要使用 `service_role` 密钥。
+- 这些方法被认为是管理员级别的方法，它们应该只在可信任的服务器端被调用执行，而不应该在客户端浏览器等不受信任的环境中使用。
+* 绝对不要在客户端浏览器中公开或传递 service_role 密钥。因为这个密钥拥有管理用户认证和权限的权限，如果泄露给不信任的用户，可能会导致安全风险.
+
+
+## 案例教程
+
+### 案例1 （创建服务器端认证客户端）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                   
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(supabase_url, service_role_key, {
+  auth: {
+    autoRefreshToken: false,
+    persistSession: false
+  }
+})
+
+// Access auth admin api
+const adminAuthClient = supabase.auth.admin
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}

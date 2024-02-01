@@ -1,0 +1,96 @@
+---
+    weight: 40
+    title: "通过 OTP 进行验证和登录"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+用户通过手机接收到的 OTP（一次性密码） 来登录。
+
+* verifyOtp 方法接受不同的验证类型。如果使用手机号码，类型可以是 `sms` 或 `phone_change`。
+如果使用电子邮件地址，类型可以是以下之一：`email`、`recovery`、`invite` 或 `email_change`（`signup` 和 `magiclink` 类型已被弃用）。
+
+* 应根据在调用 `verifyOtp` 之前使用的相应身份验证方法来确定使用的验证类型，以便进行用户的注册或登录操作。
+
+
+## 案例教程
+### 案例1 （验证短信一次性密码）
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.verifyOtp({ phone, token, type: 'sms'})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例2 （验证注册一次性密码）
+
+{{< tabs tabTotal="2" >}}
+
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const { data, error } = await supabase.auth.verifyOtp({ email, token, type: 'signup'})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      params
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>VerifyOtpParams</code>
+    </span>
+  </h4>
+</li>
+
+</ul>

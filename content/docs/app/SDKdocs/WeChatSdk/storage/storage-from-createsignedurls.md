@@ -1,0 +1,146 @@
+---
+    weight: 94
+    title: "from.createSignedUrls()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+from.createSignedUrls()用于创建多个签名的URL。使用签名的URL在固定的时间内分享一个文件。
+
+需要RLS策略权限:
+  - `buckets`表的权限: 无
+  - `objects`表的权限：`select`权限
+
+请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+
+
+
+## 案例教程
+
+### 案例1 （创建多个带有签名的URL）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                   
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .createSignedUrls(['folder/avatar1.png', 'folder/avatar2.png'], 60)
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      路径（path）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string[]类型（字符串数组）</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要下载的文件路径，包括当前文件名。例如：['folder/image.png', 'folder2/image2.png']。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      expiresIn
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>数字类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+签名URL的过期时间，以秒为单位。例如，对于有效期为一分钟的URL，可以设置为 60。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      download
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string</code> | <code>boolean</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+如果设置为 true，将触发文件下载。如果您希望使用不同的文件名触发下载，请将此参数设置为所需的文件名。
+
+  </div>
+  
+</li>
+
+
+
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,90 @@
+---
+    weight: 7
+    title: "快速入门: Next.js"
+    description: "了解如何在你的下一个应用程序中使用Supabase。"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+## 第一步：在 MemFire Cloud 仪表板中[创建](https://cloud.memfiredb.com/project)一个新应用。
+
+应用准备就绪后，进入应用，在左侧菜单->表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。
+
+```bash
+  -- Create the table
+  CREATE TABLE countries (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+  );
+  -- Insert some sample data into the table
+  INSERT INTO countries (name) VALUES ('United States');
+  INSERT INTO countries (name) VALUES ('Canada');
+  INSERT INTO countries (name) VALUES ('Mexico');
+```
+
+
+## 第二步：创建  Next.js  应用
+
+使用 npx 模板创建 Next.js 应用。
+
+```bash
+npx create-next-app my-next-app
+```
+
+
+## 第三步：安装 Supabase 客户端库
+
+最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 Next.js 应用程序中使用 Supabase。
+导航到 Next.js 应用程序并安装 supabase-js 。
+
+```bash
+cd my-app && npm install @supabase/supabase-js
+
+## 第四步： 声明 Supabase 环境变量
+
+在根目录创建名为 .env.local 并使用项目的 URL 和 Anon Key 进行填充。
+
+```bash
+  NEXT_PUBLIC_SUPABASE_URL=your-project-url
+  NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+
+## 第五步：从 Next.js 查询 Supabase 数据
+
+在 app/notes/page.tsx 创建一个新文件并填充以下内容。
+这将从 Supabase 中的注释表中选择所有行并将它们呈现在页面上。
+
+```js
+   import { useEffect, useState } from "react";
+   import { createClient } from "@supabase/supabase-js";
+
+  export default async function Notes() {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+      getCountries();
+    }, []);
+
+    async function getCountries() {
+      const { data } = await supabase.from("countries").select();
+      setCountries(data);
+    }
+
+    return <ul>
+        {countries.map((country) => (
+          <li key={country.name}>{country.name}</li>
+        ))}
+      </ul>
+  }
+```
+## 第六步：启动应用程序
+
+运行开发服务器，在浏览器中访问 http://localhost:3000/notes，您应该会看到笔记列表。
+
+```bash
+npm run dev
+```
+
+

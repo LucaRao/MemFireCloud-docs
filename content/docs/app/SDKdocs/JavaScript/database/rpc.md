@@ -1,0 +1,398 @@
+---
+    weight: 100
+    title: "调用Postgres函数"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+你可以将Postgres函数作为远程过程调用（Remote Procedure Calls）来调用，即你可以从任何地方执行数据库中的逻辑。
+函数在逻辑很少更改时非常有用，比如用于密码重置和更新等情况。
+
+下面是一个示例的 Postgres 函数定义：
+
+```sql
+create or replace function hello_world() returns text as $$
+  select 'Hello world';
+$$ language sql;
+```
+
+这个函数叫做`hello_world`，它不带参数，返回一个`text`类型的结果。函数的逻辑很简单，就是返回字符串`"Hello world"`。
+你可以从任何地方调用这个函数，并获得结果`"Hello world"`。
+
+
+
+## 案例教程
+
+### 案例1  （调用一个没有参数的Postgres函数）
+
+{{< tabs tabTotal="14" >}}
+ 
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+  create function hello_world() returns text as $$
+    select 'Hello world';
+  $$ language sql;
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+  const { data, error } = await supabase.rpc('hello_world')
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+  {
+    "data": "Hello world",
+    "status": 200,
+    "statusText": "OK"
+  }
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例2  （调用一个带参数的Postgres函数）
+
+{{< tabs tabTotal="14" >}}
+ 
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+  create function echo(say text) returns text as $$
+    select say;
+  $$ language sql;
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+  const { data, error } = await supabase.rpc('echo', { say: '👋' })
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+  {
+    "data": "👋",
+    "status": 200,
+    "statusText": "OK"
+  }
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例3  （批量处理）
+
+{{< tabs tabTotal="14" >}}
+ 
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+  create function add_one_each(arr int[]) returns int[] as $$
+    select array_agg(n + 1) from unnest(arr) as n;
+  $$ language sql;
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+  const { data, error } = await supabase.rpc('add_one_each', { arr: [1, 2, 3] })
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+  {
+    "data": [
+      2,
+      3,
+      4
+    ],
+    "status": 200,
+    "statusText": "OK"
+  }
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+你可以通过传入一个数组作为参数来处理大型有效载荷。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例4  （调用带有过滤器的Postgres函数）
+
+{{< tabs tabTotal="14" >}}
+ 
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+  create table
+    countries (id int8 primary key, name text);
+
+  insert into
+    countries (id, name)
+  values
+    (1, 'France'),
+    (2, 'United Kingdom');
+
+  create function list_stored_countries() returns setof countries as $$
+    select * from countries;
+  $$ language sql;
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+  const { data, error } = await supabase
+    .rpc('list_stored_countries')
+    .eq('id', 1)
+    .single()
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+  {
+    "data": {
+      "id": 1,
+      "name": "France"
+    },
+    "status": 200,
+    "statusText": "OK"
+  }
+  ```
+
+
+
+{{% /tab %}}
+
+
+{{% tab tabName="注意事项" %}}
+
+
+
+返回表格的 Postgres 函数还可以与[过滤器](/docs/app/SDKdocs/JavaScript/database/using-filters)和[修改器](/docs/app/SDKdocs/JavaScript/database/using-modifiers)相结合使用。
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      fn
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>FunctionName类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要调用的函数名称
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      args
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+传递给函数调用的参数
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+命名的参数
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      count
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>exact</code> | <code>planned</code> | <code>estimated</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用来计算更新行的计数算法。函数返回的行数。只适用于[返回集合的函数](https://www.postgresql.org/docs/current/functions-srf.html)。
+
+
+exact:可以精确计算行数，但执行速度较慢。执行 "COUNT(*)"操作。
+
+planned:可以快速计算行数，但是结果可能略有偏差。使用了Postgres的统计数据。
+
+estimated:对于较小的数值使用精确计数，对于较大的数值使用计划计数。根据行数的大小决定使用精确计数或计划计数的算法。
+
+
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      head
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+当设置为 "true "时，"data "将不被返回。
+如果你只需要计数，则很有用。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

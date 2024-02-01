@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages-Tests on My New Hugo Site</title>
+    <link>https://example.org/pages-test/</link>
+    <description>Recent content in Pages-Tests on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://example.org/pages-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 和 Vectors</title>
+      <link>https://example.org/pages-test/guides/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/ai/</guid>
+      <description>随着ChatGPT的爆火，人们逐渐认识到大语言模型（LLM）和生成式人工智能在多个领域具有潜力，如文稿撰写、图像生成、代码优化和信息搜索等。LLM已成为个人和企业的有力助手，引领着新的生态系统。本文将介绍Embedding相关概念以及构建由LLM驱动的专属AI对话机器人总体流程。&#xA;背景 AI领域技术不断突破，越来越多的企业和个人积极探索利用大型语言模型（LLM）和生成式人工智能技术，来构建专注于特定领域的具备人工智能能力的产品。目前大型语言模型在解决通用问题方面表现出色，但由于受到训练数据和模型规模的限制，其在专业知识和时效性方面存在一定局限性。例如ChatGPT的训练的数据都是2021年及以前的，这也意味着想要咨询2021年以后的知识ChatGPT并不能给出准确的回答。&#xA;在信息时代，企业的知识库更新速度不断加快。因此，对于企业而言，如果希望在大型语言模型的基础上构建特定垂直领域的人工智能产品，就需要将自身的知识库输入到大型语言模型中进行训练。但是要知道，一个大语言模型的参数动辄上百数千亿。单单本地的一点知识库放进去就是沧海一粟。很难达到想要的效果。加之对硬条件要求过高，很少企业和个人有条件能够直接“投喂”到模型里面训练。&#xA;目前有两种常见的方法实现：&#xA;微调（Fine-tuning）：通过提供新的数据集对已有模型的权重进行微调，不断更新输入以调整输出，以达到所需的结果。这适用于数据集规模不大或针对特定类型任务或风格进行训练。 提示调整（Prompt-tuning）：通过调整输入提示而非修改模型权重，从而实现调整输出的目的。相较于微调，提示调整具有较低的计算成本，需要的资源和训练时间也较少，同时更加灵活。 但随着语言模型越来越大，Fine-tune的成本也越来越高。目前市面上已经涌现许多由大语言模型驱动的专属AI对话机器人，这些大都是通过提示调整来实现建立本地化AI知识库。 实现原理 本文将展示开发一款专属AI对话机器人的流程：&#xA;第一阶段：数据准备&#xA;知识库信息提取和分块：从领域知识库中提取相关的文本信息，并将其分块处理。这可以包括将长文本拆分为段落或句子，提取关键词或实体等。这样可以将知识库的内容更好地组织和管理。 调用大语言模型接口生成Embedding：利用大语言模型（如OpenAI）提供的接口，将分块的文本信息输入到模型中，并生成相应的文本Embedding。这些Embedding将捕捉文本的语义和语境信息，为后续的搜索和匹配提供基础。 存储Embedding信息：将生成的文本Embedding信息、文本分块以及文本关联的metadata信息存入MemFireCloud PostgreSQL数据库中。 第二阶段：问答&#xA;用户提问。 通过OpenAI提供的Embedding接口创建该问题的Embedding。通俗的说就是你发出的提问内容A，通过OpenAI的接口，返回问题内容A的一个向量，也就是我们之前说的Embedding。 因为在步骤1我们已经将我们的本地的知识库进行分片和Embedding，我们现在只需要将A的Embedding值和我们知识库分片的Embedding值进行比对，通过pgvector这个扩展，能够帮我们过滤出PostgreSQL数据库中相似度大于一定阈值的文档块. 然后将我们的提问内容A和过滤出来的文档块，作为prompt一同发送给OpenAI，并将OpenAI结果返回给用户。这样一来，用户得到的就是逻辑严谨准确率高且符合人类语法的回答。 流程图如下： 关于产品 MemFire Cloud提供了一个开源工具包，用于使用Postgres和pgvector开发人工智能应用程序。使用MemFire Cloud客户端库，在规模上存储、索引和查询你的Embedding。 这个工具包含以下功能：&#xA;使用 Postgres 与 pgvector 来实现 向量存储 和嵌入支持。 提供 Python客户端 ，用于管理非结构化嵌入。 提供 数据库迁移 ，用于管理结构化嵌入。 支持与多个流行的 AI 供应商 (如 OpenAI 、 Hugging Face 、LangChain 等) 进行集成。 相关概念 | Embedding 当谈到&amp;quot;Embedding&amp;quot;时，它通常是指将高维数据转换为低维表示的过程。在自然语言处理（NLP）和机器学习领域，&amp;ldquo;Embedding&amp;quot;通常用来将单词、短语、文本或者图像数据转换为向量（也称为嵌入向量或词嵌入）。因为计算机是擅长处理数字运算的，所以将无法计算的文本数据转化为向量数据，从而便于后面的计算。 你可能会疑问这些文本数据是如何转换成向量的，这又是如何规定的。接下来我将会为您讲解。&#xA;我们描述一个人可以有很多形容词，假定我们有4个人（张三、李四、王五、赵六），给每个人都从“可爱的”、“高挑的”、“高智商的”、“善解人意的”、“多愁善感的”这5个方面进行描述。符合定义为1，不符合定义为0，那么这4个人的描述可能是：&#xA;[1,0,1,0,0] [1,1,0,0,1] [0,0,1,1,1] [1,1,1,0,0] 每个向量都有5个维度，每个维度都代表一个方面的描述。从左到右的依次表示为：“可爱的”、“高挑的”、“高智商的”、“善解人意的”、“多愁善感的”。向量1-4分别代表：张三、李四、王五、赵六。如此，我可以得知张三不仅长得可爱还高智商。这种张三对应向量[1,0,1,0,0]这种对应关系不是为了某种目的进行的，它只是一种泛泛的描述，还不能叫做Embedding。 我们接着往下看。也把上面的5个维度扩展一下，增加“名校学历”、“勤奋”、“守时”、“诚实”、“外向”5个维度，构成10个维度进行考察评估，在面试考察中可能得到的结果是一组10维向量：&#xA;[1,0,1,0,0,0,1,1,1,0] [1,1,0,0,1,1,1,0,1,0] [0,0,1,1,1,1,1,0,0,0] [1,1,1,0,0,0,1,1,1,1] 这个时候我们可以得出，张三是一个长得可爱，智商高，勤奋，守时，诚实的人。 当我们考虑“招聘程序员”这个场景，那么这10个维度的描述似乎不大能看出这个人的是否符合我们的职位要求。也就是说，这10个维度取的不大合适。这时候我们可能需要替换一下考察维度。比如替换为“熟悉数据结构”、“具有大型线上项目经验”、“精通C++”、“带过团队”、“持续学习”、“名校学历”、“勤奋”、“守时”、“诚实”、“外向” 这时我们得到一组新的向量。&#xA;[1,1,1,1,1,0,1,1,1,0] [0,0,1,0,1,1,1,0,1,0] [1,0,0,0,1,1,1,0,0,0] [0,1,1,0,0,0,1,1,1,1] 此时我们可以看出张三对应[1,1,1,1,1,0,1,1,1,0]，得出张三是熟悉数据结构、具有大型线上项目经验、精通C++、带过团队、持续学习、非名校学历、勤奋、守时、诚实、不外向的人。 这么看，这个人似乎很符合岗位的需要，于是决定发offer。这种面向一定目的的描述，可以被称为Embedding</description>
+    </item>
+    <item>
+      <title>Supabase Marketplace</title>
+      <link>https://example.org/pages-test/guides/integrations/integrations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/integrations/</guid>
+      <description>Supabase市场汇集了你需要的所有工具，以扩展你的Supabase项目。这包括。&#xA;专家 - 合作伙伴，帮助你建立和支持你的Supabase项目。 集成 - 用外部授权、缓存、托管和低代码工具扩展你的项目。 构建一个集成 Supabase提供了几个集成点。&#xA;Postgres连接](/docs/guides/database/connecting-to-postgres)。任何能与Postgres一起使用的东西也能与Supabase项目一起使用。 项目REST API](/docs/guides/api#rest-api) 和客户端库。 Project GraphQL API](/docs/guides/api#graphql-api)。 平台API](/docs/reference/api)。 ##列出你的集成&#xA;申请加入合作伙伴计划，在合作伙伴市场和Supabase文档中列出您的集成。&#xA;评估整合的标准如下。&#xA;商业可行性 虽然我们欢迎每个人建立一个集成，但我们只列出那些被认为是长期可行的公司。这包括正式的商业注册和银行账户，有意义的收入，或风险投资的支持。我们要求这个标准以确保市场的健康。 合规性 集成项目不应侵犯Supabase的品牌/商标。简而言之，你不能在名称中使用 &amp;ldquo;Supabase&amp;rdquo;。由于列表出现在Supabase域名上，我们不希望误导开发人员，使其认为集成是一个官方产品。 服务水平协议 所有的列表都需要有自己的条款和条件、隐私政策和可接受的使用政策，公司必须有资源来满足他们的服务水平协议。 可维护性 所有的整合都需要Supabase的维护和功能，公司可能会被评估你在很长一段时间内保持功能的能力。 </description>
+    </item>
+    <item>
+      <title>第一部分：JWTs</title>
+      <link>https://example.org/pages-test/learn/auth-deep-dive/auth-deep-dive-jwts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/learn/auth-deep-dive/auth-deep-dive-jwts/</guid>
+      <description>关于 对JWTs的介绍以及它们在Supabase Auth中的使用方法&#xA;观察 什么是JSON网络令牌（JWTs）？ JWT是JSON对象，经过编码和签名，以字符串的形式发送。它们被分发给服务或网站的用户，用户随后可以向网站或服务展示JWT，作为他们有权访问某些内容的证明。&#xA;当我们说 编码和 签名时，到底是什么意思？&#xA;JSON对象开始时看起来像这样。&#xA;{ &amp;#34;sub&amp;#34;: &amp;#34;0001&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;Sam Vimes&amp;#34;, &amp;#34;iat&amp;#34;: 1516239022, &amp;#34;exp&amp;#34;: 1518239022 } sub是 主题，通常是用户的UUID。name是不言自明的，iat是创建令牌的Unix时间戳。许多JWT也会有一个exp，这是该令牌被设定为过期而不能再使用的日期。这些是你可能在JWT中发现的一些标准字段，但你几乎可以在其中存储任何你想要的东西，例如。&#xA;{ &amp;#34;sub&amp;#34;: &amp;#34;0002&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;Věra Hrabánková&amp;#34;, &amp;#34;iat&amp;#34;: 1516239022, &amp;#34;exp&amp;#34;: 1518239022, &amp;#34;theme&amp;#34;: { &amp;#34;primary&amp;#34; : &amp;#34;#D80C14&amp;#34;, &amp;#34;secondary&amp;#34; : &amp;#34;#FFFFFF&amp;#34; } } 只需注意，你在令牌中存储的数据越多，编码后的字符串就越长。&#xA;当我们想把JWT发送给用户时，我们首先用一种算法对数据进行编码，如HS256。有许多库（和几种不同的算法）可以用来做这种编码/解码，例如jsonwebtoken。我做了一个副本这里，所以你可以自己试试。签名的方法很简单。&#xA;// from https://replit.com/@awalias/jsonwebtokens#index.js let token = jwt.sign({ name: &amp;#39;Sam Vimes&amp;#39; }, &amp;#39;some-secret&amp;#39;) 而产生的字符串将看起来像这样。&#xA;eyJhbGciOiJIUzI1NiJ9 .eyJzdWIiOiIwMDAxIiwibmFtZSI6IlNhbSBWaW1lcyIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE4MjM5MDIyfQ .zMcHjKlkGhuVsiPIkyAkB2rjXzyzJsMMgpvEGvGtjvA 你会注意到，这个字符串实际上是由三个部分组成的，我们将逐一解决这个问题。&#xA;第一段eyJhbGciOiJIUzI1NiJ9被称为 头，在解码时只是告诉我们用哪种算法来做编码。&#xA;{ &amp;#34;alg&amp;#34;: &amp;#34;HS256&amp;#34; } 第二段eyJzdWIiOiIwMDAxIiwibmFtZSI6IlNhbSBWaW1lcyIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE4MjM5MDIyfQ包含我们的原始有效载荷。&#xA;{ &amp;#34;sub&amp;#34;: &amp;#34;0001&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;Sam Vimes&amp;#34;, &amp;#34;iat&amp;#34;: 1516239022, &amp;#34;exp&amp;#34;: 1518239022 } 最后一段zMcHjKlkGhuVsiPIkyAkB2rjXzyzJsMMgpvEGvGtjvA是签名本身，是网站或服务提供者用来验证某个用户发送的令牌是否合法的部分。它首先是通过对以下输入运行加密函数HS256产生的。</description>
+    </item>
+    <item>
+      <title>Keyri</title>
+      <link>https://example.org/pages-test/guides/integrations/keyri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/keyri/</guid>
+      <description>Keyri可用于在你的Supabase应用中加入sign-in-with-QR功能，允许用户用你的移动应用扫描你的网络应用上的QR码，并立即登录到网络应用，而无需输入任何凭证。&#xA;配置分为网络和移动组件。在网页上，需要安装Keyri QR Widget和一个事件监听器，而在你的移动应用程序中，安装Keyri SDK，并在启动sign-in-with-QR时将用户的刷新令牌传给它。当刷新令牌出现在你的网络应用中时，它将被传入Supabase的setSession()方法。&#xA;注册Keyri 首先在Keyri仪表板上建立一个免费账户(https://app.keyri.com)。在 添加你的应用程序中，设置一个名称，并输入你的应用程序最终将被部署在哪个域。你可以在Keyri中创建多个应用程序，以说明你的开发、暂存和生产环境&#xA;注意你在钥匙和证书部分的应用钥匙&amp;ndash;这将被用于实施的移动部分&#xA;Web 对于您的网络应用，首先下载KeyriQR.html（可在此下载）(https://raw.githubusercontent.com/Keyri-Co/library-keyri-connect/main/KeyriQR.html)，并将其保存到一个公共目录。&#xA;接着，将KeyriQR.html作为iFrame嵌入到您的登录页面的所需div中。这将作为显示动态QR码并与Keyri API连接的小部件。&#xA;&amp;lt;div&amp;gt; &amp;lt;iframe title=&amp;#39;KeyriQR&amp;#39; src=&amp;#39;/KeyriQR.html&amp;#39; id=&amp;#39;qr-frame&amp;#39; height=&amp;#39;300&amp;#39; width=&amp;#39;300&amp;#39; scrolling=&amp;#39;no&amp;#39; style={{ border: &amp;#39;solid 5px white&amp;#39; }} &amp;gt;&amp;lt;/iframe&amp;gt; &amp;lt;/div&amp;gt; 接下来，对于同一个登录视图，设置一个事件监听器，以接收iFrame在你的应用程序扫描QR码时发出的会话令牌。&#xA;useEffect(() =&amp;gt; { window.addEventListener(&amp;#39;message&amp;#39;, async (evt) =&amp;gt; { if (evt.data.keyri &amp;amp;&amp;amp; evt.data.data &amp;amp;&amp;amp; document.location.origin == evt.origin) { const { data } = evt; if (!data.error) { let refresh_token = JSON.parse(data.data).refreshToken; await handleQrLogin(refresh_token); } else if (data.error) { console.log(`Keyri error: ${data.message}`); } } }); 移动设备 安装Flutter 首先，安装 Flutter SDK，可在 flutter.</description>
+    </item>
+    <item>
+      <title>指标</title>
+      <link>https://example.org/pages-test/guides/platform/metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/metrics/</guid>
+      <description>除了Supabase仪表盘内置的报告和图表外，Supabase平台上托管的每个项目都有一个Prometheus兼容的指标端点，可用于收集对项目健康和状态的洞察力。&#xA;你可以使用这个端点将数据输入你自己的监控和警报基础设施，只要它能够刮取与Prometheus兼容的端点，以便设置超出Supabase仪表板支持的自定义规则。&#xA;info&#xD;本文所讨论的端点处于测试阶段，它所返回的指标在未来可能会发展或改变，以提高其效用。&#xA;info&#xD;本文讨论的端点在自我托管上是不可用的。&#xA;访问度量衡端点 你的项目的度量衡端点可在https://&amp;lt;project-ref&amp;gt;.supabase.co/customer/v1/privileged/metrics访问。对该端点的访问是通过 HTTP Basic Auth 来保证的；用户名是 service_role，而密码是通过 Supabase 仪表板提供的服务角色 JWT。&#xA;&amp;gt; curl https://&amp;lt;project-ref&amp;gt;.supabase.co/customer/v1/privileged/metrics --user &amp;#39;service_role:&amp;lt;service-role-jwt&amp;gt;&amp;#39; 此外，我们还维护了一份指南，介绍了如何快速设置一个与Grafana Cloud一起工作的搜刮代理。</description>
+    </item>
+    <item>
+      <title>Auth0</title>
+      <link>https://example.org/pages-test/guides/integrations/auth0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/auth0/</guid>
+      <description>本指南通过使用Auth0和Supabase来构建一个Next.js应用程序。我们配置Auth0来处理认证用户和管理令牌，同时在Supabase中编写我们的授权逻辑&amp;ndash;使用行级安全策略。&#xA;注意：本指南在很大程度上受到Auth0的博客上的[Using Next.js and Auth0 with Supabase]文章的启发。请查看该文章，了解关于整合Auth0和Supabase的实用步骤指南。&#xA;本指南的完整代码示例可以在这里找到。&#xA;Auth0是一个认证和授权平台，为认证和管理用户提供众多策略。它对用户如何登录到你的应用程序、生成的令牌以及关于你的用户的数据的存储提供了细粒度的控制。&#xA;Next.js是一个建立在React之上的网络应用程序框架。我们将在这个例子中使用它，因为它允许我们在应用程序中编写服务器端逻辑。Auth0还专门为Next.js编写了一个集成度很高的认证库 。&#xA;注意：Next.js中的API路由（无服务器函数）与Node服务器框架的结构非常相似&amp;ndash;例如Express、Koa和Fastify。本指南中的服务器端逻辑可以很容易地在这些框架中进行重构，并作为一个独立的应用程序管理，与前端分开。&#xA;如果你没有一个Auth0账户，请创建一个这里。&#xA;你还需要一个Supabase账户，可以通过登录这里来创建。&#xA;第1步：创建一个Auth0租户 在Auth0仪表板上，点击Auth0标志右侧的菜单，选择 &amp;ldquo;创建租户&amp;rdquo;。&#xA;为你的租户输入一个 域名&amp;ndash;这将需要是唯一的。&#xA;选择一个 地区&amp;ndash;这应该是在地理上接近大多数用户的地方。&#xA;为 环境标签选择 开发&amp;ndash;当你准备上线时，这应该是生产环境。&#xA;第2步：设置一个Auth0应用程序 从侧边栏菜单，选择 应用程序&amp;gt;应用程序，并点击 创建应用程序。&#xA;给你的应用程序一个名字，选择 常规网络应用选项，然后点击 创建。&#xA;选择 设置并导航到 应用程序URI部分，并更新如下。&#xA;允许的回调URLs: http://localhost:3000/api/auth/callback。&#xA;允许的注销URLs: http://localhost:3000.&#xA;滚动到 设置部分的底部，显示 高级设置。&#xA;选择 OAuth并将 JSON Web Token Signature设置为 RS256。&#xA;确认 OIDC符合性为 已启用。&#xA;点击 保存来更新设置。&#xA;步骤 3: 创建一个Supabase项目 从你的Supabase 仪表板，点击新项目。&#xA;为你的Supabase项目输入一个名称。&#xA;输入一个安全的 数据库密码。&#xA;选择与您为Auth0租户选择的相同的 区域。&#xA;点击 创建新项目。&#xA;第4步：在Supabase中创建数据 在Supabase仪表板的侧边栏菜单中，点击 表编辑器，然后点击 新建表。&#xA;输入todo作为名称字段。</description>
+    </item>
+    <item>
+      <title>Vercel</title>
+      <link>https://example.org/pages-test/guides/integrations/vercel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/vercel/</guid>
+      <description>T本指南通过使用Vercel的仪表板来创建一个与Supabase集成的Next.js项目。为了进一步简化流程，我们将使用Next.js的启动模板，它可以自动分叉到新的GitHub repo，而无需离开仪表板&#xA;如果你没有Vercel账户，请创建一个[这里]（https://vercel.com/signup）。&#xA;第1步：创建一个Supabase项目 本指南可以使用现有的Supabase项目，但要从头开始创建todo&#39;演示，请导航到[Supabase](https://app.supabase.com/)，点击Sign In&amp;rsquo;，用GitHub认证登录或注册一个新账户。&#xA;在Supabase的仪表板上，点击新项目并选择一个组织。&#xA;注意：你可能需要先创建一个组织。&#xA;给你的项目一个名称、密码，选择一个接近你的潜在用户的区域，然后点击创建新项目。&#xA;Supabase将花几分钟时间来配置基础设施。&#xA;一旦完成，从侧边栏菜单导航到 SQL编辑器，点击 新查询。&#xA;这将创建一个名为 新查询的新SQL片段。复制并粘贴以下内容，点击 运行。&#xA;create table todos ( id bigint generated by default as identity primary key, title text, is_complete boolean default false, created_at timestamp with time zone default timezone(&amp;#39;utc&amp;#39;::text, now()) not null ); alter table todos enable row level security; create policy &amp;#34;Anyone can view todos&amp;#34; on todos for select using (true); create policy &amp;#34;Anyone can add new todos&amp;#34; on todos for insert with check (true); insert into todos(title) values (&amp;#39;Create Supabase project&amp;#39;), (&amp;#39;Create Vercel project&amp;#39;), (&amp;#39;Install Supabase integration&amp;#39;); 这将创建一个新的todos表，启用行级安全，添加选择和插入数据的策略，并添加一些示例行。</description>
+    </item>
+    <item>
+      <title>Clerk</title>
+      <link>https://example.org/pages-test/guides/integrations/clerk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/clerk/</guid>
+      <description>本指南解释了如何将您的 Supabase 数据库与 Clerk 连接，后者是为现代网络构建的身份验证提供商。&#xA;Clerk 可以验证用户，管理会话令牌，并提供用户管理功能，这些功能可以与 Supabase 中通过 PostgreSQL 行级安全 (RLS) 策略提供的授权逻辑结合使用。&#xA;本指南假定你已经设置了一个 Supabase 帐户和数据库项目。&#xA;如果你没有一个管理员帐户，你可以现在就创建一个。&#xA;第1步：创建JWT模板 第一步是在你的Cler Dashboard上创建一个新的Cler应用程序，如果你还没有这样做的话。你可以选择你喜欢的任何认证策略和社交登录供应商。欲了解更多信息，请查看Clerk的指南。&#xA;在你的办事员应用程序创建后，使用左手边的菜单导航到JWT模板页面。&#xA;点击按钮，创建一个基于Supabase的新模板。&#xA;这将预先填入Supabase要求的默认索赔。你可以包括额外的索赔，或根据需要修改它们。Shortcodes也可用于添加动态值。&#xA;ℹ️注意JWT模板的名称（你可以改变），因为以后会需要这个。&#xA;第2步：用Supabase的秘密签署JWT Supabase要求用HS256签名算法签署JWT，并使用其签名密钥。在你的Supabase项目中，在设置&amp;gt;API的配置部分找到JWT秘钥。&#xA;点击揭示JWT的秘密，复制它，然后将它粘贴到Clerk JWT模板的签名密钥字段中。&#xA;添加完密钥后，点击应用更改按钮，保存你的模板。&#xA;第三步：配置客户端 下一步是配置你的客户端。Supabase提供了一个官方的JavaScript/TypeScript客户端库，还有一些由社区建立的其他语言的库。&#xA;本指南将以使用JS客户端的Next.js项目为例，但设置认证令牌的机制与其他库和框架应该是类似的。&#xA;假设一个Next.js应用程序，在.env.local文件中设置以下环境变量。&#xA;NEXT_PUBLIC_CLERK_FRONTEND_API=your-frontend-api NEXT_PUBLIC_SUPABASE_URL=your-supabase-url NEXT_PUBLIC_SUPABASE_KEY=your-supabase-anon-key 注意。如果你使用Create React App，将NEXT_PUBLIC前缀替换为REACT_APP。&#xA;你的Clerk Frontend API可以在API Keys屏幕上找到。&#xA;要获得Supabase所需的，请浏览与之前相同的设置&amp;gt;API页面，找到匿名公钥和URL。&#xA;注意。建议你为你的数据库表启用行级安全（RLS），并根据需要配置访问策略。&#xA;设置完这三个环境变量后，你应该可以启动你的应用程序开发服务器了。&#xA;用以下方法安装Supabase的JavaScript客户端。&#xA;npm install @supabase/supabase-js 通过传递环境变量来初始化Supabase客户端。&#xA;这可以保存在一个普通的文件中，例如作为lib/supabaseClient.js。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY export const supabase = createClient(supabaseUrl, supabaseKey) export default supabase 第4步：设置Clerk供应商 通过运行以下程序安装最新的Clerk Next.</description>
+    </item>
+    <item>
+      <title>Support</title>
+      <link>https://example.org/pages-test/support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/support/</guid>
+      <description>How can we help?&#xA;Community Support For help and questions about best practices, we have a discussion forum set up on GitHub: https://github.com/supabase/supabase/discussions&#xA;Business Support We offer email based support for business users. You can email us at support@supabase.com.&#xA;If you need SLAs, guaranteed response times, or other enterprise level services, please contact us at this email address.&#xA;Slack Support If you are building with Supabase and you would like to set up a shared Slack channel (via Slack Connect), please reach out to us at support@supabase.</description>
+    </item>
+    <item>
+      <title>元数据</title>
+      <link>https://example.org/pages-test/guides/ai/python/metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/ai/python/metadata/</guid>
+      <description>vecs允许你将元数据的键值对与集合中的索引和ID关联起来。 然后，你可以为引用元数据的查询添加过滤器。&#xA;类型 元数据以二进制JSON的形式存储。因此，允许的元数据类型取自JSON的原始类型。&#xA;Boolean&amp;ndash;布尔 String&amp;ndash;字符串 Number&amp;ndash;数字 与向量相关联的元数据字段的技术限制为1GB。&#xA;在实际操作中，为了最大限度地提高性能，你应该尽可能的减小元数据字段的大小。&#xA;元数据查询语言 元数据查询语言主要基于mongodb的选择器。&#xA;vecs 目前仅支持其中的一部分运算符。&#xA;比较运算符 比较运算符（Comparison Operators）将提供的值与向量存储的元数据字段中存储的值进行比较。&#xA;Operator Description $eq 等于 $ne 不等于 $gt 大于 $gte 大于等于 $lt 小于 $lte 小于等于 逻辑运算符 逻辑运算符（Logical Operators）由其他操作符组成，并且可以嵌套使用。&#xA;Operator Description $and 连接查询子句使用逻辑AND，返回符合两个子句条件的所有文档。 $or 连接查询子句使用逻辑OR，返回符合任一子句条件的所有文档。 性能 为了获得最佳性能，请使用标量键值对作为元数据，并尽可能优先使用$eq、 $and 和 $or 过滤器。&#xA;这些变量能够更稳定地使用索引。&#xA;示例 year 等于 2020&#xA;{&amp;#34;year&amp;#34;: {&amp;#34;$eq&amp;#34;: 2020}} year 等于 2020 或 gross 大于或等于 5000.0&#xA;{ &amp;#34;$or&amp;#34;: [ {&amp;#34;year&amp;#34;: {&amp;#34;$eq&amp;#34;: 2020}}, {&amp;#34;gross&amp;#34;: {&amp;#34;$gte&amp;#34;: 5000.0}} ] } last_name小于 &amp;quot;Brown&amp;quot;，is_priority_customer` 是正确的</description>
+    </item>
+    <item>
+      <title>SupaSquad</title>
+      <link>https://example.org/pages-test/handbook/supasquad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/handbook/supasquad/</guid>
+      <description>The SupaSquad is an official Supabase advocate program where community members help build and manage the Supabase community.&#xA;Official recognition in the Supabase community. Direct connection to the Supabase team. Help steer the Supabase community. Requirements As a member of the Squad, you choose the approach where you&amp;rsquo;ll provide the most value. You can help in one of five ways:&#xA;Maintainer Help maintain Supabase repositories. This includes building client libraries, managing issues, and fixing bugs.</description>
+    </item>
+    <item>
+      <title>快速入门: SvelteKit</title>
+      <link>https://example.org/pages-test/guides/with-sveltekit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-sveltekit/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本。&#xA;构建应用程序 让我们从头开始构建Svelte应用程序。&#xA;初始化一个Svelte应用程序 我们可以使用SvelteKit骨架项目来初始化 一个名为 supabase-sveltekit的应用程序（本教程中你不需要TypeScript、ESLint、Prettier或Playwright）。&#xA;npm init svelte@next supabase-sveltekit cd supabase-sveltekit npm install 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后，我们要把环境变量保存在.env中。 我们所需要的是SUPABASE_URL和你[早些时候]复制的SUPABASE_KEY键(#get-the-api-keys)。&#xA;PUBLIC_SUPABASE_URL=&amp;#34;YOUR_SUPABASE_URL&amp;#34; PUBLIC_SUPABASE_ANON_KEY=&amp;#34;YOUR_SUPABASE_KEY&amp;#34; 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在 在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。&#xA;import { createClient } from &amp;#39;@supabase/auth-helpers-sveltekit&amp;#39; import { env } from &amp;#39;$env/dynamic/public&amp;#39; export const supabase = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY) 还有一个可选的步骤是更新CSS文件public/global.css以使应用程序看起来漂亮。 你可以找到这个文件的全部内容这里。&#xA;Supabase 认证帮助程序 SvelteKit是一个高度通用的框架，在构建时提供预渲染（SSG），在请求时提供服务器端渲染（SSR），API路由等。&#xA;在所有这些不同的环境中对你的用户进行认证是很有挑战性的，这就是为什么我们创建了Supabase Auth Helpers来使SvelteKit内的用户管理和数据获取尽可能简单。&#xA;安装SvelteKit的Auth助手。&#xA;npm install @supabase/auth-helpers-sveltekit 更新你的src/routes/+layout.svelte。&#xA;&amp;lt;script lang=&amp;#34;ts&amp;#34;&amp;gt; import { supabase } from &amp;#39;$lib/supabaseClient&amp;#39; import { invalidate } from &amp;#39;$app/navigation&amp;#39; import { onMount } from &amp;#39;svelte&amp;#39; import &amp;#39;.</description>
+    </item>
+    <item>
+      <title>Quickstart: Ionic Angular</title>
+      <link>https://example.org/pages-test/guides/with-ionic-angular/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-ionic-angular/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本&#xA;构建应用程序 让我们开始从头开始构建Angular应用程序。&#xA;初始化一个Ionic Angular应用程序 我们可以使用Ionic CLI来初始化 一个名为supabase-ionic-angular的应用程序。&#xA;npm install -g @ionic/cli ionic start supabase-ionic-angular blank --type angular cd supabase-ionic-angular 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后我们要在environment.ts文件中保存环境变量。 我们所需要的是API URL和你[早些时候]复制的anon密钥(#get-theapi-keys)。 这些变量将暴露在浏览器上，这完全没有问题，因为我们在数据库上启用了行级安全。&#xA;export const environment = { production: false, supabaseUrl: &amp;#39;YOUR_SUPABASE_URL&amp;#39;, supabaseKey: &amp;#39;YOUR_SUPABASE_KEY&amp;#39;, } 现在我们有了API凭证，让我们用ionic g s supabase创建一个SupabaseService，以初始化Supabase客户端，并实现与Supabase API通信的功能。&#xA;import { Injectable } from &amp;#39;@angular/core&amp;#39; import { LoadingController, ToastController } from &amp;#39;@ionic/angular&amp;#39; import { AuthChangeEvent, createClient, Session, SupabaseClient } from &amp;#39;@supabase/supabase-js&amp;#39; import { environment } from &amp;#39;.</description>
+    </item>
+    <item>
+      <title>从Heroku迁移到Supabase</title>
+      <link>https://example.org/pages-test/guides/migrations/heroku/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/migrations/heroku/</guid>
+      <description>Supabase是最好的[Heroku Postgres的免费替代品]之一（https://supabase.com/alternatives/supabase-vs-heroku-postgres）。本指南介绍了如何将你的Heroku Postgres数据库迁移到Supabase。这种迁移需要pg_dump和psqlCLI工具，这些工具是作为PostgreSQL完整安装包的一部分自动安装的。&#xA;另外，使用Heroku到Supabase的迁移工具只需点击几下就可以完成迁移。&#xA;快速演示 ##检索你的Heroku数据库凭证 {#retrieve-heroku-credentials}。&#xA;登录到你的Heroku账户，选择你想迁移的项目。 点击菜单中的资源，选择你的Heroku Postgres数据库。 点击菜单中的设置。 点击查看证书并保存以下信息。 主机($HEROKU_HOST) 数据库 ($HEROKU_DATABASE) 用户 ($HEROKU_USER) 密码 ($HEROKU_PASSWORD) 检索您的Supabase主机 {#retrieve-supabase-host} 1. 如果你是Supabase的新手，创建一个项目。 转到 Supabase 仪表板中你的项目的 数据库设置。 在连接信息下，注意你的主机（$SUPABASE_HOST）。 ##导出你的Heroku数据库到一个文件{#export-heroku-database}。&#xA;使用pg_dump和你的Heroku证书将你的Heroku数据库导出到一个文件(例如，heroku_dump.sql)。&#xA;pg_dump --clean --if-exists --quote-all-identifiers \ -h $HEROKU_HOST -U $HEROKU_USER -d $HEROKU_DATABASE \ --no-owner --no-privileges &amp;gt; heroku_dump.sql 将数据库导入你的Supabase项目{#import-database-to-supabase}。 使用psql将Heroku数据库文件导入到你的Supabase项目。&#xA;psql -h $SUPABASE_HOST -U postgres -f heroku_dump.sql 附加选项 要想只迁移一个数据库模式，在pg_dump命令中添加--schema=PATTERN参数。 要排除一个模式:--exclude-schema=PATTERN. 要想只迁移一个表:--table=PATTERN. 要排除一个表:--exclude-table=PATTERN。 运行pg_dump --help获得完整的选项列表。</description>
+    </item>
+    <item>
+      <title>启用Captcha保护</title>
+      <link>https://example.org/pages-test/guides/auth/auth-captcha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-captcha/</guid>
+      <description>Supabase为您提供了在登录、注册和密码重置表单中添加captcha的选项。这使您的网站免受机器人和恶意脚本的攻击。Supabase身份验证支持hCaptcha。&#xA;注册hCaptcha 跳转到hCaptcha网站并注册帐户。在欢迎页面上，复制站点密钥和密钥。&#xA;如果您已经注册，并且没有从欢迎页面复制此信息，则可以从设置页面获取密钥。&#xA;站点密钥可以在您创建的活动站点的设置中找到。&#xA;在设置页面中，查找Sitekey部分并复制密钥。&#xA;为Suabase项目启用hCaptcha保护 导航到身份验证页面，并在安全和保护部分下找到启用hCaptcha保护切换。&#xA;输入您的hCaptcha密钥，然后单击保存。&#xA;添加hCaptcha前端组件 前端需要一些更改才能为用户提供屏幕上的captcha。本示例使用React和hCaptcha React组件，但hCaptch可以与任何JavaScript框架一起使用。&#xA;Install @hcaptcha/react-hcaptcha in your project as a dependency.&#xA;npm install @hcaptcha/react-hcaptcha 现在从@HCaptcha/react HCaptcha库导入HCaptcha组件。&#xA;import HCaptcha from &amp;#39;@hcaptcha/react-hcaptcha&amp;#39; 让我们创建一个空状态来存储captchaToken&#xA;const [captchaToken, setCaptchaToken] = useState() 现在让我们将HCaptcha组件添加到代码的JSX部分&#xA;&amp;lt;HCaptcha /&amp;gt; 我们将把从hCaptcha网站复制的sitekey作为一个属性以及一个onVerify属性传递给它，该属性接受回调函数。此回调函数将有一个标记作为其属性之一。让我们使用setCaptchaToken将令牌设置为状态&#xA;&amp;lt;HCaptcha sitekey=&amp;#34;your-sitekey&amp;#34; onVerify={(token) =&amp;gt; { setCaptchaToken(token) } /&amp;gt; 现在让我们使用我们在Supabase signUp函数中接收的captcha令牌。&#xA;await supabase.auth.signUp({ email, password, options: { captchaToken }, }) 调用上述函数后，我们还需要重置captcha挑战。&#xA;创建一个用于HCaptcha组件的引用。&#xA;const captcha = useRef() 让我们在HCaptcha组件上添加一个ref属性，并为其分配captcha常量。&#xA;&amp;lt;HCaptcha ref={captcha} sitekey=&amp;#34;your-sitekey&amp;#34; onVerify={(token) =&amp;gt; { setCaptchaToken(token) }} /&amp;gt; 使用以下代码调用signUp函数后重置captcha：</description>
+    </item>
+    <item>
+      <title>时区</title>
+      <link>https://example.org/pages-test/guides/database/managing-timezones/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/managing-timezones/</guid>
+      <description>每个 Supabase 数据库都默认设置为 UTC 时区。我们强烈建议保持这种方式，即使你的用户在不同的地方。 这是因为，如果你采用 &amp;ldquo;我的数据库中的一切都在UTC时间 &amp;ldquo;的心理模式，那么计算不同时区的差异就会容易得多。&#xA;改变时区 SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;alter database postgres set timezone to &amp;#39;America/New_York&amp;#39;; 时区的完整列表 获取你的数据库所支持的时区的完整列表。这将返回以下列：&#xA;name: 时区名称 abbrev: 时区缩略语 utc_offset: 与UTC的偏移（正数表示格林威治以东）。 is_dst: 如果目前遵守夏令时，则为真 SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select name, abbrev, utc_offset, is_dst from pg_timezone_names() order by name; 搜索一个特定的时区 使用ilike（不区分大小写的搜索）来寻找特定的时区。&#xA;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select * from pg_timezone_names() where name ilike &amp;#39;%york%&amp;#39;; </description>
+    </item>
+    <item>
+      <title>第三部分:政策</title>
+      <link>https://example.org/pages-test/learn/auth-deep-dive/auth-policies/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/learn/auth-deep-dive/auth-policies/</guid>
+      <description>关于 如何将表的访问限制在认证用户、行级策略和基于电子邮件域的访问。&#xA;观察 基于用户的行级策略 现在我们知道了如何根据JWT角色来限制对表的访问，我们可以把它和用户管理结合起来，让我们更多地控制你的用户可以从你的数据库中读取和写入哪些数据。&#xA;我们将从用户会话在Supabase中的工作方式开始，然后转到编写以用户为中心的策略。&#xA;比方说，我们要把一个用户第一次注册到我们的服务中。典型的方法是在supabase-js中调用以下方法：&#xA;// see full api reference here: /docs/app/SDKdocs/JavaScript/auth-signup supabase.auth.signUp({ email, password }) 默认情况下，这将向用户发送一封确认电子邮件。当用户点击电子邮件中的链接时，他们将被重定向到你的网站（你需要在仪表板上的授权&amp;gt;设置中提供你的网站网址。默认情况下，这是http://localhost:3000），包括查询参数的完整URL将看起来像这样:&#xA;http://localhost:3000/#access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjE2NDI5MDY0LCJzdWIiOiI1YTQzNjVlNy03YzdkLTRlYWYtYThlZS05ZWM5NDMyOTE3Y2EiLCJlbWFpbCI6ImFudEBzdXBhYmFzZS5pbyIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIn0sInVzZXJfbWV0YWRhdGEiOnt9LCJyb2xlIjoiYXV0aGVudGljYXRlZCJ9.4IFzn4eymqUNYYo2AHLxNRL8m08G93Qcg3_fblGqDjo&amp;amp;expires_in=3600&amp;amp;refresh_token=RuioJv2eLV05lgH5AlJwTw&amp;amp;token_type=bearer&amp;amp;type=signup 让我们把这个问题拆开，以便更容易阅读。&#xA;// 基本网址 - 你在app.supabase.com仪表板的授权设置中设置的任何网址 http://localhost:3000/ // 注意我们使用&amp;#39;#&amp;#39;（片段）而不是&amp;#39;?&amp;#39;查询参数 // 访问令牌是发给用户的JWT。 #access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjE2NDI5MDY0LCJzdWIiOiI1YTQzNjVlNy03YzdkLTRlYWYtYThlZS05ZWM5NDMyOTE3Y2EiLCJlbWFpbCI6ImFudEBzdXBhYmFzZS5pbyIsImFwcF9tZXRhZGF0YSI6eyJwcm92aWRlciI6ImVtYWlsIn0sInVzZXJfbWV0YWRhdGEiOnt9LCJyb2xlIjoiYXV0aGVudGljYXRlZCJ9.4IFzn4eymqUNYYo2AHLxNRL8m08G93Qcg3_fblGqDjo // 默认情况下，60分钟内有效 &amp;amp;expires_in=3600 // 用来在60分钟到期前获得新的访问令牌 &amp;amp;refresh_token=RuioJv2eLV05lgH5AlJwTw // 可以作为授权:在对你的API的请求中使用Bearer header &amp;amp;token_type=bearer // 这是一个注册、登录、密码重置或magic link? &amp;amp;type=signup 如果我们把access_token放入https://jwt.io，我们会看到它被解码为:&#xA;{ &amp;#34;aud&amp;#34;: &amp;#34;authenticated&amp;#34;, &amp;#34;exp&amp;#34;: 1616429064, &amp;#34;sub&amp;#34;: &amp;#34;5a4365e7-7c7d-4eaf-a8ee-9ec9432917ca&amp;#34;, &amp;#34;email&amp;#34;: &amp;#34;ant@supabase.io&amp;#34;, &amp;#34;app_metadata&amp;#34;: { &amp;#34;provider&amp;#34;: &amp;#34;email&amp;#34; }, &amp;#34;user_metadata&amp;#34;: {}, &amp;#34;role&amp;#34;: &amp;#34;authenticated&amp;#34; } authenticated角色在Supabase中很特别，它告诉API这是一个已认证的用户，并知道将JWT与你添加到请求的资源（表或行）的任何策略进行比较。&#xA;sub声称通常是我们用来将JWT与你数据库中的行相匹配的，因为默认情况下它是auth.users表中用户的唯一标识符（作为附带说明&amp;ndash;一般不建议以任何方式改变你Supabase数据库中的auth模式，因为Auth API依靠它来正常运行）。&#xA;对于好奇心强的人来说，可以尝试进入SQL编辑器并进行查询：&#xA;select * from auth.</description>
+    </item>
+    <item>
+      <title>Supabase Remix认证</title>
+      <link>https://example.org/pages-test/guides/auth/auth-helpers/remix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-helpers/remix/</guid>
+      <description>该子模块为在Remix应用程序中实现用户身份验证提供了方便的帮助。&#xA;安装Remix助手库 npm&#xD;Yarn&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;npm&#34;&#xD;&gt;&#xD;npm install @supabase/auth-helpers-remix 此库支持以下工具版本：&#xA;Remix: &amp;gt;=1.7.2 yarn add @supabase/auth-helpers-remix 此库支持以下工具版本：&#xA;Remix: &amp;gt;=1.7.2 设置环境变量 在项目的API设置中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，您可以将其设置为.env文件。参见示例.&#xA;SUPABASE_URL=YOUR_SUPABASE_URL SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 加载器 JavaScript&#xD;TypeScript&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;js&#34;&#xD;&gt;&#xD;加载器函数在组件呈现之前立即在服务器上运行。它们响应路由上的所有GET请求。您可以通过调用 createServerClient函数并将SUPABASE_URL、SUPABASE_ANON_KEY以及请求和响应传递给它，来创建经过身份验证的超级数据库客户端。&#xA;import { json } from &amp;#39;@remix-run/node&amp;#39; // change this import to whatever runtime you are using import { createServerClient } from &amp;#39;@supabase/auth-helpers-remix&amp;#39; export const loader = async ({ request }) =&amp;gt; { const response = new Response() // an empty response is required for the auth helpers // to set cookies to manage auth const supabaseClient = createServerClient( process.</description>
+    </item>
+    <item>
+      <title>Logging</title>
+      <link>https://example.org/pages-test/guides/platform/logs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/logs/</guid>
+      <description>The Supabase Platform includes a Logs Explorer that allows log tracing and debugging. Log retention is based on your project&amp;rsquo;s pricing plan.&#xA;info&#xD;These features are not currently available for self-hosting and local development. This is on the roadmap and you can follow the progress in the Logflare repository.&#xA;Product Logs Supabase provides a logging interface specific to each product. You can use simple regular expressions for keywords and patterns to search log event messages.</description>
+    </item>
+    <item>
+      <title>API</title>
+      <link>https://example.org/pages-test/guides/ai/python/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/ai/python/api/</guid>
+      <description>vecs 是一个用于管理和查询 PostgreSQL 中的向量存储的 Python 客户端，提供 pgvector 扩展。本指南将帮助你开始使用 vecs。&#xA;如果你的Postgres数据库还没有安装pgvector扩展，可查看托管服务获取简便的安装方式。&#xA;安装 要求：&#xA;Python 3.7+ 使用pip安装vecs：&#xA;pip install vecs 使用方法 连接 在与vecs交互之前，需要创建客户端与Postgres进行通信。如果你尚未启动Postgres实例，可以查看托管服务相关信息。&#xA;import vecs DB_CONNECTION = &amp;#34;postgresql://&amp;lt;user&amp;gt;:&amp;lt;password&amp;gt;@&amp;lt;host&amp;gt;:&amp;lt;port&amp;gt;/&amp;lt;db_name&amp;gt;&amp;#34; # create vector store client vx = vecs.create_client(DB_CONNECTION) 获取或创建集合 你可以获取一个集合（或创建一个集合）来存储向量，需要指定集合的名称以及存储向量的维度数量。&#xA;docs = vx.get_or_create_collection(name=&amp;#34;docs&amp;#34;, dimension=3) 插入或更新向量 vecs 将&amp;quot;insert&amp;quot;和&amp;quot;update&amp;quot;的概念结合成&amp;quot;upsert&amp;quot;。如果 id 不存在，upsert操作会将记录添加到集合中，如果id存在，则更新现有的记录。&#xA;# add records to the collection docs.upsert( records=[ ( &amp;#34;vec0&amp;#34;, # the vector&amp;#39;s identifier [0.1, 0.2, 0.3], # the vector. list or np.array {&amp;#34;year&amp;#34;: 1973} # associated metadata ), ( &amp;#34;vec1&amp;#34;, [0.</description>
+    </item>
+    <item>
+      <title>复制</title>
+      <link>https://example.org/pages-test/guides/database/replication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/replication/</guid>
+      <description>复制是一种将数据从一个数据库复制到另一个数据库的技术。Supabase使用复制功能来提供一个实时的API。复制在以下方面很有用：&#xA;分散 &amp;ldquo;负载&amp;rdquo;。例如，如果你的数据库有大量的读数，你可能想把它分成两个数据库。 减少延时。例如，您可能希望伦敦有一个数据库为您的欧洲客户服务，而纽约有一个为美国服务。 复制是通过发布来完成的，这是一种选择将哪些变化发送到其他系统（通常是另一个Postgres数据库）的方法。发布可以在仪表板中管理，也可以用SQL来管理。&#xA;在仪表板中管理发布 进入仪表板中的数据库页面。 点击侧边栏中的复制。 通过切换插入、更新和删除来控制哪些数据库事件被发送。 通过选择源和切换每个表来控制哪些表被发送变化。 创建一个发布 这个发布包含对所有表格的修改&#xA;create publication publication_name for all tables; 创建发布以侦听各个表 create publication publication_name for table table_one, table_two; 添加表到现有发布中 alter publication publication_name add table table_name; 监听插入操作 create publication publication_name for all tables with (publish = &amp;#39;insert&amp;#39;); 监听更新操作 create publication publication_name for all tables with (publish = &amp;#39;update&amp;#39;); 监听删除操作 create publication publication_name for all tables with (publish = &amp;#39;delete&amp;#39;); 删除一个发布 drop publication if exists publication_name; 重新创建发布 如果要重新创建发布，最好在事务中执行，以确保操作成功。</description>
+    </item>
+    <item>
+      <title>Dashibase</title>
+      <link>https://example.org/pages-test/guides/integrations/dashibase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/dashibase/</guid>
+      <description>你是否厌倦了构建管理面板？Dashibase是一种超级快速的方法，可以用类似Notion的UI来构建内部CRUD仪表盘。&#xA;本指南将指导你如何在后台使用Supabase和在前台使用Dashibase建立一个客户管理面板，这样你和你的团队就可以轻松地找到和更新客户信息。&#xA;快速解释 为了使我们处于同一起跑线上，以下是我们使用的一些术语。&#xA;**数据源：**这是为你的仪表板提供动力的数据（即你的Supabase数据库）。 仪表盘：**这是你使用Dashibase在Supabase数据库之上建立的友好界面。 **页面：**每个仪表板可以有多个页面。每个页面可以有多个文本块或表格。 现在已经结束了，让我们来建立我们的客户管理面板。&#xA;(开始你的秒表！)&#xA;步骤1. 将Supabase连接到Dashibase 首先，在Dashibase中，通过左边的侧边栏进入 &amp;ldquo;数据源&amp;rdquo;，点击右上角的 &amp;ldquo;连接数据源&amp;rdquo;。&#xA;注意：我们不会下载或存储你的任何数据库数据。&#xA;输入你的数据库凭证，你可以在Supabase的设置&amp;gt;数据库&amp;gt;连接信息下找到。为了增加安全性，你也可以下载你的SSL证书并将其上传到Dashibase。&#xA;第2步。设置你的数据访问策略 一旦你连接了你的数据库，你也可以通过Dashibase控制你的团队可以在数据库中看到和编辑什么。通常有一些数据是你不希望别人编辑甚至看到的（如地址、电子邮件、身份证号码）。&#xA;注意：如果你喜欢在连接到Dashibase之前出于安全原因限制对数据库的访问，你可以通过Supabase的SQL编辑器创建一个受限用户。在Dashibase中这样做的一点好处是有一个GUI，这使得设置访问控制更容易（但我们理解一些开发人员可能会发现自己限制访问更安全）。&#xA;你甚至可以控制别人可以看到和编辑表中的哪些列。在下面的例子中，对于tags表，name列可以被读取和更新，created_at列可以被读取，而id列甚至不能被读取。&#xA;在签到后添加一个MFA步骤。使用Supabase Auth以电子邮件和密码登录，使用Authsignal启动Authenticator App挑战。&#xA;第3步。建立你的仪表板 要创建一个仪表盘，通过Dashibase的左侧边栏进入 仪表盘，点击右上角的 创建仪表盘。&#xA;这里是有趣的开始。在Dashibase中，有许多方法可以使用markdown格式和斜线命令等功能来建立你的仪表盘。&#xA;你会在仪表盘中看到一些自动生成的内容，这样你就可以更快地设置你的仪表盘了。对于这个例子，让我们把它们清除掉，从头开始。&#xA;使用我们类似Notion的用户界面，你可以通过输入快速建立你的仪表盘。例如，你可以键入&amp;rsquo;/table&amp;rsquo;来从你的数据库中添加一个表到你的仪表盘上。不再需要在屏幕上拖动组件，也不再需要在空白的画布上反复拖动它们。&#xA;如果你已经设置了Supabase数据库中的外键，你就可以在Dashibase仪表板的表格上轻松显示多个表的数据。只需点击 过滤器按钮旁边的 列按钮，选择你想显示或隐藏的列。在这个例子中，我们想显示客户的国家和计划价格，它们分别在 国家和 计划表中。&#xA;对于你的仪表盘中的所有表格，你可以重命名列标题，添加过滤器和排序，调整列的宽度，以及更多。&#xA;你还可以添加文本，为你的团队其他成员在使用你的仪表盘时提供背景或说明。这为你省去了将仪表盘和文档放在不同地方的麻烦。&#xA;最重要的是，我们为你表中的每个项目自动生成一个单项视图，这样你就不必自己手动创建。你可以像在Notion中一样轻松地编辑或重新安排这些块。&#xA;第四步。与你的团队分享你的仪表板 最后，保存并与你的团队分享仪表盘。有两个级别的访问。&#xA;编辑仪表盘。编辑文本块，编辑表格，等等。 使用仪表盘。通过仪表盘查看和更新数据 点击仪表盘右上角的 分享按钮，可以分享访问权限。&#xA;现在你的团队可以使用这个客户管理面板，轻松查找和更新客户信息&#xA;P.S. 我们花了多长时间？ :)&#xA;资源 Dashibase网站 Dashibase开源版本 Dashibase Twitter Dashibase Discord </description>
+    </item>
+    <item>
+      <title>使用SveltKit进行Supabase认证</title>
+      <link>https://example.org/pages-test/guides/auth/auth-helpers/sveltekit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-helpers/sveltekit/</guid>
+      <description>该子模块提供了在SvelteKit中实现用户身份验证的方便助手应用程序。&#xA;安装 此库支持Node.js^16.15.0。&#xA;npm&#xD;Yarn&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;npm&#34;&#xD;&gt;&#xD;npm install @supabase/auth-helpers-sveltekit yarn add @supabase/auth-helpers-sveltekit 入门 配置 设置填充环境变量。对于本地开发，您可以将其设置为.env文件。参见示例.&#xA;# Find these in your Supabase project settings &amp;gt; API PUBLIC_SUPABASE_URL=https://your-project.supabase.co PUBLIC_SUPABASE_ANON_KEY=your-anon-key 设置Suabase客户端 首先创建一个db.ts文件，并实例化 supabaseClient。&#xA;import { createClient } from &amp;#39;@supabase/auth-helpers-sveltekit&amp;#39; import { env } from &amp;#39;$env/dynamic/public&amp;#39; // or use the static env // import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from &amp;#39;$env/static/public&amp;#39;; export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY) 要确保在服务器和客户端上初始化了客户端，请在src/hooks.server.js中包含此文件。js和src/hooks.client.js`：&#xA;import &amp;#39;$lib/db&amp;#39; 同步页面存储 编辑+layout.</description>
+    </item>
+    <item>
+      <title>数据库</title>
+      <link>https://example.org/pages-test/guides/test2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/test2/</guid>
+      <description>每个 MemFireCloud 项目都附带一个完整的 Postgres 数据库，这是一个免费且开源的数据库，被认为是世界上最稳定和先进的数据库之一。&#xA;PostgreSQL的由来 PostgreSQL 数据库源于 POSTGRES 项目，这是一个于1986年在加州大学伯克利分校编写的软件包。该软件包包含了一种查询语言称为 &amp;ldquo;PostQUEL&amp;rdquo;。&#xA;1994年，Postgres95 在 POSTGRES 代码的基础上构建，将一个 SQL 语言解释器添加为 PostQUEL 的替代品。最终，Postgres95 被改名为 PostgreSQL，以反映其支持 SQL 查询的能力。&#xA;此后，许多人将其简称为 Postgres，因为这样更不容易混淆。MemFireCloud 强调简单易用，因此我们也将其称为 Postgres。&#xA;功能 表格视图 你不需要精通数据库就可以使用 MemFireCloud ，我们的可视化操作界面使得 Postgres 的使用变得简单。&#xA;关系 挖掘你的数据关系&#xA;克隆表 你可以复制你的表格，就像你在电子表格里面一样。&#xA;SQL编辑器 MemFireCloud 自带一个SQL编辑器。你还可以保存你最喜欢的查询，以便以后运行!&#xA;附加功能 MemFireCloud 使用的Realtime Server对Postgres进行实时功能的扩展。使得 Postgres 具备了实时数据处理的能力。 每个 MemFireCloud 项目都是一个完整的 Postgres 数据库，具有 postgres 级别的访问权限。 支持直接从 CSV 文件中导入数据。 info&#xD;在 MemFireCloud 中进行数据库备份时，并不会包含通过Storage API存储的实际对象（例如文件、图片、视频等等）。 数据库备份仅包含关于这些对象的元数据或信息。因此，如果你恢复一个旧的数据库备份，那么已经在该备份后被删除的Storage API中的对象将不会被恢复。&#xA;扩展 为了增强你 Postgres 数据库的功能，你可以使用扩展插件。 在 MemFireCloud 仪表盘中，你只需点击一个按钮就能启用 Postgres 扩展插件。</description>
+    </item>
+    <item>
+      <title>Stytch</title>
+      <link>https://example.org/pages-test/guides/integrations/stytch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/stytch/</guid>
+      <description>在本指南中，我们将使用Stytch、Supabase和Next.js构建一个简单的费用追踪网络应用。&#xA;[Stytch]（https://stytch.com?utm_source=supabase&amp;amp;utm_medium=guide）为无密码认证提供了一个一体化的平台。Stytch使你能够轻松地将无密码解决方案嵌入你的网站和应用程序，以获得更好的安全性、更好的转换率和更好的终端用户体验。他们易于使用的SDK和直接API访问允许最大限度地控制和定制。在这个例子中，我们将使用Email magic links来创建和登录我们的用户，以及会话管理。还有一个额外的可选步骤是启用Google One Tap，这是一个转化率特别高的Google OAuth注册和登录流程。&#xA;我们将利用Supabase来存储和授权对用户数据的访问。Supabase使设置行级安全（RLS）策略变得简单，确保用户只能读取和写入他们被授权的数据。如果你还没有一个Supabase账户，你需要创建一个。&#xA;本指南将使用Next.js，这是一个建立在React之上的Web应用框架。Stytch提供了一个Node.js库和一个React库，使构建Next.js应用程序变得超级简单。&#xA;注意：你可以在Github上找到这个项目的完整版本。&#xA;第0步：创建一个Stytch账户 如果你已经有一个Stytch账户，你可以跳过这一步。&#xA;进入Stytch，创建一个账户。请注意，Stytch提供了两种创建账户的方式，一是通过谷歌OAuth，二是通过电子邮件魔法链接。 这也是我们在本指南中要建立的用户体验!&#xA;第一步：设置Stytch重定向URLs 首先，我们需要添加将在电子邮件魔法链接流程中使用的重定向URL。这一步有助于确保坏人无法欺骗你的魔法链接和劫持重定向。&#xA;在Stytch仪表板上浏览您的重定向URL设置，在测试环境下创建一个条目，其中URL为http://localhost:3000/api/authenticate，Type为All。&#xA;按确认后，重定向URLs仪表板将更新显示你的新条目。我们以后将使用这个URL。&#xA;第2步：创建一个Supabase项目 在您的Supabase 仪表板上，单击新项目。&#xA;为您的Supabase项目输入一个名称。&#xA;输入一个安全的 数据库密码。&#xA;单击创建新项目。您的项目可能需要几分钟的时间来配置。&#xA;Step 3: 在Supabase中创建数据 一旦你的Supabase项目被提供了，点击表编辑器，然后是新表。此工具可从 [Supabase 仪表板] (https://app.supabase.com/) 的侧边栏菜单中获得。&#xA;输入 expenses作为名称字段。&#xA;选择 启用行级安全（RLS）。&#xA;添加三个新列。&#xA;user_id 为 text&#xA;title 为 text&#xA;value 为 float8&#xA;点击保存来创建新的表格。&#xA;在表编辑器视图中，选择支出表并点击插入行。&#xA;填写标题和数值字段（暂时将user_id留空），然后点击保存。&#xA;使用插入行来进一步将费用填充到表中。&#xA;Step 4: 构建一个Next.js应用程序 使用终端，创建一个新的Next.js项目。&#xA;npx create-next-app stytch-supabase-example 接下来，在stytch-supabase-example中创建一个.env.local文件并输入以下值。&#xA;STYTCH_PROJECT_ENV=test&#xD;STYTCH_PROJECT_ID=GET_FROM_STYTCH_DASHBOARD&#xD;STYTCH_PUBLIC_TOKEN=GET_FROM_STYTCH_DASHBOARD&#xD;STYTCH_SECRET=GET_FROM_STYTCH_DASHBOARD&#xD;NEXT_PUBLIC_SUPABASE_URL=GET_FROM_SUPABASE_DASHBOARD&#xD;NEXT_PUBLIC_SUPABASE_KEY=GET_FROM_SUPABASE_DASHBOARD&#xD;SUPABASE_SIGNING_SECRET=GET_FROM_SUPABASE_DASHBOARD 注意：Stytch值可以在项目dashboard的API Keys下找到。&#xA;注意：Supabase值可以在你的项目的设置 &amp;gt; API下找到。</description>
+    </item>
+    <item>
+      <title>快速入门: RedwoodJS</title>
+      <link>https://example.org/pages-test/guides/with-redwoodjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-redwoodjs/</guid>
+      <description>介绍 为了与其他框架的Quickstart例子保持一致，我们将建立一个RedwoodJS，与正常情况下有点不同。&#xA;我们不使用Prisma连接到Supabase Postgres数据库或Prisma迁移，因为在Redwood应用中通常会这样做。 相反，我们将依靠Supabase客户端在网络端做一些工作，并在API端再次使用客户端来做数据获取。&#xA;这意味着你要避免运行任何 &amp;ldquo;yarn rw prisma migrate &amp;ldquo;命令，还要在部署时仔细检查你的构建命令，以确保Prisma不会重置你的数据库。&#xA;info&#xD;TLDR; Prisma目前不支持跨模式外键，所以由于你的Supabase public模式是如何引用auth.users的，反省模式失败。&#xA;这个例子提供了使用Supabase和RedwoodJS建立一个简单的用户管理应用程序的步骤（从头开始！）。它包括。&#xA;MemFire Cloud Database：一个用于存储用户数据的Postgres数据库。 MemFire Cloud Auth：用户可以用魔法链接登录（没有密码，只有电子邮件）。 MemFire Cloud Storage：用户可以上传照片。 Instant APIs。当你创建你的数据库表时，API将自动生成。 行级安全：数据受到保护，个人只能访问自己的数据。 在本指南结束时，你将拥有一个允许用户登录并更新一些基本资料细节的应用程序。&#xA;info&#xD;注意：对于RedwoodJS应用程序，端口将是8910。&#xA;GitHub 如果你在任何时候被卡住了，请看一下这个 repo。&#xA;关于RedwoodJS 一个Redwood应用程序被分成两部分：一个前端和一个后端。这表现为在一个单一的monorepo中的两个node项目。&#xA;前台项目被称为**web，后台项目被称为api**。 它们是独立的项目，因为 &amp;ldquo;web端 &amp;ldquo;的代码最终将在用户的浏览器中运行，而 api端的代码将在某个服务器上运行。&#xA;info&#xD;重要提示：当本指南提到 API时，指的是Supabase API，当它提到 api端时，指的是RedwoodJS api端。&#xA;**api端**是一个GraphQL API的实现。业务逻辑被组织成 服务，代表他们自己的内部API，可以从外部GraphQL请求和其他内部服务中调用。&#xA;网络端 &amp;ldquo;***是用React构建的。Redwood的路由器可以简单地将URL路径映射到React的 页面组件（并在每个路径上自动分割你的应用代码）。 页面可以包含一个 Layout组件来包装内容。它们还包含 单元格和常规的React组件。 单元允许你声明性地管理一个获取和显示数据的组件的生命周期。&#xA;info&#xD;为了与其他框架的Quickstart例子保持一致，我们将建立一个RedwoodJS，与正常情况下有点不同。 我们不使用Prisma来连接Supabase Postgres数据库或Prisma迁移，因为在Redwood应用中通常会这样做。 相反，我们将依靠Supabase客户端来完成**web方面的一些工作，并在api**方面再次使用客户端来进行数据获取。&#xA;项目设置 在我们开始构建之前，我们要设置我们的数据库和API。这就像在Supabase中启动一个新项目一样简单 然后在数据库中创建一个 &amp;ldquo;模式&amp;rdquo;。&#xA;info&#xD;在设置Supabase时，你会与你的项目仪表板互动。然而，大多数RedwoodJS的设置步骤将与Redwood CLI互动，以生成路由、页面、组件等。 因此，请确保在你的项目目录中准备好一个终端。</description>
+    </item>
+    <item>
+      <title>环境管理</title>
+      <link>https://example.org/pages-test/guides/cli/managing-environments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/cli/managing-environments/</guid>
+      <description>概述 Supabase CLI 提供了你所需要的工具来管理多个环境。 本指南向您介绍如何设置您的本地 Supabase 开发环境，该环境与 GitHub Actions 集成，以自动 测试和发布模式变化到暂存和生产Supabase项目。&#xA;要开始使用。&#xA;安装Supabase CLI](/docs/guides/cli) 创建一个MemFire Cloud项目或使用一个现有的项目 初始化一个本地的 Git 仓库 设置本地环境 第一步是用Supabase CLI设置你的本地存储库。&#xA;supabase init 你应该看到一个新的supabase目录。然后你需要将你的本地存储库与你的Supabase项目连接起来。&#xA;supabase login supabase link --project-ref $PROJECT_ID 你可以从你项目的仪表盘URL中获得你的$PROJECT_ID。&#xA;https://app.supabase.com/project/&amp;lt;project-id&amp;gt; 如果你正在使用一个现有的Supabase项目，你可能已经通过Dashboard进行了模式更改。 在从 CLI 进行本地模式更改之前，请运行下面的命令来提取这些更改。&#xA;supabase db remote commit 这个命令在supabase/migrations/&amp;lt;timestamp&amp;gt;_remote_commit.sql中创建了一个新的迁移，反映了你之前所做的模式改变。&#xA;现在将你的本地修改提交给Git，并运行本地开发设置。&#xA;git add . git commit -m &amp;#34;init supabase&amp;#34; supabase start 现在你已经准备好在本地开发模式变化，并创建你的第一次迁移。&#xA;创建一个新的迁移 有两种方法可以对模式进行修改。&#xA;手动迁移。手动将DDL语句写进迁移文件 自动模式差异。通过Studio用户界面进行修改，并自动生成一个模式差异。 手动迁移 通过运行创建一个新的迁移脚本。&#xA;supabase migration new new_employee 你应该看到一个新的文件被创建。supabase/migrations/&amp;lt;timestamp&amp;gt;_new_employee.sql。然后你可以用文本编辑器在这个脚本中写SQL语句。&#xA;create table public.employees ( id integer primary key generated always as identity, name text ); 将新的迁移应用到你的本地数据库。</description>
+    </item>
+    <item>
+      <title>相关知识</title>
+      <link>https://example.org/pages-test/knowledge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/knowledge/</guid>
+      <description>为了增进您对我们产品文档的理解，我们将清晰地列出可能会影响您阅读的关键要素，并提供充分的解释。&#xA;前端/后端 前端和后端是构成一个网站或应用程序的两个核心组成部分，它们之间有密切的联系。以web网页举例&#xA;前端是指用户在浏览器或移动设备上看到和交互的部分。它主要包括HTML、CSS和JavaScript代码。HTML负责定义页面的结构，CSS负责定义页面的样式和布局，而JavaScript则用于实现与用户的交互和动态效果。&#xA;后端是指运行在服务器上的程序，负责处理前端发送的请求并返回相应的数据或结果。后端通常使用编程语言（如Python、Java、PHP等）来编写，并与数据库进行交互。它处理用户请求、验证身份、执行业务逻辑、访问数据库等操作。&#xA;前端和后端之间通过网络进行通信。当用户在前端发起请求时，请求会被发送到后端服务器。后端服务器接收到请求后，根据请求的内容进行相应的处理，并将处理结果发送回前端，然后前端再将结果呈现给用户。&#xA;为了实现良好的用户体验，前端和后端需要紧密协作。前端开发人员负责创建用户界面并与后端进行数据交换。他们需要了解后端提供的API，以便正确发送请求和处理响应。后端开发人员则负责处理前端发送的请求，执行相应的操作并返回数据。他们需要了解前端的需求，确保后端能够提供所需的数据和功能。&#xA;总结来说，前端负责用户界面和交互，后端负责处理数据和逻辑。它们通过网络通信进行协作，共同构建出完整的网站或应用程序。&#xA;API / SDK API（Application Programming Interface，应用程序编程接口）和SDK（Software Development Kit，软件开发工具包）是软件开发中常用的概念。&#xA;API： API是一组定义了不同软件组件之间交互方式的规则集合。它允许不同的软件系统通过预定义的接口进行通信和交互。API可以公开特定服务或功能，以供其他开发者使用。通过使用API，开发人员可以调用外部系统、库或服务的功能，而不必了解其内部实现细节。&#xA;SDK： SDK是一个开发工具包，通常由一组库、工具和文档组成，用于帮助开发人员创建特定平台或产品的应用程序。SDK通常包含一些常用的API，以及用于开发和测试应用程序的额外工具。SDK旨在简化开发过程，提供所需的资源和功能。&#xA;通俗的讲，API是一组规则，定义了软件组件之间的交互方式，而SDK是一个开发工具包，提供了开发所需的资源和功能，包括常用的API。它们都是为了帮助开发者更轻松地创建应用程序，提高开发效率。&#xA;传统开发模式 传统开发模式下，程序开发者需要构建前端的业务逻辑，和后端的各种组件的搭建。同时需要自定义开发接口，并且需要内部沟通接口如何使用。使得前端可以和后端进行数据交互。以web网页举例。&#xA;前端开发：基于需求分析的结果，前端开发团队开始创建用户界面。他们使用HTML、CSS和JavaScript等技术来设计界面并实现交互功能。这包括创建页面布局、样式、表单、按钮和其他用户可见的元素。&#xA;后端开发：在前端开发完成后，后端开发团队开始编写服务器端代码。他们使用后端编程语言（如Python、Java、PHP等）来处理前端发送的请求，并根据需求执行相应的业务逻辑。这可能涉及数据库操作、身份验证、数据加工等。&#xA;接口定义：前端和后端之间需要建立明确定义的接口，以便数据的交换和通信。这包括确定API的规范，即前端可以向后端发送的请求格式和后端返回的数据结构。&#xA;BaaS开发模式 BaaS（Backend as a Service，后端即服务）是一种开发模式，它提供了后端基础设施和服务，使开发人员能够更快地构建应用程序。以web网页举例，下面是BaaS程序开发流程。&#xA;前端开发：使用前端技术（如HTML、CSS和JavaScript），开发人员创建用户界面并实现交互功能。他们可以使用BaaS平台提供的SDK（软件开发工具包）来集成和调用后端服务。 后端配置：在BaaS平台上配置后端服务，如数据库、用户认证、文件存储等。开发人员可以使用平台提供的图形界面或命令行工具来完成配置。 前后端交互：在前端代码中，使用BaaS平台提供的API与后端进行交互。这包括发送请求、获取数据、进行用户认证等操作。 Supabase / Firebase Supabase和Firebase都是海外的后端即服务平台，旨在简化应用程序开发人员构建和维护后端基础设施的过程。&#xA;Supabase的背后公司是Supabase Pte. Ltd。该公司成立于2020年，总部位于新加坡。Supabase是由Paul Copplestone和Rusty Russell创办的，他们都有着丰富的软件开发和创业经验。Supabase专注于开源后端即服务平台的开发，现已有强大的社区生态，以帮助开发人员更轻松地构建应用程序。 Firebase最初是由一家名为Firebase的创业公司开发的，该公司于2011年成立，并在2014年被Google收购。随着被Google收购，Firebase逐渐发展成为一个全面的移动和Web应用开发平台。 数据库 数据库是一个用于组织和存储数据的系统，它提供了数据管理、访问和操作的功能。通过使用数据库，我们可以高效地存储和检索大量的数据，并确保数据的可靠性和安全性。&#xA;数据库要素 数据库通常由以下几个要素组成：&#xA;数据： 数据库存储各种类型的数据，如文本、数字、图像、音频等。数据被组织成表格的形式，每个表有一组列和行，每个行代表一个记录。&#xA;表： 表是数据库中的基本组织单位，它由一组列和行组成。每个列定义了表中存储的数据的类型，每个行包含了具体的数据记录。&#xA;列： 列是表中的一个属性或字段，它描述了表中每个记录的特定身份。每个列都有一个指定的数据类型，例如整数、字符串、日期等。&#xA;行： 行是表中的一个记录或实例，它包含了与该记录相关的各个列的具体值。&#xA;关系： 关系是不同表之间的连接或联系。通过建立关系，可以实现数据的查询和检索。&#xA;数据库分类 数据库可以分为不同类型，其中最常见的是关系型数据库和非关系型数据库。&#xA;关系型数据库： 关系型数据库使用表格结构来组织和存储数据。它们使用SQL（结构化查询语言）进行数据操作。关系型数据库使用预定义的模式（或模型）来定义表格、列和数据之间的关系。常见的关系型数据库有PostgreSQL、Oracle、MySQL、Microsoft SQL Server等。&#xA;非关系型数据库： 非关系型数据库使用不同的方式来组织和存储数据，例如键值对、文档、图形等。非关系型数据库通常更灵活，并且能够处理大规模和高速度的数据。常见的非关系型数据库有MongoDB、Redis、Cassandra等。&#xA;数据库常见操作 PostgreSQL数据库 </description>
+    </item>
+    <item>
+      <title>使用Twilio的电话授权</title>
+      <link>https://example.org/pages-test/guides/auth/auth-twilio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-twilio/</guid>
+      <description>概述 在本指南中，我们将向您展示如何使用基于 SMS 的一次性密码 (OTP) 令牌来验证您的用户。&#xA;使用 Supabase SMS OTP 令牌有两个原因。&#xA;您想让用户用手机号码+密码登录，并且手机号码应通过短信进行验证 你希望用户只用手机号码登录（即无密码登录）。 我们将介绍。&#xA;找到你的Twilio证书](#finding-your-twilio-credentials) 使用OTP和基于密码的登录] (#using-otp-with-password-based-logins) 使用OTP作为无密码登录机制](#using-otp-as-passwordless-sign-in-mechanism) 你需要的东西。&#xA;一个Twilio账户（在这里注册：https://www.twilio.com/try-twilio）。 一个Supabase项目（在这里创建一个：https://app.supabase.com）。 一个能够接收短信的手机 视频 步骤 找到你的Twilio凭证 首先登录你的Twilio账户并开始一个新的项目：https://www.twilio.com/console/projects/create&#xA;给你的项目取个名字，并验证你要用来测试的手机号码。这是一个将接收短信OTP的号码。&#xA;在欢迎表格中选择 短信、身份和验证以及 带密码作为选项。&#xA;当你回到Twilio控制台屏幕时，你需要向下滚动并点击&amp;rsquo;获得一个试用电话号码&amp;rsquo;&amp;ndash;这是你要发送短信的号码。&#xA;现在你应该能够看到你需要的所有三个数值，以便开始工作。&#xA;帐户SID 授权令牌 发件人电话号码 现在去Supabase仪表板上的Auth &amp;gt; Settings页面（https://app.supabase.com/project/YOUR-PROJECT-REF/auth/settings）。&#xA;你应该看到一个选项来启用电话注册。&#xA;拨动它，并从 twilio 仪表板上复制3个值。点击保存。&#xA;注意：对于 &amp;ldquo;Twilio消息服务SID&amp;rdquo;，你可以使用上面生成的发送者电话号码。&#xA;现在后台应该已经设置好了，我们可以继续添加我们的客户端代码了!&#xA;短信定制模板 发送到手机上的包含OTP代码的短信可以被定制。如果你需要提到一个品牌名称或显示一个网站地址，这很有用。&#xA;进入 Supabase 仪表板中的 Auth &amp;gt; Templates 页面 (https://app.supabase.com/project/YOUR-PROJECT-REF/auth/templates)。&#xA;在模板中使用变量.Code来显示OTP代码。下面是SMS模板中的一个例子。&#xA;使用OTP与基于密码的登录 在这种情况下，我们将使用用户的手机号码和相应的密码，作为用电子邮件地址注册的替代方法。注意：在使用电话号码和密码组合注册时，请彻底考虑潜在的安全问题。当用户取消电话合同或搬家时，电话号码有时会被电话网络回收，从而将用户账户的访问权授予该电话号码的后续所有者。在不久的将来，Supabase将支持多因素认证，这将减轻这种风险，但现在你可能要考虑让你的用户在紧急情况下通过其他方式恢复他们的账户。&#xA;在客户端使用supabase-js，你要使用与基于电子邮件的注册相同的signUp方法，但使用phone参数而不是email参数。&#xA;JavaScript&#xD;HTTP&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;js&#34;&#xD;&gt;&#xD;let { user, error } = await supabase.</description>
+    </item>
+    <item>
+      <title>用Notion登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-notion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-notion/</guid>
+      <description>要为你的项目启用Notion Auth，你需要设置一个Notion应用程序，并将应用程序OAuth凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置Notion登录包括3个部分。&#xA;创建和配置一个Notion应用程序Notion Developer Portal 检索你的OAuth客户端ID和OAuth客户端秘密，并将它们添加到你的MemFire Cloud项目 将登录代码添加到你的JS客户端应用程序 创建你的notion集成 进入developer.notion.com。 点击 查看我的集成并登录。 登录后，进入notion.so/my-integrations，创建一个新的集成。 当创建你的集成时，确保你在 集成类型下选择 公共集成，在 功能下选择 读取用户信息包括电子邮件地址。 你将需要添加一个重定向URI，见添加重定向URI 一旦你填写了必要的字段，点击 提交，完成创建集成。 添加重定向URI 在选择 公共集成后，你应该看到一个添加 重定向URI的选项。 你可以通过以下步骤检索重定向URI。&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 在后面加上/auth/v1/callback以获得完整的OAuth重定向URI。 你的重定向URI应该是下面的样子。https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。&#xA;在你的Supabase项目中添加你的Notion凭证 一旦你创建了你的Notion集成，你应该能够从 OAuth域和URI标签中检索到 OAuth客户端ID和 OAuth客户端秘密。 进入你的MemFire Cloud项目仪表板 在左边的侧边栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面 在 外部OAuth提供商下，将 已启用的移动调为 打开。 在client id和client secret字段中输入获得的 OAuth client ID 和 OAuth client secret。 点击 保存。 在你的客户端应用程序中添加登录代码 当你的用户登录时，调用signInWithOAuth()，用notion作为provider。&#xA;async function signInWithNotion() { const { data, error } = await supabase.</description>
+    </item>
+    <item>
+      <title>pg_graphql: 为PostgreSQL提供GraphQL功能</title>
+      <link>https://example.org/pages-test/guides/database/extensions/pg_graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/pg_graphql/</guid>
+      <description>概念 pg_graphql 是一款用于 与数据库进行交互的 PostgreSQL 扩展，它使用的是 GraphQL 而非 SQL 。&#xA;该扩展通过现有的 SQL 模式反映出一个 GraphQL 模式，并通过一个 SQL 函数 graphql.resolve(...) 将其公开。这使得任何能够连接到 PostgreSQL 的编程语言都可以通过 GraphQL 查询数据库，而无需额外的服务器、进程或库。&#xA;pg_graphql 的解析方法被设计为与 PostgREST 相互操作，PostgREST 是支持 Supabase API 的工具，通过 RPC 调用 graphql.resolve 函数可以安全、高效地通过 HTTP/S 公开 GraphQL API。&#xA;有关如何将 SQL 模式反映到 GraphQL 模式的更多信息，请参阅 pg_graphql 的 API 文档。&#xA;使用方法 启用扩展 控制台&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;跳转到控制台的 数据库 。 点击侧栏中的扩展。 搜索&amp;quot;pg_graphql&amp;quot;并启用扩展。 {/* prettier-ignore */}&#xA;-- Enable the &amp;#34;pg_graphql&amp;#34; extension create extension pg_graphql; -- Disable the &amp;#34;pg_graphql&amp;#34; extension drop extension if exists pg_graphql; 尽管 SQL 代码是 create extension，但它的等效操作是“启用扩展”。 要禁用扩展，您可以调用 drop extension。</description>
+    </item>
+    <item>
+      <title>全文搜索</title>
+      <link>https://example.org/pages-test/guides/database/full-text-search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/full-text-search/</guid>
+      <description>Postgres有内置的功能来处理 全文搜索查询。这就像Postgres中的一个 搜索引擎。&#xA;准备工作 在本指南中，我们将使用以下示例数据：&#xA;Data&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;data&#34;&#xD;&gt;&#xD;id title author description 1 The Poky Little Puppy Janette Sebring Lowrey Puppy is slower than other, bigger animals. 2 The Tale of Peter Rabbit Beatrix Potter Rabbit eats some vegetables. 3 Tootle Gertrude Crampton Little toy train has big dreams. 4 Green Eggs and Ham Dr. Seuss Sam has changing food preferences and eats unusually colored food. 5 Harry Potter and the Goblet of Fire J.</description>
+    </item>
+    <item>
+      <title>用Zoom登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-zoom/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-zoom/</guid>
+      <description>要为你的项目启用Zoom Auth，你需要设置一个Zoom OAuth应用程序，并将应用程序的凭证添加到你的Supabase Dashboard。&#xA;概述 为你的应用程序设置Zoom登录，包括三个部分。&#xA;在[Zoom App Marketplace]上创建和配置Zoom OAuth应用程序(https://marketplace.zoom.us/) 将您的Zoom OAuth密钥添加到您的MemFire Cloud项目 将登录代码添加到您的JS客户端应用程序 访问您的Zoom Developer账户 转到marketplace.zoom.us。 点击右上方的 &amp;ldquo;Sign In &amp;ldquo;来登录。 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 Settings图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个Zoom Oauth应用程序 进入[marketplace.zoom.us]（https://marketplace.zoom.us/）。 点击右上方的 Sign In来登录。 点击 建立应用程序（从下拉式开发）。 在OAuth卡中，点击创建。 输入你的应用程序的名称 选择应用类型 点击 创建。 在 应用程序证书下&#xA;复制并保存你的 客户端ID。 复制并保存你的 客户端密码。 在 OAuth的重定向URL下&#xA;粘贴你的 回调URL。 点击 继续。 在你的Supabase项目中输入你的Zoom凭证 转到你的MemFire Cloud项目仪表板 在左边的侧边栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth供应商下，将 Zoom启用设为ON。 输入你在上一步保存的 Zoom Client ID和 Zoom Client Secret。 点击 保存。 添加登录代码到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将zoom作为提供者。</description>
+    </item>
+    <item>
+      <title>Part Five: Google Oauth</title>
+      <link>https://example.org/pages-test/learn/auth-deep-dive/auth-google-oauth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/learn/auth-deep-dive/auth-google-oauth/</guid>
+      <description>About How to add Google OAuth Logins to your Supabase Application.&#xA;Watch Logging in with external OAuth providers Connecting social logins such as Google, GitHub, or Facebook couldn&amp;rsquo;t be easier. In this guide we&amp;rsquo;ll walk you through the process of connecting Google, but the process is basically the same for all of the providers which includes: azure, bitbucket, github, gitlab, facebook, and google.&#xA;First you&amp;rsquo;ll need to create a google project inside their cloud console, in other providers they may refer to this as an &amp;ldquo;app&amp;rdquo; and is usually available on the company&amp;rsquo;s developer portal.</description>
+    </item>
+    <item>
+      <title>用Spotify登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-spotify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-spotify/</guid>
+      <description>要为你的项目启用Spotify Auth，你需要设置一个Spotify OAuth应用程序，并将应用程序的凭证添加到你的Supabase Dashboard。&#xA;概述 为你的应用程序设置Spotify登录包括三个部分。&#xA;在Spotify Developer Dashboard上创建并配置一个Spotify项目和应用程序。 在你的MemFire Cloud项目中添加你的Spotify API密钥和API秘钥。 将登录代码添加到你的JS客户端应用程序。 访问你的Spotify开发者账户 登录到Spotify 访问Spotify开发者仪表板 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个Spotify OAuth应用程序 登录到Spotify。 进入Spotify开发者仪表板 点击 创建一个应用程序。 输入您的 应用程序名称。 键入您的 应用程序描述。 勾选同意 开发者服务条款和品牌指南的方框。 点击 创建。 保存您的 客户端ID。 保存您的 客户秘密。 点击 编辑设置。 在 重定向URI下。&#xA;将你的Supabase回调URL粘贴在框中 点击 添加。 点击底部的 保存。 在你的Supabase项目中输入你的Spotify凭证 转到你的MemFire Cloud项目仪表板。 在左边的侧边栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面。 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth提供商下，将 启用Spotify设为 打开。 输入上一步保存的 客户端ID（client_id）和 客户端密码（client_secret）。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将spotify作为提供者。</description>
+    </item>
+    <item>
+      <title>FAQs</title>
+      <link>https://example.org/pages-test/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/faq/</guid>
+      <description>Where do I find support? Choose the support channel relevant for your situation here: supabase.com/support&#xA;How much does it cost? Self-hosting Supabase is free. If you wish to use our cloud-platform, we provide simple, predictable pricing.&#xA;How do I host Supabase? You can use the docker-compose script here, and find detailed instructions here.&#xA;Supabase is an amalgamation of open source tools. Some of these tools are made by Supabase (like our Realtime Server), some we support directly (like PostgREST), and some are third-party tools (like KonSupabase is an amalgamation open sourceg).</description>
+    </item>
+    <item>
+      <title>Postgres CDC</title>
+      <link>https://example.org/pages-test/guides/realtime/postgres-cdc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/realtime/postgres-cdc/</guid>
+      <description>实时的Postgres变更数据捕获（CDC）功能监听数据库的变更，并将其发送给客户端。客户端需要通过JWT订阅，该JWT决定了他们可以根据数据库的行级安全接收哪些变化。&#xA;任何能够访问用项目的JWT秘密签名的有效JWT的人都能够监听你的数据库的变化，除非表启用了行级安全并制定了策略。&#xA;客户端可以选择接收 INSERT、UPDATE、DELETE或 *（all）的变化，用于接收模式中的所有变化、模式中的一个表或表中的一个列的值。你的客户应该只监听public模式中的表，你必须首先启用你希望客户监听的表。&#xA;Postgres CDC对 public模式中的表是开箱即用的。你可以通过给访问令牌中的数据库角色授予表 SELECT的权限来监听你的私有模式中的表。你可以运行一个类似于以下的查询。&#xA;GRANT SELECT ON &amp;#34;private_schema&amp;#34;.&amp;#34;table&amp;#34; TO authenticated; info&#xD;我们强烈建议你启用RLS并为私有模式中的表创建策略。否则，你所授予的任何角色都将拥有对表的不受限制的读取权限。&#xA;你可以在仪表板的Replication部分或用SQL editor来做这个。&#xA;begin; -- remove the supabase_realtime publication drop publication if exists supabase_realtime; -- re-create the supabase_realtime publication with no tables create publication supabase_realtime; commit; -- add a table to the publication alter publication supabase_realtime add table messages; 默认情况下，只发送 新的记录变化，但如果你想在每次 UPDATE或 DELETE一个记录时接收 旧的记录（以前的值）。 你可以将你的表的replica identity 设置为 full。&#xA;alter table messages replica identity full; 监听public模式中的所有变化：</description>
+    </item>
+    <item>
+      <title>Working With Arrays</title>
+      <link>https://example.org/pages-test/guides/database/arrays/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/arrays/</guid>
+      <description>PostgreSQL supports flexible array types. These arrays are also supported in the Supabase Dashboard and in the JavaScript API.&#xA;Create a table with an array column Create a test table with a text array (an array of strings):&#xA;Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;Go to the Table editor page in the Dashboard. Click New Table and create a table with the name arraytest. Click Save. Click New Column and create a column with the name textarray, type text, and select Define as array.</description>
+    </item>
+    <item>
+      <title>pg_cron: 作业调度</title>
+      <link>https://example.org/pages-test/guides/database/extensions/pgcron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/pgcron/</guid>
+      <description>pg_cron扩展是PostgreSQL的一个简单的基于cron的工作调度器，在数据库内运行。&#xA;使用方法 启用扩展 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;pg_cron &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;pg_cron&amp;#34; extension create extension pg_cron with schema extensions; -- If you&amp;#39;re planning to use a non-superuser role to schedule jobs, -- ensure that they are granted access to the cron schema and its underlying objects beforehand. -- Failure to do so would result in jobs by these roles to not run at all.</description>
+    </item>
+    <item>
+      <title>快速入门: Nuxt 3</title>
+      <link>https://example.org/pages-test/guides/with-nuxt-3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-nuxt-3/</guid>
+      <description>Github 如果你在阅读指南时遇到困难，请参考此版本。&#xA;构建应用程序 让我们开始从头开始构建Vue 3应用程序。&#xA;初始化一个Nuxt 3应用程序 我们可以使用nuxi init来创建一个名为nuxt-user-management的应用程序。&#xA;npx nuxi init nuxt-user-management cd nuxt-user-management 然后让我们安装唯一的额外依赖：NuxtSupabase。我们只需要将NuxtSupabase作为一个开发依赖项导入。&#xA;npm install @nuxtjs/supabase --save-dev 最后，我们要把环境变量保存在.env中。 我们所需要的是API URL和你[早些时候]复制的anon密钥（#get-theapi-keys）。&#xA;SUPABASE_URL=&amp;#34;YOUR_SUPABASE_URL&amp;#34; SUPABASE_KEY=&amp;#34;YOUR_SUPABASE_ANON_KEY&amp;#34; 这些变量将暴露在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。 关于NuxtSupabase的神奇之处在于，为了开始使用Supabase，我们只需要设置环境变量即可。 不需要初始化Supabase。该库将自动处理它。&#xA;还有一个可选的步骤是更新CSS文件assets/main.css以使应用程序看起来漂亮。 你可以找到这个文件的全部内容这里。&#xA;import { defineNuxtConfig } from &amp;#39;nuxt&amp;#39; // https://v3.nuxtjs.org/api/configuration/nuxt.config export default defineNuxtConfig({ modules: [&amp;#39;@nuxtjs/supabase&amp;#39;], css: [&amp;#39;@/assets/main.css&amp;#39;], }) 设置Auth组件 让我们建立一个Vue组件来管理登录和注册。我们将使用Magic Links，所以用户可以用他们的电子邮件登录，而不需要使用密码。&#xA;&amp;lt;template&amp;gt; &amp;lt;form class=&amp;#34;row flex-center flex&amp;#34; @submit.prevent=&amp;#34;handleLogin&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;col-6 form-widget&amp;#34;&amp;gt; &amp;lt;h1 class=&amp;#34;header&amp;#34;&amp;gt;Supabase + Nuxt 3&amp;lt;/h1&amp;gt; &amp;lt;p class=&amp;#34;description&amp;#34;&amp;gt;Sign in via magic link with your email below&amp;lt;/p&amp;gt; &amp;lt;div&amp;gt; &amp;lt;input class=&amp;#34;inputField&amp;#34; type=&amp;#34;email&amp;#34; placeholder=&amp;#34;Your email&amp;#34; v-model=&amp;#34;email&amp;#34; /&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34; class=&amp;#34;button block&amp;#34; :value=&amp;#34;loading ?</description>
+    </item>
+    <item>
+      <title>存储</title>
+      <link>https://example.org/pages-test/guides/storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/storage/</guid>
+      <description>Supabase存储使存储和服务大文件变得简单.&#xA;文件 文件可以是任何类型的媒体文件。这包括图像、GIF和视频。由于文件的大小，最好将其存储在数据库之外。为了安全起见，HTML文件以纯文本形式返回。&#xA;文件夹 文件夹是组织文件的一种方式（就像在计算机上一样）。 组织文件没有正确或错误的方法。您可以将它们存储在适合项目的任何文件夹结构中。&#xA;存储桶 Bucket是文件和文件夹的不同容器。你可以把它们想象成“超级文件夹”。 通常，您会为不同的安全和访问规则创建不同的存储桶。例如，您可以将所有视频文件保存在&amp;quot;video&amp;quot; 桶中，并将个人资料图片保存在&amp;quot;avatar&amp;quot;桶中。&#xA;开始使用 这是一个快速指南，介绍了Supabase Storage的基本功能。查找完整的GitHub中的示例应用程序, 您可以自行部署。&#xA;info&#xD;文件、文件夹和Bucket名称必须遵循AWS对象密钥命名指南并避免使用任何其他字符。&#xA;创建一个存储桶 你可以使用Supabase仪表板创建一个存储桶。 由于存储可与Postgres数据库互操作，您还可以使用SQL或我们的客户端库。这里我们创建一个叫做 &amp;ldquo;avatars &amp;ldquo;的桶。&#xA;Dashboard&#xD;SQL&#xD;JavaScript&#xD;Dart&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;1.进入存储页面。&#xA;2.单击新建Bucket并输入Bucket的名称。&#xA;3.单击创建Bucket。&#xA;-- Use Postgres to create a bucket. insert into storage.buckets (id, name) values (&amp;#39;avatars&amp;#39;, &amp;#39;avatars&amp;#39;); // Use the JS library to create a bucket. const { data, error } = await supabase.storage.createBucket(&amp;#39;avatars&amp;#39;) Reference.&#xA;void main() async { final supabase = SupabaseClient(&amp;#39;supabaseUrl&amp;#39;, &amp;#39;supabaseKey&amp;#39;); final storageResponse = await supabase .</description>
+    </item>
+    <item>
+      <title>微信小程序登录认证</title>
+      <link>https://example.org/pages-test/guides/wechatauth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/wechatauth/</guid>
+      <description>前言 为了顺应国内用户的使用习惯，MemFire Cloud 的SDK推出了微信可以在不同应用场景下的登录方式，以下两种场景是MemFire Cloud 推荐的微信登录方式，我们以简单的小示例来做示范，具体的实现还需要根据业务自身的场景来判断。&#xA;① 微信用户授权登录 首次进入小程序，点击登录后会立即跳转个人中心页进行个人资料的修改，或者可以点击个人中心页面进行个人资料的修改&#xA;前提条件：&#xA;在MemFire Cloud认证服务商页面启用微信小程序认证 图例&#xA;首页代码示例：&#xA;html&#xA;&amp;lt;button style=&amp;#34;border-radius: 100rpx;margin-top: 300rpx;&amp;#34; type=&amp;#34;primary&amp;#34; bindtap=&amp;#34;login&amp;#34;&amp;gt;微信快速登录&amp;lt;/button&amp;gt; SDK使用教程&#xA;signInWithWechat接口接受一个wx.login返回的code参数，通过code兑换openid等信息，并判断用户是否存在，不存在则自动创建&#xA;// pages/main/index.ts import { supabase } from &amp;#39;../../lib/supabase&amp;#39; Page({ data: { }, login(){ wx.login({ success: async res =&amp;gt; { const { data, error } = await supabase.auth.signInWithWechat({code:res.code}) if(error){ wx.showToast({ title: error?.error || error?.msg, icon: &amp;#34;none&amp;#34;, duration: 2000 }) }else if(data){ setTimeout(() =&amp;gt; { wx.showModal({ title: &amp;#39;提示&amp;#39;, content: &amp;#39;登录成功！去填充个人资料吧！&amp;#39;, success (res) { if (res.</description>
+    </item>
+    <item>
+      <title>第四部分: GoTrue</title>
+      <link>https://example.org/pages-test/learn/auth-deep-dive/auth-gotrue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/learn/auth-deep-dive/auth-gotrue/</guid>
+      <description>关于 如何将表的访问限制在认证用户、行级策略和基于电子邮件域的访问。&#xA;观察 Gotrue Server Gotrue是一个由Netlify团队用Go编写的认证API服务器，在这里可以找到Supabase的分叉：https://github.com/supabase/gotrue 可用的API端点列表可在这里。&#xA;当你部署一个新的Supabase项目时，我们会在你的数据库旁边部署一个新的服务器实例，同时也为你的数据库注入所需的auth模式。&#xA;这使得它非常容易，例如，发送神奇的链接电子邮件，你的用户可以用它来登录:&#xA;# replace &amp;lt;project-ref&amp;gt; with your own project reference # and SUPABASE_KEY with your anon api key curl -X POST &amp;#39;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/magiclink&amp;#39; \ -H &amp;#34;apikey: SUPABASE_KEY&amp;#34; \ -H &amp;#34;Content-Type: application/json&amp;#34; \ -d &amp;#39;{ &amp;#34;email&amp;#34;: &amp;#34;someone@email.com&amp;#34; }&amp;#39; Gotrue负责为你的用户发放访问令牌，发送确认邮件、魔法链接和密码恢复邮件（默认情况下，我们从Supabase的SMTP服务器发送这些邮件，但你可以在仪表板的Auth &amp;gt; Settings中轻松插入你自己的邮件），也可以与第三方OAuth提供商进行交易，获得基本的用户数据。&#xA;如果你的用户需要与供应商进行更密切的互动，社区最近甚至还内置了请求自定义OAuth范围的功能。请看这里的scopes参数。https://github.com/supabase/gotrue#get-authorize。&#xA;因此，假设你想通过gmail代表用户发送电子邮件，你可能会请求gmail.send范围，把他们引导到：&#xA;https://sjvwsaokcugktsdaxxze.supabase.co/auth/v1/authorize?provider=google&amp;amp;https://www.googleapis.com/auth/gmail.send 当然，你必须确保你的谷歌应用经过验证，以便申请这些高级范围。&#xA;Gotrue-js (还有 gotrue-csharp, gotrue-py, gotrue-kt, 和 gotrue-dart) 都是对Getrue API端点的封装，使你的客户端更容易进行会话管理。&#xA;但是gotrue-js的所有功能在supabase-js中也是可用的，当你做一些事情时，supabase-js在内部使用gotrue-js。&#xA;const { user, session, error } = await supabase.auth.signIn({ email: &amp;#39;example@email.</description>
+    </item>
+    <item>
+      <title>用Facebook登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-facebook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-facebook/</guid>
+      <description>要为你的项目启用Facebook Auth，你需要设置一个Facebook OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置Facebook登录，包括3个部分。&#xA;在[Facebook开发者网站]上创建和配置一个Facebook应用程序(https://developers.facebook.com) 将你的Facebook密钥添加到你的MemFire Cloud项目 将登录代码添加到您的JS客户端应用程序 访问你的Facebook开发者账户 转到developer.facebook.com。 点击右上方的 &amp;ldquo;登录 &amp;ldquo;来登录。 创建一个Facebook应用程序 点击右上角的 我的应用程序。 点击右上方的 创建应用程序。 选择你的应用程序类型，并点击 继续。 填写你的应用信息，然后点击 创建应用。 这将把你带到屏幕上。为您的应用程序添加产品。(或者你可以点击左侧边栏中的 添加产品来进入这个屏幕。) 找到你的回调URI 下一步需要一个回调URI，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 为你的Facebook应用程序设置FaceBook登录 在 &amp;ldquo;添加产品到您的应用程序 &amp;ldquo;屏幕上。&#xA;点击 Facebook登录下的 设置。 跳过 快速启动屏幕，在左侧边栏点击 Facebook登录下的 设置。 在 Facebook登录设置页面的 有效的OAuth重定向URI下输入你的回调URI 在 Valid OAuth Redirect URIs框中输入这个信息。 点击右下角的 保存更改。 请注意，你必须在你的Facebook应用程序上设置正确的访问级别，使第三方应用程序能够读取电子邮件地址。 在 应用程序审查 -&amp;gt; 权限和功能屏幕上。&#xA;点击public_profile和email右边的Request Advanced Access按钮。 你可以阅读更多关于访问级别的信息这里&#xA;复制你的Facebook应用ID和密码 点击左侧边栏的 设置/基本。 从 基本设置页面的顶部复制你的应用程序ID 在 应用程序的秘密下点击 显示，然后复制你的秘密 确保在这个屏幕上完成所有必要的字段。 将你的Facebook应用程序ID和秘密输入你的Supabase项目中 转到你的MemFire Cloud项目仪表板 在左边的侧栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth供应商下，将 启用Facebook设为 打开。 输入你在上一步保存的 Facebook客户端ID和 Facebook秘密。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将facebook作为供应商。</description>
+    </item>
+    <item>
+      <title>表格和数据</title>
+      <link>https://example.org/pages-test/guides/database/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/tables/</guid>
+      <description>表是存储数据的地方。&#xA;表格类似于Excel电子表格。它们包含列和行。 例如，这个表有3列（id, name, description）和4行的数据：&#xA;id name description 1 The Phantom Menace Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force. 2 Attack of the Clones Ten years after the invasion of Naboo, the Galactic Republic is facing a Separatist movement. 3 Revenge of the Sith As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.</description>
+    </item>
+    <item>
+      <title>Snaplet</title>
+      <link>https://example.org/pages-test/guides/integrations/snaplet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/snaplet/</guid>
+      <description>这个分步指南解释了如何使用Snaplet将你的生产Supabase项目克隆到另一个开发数据库。&#xA;Snaplet是一个开发者工具，它可以复制Postgres数据库，转换个人信息，这样你就可以**安全地针对实际数据进行编码。**这个功能使得在Supabase中轻松实现环境平等成为可能。&#xA;让我们开始吧!&#xA;跟随下面的视频，Snaplet的创始人Peter Pistorius会带你完成整个过程。否则，你可以跳过这段视频，深入到一步步的指南中。&#xA;第1步：先决条件 **一个生产型Supabase项目的连接字符串：**这些可以在Supabase中通过组织 &amp;gt; 项目 &amp;gt; 数据库 &amp;gt; 连接池 &amp;gt; 连接字符串找到。 **一个开发型Supabase项目的连接字符串：**与上述步骤相同，但是是不同的项目/环境。 一个只读的角色在生产部（推荐）。这可以通过在Supabase上运行以下语句来完成：组织 &amp;gt; SQL编辑器 &amp;gt; + 新查询。 要在所有模式中创建一个只读角色，你可以查看Snaplet docs&#xA;4. 开发项目的超级用户权限。这可以在Supabase中通过组织&amp;gt;SQL编辑器&amp;gt;+新查询并运行此语句来完成。 ALTER USER postgres WITH superuser;。 步骤2：复制你的生产数据库 2.1. 连接你的数据源 导航到https://www.snaplet.dev/并注册一个新的帐户(这是免费的)。一旦你成功注册了一个新账户，创建一个团队，并开始连接到你的Supabase项目。&#xA;输入您的生产Supabase项目的凭证。通过 组织 &amp;gt; 项目 &amp;gt; 设置 &amp;gt; 数据库 &amp;gt; 连接字符串（在页面底部）找到 Supabase 中的 连接字符串。&#xA;该密码与您在创建 Supabase 项目时使用的密码相同。&#xA;你必须确认提供Snaplet对你的数据库的访问。Snaplet会提示你对你的数据库只提供 只读的访问。Snaplet在他们的文档中有一个关于如何做到这一点的指南这里。&#xA;注意，无论你在这里提供什么连接字符串，都是你的数据源的连接字符串&amp;ndash;基本上是现实生活中的生产数据库。&#xA;2.2. 转换你的数据 下一步是排除任何你不需要的模式。你可以通过点击顶部的下拉菜单排除整个模式，选择你想排除的模式并点击 排除模式。或者，你可以选择一个给定的模式，只排除该特定模式中的特定表。排除任何非必需的表数据（如日志）和扩展，并查看你的列。&#xA;在这一点上，Snaplet将自动检测任何有个人身份信息（PII）的列，并将它们标记为紫色。如果有任何额外的列持有你想匿名的数据，你可以点击相应的列名，并为该列的数据提供一个替换值。要完成入职，请点击 &amp;ldquo;审查和保存&amp;rdquo;，然后进入仪表板。&#xA;2.3. 创建一个快照 创建一个生产数据库的快照。这是你以后要恢复到你的数据目标中的东西（在本指南后面会有更多的介绍）。&#xA;第三步：粘贴到你的开发数据库中 3.1. 在Supabase上创建一个数据目标 你的数据目标是你希望Snaplet恢复你的生产项目的捕获快照的地方。这很可能是你的暂存项目或开发者Supabase项目。如果您还没有在 Supabase 上设置一个开发人员数据库，请在 Supabase 上设置一个新项目来创建一个新的数据目标。要创建一个新项目，请遵循以下步骤。</description>
+    </item>
+    <item>
+      <title>PolyScale</title>
+      <link>https://example.org/pages-test/guides/integrations/polyscale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/polyscale/</guid>
+      <description>PolyScale是一个智能的、无服务器的数据库缓存引擎，它允许在全球范围内从Supabase进行低延迟读取，不需要编码。Supabase可以在几分钟内连接到PolyScale，让您在全球范围内快速访问您的Supabase数据。&#xA;本指南解释了如何将 Supabase 连接到 PolyScale 缓存。&#xA;下面的视频说明了如何进行连接。或者您可以阅读下面的步骤。&#xA;第0步：创建一个PolyScale账户 如果您还没有PolyScale的账户，您可以创建一个账户这里。PolyScale提供了一个免费的层级，不需要信用卡。&#xA;第1步：创建你的PolyScale Cache 1.1 检索你的Supabase主机 在你的Supabase项目中，点击设置&amp;gt;数据库，向下滚动到连接信息部分，复制你的数据库主机。&#xA;1.2 配置您的 PolyScale 缓存 在你的PolyScale账户中，点击新缓存按钮 给缓存一个名称 在类型中选择PostgreSQL**。 输入上面步骤1.1中的主机。 输入 5432作为端口。 点击创建 你的缓存现在已经创建。PolyScale会自动检查你的数据库是否可以从我们所有的全球PoP上访问。&#xA;第二步：连接到你的 PolyScale 缓存 使用你的 PolyScale 缓存很简单 &amp;ndash; 你不用直接连接到你的 Supabase 数据库，而是在你的应用程序中用 PolyScale 的连接字符串替换你原来的连接字符串。&#xA;例如，如果你原来的连接字符串是：postgres://postgres:zqSPGHFAbPLvVCKw@db.rogpiubvixysbakciwqz.supabase.co:5432。&#xA;你的PolyScale连接字符串将是。postgres://postgres:zqSPGHFAbPLvVCKw@psedge.global:5432?application_name=a645cb93-fa53-46b2-9d6c-227e357e5bfb。&#xA;你可以阅读更多关于连接到PolyScale的信息这里&#xA;就这样了。&#xA;全部完成! 你可以阅读更多关于PolyScale的信息这里或者查看我们的文档。</description>
+    </item>
+    <item>
+      <title>CI / CD Workflow</title>
+      <link>https://example.org/pages-test/guides/functions/cicd-workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/functions/cicd-workflow/</guid>
+      <description>As described in the Supabase CLI Environments Guide, you can use the setup-cli GitHub Action to run Supabase CLI commands in your GitHub Actions, for example to deploy a Supabase Edge Function:&#xA;name: Deploy Function on: push: branches: - main workflow_dispatch: jobs: deploy: runs-on: ubuntu-latest env: SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }} PROJECT_ID: zdtdtxajzydjqzuktnqx steps: - uses: actions/checkout@v3 - uses: supabase/setup-cli@v1 with: version: 1.0.0 - run: supabase functions deploy your-function-name --project-ref $PROJECT_ID See the example on GitHub.</description>
+    </item>
+    <item>
+      <title>使用Discord登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-discord/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-discord/</guid>
+      <description>要为您的项目启用Discord Auth，您需要设置Discord应用程序，并将应用程序OAuth凭据添加到Supabase Dashboard。&#xA;概述 为应用程序设置Discord登录包括3个部分：&#xA;创建和配置Discord应用程序Discord开发者门户 将Discord OAuth Consumer密钥添加到MemFire Cloud项目 将登录代码添加到JS客户端应用程序 访问Discord帐户 跳转 discord.com. 单击右上角的登录以登录。 登录后, 跳转到discord.com/developers. 查找回调URL 在下一步中，您需要回调URL，如下所示：&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;转到MemFire Cloud项目仪表板. 单击左侧边栏底部的设置图标。 单击列表中的API。 在Config/URL下，您将找到您的API URL，您可以单击复制将其复制到剪贴板。 现在只需在末尾添加/auth/v1/callback即可获得完整的OAuth重定向URI。 创建Discord应用程序 单击右上角的新建应用程序。 输入应用程序的名称，然后单击创建。 单击左侧面板中设置下的OAuth2。 单击重定向下的添加重定向。 在重定向框中键入或粘贴回调URL。 单击底部的保存更改。 复制客户端信息下的客户端ID和客户端密码。 将您的Discord凭证添加到Supabase项目中 跳转到MemFire Cloud项目仪表板 在左侧边栏中，单击身份验证图标（靠近顶部） 单击列表中的设置以转到身份验证设置页面 在站点URL下输入应用程序的最终（托管）URL（这很重要） 在外部OAuth提供程序下，将已启用Discord设置为ON 输入上一步中保存的client_id和client_secret 单击 保存 将登录代码添加到客户端应用程序 当您的用户登录时，调用[signInWithOAuth()](/docs/app/SDKdocs/JavaScript/auth signingwiththoauth)，并将discord作为provider：&#xA;async function signInWithDiscord() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: &amp;#39;discord&amp;#39;, }) } 如果您的用户已经登录，Discord会再次提示用户进行授权。&#xA;当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除：&#xA;async function signout() { const { error } = await supabase.</description>
+    </item>
+    <item>
+      <title>身份验证帮助程序</title>
+      <link>https://example.org/pages-test/guides/auth/auth-helpers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-helpers/</guid>
+      <description>用于使用Supabase的特定于框架的Auth实用程序的集合。&#xA;{/* Auth UI */}&#xD;</description>
+    </item>
+    <item>
+      <title>Self Hosting</title>
+      <link>https://example.org/pages-test/guides/hosting/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/hosting/overview/</guid>
+      <description>There are several ways to use Supabase:&#xA;Supabase Cloud: you don&amp;rsquo;t need to deploy anything. We will manage and scale your infrastructure. Docker: deploy to your own infrastructure. Kubernetes: coming soon. Architecture Supabase is a combination of open source tools, each specifically chosen for Enterprise-readiness.&#xA;If the tools and communities already exist, with an MIT, Apache 2, or equivalent open license, we will use and support that tool. If the tool doesn&amp;rsquo;t exist, we build and open source it ourselves.</description>
+    </item>
+    <item>
+      <title>Supabase Handbook</title>
+      <link>https://example.org/pages-test/handbook/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/handbook/introduction/</guid>
+      <description>Supabase is thinking in public. Everything is online, no matter how raw the current state of things.&#xA;This is our public handbook and manifesto. We are completely opensource and this means that you, our users, are also our team members.&#xA;Opensource Wherever we can we will support existing opensource tools and libraries.</description>
+    </item>
+    <item>
+      <title>使用Bitbucket登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-bitbucket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-bitbucket/</guid>
+      <description>要为项目启用Bitbucket身份验证，您需要设置Bitbucket OAuth应用程序，并将应用程序凭据添加到Supabase 项目仪表。&#xA;概述 为应用程序设置Bitbucket登录包括3个部分：&#xA;在Bitbucket上创建和配置Bitbucket OAuth Consumer 将Bitbucket OAuth Consumer密钥添加到Supabase项目 将登录代码添加到Supabase JS客户端应用程序 访问您的Bitbucket帐户 跳转到bitbucket.org。 单击右上角的登录以登录。 查找回调URL 下一步需要回调URL，如下所示：&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;跳转到MemFire Cloud项目仪表板. 单击左侧边栏底部的设置图标。 单击列表中的API。 在Config / URL 下，您将找到您的API URL，您可以单击复制将其复制到剪贴板。 现在只需在末尾添加/auth/v1/callback即可获得完整OAuth重定向URI。 创建Bitbucket OAuth应用程序 单击左下方的个人资料图标 单击所有工作区 选择一个工作区并单击它以选择它 单击左侧的设置 单击左侧应用程序和功能（靠近底部）下的OAuth消费者 单击顶部的添加消费者 在name下输入应用程序的名称 在回调URL中，键入应用的回调URL 检查您所需的权限（电子邮件，阅读应足够） 单击底部的保存 单击应用程序名称（新OAuth消费者的名称） 复制Key(client_key)和Secret (client_secret)代码 将您的Bitbucket凭据添加到Supabase项目中 跳转到Supabase项目仪表板 在左侧边栏中，单击身份验证图标（靠近顶部） 单击列表中的设置以转到身份验证设置页面 在站点URL下输入应用程序的最终（托管）URL（这很重要） 在外部OAuth提供程序下，将Bitbucket Enabled设置为ON 输入上一步中保存的client_id和client_secret 单击保存 将登录代码添加到客户端应用程序 当您的用户登录时，调用signInWithOAuth()，将bitbucket作为provider：&#xA;async function signInWithBitbucket() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: &amp;#39;bitbucket&amp;#39;, }) } 当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除：</description>
+    </item>
+    <item>
+      <title>关联查询</title>
+      <link>https://example.org/pages-test/guides/database/associated-query/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/associated-query/</guid>
+      <description>多表关联是指在关系型数据库中，通过多个数据表之间的字段关联，实现数据的联合查询和统计分析。使用场景包括：复杂的数据统计分析、跨部门的数据共享和协作、多维度的数据查询和分析等。一般情况下，需要设计合适的数据模型和关联规则来确保查询效率和数据准确性。其中包括：&#xA;过滤查询：eq 自定义字段查询 查询所有关联数据 条件过滤查询：filter 通过内关联/左关联查询 连接运算符：or 连接运算符：or &amp;amp; and 数据排序：order 过滤数据的条数： count 限制返回的行数： limit 本教程是通过数据表：学生课表信息表、课程信息表、学校信息表，三者之间存在的关联关系的示例来讲解如何通过JavaScript SDK的API进行多表关联查询数据的教程。&#xA;准备工作，创建数据表 创建subject表 subject表主要记录课程信息，表结构字段如下：&#xA;名称 类型 描述 id int8 主键，自增，唯一标识ID teacherName text 老师 adress text 上课地点 subjectName text 科目 updated_at timeatamptz 修改时间 CREATE TABLE &amp;#34;public&amp;#34;.&amp;#34;subject&amp;#34; ( &amp;#34;id&amp;#34; BIGINT NOT NULL, &amp;#34;teacherName&amp;#34; TEXT NOT NULL, &amp;#34;updated_at&amp;#34; TIMESTAMP WITH TIME ZONE NOT NULL, &amp;#34;adress&amp;#34; TEXT NOT NULL, &amp;#34;subjectName&amp;#34; TEXT NOT NULL, CONSTRAINT &amp;#34;subject_pkey&amp;#34; PRIMARY KEY (&amp;#34;id&amp;#34;) ); INSERT INTO &amp;#34;public&amp;#34;.</description>
+    </item>
+    <item>
+      <title>快速入门: SolidJS</title>
+      <link>https://example.org/pages-test/guides/with-solidjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-solidjs/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本.&#xA;构建应用程序 让我们开始从头开始构建SolidJS应用程序。&#xA;初始化一个SolidJS应用程序 我们可以使用Degit来初始化一个名为supabase-solid的应用程序。&#xA;npx degit solidjs/templates/ts supabase-solid cd supabase-solid 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后，我们要把环境变量保存在.env中。 我们所需要的是API URL和你[早些时候]复制的anon密钥（#get-theapi-keys）。&#xA;VITE_SUPABASE_URL=YOUR_SUPABASE_URL VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在 在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const supabaseUrl = import.meta.env.VITE_SUPABASE_URL const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY export const supabase = createClient(supabaseUrl, supabaseAnonKey) 还有一个可选的步骤是更新CSS文件src/index.css以使应用程序看起来漂亮。 你可以找到这个文件的全部内容这里&#xA;设置一个登录组件 让我们设置一个 SolidJS 组件来管理登录和注册。我们将使用Magic Links，因此用户可以用他们的电子邮件登录，而无需使用密码。&#xA;import { createSignal } from &amp;#39;solid-js&amp;#39; import { supabase } from &amp;#39;./supabaseClient&amp;#39; export default function Auth() { const [loading, setLoading] = createSignal(false) const [email, setEmail] = createSignal(&amp;#39;&amp;#39;) const handleLogin = async (e: SubmitEvent) =&amp;gt; { e.</description>
+    </item>
+    <item>
+      <title>数据库连接</title>
+      <link>https://example.org/pages-test/guides/database/connecting-to-postgres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/connecting-to-postgres/</guid>
+      <description>MemFire Cloud 提供了几种连接Postgres数据库的方式:&#xA;直接连接：使用Postgres标准连接系统直接与数据库进行连接和交互。 无服务器API连接：使用无服务器API以编程方式来访问数据库。 直接连接 每个MemFire Cloud 应用内置一个完整的Postgres数据库，你可以使用任何支持Postgres的工具来连接到数据库。你可以在控制台内的数据库设置中获取连接信息：&#xA;来到左侧菜单栏的 设置部分 点击数据库 启用数据库直连 找到应用的连接信息 白名单 MemFire Cloud内置白名单功能，开启白名单后，只允许白名单内的IP地址段访问你的数据库。关闭白名单后，访问你数据库的IP地址不受限制，即任何IP地址只要有连接信息都可以与你的数据库进行直连。 在进行白名单配置时，要遵循CIDR规则。MemFire Cloud中白名单功能 默认是关闭的，需用户手动开启。&#xA;无服务器API连接 MemFire Cloud 提供了自动更新API，极大简化了操作数据库中数据的步骤（包括数据查询、插入、更新等等）。同时我们也提供了一些不同类型的API来满足你的业务需求。&#xA;REST：通过REST接口与你的数据库进行交互。 GraphQL：通过GraphQL接口与你的数据库互动。 Realtime：通过websockets监听数据库变化。 案例教程 案例1 使用Navicat连接 Navicat是一个用于管理Postgres数据库的图形用户界面（GUI）工具。你可以使用它连接到你的数据库：&#xA;步骤1 新建一个连接，选择:PostgreSQL 步骤2 在你的MemFire Cloud控制台中找到“连接信息”，并添加此处。点击“测试连接”，若返回成功弹窗则表明连接建立成功。 连接成功后即可管理和查询你的数据。 案例2 使用python连接 配置：本例中选用pycharm编辑器，python3.8版本。&#xA;步骤1 在 MemFire Cloud 控制台中启用数据库直连，找到python的“连接字符串”。 步骤2 在pycharm编辑器中，导入第三方库 psycopg2，psycopg2是一个流行的Python库，用于连接和操作PostgreSQL数据库。如果尚未安装此库，请通过以下命令进行安装：&#xA;pip install psycopg2 或者在pycharm的 Python Interpreter中进行设置，步骤如下：&#xA;步骤3 完成psycopg2的安装后，将连接字符串中的[YOUR-PASSWORD]替换为数据库的实际密码。[YOUR-HOST]替换为数据库的主机地址。 [USER-NAME]替换为你的用户名。端口号默认为：10010，数据库名称默认为：postgres。建立与MemFire Cloud应用数据库连接，然后对数据库进行操作。&#xA;代码如下：&#xA;import psycopg2 # 定义连接字符串 connection_string = &amp;#34;user=[USER-NAME] password=[YOUR-PASSWORD] host=[YOUR-HOST] port=5432 dbname=postgres&amp;#34; try: # 连接到数据库 connection = psycopg2.</description>
+    </item>
+    <item>
+      <title>Plasmic</title>
+      <link>https://example.org/pages-test/guides/integrations/plasmic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/plasmic/</guid>
+      <description>在本指南中，我们将向你展示如何通过连接Supabase，一个开源的Firebase后台替代品，和Plasmic，一个网络可视化构建器，来建立一个众包的口袋妖怪Pokedex。虽然许多用户利用Plasmic来快速启动和迭代登陆页面，但在本教程中，我们将展示Plasmic作为React的通用视觉构建器有多么强大，它可以用来设计和实现全功能的读写应用程序。&#xA;你可以在这里玩一下现场演示。 https://plasmic-supabase-demo.vercel.app/&#xA;你也可以在这里看一下Plasmic项目。 https://studio.plasmic.app/projects/66RKaSPCwKxYjCfXWHCxn6&#xA;你需要在你的浏览器中启用第三方cookie，以便正确加载该项目。&#xA;在一个较高的水平上。&#xA;Supabase用于存储口袋妖怪的数据库（由Postgres支持），并提供一个认证后端。我们的代码基础包括React组件，用于查询数据库，显示这些数据，并支持用户会话。 Plasmic被用来创建应用程序的页面和视觉设计。我们将我们的Supabase组件导入工作室，可以在那里进行可视化组装和配置（例如，用于显示数据）。 Plasmic设计的页面被渲染回Next.js应用程序中。 第1步：在Supabase上设置你的后端 在Supabase仪表板上，点击 新建项目并设置项目名称。 默认情况下，Supabase已经为用户注册设置了电子邮件，用户被存储在users表中。 导航到左侧导航栏的 &amp;ldquo;表编辑器&amp;rdquo;。在这里我们可以创建一个 新表来存储我们的小精灵条目。确保你是在 schema public视图中。创建一个名为entries的新表，有6个列。 id：是条目的唯一ID。这一列应该作为主列自动生成。 user_id: 通过点击列名旁边的链接图标，创建一个与user表的关系。在这里，你可以选择用户表的id列。 名称, 描述, 图像Url: 这将存储每个小精灵的名称、描述和imageUrl。 inserted_at：这将是一个自动填充的列，设置为该行首次插入的时间。 注意：在本教程中，我们关闭了[行级安全（RLS）](/docs/guides/auth/row-level-security)。在实践中，你会想要创建策略，限制谁可以创建、编辑和删除帖子。通过关闭这个功能，任何用户都可以不受限制地修改数据库。&#xA;为方便起见，请随时将以下CSV导入Supabase，以预先填充您的数据库。为了进行导入，你必须在新表的对话框中选择 通过电子表格导入数据。(它对现有的表不起作用）。&#xA;pokedex-export.csv&#xA;第二步：建立你的代码库 我们为你准备了一个工作代码实例这里。这个启动器包含了所有的代码组件，你需要通过Plasmic Studio开始查询Supabase。&#xA;代码组件是在你的代码库中定义的React组件，我们将其导入Plasmic Studio中使用。你的项目将被配置为在http://localhost:3000/plasmic-host寻找这些组件，你可以在你的设计中使用这些组件，也可以对它们进行样式设计。查看supabase-demo/plasmic-init.ts以了解它们如何在Plasmic注册。&#xA;首先，克隆 Repo 到你的开发机器上，并安装依赖项。&#xA;git clone git@github.com:plasmicapp/plasmic.git cd plasmic/examples/supabase-demo/ yarn install 将.env.example复制到.env.local，它将存储运行本地开发服务器时的环境变量。添加你的Supabase项目的URL和公钥，你可以在Supabase仪表板左窗格的API标签中找到。&#xA;现在运行开发服务器，它的监听地址是http://localhost:3000。&#xA;yarn dev 第3步：探索现有的应用程序 在你的网络浏览器中导航到http://localhost:3000。该项目将已经设置了用户注册、登录和一个管理界面，用于添加和编辑小精灵到数据库。欢迎使用你的电子邮件地址注册一个账户，并将小精灵添加到数据库中。Supabase会要求你在登录前验证你的电子邮件地址。&#xA;如果你在步骤1中预先填充了数据库，你在登录后应该看到以下主页。否则，请随时通过用户界面手动添加小精灵。&#xA;第四步：克隆Plasmic项目 现在让我们试着做一些补充! 代码库目前被配置为Plasmic项目的只读副本。让我们先做一个可编辑的副本。&#xA;在这里打开默认的启动版Plasmic项目。 https://studio.plasmic.app/projects/66RKaSPCwKxYjCfXWHCxn6&#xA;要制作一个可编辑的副本，点击蓝条上的 复制项目按钮。这将克隆该项目，并将你重定向到你的副本。&#xA;###步骤4a: 配置你的代码库以使用新的Plasmic项目&#xA;注意到 项目ID和 API令牌。你可以在URL中找到项目ID。 https://studio.plasmic.app/projects/PROJECTID。&#xA;API令牌可以通过点击顶部栏的 代码按钮找到。&#xA;现在回到.env.local并更新相应的项目ID和token字段。&#xA;步骤 4b: 配置你的Plasmic项目应用主机 为了告诉Plasmic在你的开发服务器上寻找你的代码组件，你需要更新你的项目应用主机为http://localhost:3000/plasmic-host。</description>
+    </item>
+    <item>
+      <title>Storage CDN</title>
+      <link>https://example.org/pages-test/guides/storage-cdn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/storage-cdn/</guid>
+      <description>CDN basics All assets uploaded to storage are cached on a Content Delivery Network (CDN).&#xA;To improve the latency for users all around the world, Supabase uses a CDN. CDNs are a geographically distributed set of servers or nodes which caches content from an origin server. For Supabase Storage, the origin is the storage server running in the same region as your project.&#xA;Let’s walk through an example of how a CDN helps with performance.</description>
+    </item>
+    <item>
+      <title>超时</title>
+      <link>https://example.org/pages-test/guides/database/timeouts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/timeouts/</guid>
+      <description>默认情况下，Suabase将使用匿名密钥访问API的用户的最大语句执行时间限制为3秒，而经过身份验证的用户的最长语句执行时间为8秒。此外，所有用户的全局限制为2分钟。这可以防止由于查询写得不好或滥用而导致的资源耗尽。&#xA;改变默认超时 这些超时值被选为大多数情况下的合理默认值，但可以使用alter role语句进行修改。&#xA;alter role authenticated set statement_timeout = &amp;#39;15s&amp;#39;; 你也可以更新一个会话的语句超时:&#xA;set statement_timeout to 60000; -- 1 minute in milliseconds 语句优化 所有Supabase项目都安装了pg_stat_statements扩展，它跟踪所有针对它执行的语句的计划和执行统计数据。这些统计数据可以用来诊断你的项目的性能。&#xA;这些数据可以进一步与Postgres的explain功能结合使用，以优化你的使用。</description>
+    </item>
+    <item>
+      <title>Firestore数据迁移</title>
+      <link>https://example.org/pages-test/guides/migrations/firestore-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/migrations/firestore-data/</guid>
+      <description>Supabase提供了几个工具来转换Firebase Firestore数据库的数据到Supabase PostgreSQL数据库。这个过程将一个单一的Firestorecollection的全部内容复制到一个单一的PostgreSQLtable。&#xA;Firestore的 &amp;ldquo;集合 &amp;ldquo;被 &amp;ldquo;扁平化&amp;rdquo;，并转换为一个具有以下类型的基本列的表。text, numeric, boolean, or jsonb. 如果你的结构比较复杂，你可以写一个程序，在把你的json文件导入Supabase之前，把新创建的json文件分成多个相关的表。&#xA;设置迁移工具 {#set-up-migration-tool}. 克隆firebase-to-supabase资源库。 git clone https://github.com/supabase-community/firebase-to-supabase.git 在/firestore目录下，创建一个名为supabase-service.json的文件，内容如下。 { &amp;#34;host&amp;#34;: &amp;#34;database.server.com&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;secretpassword&amp;#34;, &amp;#34;user&amp;#34;: &amp;#34;postgres&amp;#34;, &amp;#34;database&amp;#34;: &amp;#34;postgres&amp;#34;, &amp;#34;port&amp;#34;: 5432 } 进入Supabase Dashboard中你的项目的[数据库设置]（https://app.supabase.com/project/_/settings/database）。 在连接信息下，复制主机字符串并替换你的supabase-service.json文件中的条目。 在supabase-service.json文件的password条目中输入你在创建Supabase项目时使用的密码。 ##生成一个Firebase私钥 {#generate-firebase-private-key}.&#xA;登录到你的Firebase控制台并打开你的项目。 点击侧边栏中项目概览旁边的齿轮图标，选择项目设置**。 点击服务账户，选择Firebase Admin SDK。 单击生成新的私钥。 将下载的文件重命名为firebase-service.json。 命令行选项 列出所有Firestore集合 node collections.js。&#xA;将Firestore集合转储为JSON文件 node firestore2json.js &amp;lt;collectionName&amp;gt; [&amp;lt;batchSize&amp;gt;] [&amp;lt;limit&amp;gt;]&#xA;batchSize (optional) defaults to 1000 output filename is &amp;lt;collectionName&amp;gt;.json limit (optional) defaults to 0 (no limit) 用钩子定制JSON文件 你可以使用自定义钩子自定义你的JSON文件的写入方式。一个常见的用途是 &amp;ldquo;扁平化 &amp;ldquo;JSON文件，或将嵌套的数据分割到独立的、相关的数据库表中。例如，你可以采取一个Firestore文件，看起来像这样。</description>
+    </item>
+    <item>
+      <title>uuid-ossp: 唯一标识符</title>
+      <link>https://example.org/pages-test/guides/database/extensions/uuid-ossp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/uuid-ossp/</guid>
+      <description>uuid-ossp扩展可用于生成UID。&#xA;概述 UUID是一个 通用唯一标识符，在实际应用中，它是唯一的。 这使得它们特别适合作为主键。它有时也被称为 GUID，代表 全球唯一标识符。&#xA;使用方法 启用扩展名 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 uuid-ossp并启用该扩展。 Note: 目前 uuid-ossp扩展被默认启用，不能被禁用。&#xA;-- Example: enable the &amp;#34;uuid-ossp&amp;#34; extension create extension &amp;#34;uuid-ossp&amp;#34; with schema extensions; -- Example: disable the &amp;#34;uuid-ossp&amp;#34; extension drop extension if exists &amp;#34;uuid-ossp&amp;#34;; 尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;Note: 目前 uuid-ossp扩展被默认启用，不能被禁用。&#xA;Uuid类型 一旦扩展被启用，你现在可以访问一个uuid类型。&#xA;uuid_generate_v1() 根据计算机的MAC地址、当前时间戳和一个随机值的组合创建一个UUID值。&#xA;info&#xD;UUIDv1泄露了可识别的细节，这可能使它不适合于某些安全敏感的应用.&#xA;uuid_generate_v4() 创建完全基于随机数的UUID值。你也可以使用Postgres内置的gen_random_uuid()函数来生成一个UUIDv4。&#xA;示例 在一个查询中 select uuid_generate_v4(); 作为主键 在表中自动创建唯一的随机ID：&#xA;create table contacts ( id uuid default uuid_generate_v4(), first_name text, last_name text, primary key (id) ); 资源 选择一个Postgres主键 PostgreSQL UID数据类型的基础知识 </description>
+    </item>
+    <item>
+      <title>使用MessageBird的电话授权</title>
+      <link>https://example.org/pages-test/guides/auth/auth-messagebird/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-messagebird/</guid>
+      <description>概述 在本指南中，我们将向您展示如何使用基于 SMS 的 OTP（一次性密码）令牌来验证您的用户。&#xA;使用Supabase SMS OTP令牌有两个原因。&#xA;你想让用户用手机+密码登录，并且手机应该通过短信进行验证 你希望用户只用手机登录（即无密码登录）。 我们将涵盖。&#xA;找到你的MessageBird证书](#finding-your-messagebird-credentials) 使用OTP与基于密码的登录 使用OTP作为无密码登录机制](#using-otp-as-passwordless-sign-in-mechanism) 你需要什么？&#xA;一个MessageBird账户（在此注册：https://dashboard.messagebird.com/en/sign-up） 一个Supabase项目（在这里创建一个：https://app.supabase.com）。 一部能够接收短信的移动电话 步骤 找到你的MessageBird凭证 首先登录您的MessageBird账户，并验证您将用于测试的手机号码： https://dashboard.messagebird.com/en/getting-started/sms&#xA;这是一个将接收短信OTP的号码。&#xA;导航到仪表板设置，设置默认发件人。messagebird发信人是发送消息的名称或号码。 欲了解更多信息，你可以参考messagebird关于选择发起人的文章这里&#xA;你将需要以下数值才能开始。&#xA;Live API Key / Test API Key MessageBird 发起人 现在去Supabase仪表板中的Auth &amp;gt; Settings页面(https://app.supabase.com/project/YOUR-PROJECT-REF/auth/settings)。&#xA;你应该看到一个选项来启用电话注册。&#xA;拨动它，并从Messagebird仪表板上复制2个值。点击保存。&#xA;注意：如果您使用测试API密钥，OTP将不会被传送到指定的手机号码，但messagebird将在仪表板上记录响应。 如果使用实时API密钥，OTP将被交付，但您的免费点数将被扣除。&#xA;插件MessageBird凭证&#xA;现在后台应该已经设置好了，我们可以继续添加我们的客户端代码了&#xA;短信定制模板 发送到手机上的包含OTP代码的短信可以被定制。如果你需要提到一个品牌名称或显示一个网站地址，这很有用。&#xA;进入 Supabase 仪表板中的 Auth &amp;gt; Templates 页面 (https://app.supabase.com/project/YOUR-PROJECT-REF/auth/templates)。&#xA;在模板中使用变量.Code来显示代码。&#xA;使用OTP与基于密码的登录方式 在这个使用场景中，我们将使用用户的手机号码作为注册时与密码一起使用的电子邮件地址的替代。然而，你可能要仔细考虑一下这个的持久性。当用户取消他们的电话合同或移动国家时，手机号码被电话网络回收的情况并不少见，因此，无论谁在未来接管了这个手机号码，都可以访问用户的账户。很快我们就会增加多因素认证，这将减轻这种风险，但现在你可能要考虑一下，让你的用户在紧急情况下通过其他方式恢复他们的账户。&#xA;在客户端使用supabase-js，你要使用与基于电子邮件的注册相同的signUp方法，但使用phone参数而不是email参数。&#xA;JavaScript&#xD;HTTP&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;js&#34;&#xD;&gt;&#xD;let { user, error } = await supabase.</description>
+    </item>
+    <item>
+      <title>快速入门: Expo</title>
+      <link>https://example.org/pages-test/guides/with-expo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-expo/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本&#xA;构建应用程序 让我们开始从头开始构建React Native应用。&#xA;初始化一个React Native应用 我们可以使用expo来初始化 一个名为 &amp;ldquo;expo-user-management &amp;ldquo;的应用程序。&#xA;npx create-expo-app -t expo-template-blank-typescript expo-user-management cd expo-user-management 然后让我们安装额外的依赖项。supabase-js&#xA;npm install @supabase/supabase-js npm install react-native-elements @react-native-async-storage/async-storage react-native-url-polyfill 现在让我们创建一个辅助文件来初始化Supabase客户端。 我们需要API URL和你[早些时候]复制的anon密钥（#get-the-api-keys）。 这些变量将被暴露在浏览器上，这完全没有问题，因为我们有 行级安全在我们的数据库上启用。&#xA;import AsyncStorage from &amp;#39;@react-native-async-storage/async-storage&amp;#39; import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const supabaseUrl = YOUR_REACT_NATIVE_SUPABASE_URL const supabaseAnonKey = YOUR_REACT_NATIVE_SUPABASE_ANON_KEY export const supabase = createClient(supabaseUrl, supabaseAnonKey, { auth: { storage: AsyncStorage as any, autoRefreshToken: true, persistSession: true, detectSessionInUrl: false, }, }) 设置一个登录组件 让我们建立一个React Native组件来管理登录和注册。 用户将能够用他们的电子邮件和密码登录。</description>
+    </item>
+    <item>
+      <title>JSON</title>
+      <link>https://example.org/pages-test/guides/database/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/json/</guid>
+      <description>PostgreSQL supports JSON functions and operators which gives flexibility when storing data inside a database column.&#xA;PostgreSQL supports two types of JSON columns: JSON and JSONB. The recommended type is JSONB for almost all cases. When you use the JSONB format, the data is parsed when it&amp;rsquo;s put into the database so it&amp;rsquo;s faster when querying and also it can be indexed.&#xA;Create a table with a JSON column Dashboard&#xD;SQL&#xD;&#xD;size=&#34;</description>
+    </item>
+    <item>
+      <title>Firebase Auth 迁移</title>
+      <link>https://example.org/pages-test/guides/migrations/firebase-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/migrations/firebase-auth/</guid>
+      <description>Supabase 提供了几个工具来帮助将 auth 用户从 Firebase 项目迁移到 Supabase 项目。迁移过程有两个部分。&#xA;firestoreusers2json (TypeScript, JavaScript) 将现有Firebase项目中的用户导出到本地系统中的.json文件。 import_users (TypeScript, JavaScript) 从保存的.json文件中导入用户到你的Supabase项目（将这些用户插入到你的PostgreSQL数据库实例的auth.users表中）。 设置迁移工具 {#set-up-migration-tool} 1. 克隆 firebase-to-supabase 存储库。 git clone https://github.com/supabase-community/firebase-to-supabase.git 在/auth目录下，创建一个名为supabase-service.json的文件，内容如下。 { &amp;#34;host&amp;#34;: &amp;#34;database.server.com&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;secretpassword&amp;#34;, &amp;#34;user&amp;#34;: &amp;#34;postgres&amp;#34;, &amp;#34;database&amp;#34;: &amp;#34;postgres&amp;#34;, &amp;#34;port&amp;#34;: 5432 } 进入Supabase Dashboard中你的项目的[数据库设置]（https://app.supabase.com/project/_/settings/database）。 在连接信息下，复制主机字符串并替换你的supabase-service.json文件中的条目。 在supabase-service.json文件的password条目中输入你在创建Supabase项目时使用的密码。 ##生成一个Firebase私钥 {#generate-firebase-private-key} 1.&#xA;登录到你的Firebase控制台并打开你的项目。 点击侧边栏中项目概览旁边的齿轮图标，选择项目设置**。 点击服务账户，选择Firebase Admin SDK。 单击生成新的私钥。 将下载的文件重命名为firebase-service.json。 ##保存你的Firebase密码哈希参数 {#save-firebase-hash-parameters}.&#xA;登录到你的Firebase控制台并打开你的项目。 在侧边栏中选择认证（构建部分）。 在顶部菜单中选择用户。 在用户列表的右上方，打开菜单（3个点），点击密码哈希参数。 复制并保存base64_signer_key、base64_salt_separator、rounds和mem_cost的参数。 hash_config { algorithm: SCRYPT, base64_signer_key: XXXX/XXX+XXXXXXXXXXXXXXXXX+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX==, base64_salt_separator: Aa==, rounds: 8, mem_cost: 14, } 命令行选项 ###将Firestore用户转储为JSON文件 {#dump-firestore-users}</description>
+    </item>
+    <item>
+      <title>Passwords</title>
+      <link>https://example.org/pages-test/guides/database/managing-passwords/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/managing-passwords/</guid>
+      <description>你的PostgreSQL数据库是你的Supabase项目的核心，所以在任何时候都有一个强大、安全的密码是很很重要的。&#xA;如果你在你的postgres密码中使用了特殊符号，你必须记得在以后使用postgres连接字符串时对你的密码进行%-encode，例如：postgresql://postgres:p%3Dword@db.cvwawazfelidkloqmbma.supabase.co:5432/postgres。&#xA;改变你的项目密码 当你创建你的项目时，你也被要求输入一个密码。这实际上是你的数据库的密码，特别是 &amp;ldquo;postgres&amp;quot;用户的密码。 你可以在Dashboard的数据库设置页面下更新它。&#xA;创建一个安全的密码 安全地存储你的客户数据是绝对关键的。这里有一些创建安全密码的提示。&#xA;使用一个密码管理器来生成密码。 制作一个长密码（至少12个字符）。 不要使用任何常见的字典中的词汇。 同时使用大写和小写字符、数字和特殊符号。 资源库 PostgreSQL ALTER USER文档 </description>
+    </item>
+    <item>
+      <title>参考文件</title>
+      <link>https://example.org/pages-test/reference/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/reference/</guid>
+      <description>官方Supabase客户端库、API和工具的参考文档。</description>
+    </item>
+    <item>
+      <title>Compute Add-ons</title>
+      <link>https://example.org/pages-test/guides/platform/compute-add-ons/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/compute-add-ons/</guid>
+      <description>Supabase平台上的每个项目都有自己的专用Postgres实例，在一个虚拟机（VM）内运行。下表描述了基本实例，如果你在扩大Supabase规模时需要额外的性能，可以使用额外的计算附加组件。&#xA;Plan Pricing CPU Memory Disk IO Bandwidth Connections: Direct Connections: Pooler Free (Included) $0 2-core ARM (shared) 1 GB Up to 2,085 Mbps 10 (recommended) 50 (recommended) Small $5 2-core ARM (shared) 2 GB Up to 2,085 Mbps 30 (recommended) 75 (recommended) Medium $50 2-core ARM (shared) 4 GB Up to 2,085 Mbps 50 (recommended) 150 (recommended) Large $100 2-core ARM (dedicated) 8 GB Up to 4,750 Mbps 100 (recommended) 300 (recommended) XL $200 4-core ARM (dedicated) 16 GB Up to 4,750 Mbps 200 (recommended) 600 (recommended) 2XL $400 8-core ARM (dedicated) 32 GB Up to 4,750 Mbps 350 (recommended) 1200 (recommended) 4XL $950 16-core ARM (dedicated) 64 GB Up to 4,750 Mbps 420 (recommended) 2800 (recommended) 8XL $1,860 32-core ARM (dedicated) 128 GB Up to 9,000 Mbps 450 (recommended) 5600 (recommended) 12XL $2,790 48-core ARM (dedicated) 192 GB Up to 13,500 Mbps 480 (recommended) 8600 (recommended) 16XL $3,720 64-core ARM (dedicated) 256 GB Up to 19,000 Mbps 500 (recommended) 11,600 (recommended) 联系我们如果你需要一个定制计划。</description>
+    </item>
+    <item>
+      <title>SuperTokens</title>
+      <link>https://example.org/pages-test/guides/integrations/supertokens/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/supertokens/</guid>
+      <description>SuperTokens是一个开源的认证解决方案，为认证和管理用户提供许多策略。你可以使用管理服务来进行简单的设置，也可以自行托管该解决方案以完全控制你的数据。&#xA;在本指南中，我们将使用SuperTokens、Supabase和Next.js构建一个简单的Web应用程序。你将能够使用SuperTokens进行注册，你的电子邮件和用户ID将被存储在Supabase中。一旦通过认证，前端将能够查询Supabase并检索用户的电子邮件。我们的示例应用程序将使用电子邮件-密码和社交登录配方进行认证和会话管理。&#xA;我们将使用Supabase来存储和授权对用户数据的访问。Supabase使得设置行级安全(RLS)策略变得非常简单，它可以确保用户只能读写属于他们的数据。&#xA;###演示应用程序&#xA;你可以在Github上找到一个使用SuperTokens、Supabase和Nexts.js的演示应用程序。&#xA;步骤1：创建一个新的Supabase项目 在你的Supabase仪表板上，点击`新项目&amp;rsquo;。&#xA;为你的Supabase项目输入一个`名称&amp;rsquo;。&#xA;输入一个安全的 &amp;ldquo;数据库密码&amp;rdquo;。&#xA;选择你的应用程序后台所在的同一个 &amp;ldquo;区域&amp;rdquo;。&#xA;点击 创建新项目。&#xA;第2步：在Supabase中创建表 在Supabase仪表板的侧边栏菜单中，点击 表编辑器，然后点击 新建表。&#xA;输入users作为名称字段。&#xA;选择 启用行级安全（RLS。&#xA;删除默认列&#xA;创建两个新列。&#xA;user_id为varchar，作为主键 email为varchar。 点击 保存来创建新表。&#xA;第三步：用SuperTokens设置你的Next.js应用程序。 由于本指南的范围仅限于 SuperTokens 和 Supabase 之间的集成，您可以参考 SuperTokens 网站，查看 如何用 SuperTokens 设置您的 Next.js 应用程序。&#xA;一旦你完成了应用的设置，你将看到以下屏幕&#xA;第4步：创建一个Supabase JWT来访问Supabase 在我们的 Nextjs 应用程序中，当用户注册时，我们希望在 Supabase 中存储用户的电子邮件。然后我们将从Supabase中检索该电子邮件，并在我们的前端显示它。&#xA;要使用Supabase客户端来查询数据库，我们需要创建一个用Supabase应用程序的签名秘密签名的JWT。这个JWT还需要包含用户的userId，以便Supabase知道有一个经过认证的用户在发出请求。&#xA;为了创建这个流程，我们需要修改 SuperTokens，以便在用户注册或登录时，创建一个用 Supabase 的签名秘密签名的 JWT，并附加到用户的会话中。将JWT附加到用户的会话上将使我们能够在前端和后端（会话后验证）检索Supabase JWT，使用它我们可以查询Supabase。&#xA;我们希望在创建SuperTokens的会话时创建一个Supabase JWT。这可以通过在你的后端配置中覆盖createNewSession函数来实现。&#xA;// config/backendConfig.ts import ThirdPartyEmailPasswordNode from &amp;#34;supertokens-node/recipe/thirdpartyemailpassword&amp;#34;; import SessionNode from &amp;#34;supertokens-node/recipe/session&amp;#34;; import { TypeInput } from &amp;#34;supertokens-node/lib/build/types&amp;#34;; import { appInfo } from &amp;#34;.</description>
+    </item>
+    <item>
+      <title>快速入门: Vue</title>
+      <link>https://example.org/pages-test/guides/with-vue-3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-vue-3/</guid>
+      <description>第一步：在 MemFire Cloud 仪表板中创建一个新应用。 应用准备就绪后，进入应用，在左侧菜单-&amp;gt;表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。&#xA;-- Create the table CREATE TABLE countries ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL ); -- Insert some sample data into the table INSERT INTO countries (name) VALUES (&amp;#39;United States&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Canada&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Mexico&amp;#39;); 第二步：创建 Vue 应用 使用 npm init 命令创建 Vue 应用。&#xA;npm init vue@latest my-app 第三步：安装 Supabase 客户端库 最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 Vue 应用程序中使用 Supabase。 导航到 Vue 应用程序并安装 supabase-js 。</description>
+    </item>
+    <item>
+      <title>本地开发</title>
+      <link>https://example.org/pages-test/guides/cli/local-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/cli/local-development/</guid>
+      <description>了解如何使用 Supabase CLI 在本地开发你的项目并部署到 Supabase 平台。&#xA;前提条件 确保你在你的本地机器上安装了这些东西。&#xA;Docker Git Supabase CLI 登录到Supabase CLI supabase login 初始化你的项目 为你的项目创建一个新的文件夹并启动一个新的git仓库。&#xA;# create your project folder mkdir your-project # move into the new folder cd your-project # start a new git repository git init 启动Supabase服务 Initialize Supabase为在本地开发你的项目设置了配置。&#xA;supabase init 确保Docker正在运行。start命令使用Docker来启动Supabase的service。 如果是第一次使用CLI，这个命令可能需要运行一段时间。&#xA;supabase start 一旦所有的 Supabase 服务都在运行，你会看到包含你的本地 Supabase 凭证的输出。 你可以在任何时候使用 stop 命令来停止所有服务。&#xA;访问服务 你可以用任何Postgres客户端直接访问服务，或者通过API网关（Kong）。&#xA;Postgres&#xD;API Gateway&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;postgres&#34;&#xD;&gt;&#xD;# Default URL: postgresql://postgres:postgres@localhost:54322/postgres 本地Postgres实例可以通过psql 或任何其他Postgres客户端，如pgadmin。</description>
+    </item>
+    <item>
+      <title>Edge Functions</title>
+      <link>https://example.org/pages-test/guides/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/functions/</guid>
+      <description>Edge Functions are server-side TypeScript functions, distributed globally at the edge—close to your users. They can be used for listening to webhooks or integrating your Supabase project with third-parties like Stripe.&#xA;Edge Functions are developed using Deno, which offers a few benefits to you as a developer:&#xA;It is open source. It is portable. Supabase Edge Functions run locally, and on any other Deno-compatible platform (including self-hosted infrastructure). It is TypeScript first and supports WASM.</description>
+    </item>
+    <item>
+      <title>pgMustard</title>
+      <link>https://example.org/pages-test/guides/integrations/pgmustard/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/pgmustard/</guid>
+      <description>本指南解释了如何使用explain和pgMustard对Supabase的缓慢查询进行故障排除。&#xA;pgMustard是explain analyze的一个可视化工具，它也提供性能提示。&#xA;步骤1：从Supabase获取查询计划 使用explain analyze从Postgres获得一个查询计划。这将在幕后运行查询，所以对数据修改查询要小心。&#xA;pgMustard要求计划是json格式的，缓冲区、verbose和设置参数可以让它给出更好的提示。&#xA;所以你的查询的一个好的前缀是。&#xA;explain (analyze, format json, buffers, verbose, settings) 运行查询，并复制输出。&#xA;如果你使用Supabase的SQL编辑器，这很容易从上面的QUERY PLAN单元格中复制出来。&#xA;如果你有任何问题，请查看pgMustard的[获取查询计划]指南(https://www.pgmustard.com/getting-a-query-plan)。&#xA;步骤2：将查询计划粘贴到pgMustard中 将json输出粘贴到pgMustard中，然后按提交。&#xA;第3步：查看顶级提示和最慢的操作 查看pgMustard中的顶级提示。这些提示的评分标准是0到5颗星，基于它们有多少节省时间的潜力（5颗星意味着有很多潜力）。&#xA;点击其中一个提示，或其中一个操作，以查看更多信息。&#xA;第四步：考虑你的选择 如果你得到一些有希望的建议，你不妨去探讨一下。&#xA;如果你没有得到任何提示，你的查询对于它的工作量来说可能是相当快的。&#xA;对于我们在步骤3中看到的例子，让我们尝试在Supabase的customer_name字段上添加一个索引。&#xA;再次经历步骤1-3，我们现在得到了一个高效的索引扫描，随着数据的增长，它将有很好的扩展。&#xA;我们可以研究一下为什么Postgres没有选择在这里做一个纯索引扫描，但是pgMustard让我们知道，它认为我们这样做不会有什么收获，它给这个提示打了0.3分（满分5分）。&#xA;资源 pgMustard 官方网站。 pgMustard explain glossary。 </description>
+    </item>
+    <item>
+      <title>手机登录认证</title>
+      <link>https://example.org/pages-test/guides/phoneauth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/phoneauth/</guid>
+      <description>前言 为了顺应国内用户的使用习惯，MemFire Cloud提供了手机号码验证的登录方式，可以兼容国内的阿里云服务商，用户可以采用手机号+短信的放式进行用户身份认证。&#xA;使用步骤 1.开启手机验证 进入“用户认证”-&amp;gt;“服务商”页面，启用手机号码验证，短信（SMS）服务商选择“阿里云”，依次填写好阿里云配置后点击保存。&#xA;当启用“短信验证”时，说明您需要发送短信验证码来进行手机认证，您需要填写正确的阿里云短信签名名称和短信模板CODE&#xA;2.示例教程 MemFire Cloud 提供两种手机登录认证方式，分别如下：&#xA;① 手机号+验证码登录认证 用户使用手机号获取验证码。&#xA;SDK的使用教程&#xA;//获取验证码 async function getQRcode(){ let { data, error } = await _supabase.auth.signInWithOtp({ phone: phone, }) if(error){ alert(error) } alert(&amp;#39;短信已发送至您的手机中，请注意查收。&amp;#39;) } //登录 async function sigin(){ let { data, error } = await _supabase.auth.verifyOtp({ phone: phone, token: QRcode, type: &amp;#39;sms&amp;#39;, }) if(error){ alert(error) return; } alert(&amp;#39;登录成功！&amp;#39;) } ② 手机号+密码+验证码认证 图示 先用手机号+密码获取验证码进行注册&#xA;随后会在用户列表里刚刚那条等待验证的用户信息&#xA;输入验证码，点击注册，会发现用户列表的用户已经认证成功。&#xA;SDK的使用教程&#xA;1.用户使用手机号+密码先来获取验证码进行注册。&#xA;//获取验证码（注册） async function getQRcode(){ let { data, error } = await _supabase.</description>
+    </item>
+    <item>
+      <title>用Slack登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-slack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-slack/</guid>
+      <description>要为你的项目启用Slack Auth，你需要设置一个Slack OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置Slack登录，包括3个部分。&#xA;在Slack Developer Dashboard上创建并配置一个Slack项目和应用程序。 在你的MemFire Cloud项目中添加你的Slack API密钥和API秘钥。 将登录代码添加到你的JS客户端应用程序。 访问你的Slack开发者账户 转到api.slack.com。 点击右上方的 &amp;ldquo;你的应用程序 &amp;ldquo;来登录。 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个Slack OAuth应用程序 进入api.slack.com。 点击 创建一个应用程序（Create an App）。 在 创建一个应用程序... 下。&#xA;点击从头开始。 输入你的应用程序的名称 选择你的 Slack工作区。 点击 创建应用程序。 在 应用程序证书下。&#xA;复制并保存你新生成的 客户端ID。 复制并保存你新生成的 客户端机密。 点击 权限。 在 重定向URLs下。&#xA;点击 添加新的重定向网址。 粘贴您的 回调URL，然后点击 添加。 单击 保存URLs。 将你的Slack凭证输入你的Supabase项目中 转到你的MemFire Cloud项目仪表板。 在左边的侧边栏，点击认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面。 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth提供商下，将 Slack Enabled设为ON。 输入上一步保存的 客户端ID（client_id）和 客户端密码（client_secret）。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将slack作为提供者。</description>
+    </item>
+    <item>
+      <title>用Twitter登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-twitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-twitter/</guid>
+      <description>要为你的项目启用Twitter Auth，你需要设置一个Twitter OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置Twitter登录由3部分组成。&#xA;在Twitter Developer Dashboard上创建并配置一个Twitter项目和应用程序。 在你的MemFire Cloud项目中添加你的TwitterAPI密钥和API秘钥。 将登录代码添加到您的JS客户端应用程序。 访问你的Twitter开发者账户 转到developer.twitter.com。 点击右上方的 Sign in来登录。 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个Twitter OAuth应用程序 点击+创建项目。 输入你的项目名称，点击下一步。 选择你的用例，点击 下一步。 输入项目描述，点击 下一步。 为你的应用程序输入一个名称，点击完成。 复制并保存你的 API Key（这是你的 client_id）。 复制并保存你的 API密匙（这是你的 client_secret）。 在底部，在 下一步，设置你的应用程序下，点击 启用第三方认证的链接。 在 应用程序设置下，点击你的应用程序名称旁边的齿轮图标，进入 应用程序设置。 在底部，在 认证设置旁边，点击 编辑。 打开 启用三条腿的OAuth。 打开 向用户索取电子邮件地址。 输入你的 回调URL。 输入你的 网站URL。 输入你的 服务条款的URL。 输入你的 隐私政策URL。 点击 保存。 在你的Supabase项目中输入你的Twitter凭证 转到你的MemFire Cloud项目仪表板。 在左边的侧栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面。 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth Providers下，将 Twitter Enabled设为ON。 输入上一步保存的 API密钥（client_id）和 API秘钥（client_secret）。 点击 保存。 ##在你的客户端应用程序中添加登录代码</description>
+    </item>
+    <item>
+      <title>迁移和升级项目</title>
+      <link>https://example.org/pages-test/guides/platform/migrating-and-upgrading-projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/migrating-and-upgrading-projects/</guid>
+      <description>Supabase的发货速度很快，我们尽可能地将所有新功能添加到现有的项目中。 在某些情况下，使用新功能需要升级或迁移你的Supabase项目。&#xA;升级你的项目 当你暂停并恢复一个项目时，恢复后的数据库包括最新的功能。这种方法_确实包括停机时间，所以请注意你的项目将在短时间内无法访问。&#xA;在仪表板的常规设置页面，点击暂停项目。当你的项目暂停时，你将被重定向到主屏幕。这个过程可能需要数分钟。 在你的项目暂停后，点击恢复项目。恢复过程可能需要几分钟，这取决于你的数据库有多少数据。一旦恢复完成，你会收到一封电子邮件。 迁移你的项目 迁移项目可以使用标准的PostgreSQL工具来实现。这对老项目特别有用（例如，要使用较新的Postgres版本）。&#xA;在你开始之前 安装Postgres，以便你可以运行psql和pg_dump。 创建一个新的MemFire Cloud项目。 将旧项目的数据库URL存储为$OLD_DB_URL，将新项目的存储为$NEW_DB_URL。 迁移数据库 如果你在旧项目中启用了数据库Webhooks，在新项目中启用它们。 在你的新项目中，启用所有在旧项目中启用的扩展。 从你的终端运行以下命令。 set -euo pipefail pg_dump \ --clean \ --if-exists \ --quote-all-identifiers \ --exclude-table-data &amp;#39;storage.objects&amp;#39; \ --exclude-schema &amp;#39;extensions|graphql|graphql_public|net|pgbouncer|pgsodium|pgsodium_masks|realtime|supabase_functions|pg_toast|pg_catalog|information_schema&amp;#39; \ --schema &amp;#39;*&amp;#39; \ --dbname &amp;#34;$OLD_DB_URL&amp;#34; \ | sed &amp;#39;s/^DROP SCHEMA IF EXISTS &amp;#34;auth&amp;#34;;$/-- DROP SCHEMA IF EXISTS &amp;#34;auth&amp;#34;;/&amp;#39; \ | sed &amp;#39;s/^DROP SCHEMA IF EXISTS &amp;#34;storage&amp;#34;;$/-- DROP SCHEMA IF EXISTS &amp;#34;storage&amp;#34;;/&amp;#39; \ | sed &amp;#39;s/^CREATE SCHEMA &amp;#34;auth&amp;#34;;$/-- CREATE SCHEMA &amp;#34;auth&amp;#34;;/&amp;#39; \ | sed &amp;#39;s/^CREATE SCHEMA &amp;#34;storage&amp;#34;;$/-- CREATE SCHEMA &amp;#34;storage&amp;#34;;/&amp;#39; \ | sed &amp;#39;s/^ALTER DEFAULT PRIVILEGES FOR ROLE &amp;#34;supabase_admin&amp;#34;/-- ALTER DEFAULT PRIVILEGES FOR ROLE &amp;#34;supabase_admin&amp;#34;/&amp;#39; \ &amp;gt; dump.</description>
+    </item>
+    <item>
+      <title>MemFire Cloud Platform</title>
+      <link>https://example.org/pages-test/guides/hosting/platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/hosting/platform/</guid>
+      <description>MemFire Cloud是一个托管平台，这使得开始使用非常简单，不需要管理任何基础设施。&#xA;访问MemFire Cloud并登录，开始创建项目。&#xA;项目 MemFire Cloud上的每个项目都有。&#xA;一个专门的Postgres数据库 自动生成的API 授权和用户管理 实时API 存储 组织 组织是对你的项目进行分组的一种方式。每个组织可以配置不同的团队成员和计费设置。&#xA;管理团队成员 你可以邀请你的团队成员进入你的组织，进行项目合作。&#xA;你也可以给你的团队成员分配不同访问级别的角色。下表显示了仪表板中每个可用角色的相应权限。&#xA;Permissions Owner Administrator Developer 组织 更改组织名称 ✅ 删除组织 ✅ 成员 添加用户 ✅ 删除用户 ✅ 添加管理员 ✅ ✅ 删除管理员 ✅ ✅ 添加一个开发者 ✅ ✅ 删除一个开发者 ✅ ✅ 撤销一个邀请 ✅ ✅ 重新发送邀请 ✅ ✅ 账单管理 读取账单 ✅ ✅ ✅ 阅读帐单邮件 ✅ ✅ ✅ 更改帐单电子邮件 ✅ 查看订阅 ✅ ✅ ✅ 更新订阅 ✅ ✅ 读取帐单地址 ✅ ✅ ✅ 更新帐单地址 ✅ ✅ 阅读税则 ✅ ✅ ✅ 更新税则 ✅ ✅ 阅读支付方式 ✅ ✅ ✅ 更新支付方式 ✅ ✅ 项目 创建项目 ✅ ✅ 删除项目 ✅ ✅ 更新项目 ✅ ✅ 暂停项目 ✅ ✅ 恢复项目 ✅ ✅ 重启项目 ✅ ✅ ✅ 平台状态 如果MemFire Cloud出现故障，我们会尽可能早地通知您。我们提供以下反馈渠道。</description>
+    </item>
+    <item>
+      <title>实时快速入门</title>
+      <link>https://example.org/pages-test/guides/realtime/quickstart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/realtime/quickstart/</guid>
+      <description>学习如何构建multiplayer.dev，这是一个合作应用，它展示了使用实时的广播、Presence和Postgres CDC。&#xA;安装supabase-js 客户端 npm install @supabase/supabase-js 光标位置 广播允许一个客户端发送消息，多个客户端接收消息。广播的消息是短暂的。它们不会被持久化到数据库中，而是直接通过实时服务器转发。这对于发送像光标位置这样的信息是很理想的，因为最小的延迟是很重要的，但持久化则不是。&#xA;在multiplayer.dev中，客户端的光标位置被发送到房间里的其他客户端。然而，在这个例子中，光标位置将是随机生成的。&#xA;你需要从你的项目的API设置中获得公共的anon访问令牌。然后你就可以设置Supabase客户端，并开始发送一个客户端的光标位置到通道room1中的其他客户端。&#xA;const { createClient } = require(&amp;#39;@supabase/supabase-js&amp;#39;) const supabase = createClient(&amp;#39;https://your-project-ref.supabase.co&amp;#39;, &amp;#39;anon-key&amp;#39;, { realtime: { params: { eventsPerSecond: 10, }, }, }) // Channel name can be any string. // Create channels with the same name for both the broadcasting and receiving clients. const channel = supabase.channel(&amp;#39;room1&amp;#39;) // Subscribe registers your client with the server channel.subscribe((status) =&amp;gt; { if (status === &amp;#39;SUBSCRIBED&amp;#39;) { // now you can start broadcasting cursor positions setInterval(() =&amp;gt; { channel.</description>
+    </item>
+    <item>
+      <title>许可协议</title>
+      <link>https://example.org/pages-test/guides/platform/permissions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/permissions/</guid>
+      <description>Supabase平台在每个项目附带的Postgres数据库之上提供额外的服务（如存储）。这些服务默认将其操作数据存储在你的数据库中，以确保你对其保持完全的控制。&#xA;然而，这些服务假定对他们的数据有一个基本的访问水平，以便例如能够在上面运行迁移。打破这些假设有可能导致这些服务在你的项目中无法运行。&#xA;存储 &amp;ldquo;模式下的所有权利都由 &amp;ldquo;超级基地_存储_管理员 &amp;ldquo;拥有。 auth&#39;模式下的所有权利由supabase_auth_admin&amp;rsquo;拥有。 违反这些假设有可能不会导致立即中断，而是在以后有了新的迁移时才生效。</description>
+    </item>
+    <item>
+      <title>Storage Sample Doc</title>
+      <link>https://example.org/pages-test/guides/storage/storage-sample/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/storage/storage-sample/</guid>
+      <description>Description Sample&amp;hellip;</description>
+    </item>
+    <item>
+      <title>第二部分:行级安全</title>
+      <link>https://example.org/pages-test/learn/auth-deep-dive/auth-row-level-security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/learn/auth-deep-dive/auth-row-level-security/</guid>
+      <description>关于 了解如何通过启用行级安全和在Supabase仪表板中编写Postgres策略来限制对数据库表的访问。&#xA;观察 确保你的数据表安全 在Supabase中，你可以直接从客户端（通常是网络浏览器）访问你的数据，你可以这样做，把你的Supabase URL和Anon密钥传递给supabase-js：&#xA;const supabase = createClient( &amp;#39;https://qwertyuiop.supabase.co&amp;#39;, &amp;#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c&amp;#39; ) 然而，这引起了一个有趣的问题：&amp;ldquo;如果我的匿名密钥在客户端，那么就不会有人阅读我的javascript并窃取我的密钥吗？&amp;quot;，答案是肯定的。而这正是Postgres策略的作用所在。&#xA;使用Postgres的 行级安全策略，我们可以对匿名钥匙默认允许或不允许访问的数据设置规则。&#xA;例如，我们可以说匿名钥匙只能从一个特定的表中读取，但不能写入、更新或删除。&#xA;而且这些规则可以随我们的意愿而复杂。我们可以说，匿名键只能删除在星期四下午4点到6点之间插入的行，并且id列是偶数。很奇怪，但它显示了策略的力量。&#xA;比方说，我们创建了一个排行榜表。我们希望网站上的人能够阅读排行榜，但不能写入、更新或删除它。我们首先在SQL中定义我们的表并添加一些假数据：&#xA;create table leaderboard ( name text, score int ); insert into leaderboard(name, score) values (&amp;#39;Paul&amp;#39;, 100), (&amp;#39;Leto&amp;#39;, 50), (&amp;#39;Chani&amp;#39;, 200); 现在让我们设置一个客户端来读取数据，我在这里创建了一个副本来展示一个活生生的例子。https://replit.com/@awalias/supabase-leaderboard-demo#index.js。如果你复制这个片段，你可以插入你自己的Supabase URL和anon key。&#xA;你可以看到，通过使用，可以自由地从表中读取和写入。&#xA;// Writing let { data, error } = await supabase.from(&amp;#39;leaderboard&amp;#39;).insert({ name: &amp;#39;Bob&amp;#39;, score: 99999 }) // Reading let { data, error } = await supabase .from(&amp;#39;leaderboard&amp;#39;) .select(&amp;#39;name, score&amp;#39;) .</description>
+    </item>
+    <item>
+      <title>pgTAP:单元测试</title>
+      <link>https://example.org/pages-test/guides/database/extensions/pgtap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/pgtap/</guid>
+      <description>pgTAP是PostgreSQL的一个单元测试扩展。&#xA;概述 让我们来介绍一些基本的概念：&#xA;单元测试：允许你测试一个系统的小部分（如数据库表！）。 TAP：代表Test Anything Protocol。它是一个框架，旨在简化测试期间的错误报告。 使用方法 启用扩展 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;pgtap &amp;ldquo;并启用该扩展。 -- Enable the &amp;#34;pgtap&amp;#34; extension create extension pgtap with schema extensions; -- Disable the &amp;#34;pgtap&amp;#34; extension drop extension if exists pgtap; 尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;测试表 begin; select plan( 1 ); select has_table( &amp;#39;profiles&amp;#39; ); select * from finish(); rollback; API：&#xA;has_table()：测试数据库中是否存在一个表。 has_index(): 检查是否存在与命名表相关的命名索引。 has_relation(): 测试数据库中是否存在一个关系。 测试列 begin; select plan( 2 ); select has_column( &amp;#39;profiles&amp;#39;, &amp;#39;id&amp;#39; ); # test that the &amp;#34;id&amp;#34; column exists in the &amp;#34;profiles&amp;#34; table select col_is_pk( &amp;#39;profiles&amp;#39;, &amp;#39;id&amp;#39; ); # test that the &amp;#34;id&amp;#34; column is a primary key select * from finish(); rollback; API：</description>
+    </item>
+    <item>
+      <title>pg_net: 异步网络</title>
+      <link>https://example.org/pages-test/guides/database/extensions/pgnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/pgnet/</guid>
+      <description>info&#xD;pg_net的API还处于beta阶段。函数签名可能会改变。&#xA;pg_net是一个PostgreSQL扩展，为异步网络暴露了一个SQL接口，重点是可扩展性和用户体验。&#xA;它与http扩展的不同之处在于，它默认是异步的。这使得它在阻塞函数（如触发器）中很有用。&#xA;用法 启用扩展功能 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展. 搜索 &amp;ldquo;pg_net &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;pg_net&amp;#34; extension create schema if not exists net; create extension pg_net with schema net; -- Example: disable the &amp;#34;plv8&amp;#34; extension drop extension if exists pg_net; drop schema net; 尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;http_get 创建一个HTTP GET请求，返回该请求的ID。在事务提交之前，HTTP请求不会被启动。&#xA;签名 info&#xD;这是一个Postgres安全定义函数。&#xA;net.http_get( -- url for the request url text, -- key/value pairs to be url encoded and appended to the `url` params jsonb default &amp;#39;{}&amp;#39;::jsonb, -- key/values to be included in request headers headers jsonb default &amp;#39;{}&amp;#39;::jsonb, -- WARNING: this is currently ignored, so there is no timeout -- the maximum number of milliseconds the request may take before being cancelled timeout_milliseconds int default 1000 ) -- request_id reference returns bigint strict volatile parallel safe language plpgsql 使用方法 select net.</description>
+    </item>
+    <item>
+      <title>Supabase CLI</title>
+      <link>https://example.org/pages-test/guides/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/cli/</guid>
+      <description>Supabase CLI 提供了在本地开发项目并部署到 Supabase 平台的工具。 你还可以使用 CLI 来管理你的 Supabase 项目，处理数据库迁移和 CI/CD 工作流程，并直接从你的数据库模式中生成类型。&#xA;安装 npm&#xD;macOS&#xD;Windows&#xD;Linux&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;npm&#34;&#xD;&gt;&#xD;通过npm将CLI安装为dev依赖项。&#xA;npm install supabase --save-dev 用[Homebrew]（https://brew.sh）安装CLI。&#xA;brew install supabase/tap/supabase 用Scoop安装CLI。&#xA;scoop bucket add supabase https://github.com/supabase/scoop-bucket.git scoop install supabase CLI可以通过Homebrew和Linux软件包获得。&#xA;Homebrew brew install supabase/tap/supabase Linux软件包 Linux软件包在[Release]（https://github.com/supabase/cli/releases）中提供。 要安装，根据你的软件包管理器下载.apk/.deb/.rpm文件 并运行下列程序之一。&#xA;sudo apk add --allow-untrusted &amp;lt;...&amp;gt;.apk。 sudo dpkg -i &amp;lt;...&amp;gt;.deb。 sudo rpm -i &amp;lt;...&amp;gt;.rpm。 更新 当新的版本发布后，你可以用同样的方法更新CLI。&#xA;npm&#xD;macOS&#xD;Windows&#xD;Linux&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;</description>
+    </item>
+    <item>
+      <title>总览</title>
+      <link>https://example.org/pages-test/guides/database/extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/</guid>
+      <description>扩展和它们的名字一样 - 它们用不属于Postgres核心的功能来 &amp;ldquo;扩展 &amp;ldquo;数据库。 Supabase已经预装了一些最有用的开源扩展。&#xA;启用和停用扩展功能 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 单击侧边栏中的扩展程序。 启用或停用一个扩展。 -- Example: enable the &amp;#34;pgtap&amp;#34; extension and ensure it is installed create extension pgtap with schema extensions; -- Example: disable the &amp;#34;pgtap&amp;#34; extension drop extension pgtap; 尽管SQL代码是 create extension，但它相当于&amp;quot;启用该扩展&amp;quot;。要禁用一个扩展，请调用 drop extension。&#xA;info&#xD;使用 create extension &amp;lt;extension-name&amp;gt; with schema extensions 启用某些扩展功能可能会导致权限问题（例如：dblink，http，pg_cron）。&#xA;完整的扩展列表 Supabase预先配置了50多个扩展。你也可以通过SQL编辑器在数据库中直接安装所需的SQL扩展。</description>
+    </item>
+    <item>
+      <title>Firebase存储迁移</title>
+      <link>https://example.org/pages-test/guides/migrations/firebase-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/migrations/firebase-storage/</guid>
+      <description>Supabase 提供了几个工具来将存储文件从 Firebase Storage 转换到 Supabase Storage。转换是一个两步的过程。&#xA;文件从 Firebase 存储桶下载到本地文件系统。 文件从本地文件系统上传到Supabase存储桶中。 设置迁移工具 {#set-up-migration-tool} 1. 克隆firebase-to-supabase 存储库: git clone https://github.com/supabase-community/firebase-to-supabase.git 在/storage目录下，将supabase-keys-sample.js重命名为supabase-keys.js。 转到仪表板中你的Supabase项目的API设置。 复制项目的URL并更新supabase-keys.js中的SUPABASE_URL值。 在项目API密钥下，复制service_role密钥，并更新supabase-keys.js中的SUPABASE_KEY值。 ##生成一个Firebase私有密钥 {#generate-firebase-private-key}.&#xA;登录到你的Firebase控制台并打开你的项目。 点击侧边栏中项目概览旁边的齿轮图标，选择项目设置**。 点击服务账户，选择Firebase Admin SDK。 单击生成新的私钥。 将下载的文件重命名为firebase-service.json。 命令行选项 ###下载Firestore存储桶到本地文件系统文件夹 {#download-firestore-storage-bucket}.&#xA;node download.js &amp;lt;prefix&amp;gt; [&amp;lt;folder&amp;gt;] [&amp;lt;batchSize&amp;gt;] [&amp;lt;limit&amp;gt;] [&amp;lt;token&amp;gt;]。&#xA;&amp;lt;prefix&amp;gt;:要下载的文件的前缀。要处理根桶，使用一个空的前缀:&amp;quot;&amp;quot;. &amp;lt;folder&amp;gt;: （可选）下载文件的子文件夹的名称。所选的文件夹被创建为当前文件夹的一个子文件夹（例如，./downloads/）。默认是downloads。 &amp;lt;batchSize&amp;gt;: （可选）默认为100。 &amp;lt;limit&amp;gt;: (可选)处理完这么多文件后停止。如果没有限制，使用`0&amp;rsquo;。 &amp;lt;token&amp;gt;: (可选)从这个pageToken开始处理。 要使用多个命令行执行分批处理，你必须在后续调用中使用相同的参数和新的&amp;lt;token&amp;gt;。使用最后一次调用所显示的令牌来继续在给定的点进行处理。&#xA;###将文件上传到Supabase存储桶 {#upload-to-supabase-storage-bucket }&#xA;node upload.js &amp;lt;prefix&amp;gt; &amp;lt;folder&amp;gt; &amp;lt;bucket&amp;gt; &amp;lt;prefix&amp;gt;:要下载的文件的前缀。要处理所有的文件，使用一个空的前缀:&amp;quot;&amp;quot;. &amp;lt;folder&amp;gt;: 要上传的文件的子文件夹的名称。选定的文件夹作为当前文件夹的一个子文件夹被读取（例如，./downloads/）。默认是downloads。 &amp;lt;bucket&amp;gt;: 要上传到的桶的名称。 info&#xD;如果该桶不存在，它将被创建为一个 &amp;ldquo;非公共 &amp;ldquo;桶。在用户可以下载任何文件之前，您必须在Supabase Dashboard中对这个新的桶设置权限。</description>
+    </item>
+    <item>
+      <title>快速入门: Android Kotlin</title>
+      <link>https://example.org/pages-test/guides/with-kotlin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-kotlin/</guid>
+      <description>第一步：在 MemFire Cloud 仪表板中创建一个新应用。 应用准备就绪后，进入应用，在左侧菜单-&amp;gt;表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。&#xA;-- Create the table CREATE TABLE countries ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL ); -- Insert some sample data into the table INSERT INTO countries (name) VALUES (&amp;#39;United States&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Canada&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Mexico&amp;#39;); 第二步：使用 Android Studio 创建 Android 应用 打开 Android Studio &amp;gt; 新建 &amp;gt; 新建 Android 项目。</description>
+    </item>
+    <item>
+      <title>数据库函数</title>
+      <link>https://example.org/pages-test/guides/database/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/functions/</guid>
+      <description>Postgres内置了对SQL函数的支持。 这些函数存在于你的数据库中，它们可以与API一起使用。&#xA;快速演示 开始使用 Supabase 为创建数据库函数提供了几个选项。你可以使用仪表板或直接使用 SQL 创建它们。 我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 连接 到数据库并自己运行SQL查询。&#xA;进入 SQL编辑器栏。 点击 新查询。 输入创建或替换数据库功函数的SQL。 点击 运行或cmd+enter (ctrl+enter)。 简单的函数 让我们创建一个基本的数据库函数，返回一个字符串 hello world.&#xA;create or replace function hello_world() -- 1 returns text -- 2 language sql -- 3 as $$ -- 4 select &amp;#39;hello world&amp;#39;; -- 5 $$; --6 显示/隐藏细节&#xD;最基本的是，一个函数有以下部分：&#xA;create or replace function hello_world()。函数声明，其中hello_world是函数的名称。你可以在创建一个新的函数时使用create，或者在替换一个现有函数时使用replace。或者你可以同时使用create或replace来处理这两种情况。 returns text: 函数返回的数据类型。如果它什么都不返回，你可以returns void。 language sql&#39;: 在函数主体中使用的语言。这也可以是一种程序性语言：plpgsql, plv8, plpython`等。 as $$: 函数包装器。任何包含在$$符号中的东西都将是函数主体的一部分。 select &#39;hello world&#39;;: 一个简单的函数体。如果函数体中的最后一条select语句后面没有语句，将被返回。 $$;: 函数封装器的结束符号。 函数创建后，我们有几种 &amp;ldquo;执行 &amp;ldquo;函数的方法&amp;ndash;可以直接在数据库中使用SQL，也可以使用其中一个客户端库。</description>
+    </item>
+    <item>
+      <title>Fetch 数据</title>
+      <link>https://example.org/pages-test/guides/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/test/</guid>
+      <description>执行对表或视图的SELECT查询。 默认情况下，Supabase项目返回最多1,000行数据。您可以在项目的API设置中更改此设置。建议您保持较低的设置，以限制意外或恶意请求的有效载荷大小。您可以使用range()查询来分页处理数据。 select()可以与Filters结合使用。 select()可以与Modifiers结合使用。 如果您正在使用Supabase平台，apikey是一个保留关键字，应避免将其作为列名。 案例教程 案例1 (获取数据) 建表&#xD;使用方法&#xD;返回结果&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;demo1&#34;&#xD;&gt;&#xD;create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select() { &amp;#34;data&amp;#34;: [ { &amp;#34;id&amp;#34;: 1, &amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34; }, { &amp;#34;id&amp;#34;: 2, &amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34; }, { &amp;#34;id&amp;#34;: 3, &amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34; } ], &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } 案例2 (选择特定列) 建表&#xD;使用方法&#xD;返回结果&#xD;&#xD;size=&#34;</description>
+    </item>
+    <item>
+      <title>pgvector: 嵌入向量和向量相似性</title>
+      <link>https://example.org/pages-test/guides/database/extensions/pgvector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/pgvector/</guid>
+      <description>pgvector 是一款用于向量相似性搜索的 PostgreSQL 扩展。它还可以用于存储 嵌入向量 。&#xA;了解更多关于 Supabase 的 AI &amp;amp; Vector 服务的信息。&#xA;概念 向量相似性 向量相似性是指衡量两个相关项之间相似程度的度量方式。例如，如果你有一组产品列表，你可以使用向量相似性来寻找相似的产品。为了实现这个目标，你需要使用数学模型将每个产品转换为由数字组成的&amp;quot;向量&amp;quot;。对于文本、图像和其他类型的数据，你可以使用类似的模型。一旦所有这些向量都存储在数据库中，你就可以使用向量相似性来查找相似的项。&#xA;嵌入向量 如果您正在构建基于 OpenAI 的 GPT-3 的应用程序，这将非常有用。您可以创建和存储与您使用的 GPT 模型相匹配的 嵌入向量 。&#xA;使用方法 启用扩展 控制台&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;跳转控制台的 数据库 页面。 点击侧栏中的 扩展 。 搜索 &amp;ldquo;vector&amp;rdquo; 并启用扩展。 -- Example: enable the &amp;#34;vector&amp;#34; extension. create extension vector with schema extensions; -- Example: disable the &amp;#34;vector&amp;#34; extension drop extension if exists vector; 尽管 SQL 代码是 create extension，但它的等效操作是“启用扩展”。 要禁用扩展，您可以调用 drop extension。</description>
+    </item>
+    <item>
+      <title>实时</title>
+      <link>https://example.org/pages-test/guides/realtime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/realtime/</guid>
+      <description>Supabase提供一个全球分布的实时服务器集群，实现了以下功能：&#xA;广播：以低延迟的方式从客户端向客户端发送短暂的信息。 Presence：跟踪和同步客户端之间的共享状态。 Postgres CDC：听取Postgres数据库的变化，并将其发送给授权客户。 频道 是实时的基本构建块，它缩小了订阅客户端的数据流范围。 你可以把一个频道想象成一个聊天室，参与者可以看到谁在网上，并发送和接收消息；类似于Discord或Slack频道。&#xA;所有客户端都可以连接到一个频道，并利用内置的广播和呈现功能，而扩展功能（如PostgresCDC）必须在使用前启用。&#xA;广播 广播遵循发布-订阅模式，客户将消息发布到具有唯一标识符的频道。例如，一个用户可以向一个id为room-1的频道发送消息。&#xA;其他客户可以通过订阅id为`room-1&amp;rsquo;的频道来选择实时接收该消息。如果这些客户在线并订阅了，那么他们将收到该消息。&#xA;广播的工作原理是将你的客户端连接到最近的实时服务器，该服务器将与其他服务器通信，将消息转发给其他客户端。&#xA;一个常见的用例是在网络游戏中与其他客户端分享用户的光标位置。&#xA;Presence Presence利用内存中无冲突的复制数据类型（CRDT），以最终一致的方式跟踪和同步共享状态。它计算现有状态和新的状态变化之间的差异，并通过广播向客户端发送必要的更新。&#xA;当一个新客户端订阅了一个频道时，它将立即在一条消息中接收该频道的最新状态，而不是等待所有其他客户端发送各自的状态。&#xA;客户可以随心所欲地来来去去，只要他们都订阅了同一频道，那么他们都将拥有彼此相同的状态。&#xA;Presence的好处是，如果一个客户突然断开连接（例如，他们下线了），他们的状态将自动从共享状态中删除。如果你曾经试图建立一个处理意外断开连接的 &amp;ldquo;我在线 &amp;ldquo;功能，你就会体会到这是多么有用。&#xA;Postgres CDC Postgres变化数据捕获（CDC）使你能够监听数据库的变化，并根据行级安全(RLS)策略将其广播给授权客户。&#xA;这是由实时轮询你的数据库的逻辑复制槽的变化，将这些变化传递给apply_rlsSQL函数以确定哪些客户端有权限，然后使用广播将这些变化发送给客户端。&#xA;实时需要一个名为supabase_realtime的发布来确定哪些表需要轮询。你必须在客户端订阅想要监听数据库变化的频道之前，将表添加到这个发布中。&#xA;我们强烈建议你在你的数据库表上启用RLS，并制定RLS策略以防止未经授权的人访问你的数据。&#xA;参考资源 快速快速入门 实时：多人版本 blog post </description>
+    </item>
+    <item>
+      <title>身份验证UI</title>
+      <link>https://example.org/pages-test/guides/auth/auth-helpers/auth-ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-helpers/auth-ui/</guid>
+      <description>Auth UI是用于验证用户的预构建React组件。 它支持定制主题和可扩展样式，以符合您的品牌和审美。&#xA;设置身份验证UI 安装最新版本的supabase js和Auth UI包：&#xA;npm install @supabase/supabase-js @supabase/auth-ui-react 导入Auth组件 将 @supabase/supabase-js 中的 supabaseClient 作为属性传递给组件。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; import { Auth } from &amp;#39;@supabase/auth-ui-react&amp;#39; const supabase = createClient(&amp;#39;&amp;lt;INSERT PROJECT URL&amp;gt;&amp;#39;, &amp;#39;&amp;lt;INSERT PROJECT ANON API KEY&amp;gt;&amp;#39;) const App = () =&amp;gt; &amp;lt;Auth supabaseClient={supabase} /&amp;gt; 这将在没有任何样式的情况下渲染Auth组件。 我们建议使用预定义的主题之一来设置UI的样式。 导入要使用的主题并将其传递给appearence.theme属性。&#xA;import { Auth, // Import predefined theme ThemeSupa, } from &amp;#39;@supabase/auth-ui-react&amp;#39; const App = () =&amp;gt; ( &amp;lt;Auth supabaseClient={supabase} {/* Apply predefined theme */} appearance={{ theme: ThemeSupa }} /&amp;gt; ) 自定义 有几种自定义身份验证UI的方法：</description>
+    </item>
+    <item>
+      <title>Examples and Resources</title>
+      <link>https://example.org/pages-test/guides/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/examples/</guid>
+      <description>We have a set of examples in our main repository to help you get started.&#xA;Featured Supabase Crash Course By Traversy Media.&#xA;Build an App With Supabase and NextJS By @jlengstorf and @jonmeyers_io.&#xA;Is Supabase Legit By Fireship.&#xA;Official Examples Todo List Build a basic Todo List with Supabase and your favorite frontend framework:&#xA;Expo Todo List. Next.js Todo List. React Todo List. Svelte Todo List. Vue 3 Todo List (Typescript).</description>
+    </item>
+    <item>
+      <title>plv8: JavaScript语言</title>
+      <link>https://example.org/pages-test/guides/database/extensions/plv8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/plv8/</guid>
+      <description>plv8扩展允许你在Postgres中使用JavaScript。&#xA;概述 虽然Postgres原生运行SQL，但它也可以运行其他 &amp;ldquo;程序语言&amp;rdquo;。 plv8允许你运行JavaScript代码-特别是任何在V8 JavaScript引擎上运行的代码。&#xA;它可以用于数据库函数、触发器、查询等。&#xA;使用方法 启用扩展 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;plv8 &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;plv8&amp;#34; extension create extension plv8; -- Example: disable the &amp;#34;plv8&amp;#34; extension drop extension if exists plv8; 尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;创建plv8函数 用plv8编写的函数和其他PostgreSQL函数一样，只是 语言标识符设置为plv8。&#xA;create or replace function function_name() returns void as $$ // V8 JavaScript // code // here $$ language plv8; 你可以像其他Postgres函数一样调用plv8函数：</description>
+    </item>
+    <item>
+      <title>快速入门: Angular</title>
+      <link>https://example.org/pages-test/guides/with-angular/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-angular/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本&#xA;构建应用程序 让我们开始从头开始构建Angular应用程序。&#xA;初始化一个Angular应用程序 我们可以使用[Angular CLI]（https://angular.io/cli）来初始化 一个名为`supabase-angular&amp;rsquo;的应用程序：&#xA;npx ng new supabase-angular --routing false --style css cd supabase-angular 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后我们要在environment.ts文件中保存环境变量。 我们所需要的是API URL和你[早些时候]复制的anon密钥(#get-theapi-keys)。 这些变量将暴露在浏览器上，这完全没有问题，因为我们在数据库上启用了行级安全。&#xA;export const environment = { production: false, supabaseUrl: &amp;#39;YOUR_SUPABASE_URL&amp;#39;, supabaseKey: &amp;#39;YOUR_SUPABASE_KEY&amp;#39;, } 现在我们已经有了API凭证，让我们用ng g s supabase创建一个SupabaseService，以初始化Supabase客户端并实现与Supabase API通信的功能。&#xA;import { Injectable } from &amp;#39;@angular/core&amp;#39; import { AuthChangeEvent, AuthSession, createClient, Session, SupabaseClient, User, } from &amp;#39;@supabase/supabase-js&amp;#39; import { environment } from &amp;#39;src/environments/environment&amp;#39; import { Database } from &amp;#39;src/schema&amp;#39; export interface Profile { id?</description>
+    </item>
+    <item>
+      <title>用Twitch登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-twitch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-twitch/</guid>
+      <description>要为你的项目启用Twitch Auth，你需要设置一个Twitch应用程序，并将应用程序OAuth凭证添加到你的Supabase仪表板。&#xA;概述 为您的应用程序设置Twitch登录，包括3个部分。&#xA;创建和配置Twitch应用程序Twitch Developer Console 将你的Twitch OAuth消费者密钥添加到你的MemFire Cloud项目 将登录代码添加到您的JS客户端应用程序 访问您的Twitch开发者账户 转到dev.twitch.tv。 点击右上方的 用Twitch登录来登录。 如果你还没有为你的Twitch账户启用2-Factor Authentication，你需要在Twitch安全设置中进行这项操作，然后才能继续。 登录后，进入[Twitch Developer Console]（https://dev.twitch.tv/console）。 找到你的回调URL 在下一步，你需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个Twitch应用程序 点击右上方的 +注册你的申请。 输入你的应用程序的名称。 输入或粘贴你的 OAuth重定向URL（上一步的回调URL。） 为你的应用程序选择一个类别。 勾选验证码框并点击 创建。 检索你的Twitch OAuth客户端ID和客户端秘密 在列表中的应用程序条目右侧点击管理。 复制你的客户ID。 点击 New Secret来创建一个新的客户秘密。 复制你的客户秘密。 在你的Supabase项目中添加你的Twitch凭证 进入您的MemFire Cloud项目仪表板 在左边的侧栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth供应商下，将 Twitch已启用设为 ON 输入上一步保存的 client_id和 client_secret。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将twitch作为provider。</description>
+    </item>
+    <item>
+      <title>使用Next.js进行Supabase认证</title>
+      <link>https://example.org/pages-test/guides/auth/auth-helpers/nextjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-helpers/nextjs/</guid>
+      <description>该子模块为在Next中实现用户身份验证提供了方便的帮助Next.js应用程序。&#xA;安装Next.js助手库 npm&#xD;Yarn&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;npm&#34;&#xD;&gt;&#xD;npm install @supabase/auth-helpers-nextjs 此库支持以下工具版本：&#xA;Node.js: ^10.13.0 || &amp;gt;=12.0.0 Next.js: &amp;gt;=10 注：Next.js13除了新的app目录方法外，其他都受支持。我们正在努力增加对此的支持，您可以关注此处. 此外，为可在所有基于React的框架中使用的组件和挂钩安装React Auth Helpers。&#xA;npm install @supabase/auth-helpers-react yarn add @supabase/auth-helpers-nextjs 此库支持以下工具版本：&#xA;Node.js: ^10.13.0 || &amp;gt;=12.0.0 Next.js: &amp;gt;=10 注：Next.js13除了新的app目录方法外，其他都受支持。我们正在努力增加对此的支持，您可以关注此处. 此外，为可在所有基于React的框架中使用的组件和挂钩安装React Auth Helpers。&#xA;yarn add @supabase/auth-helpers-react 设置环境变量 在项目的API设置中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，可以在.env.local文件。参见示例。&#xA;NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 基本设置 JavaScript&#xD;TypeScript&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;js&#34;&#xD;&gt;&#xD;包装pages/_app.js组件与SessionContextProvider组件：&#xA;import { createBrowserSupabaseClient } from &amp;#39;@supabase/auth-helpers-nextjs&amp;#39; import { SessionContextProvider } from &amp;#39;@supabase/auth-helpers-react&amp;#39; function MyApp({ Component, pageProps }) { const router = useRouter() // Create a new supabase browser client on every first render.</description>
+    </item>
+    <item>
+      <title>参考文件</title>
+      <link>https://example.org/pages-test/reference_origin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/reference_origin/</guid>
+      <description>官方Supabase客户端库、API和工具的参考文档。&#xA;自我托管 关于自我托管Supabase功能的参考文件。</description>
+    </item>
+    <item>
+      <title>数据库</title>
+      <link>https://example.org/pages-test/guides/database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/</guid>
+      <description>每个Supabase项目都带有一个完整的Postgres数据库，这是一个免费的开源数据库，被认为是世界上最稳定的和先进的数据库之一。&#xA;Postgres 或 PostgreSQL? PostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学伯克利分校编写的软件包。 这个软件包包括一种叫做 &amp;ldquo;PostQUEL &amp;ldquo;的查询语言。&#xA;1994年，Postgres95建立在POSTGRES代码之上，增加了一个SQL语言解释器作为PostQUEL的替代。 最终，Postgres95被重新命名为PostgreSQL，以反映SQL查询能力。&#xA;在这之后，许多人把它称为Postgres，因为这样不容易混淆。Supabase的宗旨是简单，所以我们也把它称为Postgres。&#xA;功能 表视图 你不必是一个数据库专家就可以开始使用Supabase。我们的表视图使Postgres像电子表格一样容易使用。&#xA;关系 挖掘你的数据中的关系.&#xA;克隆表 你可以复制你的表格，就像你在电子表格里面一样。&#xA;SQL编辑器 Supabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以便以后运行!&#xA;附加功能 Supabase使用我们的Realtime Server对Postgres进行实时功能的扩展。 每个项目都是一个完整的Postgres数据库，具有postgres级别的访问权限。 Supabase负责管理你的数据库备份。 直接从CSV或EXCEL电子表格中导入数据。 info&#xD;数据库备份不包括通过存储API存储的对象，因为数据库只包括关于这些对象的元数据。恢复一个旧的备份并不能恢复在那之后被删除的对象。&#xA;扩展 为了扩展你的Postgres数据库的功能，你可以使用扩展。 你可以通过点击Supabase仪表板上的一个按钮来启用Postgres扩展。&#xA;了解更多关于Supabase上提供的所有扩展。&#xA;提示 阅读关于重设数据库密码这里和改变服务器时区这里。&#xA;下一步 阅读更多关于Postgres 登录: MemFire Cloud </description>
+    </item>
+    <item>
+      <title>Self-hosting with Docker</title>
+      <link>https://example.org/pages-test/guides/hosting/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/hosting/docker/</guid>
+      <description>Docker is the easiest way to get started with self-hosted Supabase.&#xA;Before you begin You need the following installed in your system:&#xA;Docker and docker-compose Git Quick Start Get the code Checkout the docker directory in the Supabase repo:&#xA;# Get the code git clone --depth 1 https://github.com/supabase/supabase # Go to the docker folder cd supabase/docker # Copy the fake env vars cp .env.example .env # Start docker-compose up Now visit http://localhost:3000 to start using Supabase Studio.</description>
+    </item>
+    <item>
+      <title>快速入门: React</title>
+      <link>https://example.org/pages-test/guides/with-react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-react/</guid>
+      <description>第一步：在 MemFire Cloud 仪表板中创建一个新应用。 应用准备就绪后，进入应用，在左侧菜单-&amp;gt;表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。&#xA;-- Create the table CREATE TABLE countries ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL ); -- Insert some sample data into the table INSERT INTO countries (name) VALUES (&amp;#39;United States&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Canada&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Mexico&amp;#39;); 第二步：创建 React 应用 使用 Vite 模板创建 React 应用。&#xA;npm create vite@latest my-app -- --template react 第三步：安装 Supabase 客户端库 最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 React 应用程序中使用 Supabase。 导航到 React 应用程序并安装 supabase-js 。</description>
+    </item>
+    <item>
+      <title>用Keycloak登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-keycloak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-keycloak/</guid>
+      <description>要为你的项目启用Keycloak Auth，你需要设置一个Keycloak OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 要开始使用Keycloak，你可以在一个docker容器中运行它。docker run -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8080:8080 jboss/keycloak:latest。&#xA;本指南将假设你是在docker容器中运行keycloak，如上面的命令所述。&#xA;Keycloak OAuth包括五个大的步骤。&#xA;在你指定的keycloak领域创建一个新的客户端。 从 OpenID端点配置中获取 发行者。这将被用作 Keycloak URL。 确保新客户端的 客户端协议设置为 openid-connect，访问类型设置为 机密。 创建的客户端的 客户端ID将被作为 客户端ID使用。 从证书标签中获得 秘密，它将被用作 客户秘密。 将你的应用程序的回调网址添加到你的允许列表中。 访问你的Keycloak管理控制台 通过访问http://localhost:8080并点击 &amp;ldquo;管理控制台 &amp;ldquo;登录。 ##创建一个Keycloak境界&#xA;一旦你登录到Keycloak控制台，你就可以从侧面面板添加一个境界。默认的境界应该被命名为 Master。 在你添加了一个新的境界后，你可以从 OpenID端点配置端点检索到issuer。签发人 将被用作 Keycloak URL`。 你可以从 常规标签下的境界设置中找到这个端点，或者访问http://localhost:8080/realms/my_realm_name/.well-known/openid-configuration 创建一个Keycloak客户端 创建的客户端的 客户端ID将作为client_id，当你进行API调用以验证用户。&#xA;客户端设置 在你成功创建客户端后，确保你设置了以下设置。&#xA;客户端协议应该被设置为 openid-connect。 访问类型应设置为 保密。 有效重定向URI应设置为。https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。 获取客户秘密 当你调用API验证用户时，这将作为 客户秘密。 在 证书标签下，秘密值将被用作 客户秘密。&#xA;在你的客户端应用程序中添加登录代码 当你的用户登录时，调用signInWithOAuth()，将keycloak作为provider。&#xA;async function signInWithKeycloak() { const { data, error } = await supabase.</description>
+    </item>
+    <item>
+      <title>Converting SQL to JavaScript API</title>
+      <link>https://example.org/pages-test/guides/database/sql-to-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/sql-to-api/</guid>
+      <description>Select a set of columns from a single table with where, order by, and limit clauses.&#xA;select first_name, last_name, team_id, age from players where age between 20 and 24 and team_id &amp;lt;&amp;gt; &amp;#39;STL&amp;#39; order by last_name, first_name desc limit 20 const { data, error } = await supabase .from(&amp;#39;players&amp;#39;) .select(&amp;#39;first_name,last_name,team_id,age&amp;#39;) .gte(&amp;#39;age&amp;#39;, 20) .lte(&amp;#39;age&amp;#39;, 24) .not(&amp;#39;team_id&amp;#39;, &amp;#39;eq&amp;#39;, &amp;#39;STL&amp;#39;) .order(&amp;#39;last_name&amp;#39;, { ascending: true }) // or just .order(&amp;#39;last_name&amp;#39;) .order(&amp;#39;first_name&amp;#39;, { ascending: false }) .</description>
+    </item>
+    <item>
+      <title>Authsignal</title>
+      <link>https://example.org/pages-test/guides/integrations/authsignal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/authsignal/</guid>
+      <description>本指南展示了如何将Authsignal与Next.js和Supabase集成，以便在登录后增加一个MFA步骤。&#xA;用户流程如下。&#xA;用户输入他们的电子邮件和密码来登录 如果用户设置了MFA，他们会被提示完成MFA挑战（通过Authenticator App）以完成登录 如果用户没有设置MFA，他们会立即登录，并会看到一个设置MFA的按钮。 该方法使用一个临时的加密cookie，以确保Supabase auth cookies（access_token和refresh_token）只有在MFA挑战成功后才会被设置。会话数据使用@hapi/iron进行加密。&#xA;这个例子的完整代码版本可以在这里找到。&#xA;现场演示可以找到这里。&#xA;它是如何工作的 签到表格将电子邮件和密码发送到Next.js的API路由/api/sign-in。 signIn API路由调用Supabase客户端的signInWithEmail方法，并得到一个会话对象。 然后，signInAPI路由调用Authsignal客户端的track方法，以确定是否需要MFA挑战。 如果需要挑战，signInAPI路由将会话对象保存在一个临时加密的cookie中，并重定向到Authsignal。 一旦挑战完成，Authsignal就会重定向到/api/callback，后者会检索会话并设置Supabase auth cookies。 callbackAPI路由然后重定向到索引页面，该页面受到Supabase的withPageAuth包装器getServerSideProps的保护。 步骤1：配置一个Authsignal租户 进入Authsignal门户，创建一个新项目和租户。&#xA;你还需要为你的租户启用至少一个认证器&amp;ndash;例如Authenticator Apps。&#xA;最后，要将登录动作配置为总是challenge，请到这里，将默认动作结果设置为CHALLENGE，然后点击保存。&#xA;第2步：创建一个Supabase项目 从你的Supabase仪表板，点击新项目。&#xA;为您的Supabase项目输入一个名称，并输入或生成一个安全的数据库密码，然后点击创建新项目。&#xA;一旦你的项目被创建，进入 认证 -&amp;gt; 设置 -&amp;gt; 认证供应商，确保 启用电子邮件供应商被选中，确认电子邮件未被选中。&#xA;第3步：构建一个Next.js应用程序 创建一个新的Next.js项目。&#xA;npx create-next-app --typescript supabase-authsignal-example cd supabase-authsignal-example 创建一个.env.local文件并输入以下数值。&#xA;NEXT_PUBLIC_SUPABASE_URL=get-from-supabase-dashboard&#xD;NEXT_PUBLIC_SUPABASE_ANON_KEY=get-from-supabase-dashboard&#xD;AUTHSIGNAL_SECRET=get-from-authsignal-dashboard&#xD;TEMP_TOKEN_SECRET=this-is-a-secret-value-with-at-least-32-characters Supabase的值可以在你的项目的 Settings &amp;gt; API中找到。&#xA;Authsignal的值可以在你的租户的 Settings &amp;gt; API Keys下找到。&#xA;TEMP_TOKEN_SECRET是用来加密临时cookie的。把它设置为一个随机的32个字符长度的字符串。&#xA;重新启动你的Next.js开发服务器，从.env.local中读入新的值。&#xA;npm run dev 第4步：安装依赖项 安装Next.js的Supabase客户端和Auth帮助器。&#xA;npm install @supabase/supabase-js @supabase/auth-helpers-nextjs 安装Authsignal Node.</description>
+    </item>
+    <item>
+      <title>Directus</title>
+      <link>https://example.org/pages-test/guides/integrations/directus/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/directus/</guid>
+      <description>在本指南中，我们将演示如何创建一个新的Supabase项目，安装一个新的Directus平台实例，然后配置这两个系统，使其无缝地协同工作。如果你不熟悉这两个系统中的任何一个，不要担心！我们将从每个平台的概述开始，并对其进行配置。我们将从每个平台的概述开始，并解释它们是如何相互补充的，同时注意到任何能力上的重叠。&#xA;简介 Supabase是一个开源的Firebase替代品，它提供了一个PostgreSQL数据库、存储、认证和一个基于你的模式的动态REST API。虽然可以在自己的基础设施上自行托管Supabase，但本文将重点介绍Supabase云的免费层，这是最快和最容易开始的方式。&#xA;Directus是一个开源的数据平台，在任何SQL数据库的基础上分层，提供一套强大的工具。Directus引擎提供基于你的模式的动态REST和GraphQL API，钩子和自动化，认证和访问控制，以及文件转换。Directus Studio使工程师和非技术用户都能通过一个无代码的应用程序来浏览、管理和可视化数据库内容。&#xA;} Supabase是一套开源工具，使Postgres数据库、文件存储、认证和边缘功能更容易被各种技能水平的开发者所使用。Directus也是开发者工具，另外还提供了一个数据工作室，其安全性和直观性足以让任何人（包括非技术用户）使用。这是关键的一点，使这两个平台具有如此强大的 &amp;ldquo;网络效应&amp;rdquo;。&#xA;当这两个系统结合在一起时，你会得到一个可扩展的数据存储，无限的连接选项，以及一个无需代码的应用程序，使你的技术和业务团队能够一起高效协作。&#xA;这两个平台的功能重叠，加深了它们的整合，并为开发者提供了在更广泛的连接范围内的自由选择。关键的交叉领域包括。&#xA;动态生成_强大的_API以连接数据的能力 用户管理和细粒度的访问控制 数字资产存储和管理。&#xA;更重要的是，Directus和Supabase对你的数据有一个共同的愿景，这使得它们相当共生。这两个解决方案都是完全开源的，有自我托管和云部署选项。它们在方法上是没有偏见的，具有与供应商无关的数据存储，而且它们都专注于提供抛光的开发者体验和全面的文档。&#xA;通过将Supabase数据库与你的Directus项目联系起来，你将获得一套超级数据工具。你将受益于Supabase的Postgres数据库和它的_dev-centric_ admin应用程序，它具有运行SQL查询的原始能力，以及 Directus no-code应用程序，它为整个团队提供直观的基于权限的数据访问。&#xA;让我们深入了解一下我们如何实际设置和连接这两个平台，以创建一个现代数据堆栈的动力源。&#xA;##创建一个Supabase项目&#xA;如前所述，虽然你可以在本地部署Supabase。为了本指南的目的，我们将使用Supabase云。&#xA;通过登录GitHub创建一个Supabase账户。 给你的组织起一个名字（以后可以更改）。 点击新项目，选择你的组织。 按照提示，设置项目名称、数据库密码、地区和定价计划，然后点击创建新项目。 在你的项目被配置后，在侧边栏中导航到设置&amp;gt;数据库。 向下滚动到连接信息，注意你的数据库的主机，数据库名称，端口，用户，和密码。你将需要在你的Directus项目设置中输入这些信息。 ##可选。添加PostGIS以支持几何和制图&#xA;为了充分利用Directus提供的内置几何学和绘图功能，我们建议启用几何学数据支持。要添加PostGIS，请遵循以下步骤。&#xA;从侧边栏，导航到数据库&amp;gt;扩展。 使用搜索栏查找 PostGIS。 切换PostGIS选项以使其生效。 设置Directus 在写这篇文章的时候，Directus Cloud还不支持连接外部数据库的混合部署。因此，我们将部署一个自我托管的实例来与Supabase连接。要安装一个连接到我们的Supabase项目的自我托管的Directus实例，请遵循以下步骤。&#xA;在你的终端中运行以下命令。 npm init directus-project example-project 使用上/下箭头键，从列表中选择Postgres。 ? Choose your database client Postgres 接下来，你将被提示输入数据库凭证。在上面提到的Supabase数据库连接信息中添加如下内容。 数据库主机 - 您的数据库的 IP 地址。 端口 - 你的数据库所运行的端口号。 数据库名称 - 你现有数据库的名称。 数据库用户 - 数据库中现有用户的名称。 数据库密码 - 进入数据库的密码。 启用SSL - 选择Y表示是，选择N表示不是。 Root - 根名称。 现在，为你的第一个Directus管理账户简单地设置一个电子邮件和密码。要明确的是，这是Directus特有的，与你的数据库用户无关。 Create your first admin user: ?</description>
+    </item>
+    <item>
+      <title>自定义域名</title>
+      <link>https://example.org/pages-test/guides/platform/custom-domains/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/custom-domains/</guid>
+      <description>info&#xD;自定义域名目前处于测试阶段，正在慢慢向项目提供。&#xA;自定义域名允许你向你的用户展示一个品牌的体验。为了本指南的目的，你也可以使用一个子域。&#xA;准备&#xA;安装 Supabase CLI 1.11.3+。 使用 CLI 登录 到您的 Supabase 账户。 确保你对你想设置自定义域的项目有所有者或管理员权限。 在仪表板的计费页面中启用自定义域名插件。 配置一个自定义域 这个例子假设你的Supabase项目是 foobar，对应的API URL是 foobarbaz.supabase.co，并在 api.example.com配置了一个自定义域名。&#xA;配置一个CNAME 为api.example.com设置一个CNAME记录，解析到foobarbaz.supabase.co.，TTL越低越好。&#xA;配置TXT验证 使用CLI的create子命令来通知Supabase你的域名并检索TXT验证记录。&#xA;supabase domains create --project-ref foobar --custom-hostname api.example.com --experimental 创建命令的输出包括两个TXT记录[^1]，你将需要设置，以验证你对该域名的控制。 并让我们为其颁发SSL证书。比如说。&#xA;[...] Required outstanding validation records: _cf-custom-hostname.api.example.com TXT -&amp;gt; 46BBC14D-D50A-409C-8DB5-F862CF5BA660 api.example.com TXT -&amp;gt; ca3-F1HvR9i938OgVwpCFwi1jTsbhe1hvT0Ic3efPY3Q [^1] 其中一条记录要求你用一条TXT记录_取代第一步中设置的CNAME记录。在验证过程完成后，你就可以把它恢复到CNAME。&#xA;验证你的域名 按照指示设置两个记录，然后使用Supabase平台的reverify命令来验证这些记录。&#xA;supabase domains reverify --project-ref foobarbaz --experimental 你可能需要等待几分钟，你的更新的DNS记录才会被传播，特别是如果旧的记录使用高TTL的话。&#xA;激活你的域名 最后的激活步骤是重新配置你的项目，开始为你的自定义域名（api.example.com）提供流量。 特别是授权服务，将不再使用原来的URL（foobar.supabase.co）。 因此，建议你安排20-30分钟的停机时间，这取决于你的项目的复杂性，以更新所有需要了解你的自定义域名的服务。&#xA;任何客户端代码（例如前台、移动应用程序）。 任何OAuth提供商（如谷歌、Github）。 此外，更新api.example.com的DNS配置，再次使用CNAME记录，解析到foobarbaz.supabase.co。 最后，你可以使用activate子命令来重新配置你的项目。&#xA;supabase domains activate --project-ref foobarbaz --experimental 删除一个自定义域 如果你为你的Supabase项目设置了一个自定义域（api.</description>
+    </item>
+    <item>
+      <title>测试你的数据库</title>
+      <link>https://example.org/pages-test/guides/database/testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/testing/</guid>
+      <description>可以使用Supabase CLI来测试你的数据库。CLI 的最低要求版本是 v1.11.4。&#xA;在你的本地机器上安装Supabase CLI 创建一个测试 在supabase文件夹内创建一个测试文件夹:&#xA;mkdir -p ./supabase/tests/database 创建一个以.sql为扩展名的新文件，其中将包含测试：&#xA;touch ./supabase/tests/database/hello_world.test.sql 撰写测试 所有的sql文件都使用pgTAP作为测试运行器。&#xA;让我们写一个简单的测试来检查我们的auth.users表是否有一个ID列。打开hello_world.test.sql并添加以下代码：&#xA;begin; select plan(1); -- only one statement to run SELECT has_column( &amp;#39;auth&amp;#39;, &amp;#39;users&amp;#39;, &amp;#39;id&amp;#39;, &amp;#39;id should exist&amp;#39; ); select * from finish(); rollback; 运行测试 要运行测试，你可以使用:&#xA;supabase test db 这将产生以下输出:&#xA;$ supabase test db supabase/tests/database/hello_world.test.sql .. ok All tests successful. Files=1, Tests=1, 1 wallclock secs ( 0.01 usr 0.00 sys + 0.04 cusr 0.02 csys = 0.</description>
+    </item>
+    <item>
+      <title>集合</title>
+      <link>https://example.org/pages-test/guides/ai/python/collections/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/ai/python/collections/</guid>
+      <description>一个集合是一组向量记录。&#xA;记录可以添加或更新到一个集合中。&#xA;集合可以随时进行查询，但为了可扩展的查询性能，应对其进行索引。&#xA;单个向量记录的格式如下：&#xA;Record ( id: String vec: Numeric[] metadata: JSON ) 例如：&#xA;(&amp;#34;vec1&amp;#34;, [0.1, 0.2, 0.3], {&amp;#34;year&amp;#34;: 1990}) 在每个 vecs 集合下面都是一个 Postgres 表。&#xA;create table &amp;lt;collection_name&amp;gt; ( id string primary key, vec vector(&amp;lt;dimension&amp;gt;), metadata jsonb ) 表中的行与vecs向量记录一一对应。&#xA;从vecs客户端外部选择集合表是安全的，但不建议执行DDL。</description>
+    </item>
+    <item>
+      <title>Examples</title>
+      <link>https://example.org/pages-test/guides/functions/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/functions/examples/</guid>
+      <description>You can find a list of useful Edge Function Examples in our GitHub repository.</description>
+    </item>
+    <item>
+      <title>无服务器 API</title>
+      <link>https://example.org/pages-test/guides/api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/api/</guid>
+      <description>Supabase直接从你的数据库模式中自动生成三种类型的API。&#xA;REST - 通过restful接口连接到你的数据库。 Realtime - 监听数据库的变化。 GraphQL - 使用类似于图形查询语言操作您的数据库。 所有的API都是从您的数据库中自动生成的，其设计目的是让您无需编写一行代码就能尽可能快地构建。&#xA;您可以直接从浏览器中使用它们（两层架构），或者作为您自己的API服务器（三层架构）的补充。&#xA;特征 即时自动生成当您更新数据库时，可以通过API立即访问更改。&#xA;自我记录Supabase在Dashboard中生成文档，当您更改数据库时，这些文档会更新。&#xA;安全API配置为与PostgreSQL的行级安全一起工作，在启用密钥验证的API网关后面提供。&#xA;速度快我们的基本读取基准比Firebase快300%以上。API是Postgres之上的一个非常薄的层，它完成了大部分繁重的工作。&#xA;可扩展API可以同时处理数千个请求，并且适用于无服务器工作负载。&#xA;REST API [#rest-api-overview] Supabase使用 PostgREST 提供了一个RESTful API。这是在 Postgres 之上的一个非常薄的API层。 它提供了你在 CRUD API 中需要的一切。&#xA;Supabase的REST接口会自动根据你的数据库模式进行反射，并提供以下功能支持：&#xA;基本的CRUD操作（创建/读取/更新/删除） 深度嵌套的连接，允许你在一次获取中从多个表中获取数据 可以与Postgres视图一起使用 可以与Postgres函数一起使用 可以与Postgres的安全模型一起使用（包括行级安全、角色和授权） Supabase的REST API将所有请求解析为单个SQL语句，从而实现快速的响应时间和高吞吐量。&#xA;参考:&#xA;相关文档 开源代码 GraphQL API [#graphql-api-overview] Supabase使用 pg_graphql 来在 https://&amp;lt;project_ref&amp;gt;.supabase.co/graphql/v1/ 上公开GraphQL API端点。 您可以在控制台中自动检索和查询现有 Supabase项目的 GraphQL API，或手动导航到 API 文档 &amp;gt; GraphQL &amp;gt; GraphiQL。&#xA;Supabase的GraphQL接口会自动根据你的数据库模式进行反射，并提供以下功能支持：&#xA;基本的CRUD操作（创建/读取/更新/删除） 支持表、视图、材料化视图和外部表 表/视图之间任意深度的关联关系 用户定义的计算字段 Postgres安全模型（包括行级安全、角色和授权） GraphQL API在单个往返中解析所有请求，因此响应时间快且吞吐量高。&#xA;参考:</description>
+    </item>
+    <item>
+      <title>前端从零到一</title>
+      <link>https://example.org/pages-test/guides/integrations/fezto/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/fezto/</guid>
+      <description>Frontend Zero to One is是一项服务，它使用PostgREST提供的OpenAPI规范，为你的Supabase Postgres数据库即时创建一个应用程序，无需任何拖放。&#xA;设置 在Supabase控制面板，打开你的项目，点击设置齿轮图标，然后点击 API。 你将需要&#xA;从项目的URL中复制来自https://your-project-id.supabase.co 的项目ID 从 项目API密钥部分复制 匿名的 公共API密钥到 将这两者粘贴到FEZTO Supabase设置页面并点击启动。 现在你可以与其他人分享和收藏包括项目ID和匿名密钥的浏览器URL，以启动相同的应用程序。</description>
+    </item>
+    <item>
+      <title>实时速率限制</title>
+      <link>https://example.org/pages-test/guides/realtime/rate-limits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/realtime/rate-limits/</guid>
+      <description>Supabase Realtime是一个全球集群。我们已经实施了一些速率限制，以帮助确保所有客户的高可用性。&#xA;速率限制可按项目配置，我们的集群支持数百万的并发连接。联系支持如果这些限制造成了问题。&#xA;按计划限制 免费计划和专业计划都有相应的限制。更多信息见我们的定价页。&#xA;企业计划是按使用量计费的。我们仍然对企业计划采用限制措施。如果你使用企业计划，只需联系支持，我们将根据需要增加你的限额。&#xA;企业计划的限制从以下几点开始。&#xA;500个并发客户 每秒1,000条信息 500个并发的频道 系统限制 以下限制适用于所有项目:&#xA;每秒有500个频道加入 每个连接的客户端有100个频道 客户端限制 一些基本的WebSocket消息速率限制在客户端实现。&#xA;例如，multiplayer.dev demo实例化了带有eventsPerSecond参数的Supabase客户端。&#xA;速率限制错误 速率限制错误可能出现在WebSocket连接的后端日志和消息中。&#xA;info&#xD;使用Realtime Inspector来重现错误，并与Supabase支持部门分享这些连接细节。&#xA;后端日志 如果你的项目被限制了速率，请检查你的Realtime logs。&#xA;WebSocket错误 tenant_events。如果你的项目每秒产生太多的消息，客户将被断开连接。supabase-js应该在消息率降低到你的计划限制以下时自动重新连接。 一些限制会导致通道加入被拒绝。Realtime将以下列WebSocket消息之一作为答复：&#xA;too_many_channels：目前有太多的频道加入到一个客户端。 too_many_connections: 一个项目有太多的并发连接。 too_many_joins: 每秒有太多的频道加入。 info&#xD;使用浏览器的开发工具查找WebSocket启动请求并查看单个消息。&#xA;有效载荷的限制 实时的信息字节大小限制为1兆字节。&#xA;Presence的局限性 实时Presence是一个基于Phoenix Presence的CRDT支持的内存键值存储。更新一个Presence比广播一个消息更昂贵。&#xA;以下限制适用于Presence消息：&#xA;每个对象有10个键 消息速率限制是你的实时消息速率限制的10%。 </description>
+    </item>
+    <item>
+      <title>性能调试</title>
+      <link>https://example.org/pages-test/guides/platform/performance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/performance/</guid>
+      <description>Supabase平台自动优化你的Postgres数据库，以利用你的项目所在层的计算资源。然而，这些优化是基于对项目所使用的工作流类型的假设，通过为你的特定工作流调整数据库，可能会获得更好的结果。&#xA;优化连接数 默认情况下，允许Postgres和PgBouncer的连接数是根据数据库的可用资源来配置的。&#xA;Compute Add-on Postgresql connections PGBouncer connections None 60 200 Small 90 200 Medium 120 200 Large 160 300 XL 240 700 2XL 380 1500 4XL 480 3000 8XL 490 6000 12XL 500 9000 16XL 500 12000 如果连接数不足，你在连接到数据库时将收到以下错误。&#xA;$ psql -U postgres -h ... FATAL: remaining connection slots are reserved for non-replication superuser connections 在这种情况下，你可以考虑。&#xA;升级到一个更大的计算插件 将你的客户配置为使用较少的连接 手动配置数据库以获得更多的连接数 配置客户端使用更少的连接数 你可以使用pg_stat_activity视图来调试哪些客户端在你的数据库上持有开放连接。pg_stat_activity只公开了与数据库直接连接的信息。pgbouncer的连接数的信息可以通过metrics端点获得。&#xA;根据所涉及的客户端，你也许可以配置它们使用更少的连接数（例如，通过对允许使用的最大连接数进行限制），或者将特定的工作负载转移到通过 pgbouncer 来连接。瞬息万变的工作流，可以根据流量迅速扩大和缩小（例如无服务器功能），可以从使用连接池而不是直接连接到数据库中特别受益。&#xA;允许更多的连接数 你可以通过执行下面的语句来配置Postgres，然后再重启服务器。&#xA;alter system set max_connections = &amp;#39;&amp;lt;val-here&amp;gt;&amp;#39;; 请注意，Supabase平台使用的默认配置优化了数据库以最大限度地提高资源利用率，因此，你可能还需要配置其他选项（例如work_mem、shared_buffers、maintenance_work_mem），以便针对你的使用情况进行调整，并避免造成数据库的不稳定。</description>
+    </item>
+    <item>
+      <title>Appsmith</title>
+      <link>https://example.org/pages-test/guides/integrations/appsmith/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/appsmith/</guid>
+      <description>本指南解释了如何通过连接Supabase后端和Appsmith前端来快速建立一个支持仪表板。&#xA;Appsmith是一个用于构建内部工具的开源框架。它让你可以拖放UI组件来构建页面，连接到任何API、数据库或GraphQL源，并使用JavaScript对象编写逻辑。&#xA;如果你没有一个Appsmith账户，请创建一个这里。&#xA;让我们开始吧!&#xA;第1步：在Supabase上设置你的后端 在Supabase仪表板上，点击 新项目，将名称设为支持仪表板。 通过点击侧面导航中的创建表选项来创建一个新的表。 Supabase提供了许多向表添加数据的方法，从编写查询到使用用户界面创建模式到简单地上传CSV文件。对于我们的支持仪表板，我们将通过在Supabase上上传CSV文件来创建tickets表。 现在数据库已经设置好了。&#xA;第二步：将数据库连接到Appsmith 记下Supabase中项目设置下的数据库连接信息。 在Appsmith上，在你喜欢的组织下的仪表板下创建一个新的应用程序。 点击左侧导航栏上Page1下数据源旁边的+图标 接下来，点击创建新标签，选择PostgreSQL数据源，你会看到下面的截图。 填写表格以连接到你的Supabase实例。点击测试来测试连接，然后点击保存来保存数据源。 第3步：在Appsmith上建立UI 点击小组件旁边的+图标，拖放一个Tab小组件。我们可以通过点击右上角的齿轮图标，使用属性窗格进行配置。 如下面的截图所示，我们已经添加了四个标签来支持仪表板。 在主页标签上添加部件，以创建仪表板，如下图所示。比如说。关键的开放问题是一个文本部件，在它下面是一个输入部件，我们将在后面绑定显示开放票据的数量。&#xA;设置新按钮，打开一个模态，其中有一个表单可以提出一个新票据。&#xA;在模态小部件中，添加一些小部件，以便在创建新票时接受输入。请参考下面的屏幕截图。 第4步：在Appsmith中编写查询，并将数据绑定到部件上 点击导航栏上数据源旁边的 &amp;ldquo;+&amp;ldquo;图标，然后点击这里的Supabase连接旁边的 新查询来创建一个新查询。 将查询重命名为查询窗格下的create_new_ticket；在这里我们可以写SQL，可以使用mustache模板从widgets收集数据。 INSERT INTO PUBLIC.&amp;#34;tickets&amp;#34;(&amp;#34;id&amp;#34;,&amp;#34;createdAt&amp;#34;,&amp;#34;user&amp;#34;,&amp;#34;updatedAt&amp;#34;,&amp;#34;description&amp;#34;, &amp;#34;status&amp;#34;,&amp;#34;priority&amp;#34;,&amp;#34;category&amp;#34;,&amp;#34;assignedTo&amp;#34;) VALUES(&amp;#39;{{appsmith.store.ticket.id}}&amp;#39;,&amp;#39;{{moment().format(&amp;#39;yyyy-mm-ddHH:MM:ss&amp;#39;)}}&amp;#39;,&amp;#39;{{c_user.text}}&amp;#39;, &amp;#39;{{moment().format(&amp;#39;yyyy-mm-ddHH:MM:ss&amp;#39;)}}&amp;#39;,&amp;#39;{{c_description.text}}&amp;#39;,&amp;#39;{{c_status.selectedOptionValue}}&amp;#39;, &amp;#39;{{c_property.selectedOptionValue}}&amp;#39;, &amp;#39;{{c_category.selectedOptionValue}}&amp;#39;,&amp;#39;{{c_assignee.selectedOptionValue}}&amp;#39;); 点击模式上的确认按钮，在事件下，设置onClick**属性以执行create_new_ticket查询。&#xA;创建第二个名为get_tickets的查询，将列出所有的票。&#xA;SELECT * FROM public.&amp;#34;tickets&amp;#34;; 在分配给我的标签下拖放一个表格小组件。打开属性窗格，在表数据下添加以下片段，以绑定查询结果。 { { get_tickets.data.filter( (t) =&amp;gt; t.assignedTo === &amp;#39;confidence@appsmith.com&amp;#39; &amp;amp;&amp;amp; t.status !== &amp;#39;closed&amp;#39; ) } } 在解决的标签下拖放一个表格小组件。打开属性窗格，在表数据下添加以下片段，以绑定查询结果。 { { get_tickets.data.filter((t) =&amp;gt; t.status === &amp;#39;open&amp;#39;) } } 在关闭的标签下拖放一个表格小组件。打开属性窗格，在表数据下添加以下片段，以绑定查询结果。 { { get_tickets.</description>
+    </item>
+    <item>
+      <title>使用WorkOS登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-workos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-workos/</guid>
+      <description>要为你的项目启用WorkOS Auth，你需要设置WorkOS OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 在本指南中，我们将介绍如何使用Supabase OAuth和WorkOS来实现单点登录（SSO）。&#xA;该过程包括五个主要步骤。&#xA;在你的WorkOS仪表板上创建一个新的组织。 从配置选项卡中获得 客户端ID，并配置重定向URI。 从证书标签中获得 WorkOS Secret。 连接一个WorkOS支持的身份提供者 在Supabase项目中加入你的WorkOS凭证 创建一个WorkOS组织 登录到仪表板，跳到 组织选项卡，创建一个组织。 获得客户ID并配置重定向URI 前往配置选项卡，配置重定向URI。重定向URI应该看起来像https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。 请注意，这与Supabase仪表板中提到的重定向URI不同。&#xA;获得WorkOS密匙 前往API密钥页面，获取秘密密钥。&#xA;连接一个WorkOS支持的身份提供者 通过访问设置链接来设置身份提供者。&#xA;你可以从WorkOS支持的众多身份提供者中选择任何一个。&#xA;将你的 WorkOS 凭证加入你的 Supabase 项目中 进入你的MemFire Cloud项目仪表板 在左边的侧边栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面 在 外部OAuth供应商下，将 WorkOS已启用调至 ON。 输入前面步骤中保存的 客户端ID、密码和 WorkOS URL。WorkOS URL的设置应该设置为https://api.workos.com/。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将workos作为provider。&#xA;async function signInWithWorkOS() { const { data, error } = await supabase.auth.signInWithOAuth({ provider: &amp;#39;workos&amp;#39;, options: { queryParams: { connection: &amp;#39;&amp;lt;your_connection&amp;gt;&amp;#39;, organization: &amp;#39;&amp;lt;your_organization&amp;#39;, provider: &amp;#39;&amp;lt;your_provider&amp;gt;&amp;#39;, }, }, }) } 请参考 WorkOS 文档 以了解更多关于不同方法的信息。</description>
+    </item>
+    <item>
+      <title>快速入门: Ionic Vue</title>
+      <link>https://example.org/pages-test/guides/with-ionic-vue/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-ionic-vue/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本。&#xA;构建应用程序 让我们开始从头开始构建Vue应用程序。&#xA;初始化一个Ionic Vue应用程序 我们可以使用Ionic CLI来初始化 一个名为supabase-ionic-vue的应用程序。&#xA;npm install -g @ionic/cli ionic start supabase-ionic-vue blank --type vue cd supabase-ionic-vue 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后，我们要把环境变量保存在.env中。 我们所需要的是API URL和你[早些时候]复制的anon密钥(#get-theapi-keys)。&#xA;VUE_APP_SUPABASE_URL=YOUR_SUPABASE_URL VUE_APP_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在 在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;; const supabaseUrl = process.env.VUE_APP_SUPABASE_URL as string; const supabaseAnonKey = process.env.VUE_APP_SUPABASE_ANON_KEY as string; export const supabase = createClient(supabaseUrl, supabaseAnonKey); 设置一个登录路由 让我们建立一个Vue组件来管理登录和注册。我们将使用Magic Links，所以用户可以用他们的电子邮件登录，而不需要使用密码。&#xA;&amp;lt;template&amp;gt; &amp;lt;ion-page&amp;gt; &amp;lt;ion-header&amp;gt; &amp;lt;ion-toolbar&amp;gt; &amp;lt;ion-title&amp;gt;Login&amp;lt;/ion-title&amp;gt; &amp;lt;/ion-toolbar&amp;gt; &amp;lt;/ion-header&amp;gt; &amp;lt;ion-content&amp;gt; &amp;lt;div class=&amp;#34;ion-padding&amp;#34;&amp;gt; &amp;lt;h1&amp;gt;Supabase + Ionic Vue&amp;lt;/h1&amp;gt; &amp;lt;p&amp;gt;Sign in via magic link with your email below&amp;lt;/p&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;ion-list inset=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;form @submit.</description>
+    </item>
+    <item>
+      <title>快速入门: Next.js</title>
+      <link>https://example.org/pages-test/guides/with-nextjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-nextjs/</guid>
+      <description>第一步：在 MemFire Cloud 仪表板中创建一个新应用。 应用准备就绪后，进入应用，在左侧菜单-&amp;gt;表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。&#xA;-- Create the table CREATE TABLE countries ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL ); -- Insert some sample data into the table INSERT INTO countries (name) VALUES (&amp;#39;United States&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Canada&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Mexico&amp;#39;); 第二步：创建 Next.js 应用 使用 npx 模板创建 Next.js 应用。&#xA;npx create-next-app my-next-app 第三步：安装 Supabase 客户端库 最快的入门方法是使用 supabase-js 客户端库，它提供了一些简便的API，用于在 Next.</description>
+    </item>
+    <item>
+      <title>使用谷歌登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-google/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-google/</guid>
+      <description>要为你的项目启用Google Auth，你需要设置一个Google OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置谷歌登录包括3个部分。&#xA;在Google Cloud Platform Console上创建和配置一个Google项目 将你的谷歌OAuth密钥添加到你的MemFire Cloud项目 将登录代码添加到你的JS客户端应用程序 访问你的谷歌云平台账户 转到cloud.google.com。 点击右上方的 Sign in来登录。 创建一个谷歌云平台项目 点击左上角的 选择一个项目。 (或者，如果当前选择了一个项目，点击左上角的当前项目名称。) 点击右上方的 新项目。 填写你的应用程序信息，然后点击 创建。 这可能需要几分钟时间。 这将使你进入新项目的仪表板。 为你的项目创建OAuth密钥 在你项目的仪表盘屏幕上。&#xA;在顶部标有 搜索产品和资源的搜索栏中输入 OAuth。 在结果列表中点击 OAuth同意界面。 在 OAuth同意屏幕页面选择 外部。 点击 创建。 编辑你的应用程序信息 在 编辑应用程序注册页面，填写您的应用程序信息。 点击底部的 保存并继续。 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建你的谷歌凭证 点击左边的 证书，进入谷歌云平台控制台的 证书页面。 点击顶部的 创建凭证，然后选择 OAuth客户端ID。 在 创建OAuth客户端ID页面，选择你的应用程序类型。如果你不确定，选择 网络应用。 填入你的应用程序名称。 在底部，在 授权重定向URI下点击 添加URI。 在底部的 授权重定向URI下输入你的回调URI。 在 有效的OAuth重定向URI框中输入你的回调URI。 点击右下角的 保存更改。 点击 创建。 复制你的新OAuth凭证</description>
+    </item>
+    <item>
+      <title>DhiWise</title>
+      <link>https://example.org/pages-test/guides/integrations/dhiwise/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/dhiwise/</guid>
+      <description>本指南介绍了如何将Supabase后端快速连接到DhiWise Flutter应用程序。&#xA;DhiWise是一个将Figma设计转换为React和Flutter应用程序的开发者工具。它可以让您快速将数据库和API集成到您的React和Flutter应用程序中。&#xA;如果您还没有DhiWise账户，请创建一个这里。&#xA;DhiWise支持简单的Supabase集成，只需五个步骤。&#xA;让我们开始吧!&#xA;第1步：登录到Supabase 进入Supabase，点击 Sign In，通过**GitHub认证创建一个新账户。如果你已经有一个账户，你将会被登录。&#xA;第二步：在Supabase中创建一个新项目 在仪表板上点击 新项目，选择一个组织。如果你没有一个组织，请使用+新组织创建一个组织。&#xA;给你的Supabase项目起一个名称。 输入一个安全的 数据库密码。 选择你的应用程序的后端所在的 区域。 点击 创建新项目。 第3步：找到API密钥和URL 一旦你的项目被创建，你可以访问API密钥和URL字符串，或者如果你已经有一个账户，去你的组织-&amp;gt;应用程序-&amp;gt;设置-&amp;gt;API。&#xA;第4步：整合 您可以通过两种方式将 Supabase 集成到您的 DhiWise Flutter 应用程序中。&#xA;认证 您可以在您的组件上集成Supabase Email/Password SignUp或Supabase Email/Password SignIn。&#xA;打开您的flutter应用程序的屏幕 转到您想添加认证的组件上 在onClick方法上 - 选择authentication。 从列表中，如果您想要登录 - 选择用电子邮件/密码登录；否则，从Supabase Auth部分选择用电子邮件/密码登录。 Supabase认证将被添加到选定的组件中。&#xA;在下载了应用程序的源代码后。&#xA;在**lib/core/utils/initial_bindings**文件中添加Supabase URL和Supabase公钥。 有关其他细节，请参阅https://supabase.com/docs/guides/with-flutter。 使用数据工作 当你第一次在你的DhiWise Flutter应用程序中集成Supabase时，你会被要求添加Supabase的认证密钥和URL。当您添加它们时，您的 Supabase 项目中所有可用的表都将在 DhiWise 中同步。您可以在您的Flutter屏幕上为DhiWise中的某个表整合选择和创建查询。&#xA;###选择记录&#xA;Step 1: 从屏幕列表中选择你要集成Supabase的屏幕。&#xA;Step 2: 接下来，进入你要添加集成的视图，从 onClick属性的建议框中，选择 数据库集成，这将带你进入集成屏幕。在那里你将被要求 输入函数名称。输入你的函数名称，然后点击 submit。&#xA;Step 3: 提交功能名称后，您将被要求选择一种Supabase集成类型。要从Supabase检索数据，请选择select。</description>
+    </item>
+    <item>
+      <title>Draftbit</title>
+      <link>https://example.org/pages-test/guides/integrations/draftbit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/draftbit/</guid>
+      <description>本指南解释了如何将Supabase后端连接到Draftbit前端，然后配置所有必要的CRUD操作来构建一个简单的移动应用。&#xA;[Draftbit]（https://draftb.it/3Fkbask）是一个 专业代码的低代码移动应用构建平台。Draftbit输出的React Native源代码100%运行于开源语言和库。&#xA;Draftbit与后端无关，通过REST API连接到Supabase。&#xA;注意：为了本指南的演示目的，我们在Supabase中使用一个预先填充的数据库。我们称之为 Groceries。为了跟上进度，可以按你喜欢的方式重新命名。&#xA;如果你没有Draftbit账户，请创建一个[这里]（https://draftb.it/3Fkbask）。一旦你建立了你的账户，创建一个新的应用程序。你可以为这个演示选择 &amp;ldquo;从空白应用程序开始&amp;rdquo;，然后进入生成器界面。&#xA;步骤1：获取RESTful端点和项目API密钥 要在Draftbit应用程序中连接REST API，需要以下字段。&#xA;REST API的基本URL，其格式为。https://&amp;lt;your-domain&amp;gt;.supabase.co/rest/v1，其中&amp;lt;your-domain是由Supabase生成的唯一域名。 supabase-key是秘密密钥。 你可以在你的Supabase账户的API设置中找到这些唯一的值。&#xA;单击顶部菜单栏中的设置按钮。 在设置中，选择API。 在 项目 URL 部分，选择并复制该 URL。它是您的 Supabase REST API 的基本 URL。它将被要求与Draftbit应用程序建立连接。 另外，在 &amp;ldquo;项目API密钥 &amp;ldquo;下，选择并复制 &amp;ldquo;anon &amp;ldquo;下的API密钥。向Supabase数据库发出的每个请求都需要这个密钥。 第2步：将Supabase的API密钥保存为Draftbit的授权头 要用Supabse授权你的Draftbit应用程序，在构建者界面中。&#xA;从顶部菜单栏中打开设置标签。 在项目设置中，导航到应用程序变量。 输入一个访问API密钥的名称，如Authorization_Header。当在下一节进行服务连接时，它将作为头 Authorization的值传递。 这个键的值需要你输入一个以语法Bearer &amp;lt;your-api-key&amp;gt;开头的授权令牌（Bearer和&amp;lt;your-api-key&amp;gt;之间的空格是必须的）。添加数值后点击添加。 输入另一个密钥名称来访问API密钥，如Api_Key_Header。当在下一节进行服务连接时，它将作为头文件apiKey值被传递。 这个键的值需要你输入一个授权令牌，其开头的语法是&amp;lt;你的api-key&amp;gt;。添加完值后点击添加。 点击Save来保存这些键，并关闭模版。 第3步：在Draftbit中添加Supabase RESTful端点 在你的Draftbit建设者界面中。&#xA;从顶部菜单栏打开API和云服务模式。&#xA;从连接服务菜单中，点击Rest API。&#xA;在步骤1中：为你的REST API输入一个名称。然后，将你的 基础URL（来自第一部分）粘贴到基础URL领域。&#xA;第2步：在密钥下添加授权&#39;和apikey`。然后，在值下，选择全局变量（来自上一节），为两个键添加实际值。&#xA;点击保存。&#xA;使用Supabase和Draftbit进行API请求 获取所有记录的GET请求 在本节中，让我们用一个简单的Supabase中的所有数据填充一个Fetch组件，然后在一个List组件中显示从Supabase数据表中获取的数据。&#xA;作为参考，下面是这个屏幕上的组件树的样子。&#xA;下一步是创建一个端点。让我们尝试使用GETHTTP请求来获取所有数据。在API和云服务模式中选择Supabase服务，然后。&#xA;单击添加端点。 在步骤1中：输入端点的名称。确保方法选择为GET。 在第2步：添加基本名称路径。/groceries/select=*，其中groceries是Supabase中的表名。 在第4步：单击端点输入旁边的测试按钮，以验证来自Supabase的响应。 点击保存。 在Builder中，在应用程序屏幕上。&#xA;在组件树中选择Fetch组件，并进入属性面板的数据标签。 对于服务，选择Supabase服务的名称。 对于端点，选择你要获取数据的端点。 在组件中选择列表组件，并转到属性面板中的数据选项卡。在数据中，从下拉菜单中选择 顶层响应。 然后，在 组件中选择 文本组件，再从 属性面板转到 数据选项卡。 添加一个{{varName}}值（在大括号内），代表Supabase的一个列字段。例如，添加{{title}}来表示Supabase数据库中的列名。 在变量下，你将看到在上一步中定义的变量名称。从下拉菜单中，选择代表数据字段的适当字段。 获取单行的GET请求 从顶部菜单打开API和云服务模式，选择Supabase服务，然后。</description>
+    </item>
+    <item>
+      <title>http: RESTful客户端</title>
+      <link>https://example.org/pages-test/guides/database/extensions/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/extensions/http/</guid>
+      <description>http扩展允许你在Postgres中调用RESTful端点。&#xA;快速演示 概述 让我们来介绍一些基本概念：&#xA;REST：是REpresentational State Transfer的缩写。它是一种从外部服务请求数据的简单方法。 RESTful APIs是接受HTTP &amp;ldquo;调用&amp;quot;的服务器。这些调用通常是： GET - 只读访问一个资源。 POST - 创建一个新的资源。 DELETE - 移除一个资源。 PUT - 更新一个现有的资源或创建一个新的资源。 你可以使用http扩展来从Postgres进行这些网络请求。&#xA;用法 启用扩展功能 Dashboard&#xD;SQL&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;http &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;http&amp;#34; extension create extension http with schema extensions; -- Example: disable the &amp;#34;http&amp;#34; extension drop extension if exists http; 尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;好的做法是在一个单独的模式（如 extensions）中创建扩展，以保持你的数据库干净。&#xA;可用的函数 虽然主要用法是简单的http(&#39;http_request&#39;)，但有5个封装函数用于特定功能：&#xA;http_get() http_post() http_put() http_delete() http_head() 返回值 从http扩展中成功调用一个网络URL，会返回一个包含以下字段的记录:</description>
+    </item>
+    <item>
+      <title>数据库的使用</title>
+      <link>https://example.org/pages-test/guides/platform/database-usage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/database-usage/</guid>
+      <description>数据库存储是指月平均存储用量，由Postgres报告。这个指标在你的项目的billing usage中报告，每天更新。&#xA;为了即时了解数据库存储的使用情况，你可以在Postgres中执行。&#xA;select sum(pg_database_size(pg_database.datname)) / (1024 * 1024) as db_size_mb from pg_database; 这个值也会在数据库设置页面中报告。&#xA;数据库存储管理 一旦你的项目达到95%的订阅配额，你的项目就会被改为只读模式，防止进一步写入你的项目。 在只读模式下，客户会遇到诸如 无法在只读事务中执行INSERT的错误。&#xA;一旦数据库存储使用量下降到95%以下，常规操作（读写模式）将自动重新启用。&#xA;如果你使用的是专业版或企业版，数据库存储会自动扩展，但是如果填充数据库的速度超过了它的扩展速度，你也可能遇到这个错误。&#xA;Supabase使用网络附加存储，在性能和可扩展性之间取得平衡。专业项目可以存储多达1024TB。 如果你打算增长超过这个数字，请联系我们的团队，了解更多关于我们企业级的信息。&#xA;增加可用的数据库存储 升级到专业或企业计划以增加你的存储配额。&#xA;从你的项目数据库中删除数据，以降低其磁盘使用率。如果你的数据库已经处于只读模式，运行下面的命令，将你的会话的交易模式改为读写。&#xA;SET default_transaction_read_only = &amp;#39;off&amp;#39;; 这允许你从会话中删除数据。&#xA;真空操作 Postgres不会立即回收DB中死的图元（即被删除的行）所使用的物理空间。相反，在执行真空操作之前，它们被内部标记为已被删除。 因此，从你的数据库中删除数据可能不会立即减少报告的磁盘使用率。&#xA;info&#xD;真空操作可以暂时增加资源利用率，这可能对你的项目的观察性能产生不利影响，直到维护完成。&#xA;Supabase项目已经启用了自动吸尘功能，这可以确保定期执行这些操作以保持数据库的健康和性能。 然而，可能需要微调自动真空参数。 或者手动启动真空操作。 例如，在从数据库中删除大量数据后，运行手动真空操作可以帮助减少Postgres报告的磁盘使用率。</description>
+    </item>
+    <item>
+      <title>与Vonage的电话授权</title>
+      <link>https://example.org/pages-test/guides/auth/auth-vonage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-vonage/</guid>
+      <description>概述 在本指南中，我们将向您展示如何使用基于 SMS 的 OTP（一次性密码）令牌来验证您的用户。&#xA;使用Supabase SMS OTP令牌有两个原因。&#xA;你想让用户用手机+密码登录，并且手机应该通过短信进行验证 你希望用户只用手机登录（即无密码登录）。 我们将介绍。&#xA;获取您的Vonage API密钥](#finding-your-vonage-api-key) 使用OTP与基于密码的登录] (#using-otp-with-password-based-logins) 使用OTP作为无密码登录机制](#using-otp-as-passwordless-sign-in-mechanism) 你需要什么？&#xA;一个Vonage账户（在此注册：https://dashboard.nexmo.com/sign-up） 一个Supabase项目（在这里创建一个：https://app.supabase.com）。 一部能够接收短信的移动电话 步骤 获得你的Vonage凭证 首先登录你的Vonage仪表板，网址是：https://dashboard.nexmo.com/&#xA;你会在这里看到你的API Key和API Secret，这实际上是你需要开始的全部内容。&#xA;在大多数国家，电话号码实际上是可选的，你也可以使用任何字母数字的发送者ID，长度不超过11个字符（印度为8个）作为发送者ID（从）。这意味着在大多数情况下，你不需要一个号码来测试。&#xA;要了解更多关于字母数字发件人ID支持的国家，请查看以下概述：https://help.nexmo.com/hc/en-us/articles/115011781468-SMS-Features-Overview-Outbound-only-&#xA;提示：有些国家可能需要一个发件人ID注册，以允许用字母数字发件人ID发送。你也可以在帮助文章中找到这些信息。如果不支持字母数字发件人ID，你将需要购买一个电话号码。&#xA;获得一个电话号码（可选） 如果你想要一个电话号码来发送短信，你可以从Vonage控制面板上的号码&amp;gt;购买号码（https://dashboard.nexmo.com/buy-numbers）中购买一个。&#xA;选择你想要的号码的国家。你将需要一个具有短信或短信+语音功能的手机号码。在你买了号码之后，你就可以用它来发送短信。&#xA;配置Supabase 现在去Supabase仪表板（https://app.supabase.com/project/YOUR-PROJECT-REF/auth/settings）中的授权&amp;gt;设置页面。&#xA;你应该看到一个启用电话注册的选项。&#xA;拨动它，并从Vonage仪表板上复制api密钥、api秘密和可选的电话号码值。点击保存。&#xA;现在后台应该已经设置好了，我们可以继续添加我们的客户端代码了&#xA;短信定制模板 发送到手机上的包含OTP代码的短信可以被定制。如果你需要提到一个品牌名称或显示一个网站地址，这很有用。&#xA;进入 Supabase 仪表板中的 Auth &amp;gt; Templates 页面 (https://app.supabase.com/project/YOUR-PROJECT-REF/auth/templates)。&#xA;在模板中使用变量.Code来显示代码。&#xA;使用OTP与基于密码的登录方式 在这个使用场景中，我们将使用用户的手机号码作为注册时与密码一起使用的电子邮件地址的替代。然而，你可能要仔细考虑一下这个的持久性。当用户取消他们的电话合同或搬家时，手机号码被电话网络回收的情况并不少见，因此，无论谁在未来接管了这个手机号码，都可以访问用户的账户。&#xA;在客户端使用supabase-js，你要使用与基于电子邮件的注册相同的signUp方法，但使用phone参数而不是email参数。&#xA;JavaScript&#xD;HTTP&#xD;&#xD;size=&#34;small&#34;&#xD;type=&#34;underlined&#34;&#xD;defaultActiveId=&#34;js&#34;&#xD;&gt;&#xD;let { user, error } = await supabase.auth.signUp({ phone: &amp;#39;491512223334444&amp;#39;, password: &amp;#39;some-password&amp;#39;, }) curl -X POST &amp;#39;https://xxx.</description>
+    </item>
+    <item>
+      <title>使用Azure登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-azure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-azure/</guid>
+      <description>若要为您的项目启用Azure Auth，您需要设置Azure OAuth应用程序，并将应用程序凭据添加到Supabase 项目仪表。&#xA;概述 Azure OAuth由四个主要步骤组成：&#xA;在Azure Active Directory下创建应用程序。 获取具有“使用Azure登录”功能的应用程序（客户端）ID。这将用作客户端id。 创建具有“使用Azure登录”功能的 Secret ID。机密的值将用作client secret。 将应用程序的回调url添加到允许列表中。 访问你的Azure开发者帐户 跳转到portal.azure.com. 登录并在Azure服务列表下选择“Azure Active Directory”。 注册应用程序 在Azure Active Directory下，在侧面板中选择 应用程序注册 选择新注册. 为支持的帐户类型选择名称并选择首选选项。 指定重定向URI。 重定向/回调URI应如下所示：https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback 单击表单底部的注册。 获取客户端ID 当您进行API调用以验证用户时，这将用作client_id。&#xA;应用程序注册后，可以在应用程序注册列表下找到客户端id在标题为应用程序（客户端）ID的列下。 获取秘密ID 当您进行API调用以验证用户时，这将用作client_secret。&#xA;单击上面注册的应用程序的名称。 在Essentials下，单击Client credentials。 导航到Client secrets选项卡并选择 New client secret。 输入描述并选择您的首选密钥过期日期。 生成密钥后，保存value（而不是密钥ID）。 获取租户URL 这将允许您的用户在登录时使用自定义Azure登录页面。&#xA;选择目录（租户）ID值。 Azure租户URL应如下所示: https://login.microsoftonline.com/&amp;lt;tenant-id&amp;gt; 将登录代码添加到客户端应用程序 info&#xD;Supabase Auth要求Azure返回一个有效的电子邮件地址。因此，你必须在上面的signIn方法中请求email范围。&#xA;当您的用户登录时，调用[signInWithOAuth()](/docs/app/SDKdocs/JavaScript/auth signingwiththoauth)，将azure作为provider：&#xA;async function signInWithAzure() { const { data, error } = await supabase.auth.signInWithOAuth( { provider: &amp;#39;azure&amp;#39;, }, { scopes: &amp;#39;email&amp;#39;, } ) } 当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除：</description>
+    </item>
+    <item>
+      <title>WeWeb</title>
+      <link>https://example.org/pages-test/guides/integrations/weweb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/weweb/</guid>
+      <description>本指南解释了如何将Supabase后端连接到WeWeb前端，然后配置所有必要的CRUD操作，以建立一个具有用户认证、角色和权限的管理门户。&#xA;WeWeb是一个低代码的前端构建器，将无代码的短暂学习曲线与代码的自由度结合起来。&#xA;它通过两个本地集成连接到Supabase。&#xA;一个用于数据操作，另一个 另一个用于用户认证。 如果你没有WeWeb账户，你可以创建一个这里。&#xA;让我们开始吧!&#xA;第1步：在WeWeb中添加Supabase数据源插件 为了在WeWeb中读取Supabase数据，你首先需要添加Supabase数据源插件。&#xA;一旦你添加了它，你将被邀请分享你的Supabase项目URL和公共API密钥。&#xA;在Supabase中，你可以在 设置&amp;gt;API菜单中找到你的项目URL和公钥。&#xA;一旦你把两者都添加到WeWeb中，如果你愿意，你将可以选择启用实时表。&#xA;🚨 警告 🚨&#xA;为了提高数据库的性能和安全性，Supabase中默认禁用实时功能。在我们的文档中了解更多关于Realtime的信息。 会员 @awalias awalias 16 天前 可能只是想把这些改成相对的，但其他方面看起来不错👍&#xA;@EWMAs Reply&amp;hellip;&#xA;第2步：从Supabase获取数据 一旦你点击 &amp;ldquo;添加一个集合&amp;rdquo;，你将被邀请给你的集合一个名称，并选择Supabase作为数据源。&#xA;然后，你将能够选择你想从中提取数据的表。&#xA;请注意，这使你可以用两种不同的模式来访问表中的字段。&#xA;&amp;ldquo;Guided&amp;quot;模式，和 &amp;ldquo;Advanced&amp;quot;模式。 Guided模式 默认情况下，&amp;ldquo;Guided&amp;quot;模式返回所有字段的数据。&#xA;在下面的例子中，我们决定排除vehicles表中的created_at字段的数据。&#xA;因此，WeWeb不会获取created_at字段。&#xA;这很有帮助，因为我们可以排除那些我们不想在前台加载的数据，因为我们不需要它，或者因为它是机密。&#xA;Advanced模式 在我们的数据库中，我们为车辆和地点创建了2个独立的表。&#xA;在vehicles表中，我们在location_id字段中对locations表做了一个引用，这样我们就知道每辆车的位置。&#xA;问题是，该链接只给我们在locations表中的位置的id。&#xA;如果你选择 Advanced模式，你将能够获得位置的 name字段，而不是 ID。&#xA;如何获得？&#xA;通过[对Supabase进行自定义查询]（https://supabase.com/docs/app/SDKdocs/JavaScript/select）。&#xA;在上面的例子中，我们要告诉Supabase。&#xA;从集合中选择的表&amp;ndash;在这个例子中是vehicles表&amp;ndash;请给我发送id、model和mileage字段中的数据 在locations表中寻找vehicles表中的location_id，并将相应的name字段中的数据发送给我。 如果我们只要求从vehicles表中的location字段获取数据，Supabase将只返回id。&#xA;🚨 警告 🚨&#xA;如果你在 Supabase 中启用了行级安全，请确保你也添加了一个策略，允许用户读取表中的数据。否则，WeWeb将无法获得这些数据。&#xA;第三步：在WeWeb中显示Supabase数据 假设你能够在WeWeb集合中从Supabase中获取数据，你就能够在你的WeWeb页面上绑定该集合的数据。&#xA;在下面的例子中，我们选择在WeWeb中开箱即用的数据网格元素中显示汽车模型和里程数。&#xA;我们选择这个元素是因为它包括一个内置的内联编辑模式，我们将在以后的CRUD操作中使用。&#xA;🔥 专业小贴士 🔥 在WeWeb中，你可以将数据的数组绑定到任何容器。只要记住，你将集合绑定到的容器的第一个孩子将是重复的项目。考虑到这一点，你可能希望第一个子元素是另一个容器，里面有一些项目，如标题、描述、按钮或图片。&#xA;第4步：更新Supabase中的一条记录 一旦你在WeWeb上添加了一个Supabase的数据集合，你可能想让用户操作该集合中的数据。&#xA;为了做到这一点，你需要在WeWeb中创建一个工作流。&#xA;在下面的例子中，我们使用的是 更新行的工作流，它是WeWeb的数据网格元素所默认的。</description>
+    </item>
+    <item>
+      <title>404</title>
+      <link>https://example.org/pages-test/404/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/404/</guid>
+      <description>Page not found </description>
+    </item>
+    <item>
+      <title>Prisma</title>
+      <link>https://example.org/pages-test/guides/integrations/prisma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/prisma/</guid>
+      <description>本指南介绍了如何将Supabase提供的Postgres数据库快速连接到Prisma项目中。&#xA;Prisma是一个开放源代码的下一代ORM。它由以下部分组成。&#xA;Prisma客户端。用于Node.js和TypeScript的自动生成和类型安全的查询生成器。 Prisma Migrate: 迁移系统。 Prisma Studio: 用于查看和编辑数据库中的数据的图形用户界面。 第1步：从Supabase项目设置中获取连接字符串 从侧边栏进入设置页面，导航到数据库标签。你会发现数据库的连接字符串，其中有一个占位符，是你创建项目时提供的密码。 第二步：测试连接 为了确保一切工作正常，让我们在Prisma项目中尝试连接字符串。&#xA;如果你已经有一个，你需要做的就是在你的.env文件中把DATABASE_URL设置为连接字符串（包括密码），然后你就可以开始了。&#xA;如果你没有Prisma项目或者这是你第一次使用Prisma，你将使用quickstart指南中的 repo。&#xA;克隆启动项目 导航到你选择的目录，如果你是在Windows机器上，在终端运行以下命令。&#xA;curl https://pris.ly/quickstart -L -o quickstart-main.tar.gz &amp;amp;&amp;amp; tar -zxvf quickstart-main.tar.gz quickstart-main/typescript/starter &amp;amp;&amp;amp; move quickstart-main\typescript\starter starter &amp;amp;&amp;amp; rmdir /S /Q quickstart-main &amp;amp;&amp;amp; del /Q quickstart-main.tar.gz 而如果你使用的是Mac OS或Linux，运行以下命令。&#xA;curl -L https://pris.ly/quickstart | tar -xz --strip=2 quickstart-main/typescript/starter 现在你可以导航到该目录并安装项目的依赖性。&#xA;cd starter &amp;amp;&amp;amp; npm install 看看这个项目的结构 这个项目已经配置了TypeScript，它的结构如下。&#xA;一个prisma目录，其中包含。 一个dev.db文件。这是一个SQLite数据库。 一个schema.prisma文件。我们在这里定义不同的数据库模型和它们之间的关系。 一个.env文件。包含DATABASE_URL变量，Prisma将使用它。 一个script.ts文件：我们将在这里使用Prisma客户端运行一些查询。 这个启动程序也安装了以下软件包。 @prisma/client。一个自动生成的、类型安全的查询生成器，它是为你的数据_定制的。 prisma。Prisma的命令行界面（CLI）。它允许你初始化新的项目资产，生成Prisma客户端，并通过内省分析现有的数据库结构，自动创建你的应用模型。 注意：Prisma同时适用于JavaScript和TypeScript。然而，为了获得最佳的开发体验，强烈建议使用TypeScript。&#xA;配置项目以使用PostgreSQL 继续前进，删除prisma/dev.db文件，因为我们将切换到PostgreSQL。 接下来，在prisma/.</description>
+    </item>
+    <item>
+      <title>用LinkedIn登录</title>
+      <link>https://example.org/pages-test/guides/auth/auth-linkedin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/auth/auth-linkedin/</guid>
+      <description>要为你的项目启用LinkedIn Auth，你需要设置一个LinkedIn OAuth应用程序，并将应用程序的凭证添加到你的Supabase仪表板。&#xA;概述 为你的应用程序设置LinkedIn登录，包括3个部分。&#xA;在LinkedIn Developer Dashboard上创建并配置一个LinkedIn项目和应用程序。 将你的LinkedInclient_id和client_secret添加到你的MemFire Cloud项目。 将登录代码添加到您的JS客户端应用程序。 访问你的LinkedIn Developer账户 转到LinkedIn Developer Dashboard。 登录（如有必要。） 找到你的回调URL 下一步需要一个回调URL，它看起来像这样。&#xA;https://&amp;lt;project-ref&amp;gt;.supabase.co/auth/v1/callback。&#xA;进入你的MemFire Cloud项目仪表板。 点击左侧边栏底部的 设置图标。 点击列表中的 API。 在配置/URL下，你会发现你的API URL，你可以点击复制将其复制到剪贴板。 现在只要在后面加上/auth/v1/callback就可以得到完整的OAuth Redirect URI。 创建一个LinkedIn OAuth应用程序 转到LinkedIn Developer Dashboard。 点击右上方的 创建应用程序。 输入你的 LinkedIn Page和 App Logo。 保存你的应用程序 从顶部菜单点击 Auth。 将你的 重定向URL添加到 为你的应用程序授权的重定向URL部分。 复制并保存你新生成的 客户端ID。 复制并保存你新生成的 客户端密码。 在你的Supabase项目中输入你的LinkedIn凭证 转到你的MemFire Cloud项目仪表板。 在左边的侧栏，点击 认证图标（靠近顶部）。 从列表中点击 设置，进入 认证设置页面。 在 网站URL下输入你的应用程序的最终（托管）URL（这很重要）。 在 外部OAuth提供商下，将 LinkedIn启用改为 开启。 输入你在上一步保存的client_id和client_secret。 点击 保存。 将登录代码添加到你的客户端应用程序 当你的用户登录时，调用signInWithOAuth()，将linkedin作为提供者。</description>
+    </item>
+    <item>
+      <title>快速入门: Flutter</title>
+      <link>https://example.org/pages-test/guides/with-flutter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-flutter/</guid>
+      <description>第一步：在 MemFire Cloud 仪表板中创建一个新应用。 应用准备就绪后，进入应用，在左侧菜单-&amp;gt;表编辑器选择 SQL 编辑器在 MemFire Cloud 数据库中创建一个表。使用以下 SQL 语句创建包含一些示例数据的国家/地区表。&#xA;-- Create the table CREATE TABLE countries ( id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL ); -- Insert some sample data into the table INSERT INTO countries (name) VALUES (&amp;#39;United States&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Canada&amp;#39;); INSERT INTO countries (name) VALUES (&amp;#39;Mexico&amp;#39;); 第二步：创建 Flutter 应用 使用 flutter create 命令创建 Flutter 应用程序。如果您已有可用的应用程序，则可以跳过此步骤。&#xA;flutter create my_app 第三步：安装 Supabase 客户端库 最快的入门方法是使用 supabase_flutter 客户端库，它提供了一些简便的API，用于在 Flutter 应用程序中使用 Supabase。 在Flutter应用程序中打开pubspec.</description>
+    </item>
+    <item>
+      <title>Contributing</title>
+      <link>https://example.org/pages-test/handbook/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/handbook/contributing/</guid>
+      <description>How to contribute Supabase has many open source repos. Some of the more popular ones are:&#xA;Supabase - Our Dashboard, Websites, and example apps Supabase-js - A clientside library written in Typescript Gotrue - Our auth server, written in Go Realtime - A server for streaming changes from Postgres, written in Elixir browse all Want to contribute? Why not jump into our GitHub repo and:&#xA;Sponsor Supabase. Answer Discussions. Submit an issue to one of our repos Report a performance issue or a part of the documentation that you find confusing.</description>
+    </item>
+    <item>
+      <title>索引</title>
+      <link>https://example.org/pages-test/guides/ai/python/indexes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/ai/python/indexes/</guid>
+      <description>索引是优化集合查询性能的工具。&#xA;集合可以在没有索引的情况下进行查询，但这将会产生一个python警告，因此在生产环境中绝对不可以这样做。&#xA;query does not have a covering index for cosine_similarity. See Collection.create_index 因为每个查询向量都必须与集合中的每条记录进行比较。当维度数和/或记录数变大时，这变得非常缓慢和计算昂贵。&#xA;索引是一种启发式数据结构，预先计算向量空间中关键点之间的距离。它比整个集合更小，遍历速度更快，从而实现更高效的搜索。&#xA;每个集合只能存在一个索引。索引根据选择的距离度量对集合进行优化以进行搜索。&#xA;可用的距离测量选项有：&#xA;余弦距离（cosine distance） L2 距离（l2 distance） 最大内积（max inner product） 如果你不确定要使用哪个，请在创建索引和查询时省略参数，使用默认值余弦距离 (cosine_distance) 。</description>
+    </item>
+    <item>
+      <title>快速入门: Svelte</title>
+      <link>https://example.org/pages-test/guides/with-svelte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-svelte/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本。&#xA;构建应用程序 让我们从头开始构建Svelte应用程序。&#xA;初始化一个Svelte应用程序 我们可以使用Vite Svelte TypeScript模板来初始化一个名为supabase-svelte的应用程序。&#xA;npm create vite@latest supabase-svelte -- --template svelte-ts cd supabase-svelte npm install 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后，我们要把环境变量保存在.env中。 我们所需要的是API URL和你[早些时候]复制的anon密钥（#get-theapi-keys）。&#xA;VITE_SUPABASE_URL=YOUR_SUPABASE_URL VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在 在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const supabaseUrl = import.meta.env.VITE_SUPABASE_URL const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY export const supabase = createClient(supabaseUrl, supabaseAnonKey) 还有一个可选的步骤是更新CSS文件src/app.css以使应用程序看起来漂亮。 你可以找到这个文件的全部内容这里。&#xA;设置一个登录组件 让我们建立一个Svelte组件来管理登录和注册。我们将使用Magic Links，这样用户就可以用他们的电子邮件登录，而无需使用密码。&#xA;&amp;lt;script lang=&amp;#34;ts&amp;#34;&amp;gt; import { supabase } from &amp;#39;src/supabaseClient&amp;#39; let loading = false let email = &amp;#39;&amp;#39; const handleLogin = async () =&amp;gt; { try { loading = true const { error } = await supabase.</description>
+    </item>
+    <item>
+      <title>Auth</title>
+      <link>https://example.org/pages-test/guides/functions/auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/functions/auth/</guid>
+      <description>Edge Functions work seamlessly with Supabase Auth, allowing you to identify which user called your function.&#xA;When invoking a function with one of the client libraries, the logged in user&amp;rsquo;s JWT is automatically attached to the function call and becomes accessible within your function.&#xA;This is important, for example, to identify which customer&amp;rsquo;s credit card should be charged. You can see this concept end-to-end in our Stripe example app.&#xA;Auth Context &amp;amp; RLS By creating a supabase client with the auth context from the function, you can do two things:</description>
+    </item>
+    <item>
+      <title>Sequin</title>
+      <link>https://example.org/pages-test/guides/integrations/sequin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/integrations/sequin/</guid>
+      <description>本指南解释了如何快速设置Sequin和Supabase Postgres数据库之间的同步。&#xA;Sequin允许你将Stripe和Salesforce等平台与Supabase进行实时同步。你将能够使用SQL从Supabase客户端读取和写入你的Stripe客户或Salesforce账户。下面是如何设置的。&#xA;第1步：连接Sequin和Supabase 要将Supabase连接到Sequin，你首先需要检索Supabase Postgres数据库的凭证。&#xA;在Supabase的仪表板上，进入设置页面，打开你的数据库设置。在连接信息部分，你会发现你需要的凭证&amp;ndash;如 &amp;ldquo;主机 &amp;ldquo;和 &amp;ldquo;用户&amp;rdquo;。&#xA;在[Sequin控制台]（https://app.sequin.io）中，进入你的同步配置，打开目的地部分。选择启动或连接，然后点击连接，配置与Supabase Postgres的连接。&#xA;在出现的连接模式中，输入Supabase数据库的 主机和 端口，然后单击继续。&#xA;现在，输入 数据库名称并为同步设置 模式名称。例如，如果你同步Stripe，你可能想把你的同步模式命名为stripe之类的。最后，为你的Supabase数据库输入用户和密码，然后点击继续。Sequin将验证它能以正确的权限正确连接到你的数据库。&#xA;Sequin现在已经连接到你的Supabase Postgres数据库，并将要求你确认哪些数据库用户应该能够访问你的同步模式。选择所有的用户并单击继续。&#xA;Sequin现在将在你的Supabase数据库中创建一个新的模式和权限组。将Sequin中的数据库连接命名为 Supabase，你就完成了!&#xA;在Supabase仪表板中，你可以进入表编辑器，你会看到一个新的模式，里面充满了你同步的平台数据。&#xA;第2步：授予权限 为了确保正确的用户可以访问Sequin管理的同步模式，你需要运行几个权限授予。&#xA;在Sequin控制台，点击同步旁边的连接按钮，复制下你的 模式和独特的 阅读组。&#xA;现在，在Supabase仪表板上，进入SQL编辑器，运行以下权限授予。&#xA;GRANT sequin_read_▒▒▒▒ TO postgres, anon, authenticated, service_role; GRANT USAGE ON SCHEMA {{your_schema_name}} TO anon, authenticated, service_role; GRANT ALL ON ALL TABLES IN SCHEMA {{your_schema_name}} TO anon, authenticated, service_role; ALTER DEFAULT PRIVILEGES FOR ROLE postgres, supabase_admin IN SCHEMA {{your_schema_name}} GRANT ALL ON TABLES TO anon, authenticated, service_role; 这些权限授予确保各种 Supabase 数据库用户能够访问和读取同步模式中的所有表。</description>
+    </item>
+    <item>
+      <title>数据库 Webhooks</title>
+      <link>https://example.org/pages-test/guides/database/webhooks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/database/webhooks/</guid>
+      <description>数据库 Webhooks 允许您在数据库发生表事件时将实时数据发送到另一个系统。&#xA;你可以绑定三个事件: 插入、更新、 和 删除。 所有事件在数据库行更改后触发。&#xA;数据库 Webhooks 非常类似于触发器，因为数据库Webhooks使用了pg_net 扩展，这使得它看上去更像是对触发器的便捷地封装。这个扩展是异步的，因此不会阻塞数据库更改以进行长时间运行的网络请求。&#xA;该视频演示了每次向profiles表插入一行时，如何在Stripe中创建一个新客户：&#xA;info&#xD;数据库 Webhooks 以前叫做函数 Hooks。&#xA;创建 webhook 在控制台新建一个数据库 Webhook。 给新建的 Webhook 命名。 选择一个你想绑定的数据表。 选择一个或多个您想要连接到的事件(表的插入、更新、删除) 。 我们目前支持 HTTP webhooks。它们以带有 JSON 载荷的 POST 请求的形式发送。&#xA;载荷 载荷是从底层表记录自动生成的:&#xA;type InsertPayload = { type: &amp;#39;INSERT&amp;#39; table: string schema: string record: TableRecord&amp;lt;T&amp;gt; old_record: null } type UpdatePayload = { type: &amp;#39;UPDATE&amp;#39; table: string schema: string record: TableRecord&amp;lt;T&amp;gt; old_record: TableRecord&amp;lt;T&amp;gt; } type DeletePayload = { type: &amp;#39;DELETE&amp;#39; table: string schema: string record: null old_record: TableRecord&amp;lt;T&amp;gt; } 资源 pg_net: 用于 PostgreSQL 的异步网络扩展。 </description>
+    </item>
+    <item>
+      <title>快速入门: Ionic React</title>
+      <link>https://example.org/pages-test/guides/with-ionic-react/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/with-ionic-react/</guid>
+      <description>GitHub 如果你在阅读指南时遇到困难，请参考此版本。&#xA;构建应用程序 让我们开始从头开始构建React应用程序。&#xA;初始化一个Ionic React应用程序 我们可以使用Ionic CLI来初始化 一个名为 supabase-ionic-react的应用程序。&#xA;npm install -g @ionic/cli ionic start supabase-ionic-react blank --type react cd supabase-ionic-react 然后让我们安装唯一的额外依赖：supabase-js&#xA;npm install @supabase/supabase-js 最后，我们要把环境变量保存在.env中。 我们所需要的是API URL和你[早些时候]复制的anon密钥(#get-theapi-keys)。&#xA;REACT_APP_SUPABASE_URL=YOUR_SUPABASE_URL REACT_APP_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在 在浏览器上，这完全没有问题，因为我们的数据库已经启用了行级安全。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const supabaseUrl = process.env.REACT_APP_SUPABASE_URL const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY export const supabase = createClient(supabaseUrl, supabaseAnonKey) 设置一个登录路线 让我们设置一个React组件来管理登录和注册。我们将使用Magic Links，所以用户可以用他们的电子邮件登录，而不使用密码。&#xA;import { useState } from &amp;#39;react&amp;#39;; import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar, useIonToast, useIonLoading, } from &amp;#39;@ionic/react&amp;#39;; import { supabase } from &amp;#39;.</description>
+    </item>
+    <item>
+      <title>生产准备</title>
+      <link>https://example.org/pages-test/guides/platform/going-into-prod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://example.org/pages-test/guides/platform/going-into-prod/</guid>
+      <description>在开发了你的项目并决定它可以生产后，你应该通过这个检查表来确保你的项目。&#xA;是安全的 在预期的负载下不会动摇 在生产过程中保持可用 安全 确保RLS被启用 没有启用合理策略的RLS的表允许任何客户访问和修改他们的数据。在大多数情况下，这不太可能是你想要的。 了解更多关于RLS的信息](/docs/guides/auth/row-level-security)。 通过启用行级安全（RLS）和设置行安全策略，在包含敏感数据的表中启用复制。 转到 Supabase Dashboard 中的 Authentication &amp;gt; Policies 页面，启用 RLS 并创建安全策略。 转到 Supabase 仪表板中的数据库 &amp;gt; 复制页面来管理复制表。 在 GitHub 上启用 2FA。由于你的GitHub账户赋予你对Supabase项目的管理权限，你应该用一个强密码和使用U2F密钥或TOTP应用程序的2FA来保护它。 确保在 Auth &amp;gt; Settings页面中启用电子邮件确认功能。 使用一个自定义的SMTP服务器来发送认证邮件，这样你的用户就可以看到邮件是来自一个受信任的域（最好是你的应用程序所在的同一域）。从任何主要的电子邮件提供商，如SendGrid、AWS SES等，获取SMTP凭证。 认真思考一下，作为攻击者，你会如何滥用你的服务，并加以缓解。 审查这些常见的网络安全威胁。 性能 确保你有合适的索引来满足你常见的查询模式 了解更多关于Postgres的索引。 pg_stat_statements可以帮助你识别热门或缓慢的查询。 进行负载测试（最好是在暂存环境中）。 像k6这样的工具可以模拟来自许多不同用户的流量。 如果你需要更多的资源，升级你的数据库。如果你需要超出所列的任何东西，请联系 enterprise@supabase.io。 如果你期望流量激增，让团队知道，把你的项目参考资料发给我们(support@supabase.io)，并提供关于你发射的更多细节。我们将继续关注你的项目。 可用性 使用你自己的SMTP凭证，这样你就可以完全控制你的交易性认证邮件的可交付性(见认证&amp;gt;设置）。 你可以从任何主要的电子邮件提供商，如SendGrid、AWS SES等，获取SMTP凭据。 Supabase提供的认证电子邮件的默认速率限制是每小时30个新用户，如果做一个重大的公共公告，你可能需要比这更多。 如果你的应用程序是免费层，并且***没有预期每7天至少被查询一次，那么Supabase可能会暂停它，以节省服务器资源。 你可以从Supabase仪表板上恢复暂停的项目。 升级到专业版，以保证你的项目不会因为不活动而被暂停。 在免费层级上，数据库备份不提供下载。 你可以使用pg_dump或wal-g等工具建立你自己的备份系统。 专业级项目的夜间备份可在 Supabase 仪表板上获得，最长 7 天。 升级到Supabase专业级后，您就可以在support@supabase.io，获得电子邮件支持。 速率限制、资源分配和防止滥用 Supabase采用了一系列的保障措施来防止传入流量的突发，以防止滥用并帮助最大限度地提高整个平台的稳定性。 如果您预计会发生高负荷事件，包括生产启动或重负荷测试，或长期的高资源使用，请至少提前两周通知我们。你可以通过支持表格开具票据来做到这一点。 接下来的步骤 这份清单一直在增长，所以一定要经常回来看看，也可以通过在GitHub上做一个PR，随时提出补充和修改意见。</description>
+    </item>
+  </channel>
+</rss>

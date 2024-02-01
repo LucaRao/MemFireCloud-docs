@@ -1,0 +1,111 @@
+---
+    weight: 34
+    title: "pg_cron: 作业调度"
+    description: ""
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+`pg_cron`扩展是PostgreSQL的一个简单的基于cron的工作调度器，在数据库内运行。
+
+## 使用方法
+
+### 启用扩展
+
+{{< tabs tabTotal="2" >}}
+
+  
+  
+  
+  defaultActiveId="dashboard"
+>
+{{% tab tabName="Dashboard" %}}
+
+
+
+1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+2. 点击侧边栏中的*扩展*。
+3. 搜索 "pg_cron "并启用该扩展。
+
+
+
+
+{{% /tab %}}
+{{% tab tabName="SQL" %}}
+
+
+
+```sql
+-- Example: enable the "pg_cron" extension
+create extension pg_cron with schema extensions;
+
+-- If you're planning to use a non-superuser role to schedule jobs,
+-- ensure that they are granted access to the cron schema and its underlying objects beforehand.
+-- Failure to do so would result in jobs by these roles to not run at all.
+
+grant usage on schema cron to {{DB user}};
+grant all privileges on all tables in schema cron to {{DB user}};
+
+
+-- Example: disable the "pg_cron" extension
+drop extension if exists pg_cron;
+```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 语法
+
+该计划使用标准cron语法，其中\* 表示“每个时间段运行”，而特定数字表示“但仅在此时”：
+
+```bash
+ ┌───────────── min (0 - 59)
+ │ ┌────────────── hour (0 - 23)
+ │ │ ┌─────────────── day of month (1 - 31)
+ │ │ │ ┌──────────────── month (1 - 12)
+ │ │ │ │ ┌───────────────── day of week (0 - 6) (0 to 6 are Sunday to
+ │ │ │ │ │                  Saturday, or use names; 7 is also Sunday)
+ │ │ │ │ │
+ │ │ │ │ │
+ * * * * *
+```
+
+## 示例
+
+### 每周删除数据
+
+在星期六凌晨3:30(GMT)删除旧数据:
+
+```sql
+select cron.schedule (
+    'webhook-every-minute', -- name of the cron job
+    '* * * * *', -- every minute
+    $$ delete from events where event_time < now() - interval '1 week' $$
+);
+```
+
+### 每天运行一次VACUUM
+
+每天凌晨3:00（GMT）运行VACUUM
+
+```sql
+SELECT cron.schedule('nightly-vacuum', '0 3 * * *', 'VACUUM');
+```
+
+### 取消作业计划
+
+取消了一项名为`'nightly-vacuum'`的工作计划：
+
+```sql
+SELECT cron.unschedule('nightly-vacuum');
+```
+
+## 资源
+
+- [pg_cron GitHub库](https://github.com/citusdata/pg_cron)
+
+

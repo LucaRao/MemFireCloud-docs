@@ -1,0 +1,92 @@
+---
+    weight: 34
+    title: "from.copy()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+from.copy()用于将一个现有的文件复制到存储桶中的新路径。
+
+需要RLS策略权限:
+  - `buckets`表的权限: 无
+  - `objects`表的权限：`insert`和`select`权限
+
+请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+
+
+## 案例教程
+
+### 案例1 （复制文件）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                   
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .copy('public/avatar1.png', 'private/avatar2.png')
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      fromPath
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      toPath
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+新的文件路径，包括新的文件名。例如`folder/image-copy.png`。
+
+  </div>
+  
+</li>
+
+</ul>

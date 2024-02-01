@@ -1,0 +1,155 @@
+---
+    weight: 30
+    title: "架构"
+    description: "Supabase design and architecture"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+MemFire Cloud 是基于Supabase去构建应用的，Supabase是开源的。我们选择了可扩展且易于使用的开源工具。   
+Supabase不是Firebase的一对一映射。虽然我们正在构建Firebase提供的许多功能，但我们的做法并不相同: 我们的技术选择截然不同; 我们使用的一切都是开源的; 在可能的情况下，我们使用并支持现有工具，而不是从头开始开发。
+
+最值得注意的是，我们使用Postgres而不是NoSQL存储。这个选择是深思熟虑的。我们认为，没有其他数据库提供与Firebase竞争所需的功能， 同时保持超越它所需的可扩展性。
+
+## 架构
+
+每个Supabase项目包括几个工具：:
+
+<img src="/docs/img/supabase-architecture.png">
+
+### PostgreSQL (数据库)
+
+PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访问它并以完全权限使用它。我们只是提供了一些工具，使PostgreSQL与Firebase一样易于使用。
+
+- 官方文件: [postgresql.org/docs](https://www.postgresql.org/docs/current/index.html)
+- 源代码: [github.com/postgres/postgres](https://github.com/postgres/postgres) (mirror)
+- License: [PostgreSQL Licence](https://www.postgresql.org/about/licence/)
+- 语言: C
+
+### Studio (仪表盘)
+
+用于管理数据库和服务的一个开源Dashboard.
+
+- 官方文件: [Supabase docs](/docs)
+- 源代码: [github.com/supabase/supabase](https://github.com/supabase/supabase/tree/master/studio)
+- License: [Apache 2](https://github.com/supabase/supabase/blob/master/LICENSE)
+- 开发语言: TypeScript
+
+### GoTrue (用户身份验证)
+
+用于管理用户和颁发访问令牌的基于JWT的API。这与PostgreSQL的行级安全和API服务器集成。
+
+- 官方文件: [Supabase Auth reference docs](/docs/reference/auth)
+- 源代码: [github.com/supabase/gotrue](https://github.com/supabase/gotrue)
+- License: [MIT](https://github.com/supabase/gotrue/blob/master/LICENSE)
+- 开发语言: Go
+
+### PostgREST (API)
+
+一个将PostgreSQL数据库直接转换为RESTful API的独立web服务器。 
+我们将此与一起使用[pg_graphql](https://github.com/supabase/pg_graphql)扩展以提供GraphQL API。
+
+- 官方文件: [postgrest.org](https://postgrest.org/)
+- 源代码: [github.com/PostgREST/postgrest](https://github.com/PostgREST/postgrest)
+- License: [MIT](https://github.com/PostgREST/postgrest/blob/main/LICENSE)
+- 开发语言: Haskel
+
+### Realtime (API & multiplayer)
+
+一个可扩展的websocket引擎，用于管理用户状态、广播消息和流数据库更改。
+
+- 官方文件: [Supabase Realtime docs](/docs/app/realtime/realtime)
+- 源代码: [github.com/supabase/realtime](https://github.com/supabase/realtime)
+- License: [Apache 2](https://github.com/supabase/realtime/blob/master/LICENSE)
+- 开发语言: Elixir
+
+### Storage API (大文件存储)
+
+兼容S3的对象存储服务，在Postgres中存储元数据。
+
+- 官方文件: [Supabase Storage reference docs](/docs/reference/storage)
+- 源代码: [github.com/supabase/storage-api](https://github.com/supabase/storage-api)
+- License: [Apache 2.0](https://github.com/supabase/storage-api/blob/master/LICENSE)
+- 开发语言: NodeJS / TypeScript
+
+### Deno (边缘函数)
+
+JavaScript和TypeScript的现代运行时。
+
+- 官方文件: [deno.land](https://deno.land/)
+- 源代码: [github.com/denoland/deno](https://github.com/denoland/deno)
+- License: [MIT](https://github.com/denoland/deno/blob/main/LICENSE.md)
+- 开发语言: TypeScript / Rust
+
+### postgres-meta (数据库管理)
+
+用于管理Postgres的RESTful API。这是用来获取表、添加角色和运行查询。
+
+- 官方文件: [supabase.github.io/postgres-meta](https://supabase.github.io/postgres-meta/)
+- 源代码: [github.com/supabase/postgres-meta](https://github.com/supabase/postgres-meta)
+- License: [Apache 2.0](https://github.com/supabase/postgres-meta/blob/master/LICENSE)
+- 开发语言: NodeJS / TypeScript
+
+### PgBouncer
+
+PostgreSQL的轻量级连接池。这对于使用无服务器函数时连接到Postgres非常有用。
+
+- 官方文件: [pgbouncer.org](http://www.pgbouncer.org/)
+- 源代码: [pgbouncer/pgbouncer](https://github.com/pgbouncer/pgbouncer)
+- License: [ISC](https://github.com/pgbouncer/pgbouncer/blob/master/COPYRIGHT)
+- 开发语言: C
+
+### Kong (API Gateway)
+
+ 一个基于Nginx的云原生API网关。
+
+- 官方文件: [docs.konghq.com](https://docs.konghq.com/)
+- 源代码: [github.com/kong/kong](https://github.com/kong/kong)
+- License: [Apache 2.0](https://github.com/Kong/kong/blob/master/LICENSE)
+- 开发语言: Lua
+
+## 产品原则
+
+我们的目标是提供一个任何大型公司都可以为自己设计的架构， 然后围绕独立开发人员和小团队易于使用的架构提供工具。
+
+我们使用一系列原则来确保可伸缩性和可用性永远不会相互排斥：
+
+### 所有的运行都是隔离的
+
+每个系统都必须作为一个独立的工具工作，尽可能少的移动部件。 对此的试金石是：“一个用户除了Postgres数据库之外，还能运行这个产品吗？”
+
+###  一切都是整合的
+
+Supabase是可组合的。尽管每个产品都是独立工作的，但平台上的每个产品都需要是其他产品的10倍。 对于集成，每个工具都应该公开一个API和Webhook。
+
+###  一切都是可扩展的
+
+我们对增加一个新的工具很慎重，而倾向于扩展一个现有的工具。
+这与许多云计算供应商相反，他们提供的产品扩展到小众的使用场景。我们为开发者提供基本的工具，使他们能够实现任何目标。
+更少，但更好。
+
+###  一切都是便携的
+ 
+为了避免锁定，我们使其很容易迁入和迁出。我们的云服务与我们的自我托管产品是兼容的。
+我们使用现有的标准来提高可移植性（如pg_dump和CSV文件）。如果出现了与 "Supabase "方法相竞争的新标准，我们将废除该方法，以支持该标准。
+这迫使我们在经验上进行竞争。我们的目标是成为最好的Postgres托管服务。
+### 玩长游戏
+
+
+我们为了长期利益而牺牲了短期的胜利。例如，在Postgres的分叉中运行只有我们的客户需要的额外功能是很诱人的。
+相反，我们更倾向于支持上游缺失功能的努力，从而使整个社区受益。这有一个额外的好处，即确保可移植性和寿命。
+
+### 为开发人员构建
+
+"开发者 "是一个特殊的用户形象：他们是_建设者。
+当评估作为努力的函数的影响时，由于开发人员可以构建产品和系统的类型，他们有很大的效率。
+随着开发人员的特征随着时间的推移而变化，Supabase将继续发展产品以适应这种不断变化的特征。
+
+### 支持现有工具
+
+Supabase尽可能地支持现有的工具和社区。Supabase更像是一个 "社区的社区"--每个工具通常都有自己的社区，我们与之合作。
+开源是我们[合作](https://supabase.com/blog/supabase-series-b#giving-back)的方式：我们雇佣维护者，赞助项目，投资企业，并开发我们自己的开源工具。
+
+

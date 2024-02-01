@@ -1,0 +1,247 @@
+---
+    weight: 10
+    title: "from.upload()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+from.upload()用于将一个文件上传到一个现有的桶。
+
+
+需要RLS策略权限:
+  - `buckets`表的权限: 无
+  - `objects`表的权限：仅在上传新文件时需要`插入insert`权限，以及在更新文件时需要`选择select`、`插入insert`和`更新updata`权限
+
+请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+
+对于 React Native，使用 `Blob`、`File` 或 `FormData` 并不能按预期工作。相反，应该使用来自 base64 文件数据的 `ArrayBuffer` 来上传文件，参见下面的示例。
+
+
+
+## 案例教程
+
+### 案例1 （上传文件）
+
+{{< tabs tabTotal="2" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const avatarFile = event.target.files[0]
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .upload('public/avatar1.png', avatarFile, {
+    cacheControl: '3600',
+    upsert: false
+  })
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 案例2 （使用来自 base64 文件数据的 ArrayBuffer 来上传文件）
+
+{{< tabs tabTotal="2" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+const avatarFile = event.target.files[0]
+const { data, error } = await supabase
+  .storage
+  .from('avatars')
+  .upload('public/avatar1.png', avatarFile, {
+    cacheControl: '3600',
+    upsert: false
+  })
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参数说明
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      路径（path）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。
+
+  </div>
+  
+</li>
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      fileBody
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>FileBody类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要存储在存储桶中的文件内容。
+
+  </div>
+  
+</li>
+
+
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      文件选项（fileOptions）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>FileOptions类型</code> 
+    </span>
+  </h4>
+
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      cacheControl
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+资源在浏览器和Supabase CDN中缓存的秒数。这是通过设置`Cache-Control: max-age=<seconds>`头来实现的。默认为3600秒。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      contentType
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+`Content-Type`头的值。如果使用的是既不是`Blob`、`File`也不是`FormData`的`fileBody`，则应指定此值；否则，默认为`text/plain;charset=UTF-8`。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      duplex
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+duplex选项是一个字符串参数，用于启用或禁用双工流式传输，在同一个流中允许读取和写入数据。它可以作为fetch()方法的选项传递。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      upsert
+    </span>
+    <span className="method-list-item-label-badge required">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+当upsert设置为true时，如果文件已存在，则会覆盖该文件。当设置为false时，如果对象已存在，则会抛出错误。默认为false。
+
+  </div>
+  
+</li>
+
+
+
+</ul>
+
+</li>
+
+
+</ul>

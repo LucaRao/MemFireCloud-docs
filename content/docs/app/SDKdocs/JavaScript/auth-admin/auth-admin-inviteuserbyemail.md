@@ -1,0 +1,129 @@
+---
+    weight: 92
+    title: "inviteUserByEmail()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+inviteUserByEmail()函数用于向一个用户电子邮件地址发送邀请链接。
+
+
+## 案例教程
+
+### 案例1 （邀请一个用户）
+
+{{< tabs tabTotal="1" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.inviteUserByEmail('email@example.com')
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      email
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用户的电子邮件地址。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用于指定在邀请时包含的额外选项。
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      data
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用于存储关于用户的其他元数据。这个数据对象映射到 auth.users.user_metadata 列，可以用于存储一些用户特定的信息。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      redirectTo
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+
+它会附加在发送给用户电子邮件地址的邀请链接的 URL 后面。用户点击链接后将跳转到这个指定的 URL。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>

@@ -1,0 +1,67 @@
+---
+    weight: 10
+    title: "总览"
+    description: "Using Postgres extensions."
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+扩展和它们的名字一样 - 它们用不属于Postgres核心的功能来 "扩展 "数据库。
+Supabase已经预装了一些最有用的开源扩展。
+
+### 启用和停用扩展功能
+
+{{< tabs tabTotal="2" >}}
+
+  
+  
+  
+  defaultActiveId="dashboard"
+>
+{{% tab tabName="Dashboard" %}}
+
+
+
+1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+2. 单击侧边栏中的**扩展程序**。
+3. 启用或停用一个扩展。
+
+<video width="99%" muted playsInline controls={true}>
+  <source src="/docs/videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
+</video>
+
+
+
+{{% /tab %}}
+{{% tab tabName="SQL" %}}
+
+
+
+```sql
+-- Example: enable the "pgtap" extension and ensure it is installed
+create extension pgtap with schema extensions;
+
+-- Example: disable the "pgtap" extension
+drop extension pgtap;
+```
+
+尽管SQL代码是 `create extension`，但它相当于"启用该扩展"。要禁用一个扩展，请调用 `drop extension`。
+
+{{% alert context="info" %}}
+使用 `create extension <extension-name> with schema extensions` 启用某些扩展功能可能会导致权限问题（例如：`dblink`，`http`，`pg_cron`）。
+{{% /alert %}}
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+### 完整的扩展列表
+
+Supabase预先配置了50多个扩展。你也可以通过SQL编辑器在数据库中直接安装所需的SQL扩展。
+
+<Extensions />
+
+

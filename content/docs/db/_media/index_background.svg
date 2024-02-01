@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1800px" height="320px" viewBox="0 0 1800 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 3</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1800" height="320" rx="8"></rect>
+    </defs>
+    <g id="官网" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="官网改版-文档首页" transform="translate(-60.000000, -130.000000)">
+            <g id="编组-3" transform="translate(60.000000, 130.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形" fill="#24262F" xlink:href="#path-1"></use>
+                <path d="M2.48275862,262.102439 C7.44827586,262.102439 115.448276,217.146341 331.448276,229.087805 C547.448276,241.029268 914.896552,290.902439 1246.34483,286.687805 C1467.31034,283.878049 1651.86207,246.64878 1800,175 L1800,319 L2.48275862,319 C-0.827586207,281.068293 -0.827586207,262.102439 2.48275862,262.102439 Z" id="路径-3" fill="#FFFFFF" opacity="0.14001181" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

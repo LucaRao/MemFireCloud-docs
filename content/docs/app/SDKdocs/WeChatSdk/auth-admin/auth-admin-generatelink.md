@@ -1,0 +1,170 @@
+---
+    weight: 21
+    title: "generateLink()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+generateLink() 函数用于生成电子邮件链接和一次性密码（OTP），这些链接和密码将通过自定义的电子邮件服务商发送。
+
+* generateLink() 函数可以接受以下类型的参数：signup、magiclink、invite、recovery、email_change_current、email_change_new、phone_change。
+根据传入的类型不同，生成的链接和密码可能有所不同，用于不同的场景，比如用户注册、魔术链接登录、邀请用户、找回密码等。
+*  对于 email_change_email 类型的参数，generateLink() 函数只会生成电子邮件链接，前提是在你的 Supabase 项目的 "Email" 提供商中启用了 "Secure email change" 设置。这个功能用于确保用户更改电子邮件地址时的安全性。
+* generateLink() 函数处理了注册、邀请和魔术链接场景下的用户创建。这意味着在这些场景中，函数会在生成链接和密码的同时，也会创建用户账号，使得用户可以使用相应的链接和密码进行注册、登录或邀请操作。
+
+
+## 案例教程
+
+### 案例1 （生成注册链接）
+
+{{< tabs tabTotal="5" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'signup',
+  email: 'email@example.com',
+  password: 'secret'
+})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例2 （生成邀请链接）
+
+{{< tabs tabTotal="5" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'invite',
+  email: 'email@example.com'
+})                                                                         
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例3 （生成魔术链接）
+
+{{< tabs tabTotal="5" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'magiclink',
+  email: 'email@example.com'
+})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例4 （生成恢复链接）
+
+{{< tabs tabTotal="5" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'recovery',
+  email: 'email@example.com'
+})                                                                       
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+### 案例5 （生成用于更改当前电子邮件地址的链接）
+
+{{< tabs tabTotal="5" >}}
+
+
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+// generate an email change link to be sent to the current email address
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'email_change_current',
+  email: 'current.email@example.com',
+  newEmail: 'new.email@example.com'
+})
+
+// generate an email change link to be sent to the new email address
+const { data, error } = await supabase.auth.admin.generateLink({
+  type: 'email_change_new',
+  email: 'current.email@example.com',
+  newEmail: 'new.email@example.com'
+})
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      params
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>GenerateLinkParams</code> 
+    </span>
+  </h4>
+</li>
+
+</ul>
