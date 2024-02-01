@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/LucaRao/MemFireCloud-docs/docs'
+baseURL = 'https://github.com/LucaRao/MemFireCloud-docs/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 
@@ -104,6 +104,6 @@ title = 'My New Hugo Site'
 [menu]
 [[menu.primary]]
     name  = "文档"
-    url = "docs/"
+    url = "/docs/"
     identifier = "docs"
     weight = 1
