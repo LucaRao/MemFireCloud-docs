@@ -97,7 +97,7 @@ title = 'My New Hugo Site'
     [params.docsearch] # Parameters for DocSearch
         appID     = "7WE3B92RD7"                       # Algolia Application ID (or set env variable HUGO_PARAM_DOCSEARCH_appID)
         apiKey    = "a6fc80560087af46ddea2c8b4e3c1b52" # Algolia Search-Only API (Public) Key (or set env variable HUGO_PARAM_DOCSEARCH_apiKey)
-        indexName = "dev_lotusdocs.dev"               # Index Name to perform search on (or set env variable HUGO_PARAM_DOCSEARCH_indexName)
+        indexName = "memfire_doc"               # Index Name to perform search on (or set env variable HUGO_PARAM_DOCSEARCH_indexName)
     
 
 
