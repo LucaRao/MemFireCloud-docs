@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>静态托管 on My New Hugo Site</title>
+    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/</link>
+    <description>Recent content in 静态托管 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>静态托管</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-hosting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-hosting/</guid>
+      <description>MemFire Cloud静态托管可以为您的Web应用、静态资源提供快速、稳定的托管服务。无需自建服务器，可以一键快速地部署静态资源，提供快速的访问能力。&#xA;主要功能 link自定义域名 linkMemFire Cloud 静态网站托管支持自定义域名，用户可以通过使用您的私有域名访问静态资源。&#xA;快速分发 link静态托管将会缓存在遍布各地的CDN服务器上。无论用户身在何地，都可以快速访问网站。 备注说明：公测阶段，该功能未开放.</description>
+    </item>
+    <item>
+      <title>快速开始</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-start/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-start/</guid>
+      <description>使用说明 link配置静态网站托管时，您需要指定网站的默认首页index.html。&#xA;├── index.html&#xD;├── error.html&#xD;├── example.txt&#xD;└── subdir/&#xD;└── index.html&#xD;准备工作 link 拥有MemFire Cloud账号; 已完成MemFire Cloud平台实名认证; 创建MemFire Cloud应用开发。 步骤1：写一个简单的HTML link下面我们创建一个简单的HTML文件，命名为index.html：&#xA;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&#xD;Hello MemFire Cloud!&#xD;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#xD;步骤2：打包压缩 link打包压缩index.html文件，其中压缩包必须为ZIP格式。&#xA;打包方式：先进入您的代码目录，在全选所有文件以后，单击鼠标右键，选择压缩为 ZIP 包，生成代码包。或者您也可以在代码包的根目录下执行zip -rq -y code.zip ./命令进行打包。&#xA;Linux，Unix的系统环境下，使用zip命令打包，不要使用tar命令； 备注说明：公测环境下，压缩包大小不超过20MB。&#xA;步骤3：上传压缩包，完成部署 link1.登录MemFire Cloud平台，进入我的应用-&amp;gt;某应用-&amp;gt;静态托管页面。&#xA;2.点击上传文件，选中网站压缩包进行上传。&#xA;完成上传操作后，用户即可通过MemFire Cloud平台提供的访问地址进行访问托管的静态网站。</description>
+    </item>
+    <item>
+      <title>自定义域名</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-domain/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/hosting/static-domain/</guid>
+      <description>MemFire Cloud 静态网站托管提供了可供开发、测试使用的默认域名，在开发期间，您可以通过默认域名访问静态网站。此外，用户还可以根据业务需要，自定义网站访问域名。&#xA;添加自定义域名 link1.登录MemFire Cloud平台，进入我的应用-&amp;gt;某应用-&amp;gt;静态托管页面。点击配置域名，输入新的域名，如下图所示。&#xA;2.单击下一步，可查看TXT域名解析记录和CNAME域名解析记录。 TXT和CNAME 域名不能直接访问，您需要在域名服务提供商处完成TXT和CNAME 配置，配置生效后，您的托管服务方可对自定义域名生效。&#xA;3.配置TXT和CNAME。登录域名解析服务商平台，并手动添加到您的域名解析记录中。 如果您的DNS服务商为阿里云，则可以通过以下步骤添加CNAM记录、TXT记录。&#xA;（1）单击添加记录，添加TXT域名解析记录。 （2）单击添加记录，添加CNAME域名解析记录。 4.配置完成后，再点击验证，来验证域名是否配置成功。如果验证提示成功，则可以通过自定义域名来访问静态托管网站。</description>
+    </item>
+  </channel>
+</rss>

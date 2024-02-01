@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>扩展 on My New Hugo Site</title>
+    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/</link>
+    <description>Recent content in 扩展 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>总览</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/extensions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/extensions/</guid>
+      <description>扩展和它们的名字一样 - 它们用不属于Postgres核心的功能来 &amp;ldquo;扩展 &amp;ldquo;数据库。 Supabase已经预装了一些最有用的开源扩展。&#xA;启用和停用扩展功能 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 单击侧边栏中的扩展程序。 启用或停用一个扩展。 -- Example: enable the &amp;#34;pgtap&amp;#34; extension and ensure it is installed&#xD;create extension pgtap with schema extensions;&#xD;-- Example: disable the &amp;#34;pgtap&amp;#34; extension&#xD;drop extension pgtap;&#xD;尽管SQL代码是 create extension，但它相当于&amp;quot;启用该扩展&amp;quot;。要禁用一个扩展，请调用 drop extension。&#xA;info&#xD;使用 create extension &amp;lt;extension-name&amp;gt; with schema extensions 启用某些扩展功能可能会导致权限问题（例如：dblink，http，pg_cron）。&#xA;完整的扩展列表 linkSupabase预先配置了50多个扩展。你也可以通过SQL编辑器在数据库中直接安装所需的SQL扩展。</description>
+    </item>
+    <item>
+      <title>pg_graphql: 为PostgreSQL提供GraphQL功能</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pg_graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pg_graphql/</guid>
+      <description>概念 linkpg_graphql 是一款用于 与数据库进行交互的 PostgreSQL 扩展，它使用的是 GraphQL 而非 SQL 。&#xA;该扩展通过现有的 SQL 模式反映出一个 GraphQL 模式，并通过一个 SQL 函数 graphql.resolve(...) 将其公开。这使得任何能够连接到 PostgreSQL 的编程语言都可以通过 GraphQL 查询数据库，而无需额外的服务器、进程或库。&#xA;pg_graphql 的解析方法被设计为与 PostgREST 相互操作，PostgREST 是支持 Supabase API 的工具，通过 RPC 调用 graphql.resolve 函数可以安全、高效地通过 HTTP/S 公开 GraphQL API。&#xA;有关如何将 SQL 模式反映到 GraphQL 模式的更多信息，请参阅 pg_graphql 的 API 文档。&#xA;使用方法 link启用扩展 link&#xD;控制台&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;跳转到控制台的 数据库 。 点击侧栏中的扩展。 搜索&amp;quot;pg_graphql&amp;quot;并启用扩展。 {/* prettier-ignore */}&#xA;-- Enable the &amp;#34;pg_graphql&amp;#34; extension&#xD;create extension pg_graphql;&#xD;-- Disable the &amp;#34;pg_graphql&amp;#34; extension&#xD;drop extension if exists pg_graphql;&#xD;尽管 SQL 代码是 create extension，但它的等效操作是“启用扩展”。 要禁用扩展，您可以调用 drop extension。</description>
+    </item>
+    <item>
+      <title>pg_cron: 作业调度</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgcron/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgcron/</guid>
+      <description>pg_cron扩展是PostgreSQL的一个简单的基于cron的工作调度器，在数据库内运行。&#xA;使用方法 link启用扩展 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;pg_cron &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;pg_cron&amp;#34; extension&#xD;create extension pg_cron with schema extensions;&#xD;-- If you&amp;#39;re planning to use a non-superuser role to schedule jobs,&#xD;-- ensure that they are granted access to the cron schema and its underlying objects beforehand.&#xD;-- Failure to do so would result in jobs by these roles to not run at all.&#xD;grant usage on schema cron to {{DB user}};&#xD;grant all privileges on all tables in schema cron to {{DB user}};&#xD;-- Example: disable the &amp;#34;pg_cron&amp;#34; extension&#xD;drop extension if exists pg_cron;&#xD;语法 link该计划使用标准cron语法，其中* 表示“每个时间段运行”，而特定数字表示“但仅在此时”：</description>
+    </item>
+    <item>
+      <title>uuid-ossp: 唯一标识符</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/uuid-ossp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/uuid-ossp/</guid>
+      <description>uuid-ossp扩展可用于生成UID。&#xA;概述 linkUUID是一个 通用唯一标识符，在实际应用中，它是唯一的。 这使得它们特别适合作为主键。它有时也被称为 GUID，代表 全球唯一标识符。&#xA;使用方法 link启用扩展名 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 uuid-ossp并启用该扩展。 Note: 目前 uuid-ossp扩展被默认启用，不能被禁用。&#xA;-- Example: enable the &amp;#34;uuid-ossp&amp;#34; extension&#xD;create extension &amp;#34;uuid-ossp&amp;#34; with schema extensions;&#xD;-- Example: disable the &amp;#34;uuid-ossp&amp;#34; extension&#xD;drop extension if exists &amp;#34;uuid-ossp&amp;#34;;&#xD;尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;Note: 目前 uuid-ossp扩展被默认启用，不能被禁用。&#xA;Uuid类型 link一旦扩展被启用，你现在可以访问一个uuid类型。&#xA;uuid_generate_v1() link根据计算机的MAC地址、当前时间戳和一个随机值的组合创建一个UUID值。&#xA;info&#xD;UUIDv1泄露了可识别的细节，这可能使它不适合于某些安全敏感的应用.&#xA;uuid_generate_v4() link创建完全基于随机数的UUID值。你也可以使用Postgres内置的gen_random_uuid()函数来生成一个UUIDv4。&#xA;示例 link在一个查询中 link&#xD;select uuid_generate_v4();&#xD;作为主键 link在表中自动创建唯一的随机ID：&#xA;create table contacts (&#xD;id uuid default uuid_generate_v4(),&#xD;first_name text,&#xD;last_name text,&#xD;primary key (id)&#xD;);&#xD;资源 link 选择一个Postgres主键 PostgreSQL UID数据类型的基础知识 </description>
+    </item>
+    <item>
+      <title>pgTAP:单元测试</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgtap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgtap/</guid>
+      <description>pgTAP是PostgreSQL的一个单元测试扩展。&#xA;概述 link让我们来介绍一些基本的概念：&#xA;单元测试：允许你测试一个系统的小部分（如数据库表！）。 TAP：代表Test Anything Protocol。它是一个框架，旨在简化测试期间的错误报告。 使用方法 link启用扩展 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;pgtap &amp;ldquo;并启用该扩展。 -- Enable the &amp;#34;pgtap&amp;#34; extension&#xD;create extension pgtap with schema extensions;&#xD;-- Disable the &amp;#34;pgtap&amp;#34; extension&#xD;drop extension if exists pgtap;&#xD;尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;测试表 link&#xD;begin;&#xD;select plan( 1 );&#xD;select has_table( &amp;#39;profiles&amp;#39; );&#xD;select * from finish();&#xD;rollback;&#xD;API：&#xA;has_table()：测试数据库中是否存在一个表。 has_index(): 检查是否存在与命名表相关的命名索引。 has_relation(): 测试数据库中是否存在一个关系。 测试列 link&#xD;begin;&#xD;select plan( 2 );&#xD;select has_column( &amp;#39;profiles&amp;#39;, &amp;#39;id&amp;#39; ); # test that the &amp;#34;id&amp;#34; column exists in the &amp;#34;profiles&amp;#34; table&#xD;select col_is_pk( &amp;#39;profiles&amp;#39;, &amp;#39;id&amp;#39; ); # test that the &amp;#34;id&amp;#34; column is a primary key&#xD;select * from finish();&#xD;rollback;&#xD;API：</description>
+    </item>
+    <item>
+      <title>pg_net: 异步网络</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgnet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgnet/</guid>
+      <description>info&#xD;pg_net的API还处于beta阶段。函数签名可能会改变。&#xA;pg_net是一个PostgreSQL扩展，为异步网络暴露了一个SQL接口，重点是可扩展性和用户体验。&#xA;它与http扩展的不同之处在于，它默认是异步的。这使得它在阻塞函数（如触发器）中很有用。&#xA;用法 link启用扩展功能 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展. 搜索 &amp;ldquo;pg_net &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;pg_net&amp;#34; extension&#xD;create schema if not exists net;&#xD;create extension pg_net with schema net;&#xD;-- Example: disable the &amp;#34;plv8&amp;#34; extension&#xD;drop extension if exists pg_net;&#xD;drop schema net;&#xD;尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;http_get link创建一个HTTP GET请求，返回该请求的ID。在事务提交之前，HTTP请求不会被启动。&#xA;签名 link&#xD;info&#xD;这是一个Postgres安全定义函数。&#xA;net.http_get(&#xD;-- url for the request&#xD;url text,&#xD;-- key/value pairs to be url encoded and appended to the `url`&#xD;params jsonb default &amp;#39;{}&amp;#39;::jsonb,&#xD;-- key/values to be included in request headers&#xD;headers jsonb default &amp;#39;{}&amp;#39;::jsonb,&#xD;-- WARNING: this is currently ignored, so there is no timeout&#xD;-- the maximum number of milliseconds the request may take before being cancelled&#xD;timeout_milliseconds int default 1000&#xD;)&#xD;-- request_id reference&#xD;returns bigint&#xD;strict&#xD;volatile&#xD;parallel safe&#xD;language plpgsql&#xD;使用方法 link&#xD;select net.</description>
+    </item>
+    <item>
+      <title>pgvector: 嵌入向量和向量相似性</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgvector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/pgvector/</guid>
+      <description>pgvector 是一款用于向量相似性搜索的 PostgreSQL 扩展。它还可以用于存储 嵌入向量 。&#xA;了解更多关于 Supabase 的 AI &amp;amp; Vector 服务的信息。&#xA;概念 link向量相似性 link向量相似性是指衡量两个相关项之间相似程度的度量方式。例如，如果你有一组产品列表，你可以使用向量相似性来寻找相似的产品。为了实现这个目标，你需要使用数学模型将每个产品转换为由数字组成的&amp;quot;向量&amp;quot;。对于文本、图像和其他类型的数据，你可以使用类似的模型。一旦所有这些向量都存储在数据库中，你就可以使用向量相似性来查找相似的项。&#xA;使用方法 link启用扩展 link&#xD;控制台&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;跳转控制台的 数据库 页面。 点击侧栏中的 扩展 。 搜索 &amp;ldquo;vector&amp;rdquo; 并启用扩展。 -- Example: enable the &amp;#34;vector&amp;#34; extension.&#xD;create extension vector&#xD;with&#xD;schema extensions;&#xD;-- Example: disable the &amp;#34;vector&amp;#34; extension&#xD;drop&#xD;extension if exists vector;&#xD;尽管 SQL 代码是 create extension，但它的等效操作是“启用扩展”。 要禁用扩展，您可以调用 drop extension。&#xA;创建一个表来存储向量 link&#xD;create table posts (&#xD;id serial primary key,&#xD;title text not null,&#xD;body text not null,&#xD;embedding vector(1536)&#xD;);&#xD;存储一个向量 link在这个示例中，我们将使用OpenAI API客户端生成一个向量，然后使用Supabase客户端将其存储在数据库中。</description>
+    </item>
+    <item>
+      <title>plv8: JavaScript语言</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/plv8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/plv8/</guid>
+      <description>plv8扩展允许你在Postgres中使用JavaScript。&#xA;概述 link虽然Postgres原生运行SQL，但它也可以运行其他 &amp;ldquo;程序语言&amp;rdquo;。 plv8允许你运行JavaScript代码-特别是任何在V8 JavaScript引擎上运行的代码。&#xA;它可以用于数据库函数、触发器、查询等。&#xA;使用方法 link启用扩展 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;plv8 &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;plv8&amp;#34; extension&#xD;create extension plv8;&#xD;-- Example: disable the &amp;#34;plv8&amp;#34; extension&#xD;drop extension if exists plv8;&#xD;尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;程序语言会自动安装在pg_catalog中，所以你不需要指定模式。&#xA;创建plv8函数 link用plv8编写的函数和其他PostgreSQL函数一样，只是 语言标识符设置为plv8。&#xA;create or replace function function_name()&#xD;returns void as $$&#xD;// V8 JavaScript&#xD;// code&#xD;// here&#xD;$$ language plv8;&#xD;你可以像其他Postgres函数一样调用plv8函数：&#xA;SQL&#xD;JavaScript&#xD;defaultActiveId=&#34;</description>
+    </item>
+    <item>
+      <title>http: RESTful客户端</title>
+      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/http/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/extensions/http/</guid>
+      <description>http扩展允许你在Postgres中调用RESTful端点。&#xA;快速演示 link&#xD;概述 link让我们来介绍一些基本概念：&#xA;REST：是REpresentational State Transfer的缩写。它是一种从外部服务请求数据的简单方法。 RESTful APIs是接受HTTP &amp;ldquo;调用&amp;quot;的服务器。这些调用通常是： GET - 只读访问一个资源。 POST - 创建一个新的资源。 DELETE - 移除一个资源。 PUT - 更新一个现有的资源或创建一个新的资源。 你可以使用http扩展来从Postgres进行这些网络请求。&#xA;用法 link启用扩展功能 link&#xD;Dashboard&#xD;SQL&#xD;defaultActiveId=&#34;dashboard&#34;&#xD;&gt;&#xD;进入仪表板中的数据库页面。 点击侧边栏中的扩展。 搜索 &amp;ldquo;http &amp;ldquo;并启用该扩展。 -- Example: enable the &amp;#34;http&amp;#34; extension&#xD;create extension http with schema extensions;&#xD;-- Example: disable the &amp;#34;http&amp;#34; extension&#xD;drop extension if exists http;&#xD;尽管SQL代码是create extension，但这相当于 &amp;ldquo;启用扩展&amp;rdquo;。 要禁用一个扩展，请调用drop extension。&#xA;好的做法是在一个单独的模式（如 extensions）中创建扩展，以保持你的数据库干净。&#xA;可用的函数 link虽然主要用法是简单的http(&#39;http_request&#39;)，但有5个封装函数用于特定功能：&#xA;http_get() http_post() http_put() http_delete() http_head() 返回值 link从http扩展中成功调用一个网络URL，会返回一个包含以下字段的记录:</description>
+    </item>
+  </channel>
+</rss>
