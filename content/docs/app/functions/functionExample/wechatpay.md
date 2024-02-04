@@ -1,5 +1,5 @@
 ---
-    weight: 64
+    weight: 10
     title: "wechatpay"
     description: "Getting started with wechatpay."
     icon: "article"
@@ -31,11 +31,11 @@
   - 用户表：无需设计，BaaS服务自带
   - 书籍表：***books***
 
-<img src="/docs/img/wechatpay-1.png">
+<img src="../../../img/wechatpay-1.png">
 
 - 我们将用户下单这个操作形成的结果叫做“创建交易”。交易表：***transactions***
 
-<img src="/docs/img/wechatpay-2.png">
+<img src="../../../img/wechatpay-2.png">
 
  该表中的**uid**关联的是**auth.user**表中的**id**字段，标识用户；表中的**open_id**代表微信用户，一样是标识用户的，不过只有使用微信小程序完成微信支付时才需要；**status**标识支付状态，默认为**READY**。
 
@@ -47,7 +47,7 @@
 
  为了解决上述说的两个问题，MemFire提供了云函数这个模块，它允许你通过编写JavaScript函数，实现接口服务的部署。
 
-<img src="/docs/img/wechatpay-3.png">
+<img src="../../../img/wechatpay-3.png">
 
   通过上传你的代码包，配置环境变量即可快速实现微信支付的接口部署。
 
@@ -511,7 +511,7 @@
 
 自己的应用调用上述云函数，间接实现了微信支付的调用，同时保证了调用安全性。在代码中，你会看到很多`process.env.xxx`的写法，这其实是配置的云函数环境变量。
 
-<img src="/docs/img/wechatpay-4.png">
+<img src="../../../img/wechatpay-4.png">
 
 有了环境变量，可以更方便的修改服务，而无需重新部署。
 
@@ -534,7 +534,7 @@
 
 申请小程序之后，会得到小程序的ID和密钥，将其填写在服务上这里即可。
 
-<img src="/docs/img/wechatpay-5.png">
+<img src="../../../img/wechatpay-5.png">
 
 那么在微信小程序这边只需要调用一个函数即可实现
 

@@ -1,5 +1,5 @@
 ---
-    weight: 64
+    weight: 22
     title: "verifyOtp()"
     icon: "article"
     draft: false

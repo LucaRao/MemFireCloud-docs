@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 7
     title: "快速入门: Angular"
     description: "了解如何在你的Angular App中使用Supabase。"
     icon: "article"
@@ -7,7 +7,7 @@
     toc: true
 ---
 
-<img src="/docs/img/user-management-demo.png">
+<img src="../../img/user-management-demo.png">
 
 
 
@@ -395,7 +395,7 @@ npm run start
 然后打开浏览器到[localhost:4200](http://localhost:4200)，你应该看到完成的应用程序。
 
 
-<img src="/docs/img/supabase-angular-demo.png">
+<img src="../../img/supabase-angular-demo.png">
 
 ## 简介照片
 

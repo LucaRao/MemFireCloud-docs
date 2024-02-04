@@ -1,5 +1,5 @@
 ---
-    weight: 6
+    weight: 4
     title: "快速入门: Vue"
     description: "了解如何在你的Vue应用程序中使用Supabase。"
     icon: "article"

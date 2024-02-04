@@ -1,5 +1,5 @@
 ---
-    weight: 70
+    weight: 6
     title: "使用GitLab登录"
     description: "将GitLab OAuth添加到Supabase项目"
     icon: "article"
@@ -22,7 +22,7 @@
 - 进入 [gitlab.com](https://gitlab.com).
 - 单击右上角的`登录`以登录。
 
-<img src="/docs/img/guides/auth-gitlab/gitlab-portal.png">
+<img src="../../../img/guides/auth-gitlab/gitlab-portal.png">
 
 ## 查找回调URL
 
@@ -37,7 +37,7 @@
 - 现在只需在末尾添加`/auth/v1/callback`即可获得完整的`OAuth重定向URI`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 创建GitLab应用程序

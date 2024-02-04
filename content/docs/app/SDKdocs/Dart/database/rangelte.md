@@ -1,5 +1,5 @@
 ---
-    weight: 87
+    weight: 23
     title: "rangeLte()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 40
+    weight: 3
     title: "退订说明"
     description: "Unsubscribe Instructions."
     icon: "article"

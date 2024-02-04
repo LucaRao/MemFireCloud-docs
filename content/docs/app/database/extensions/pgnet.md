@@ -1,5 +1,5 @@
 ---
-    weight: 66
+    weight: 7
     title: "pg_net: 异步网络"
     description: "pg_net: an async networking extension for PostgreSQL."
     icon: "article"
@@ -21,11 +21,6 @@ pg_net的API还处于beta阶段。函数签名可能会改变。
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
 {{% tab tabName="Dashboard" %}}
 
 

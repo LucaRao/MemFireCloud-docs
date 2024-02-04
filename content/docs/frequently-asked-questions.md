@@ -1,5 +1,5 @@
 ---
-weight: 5
+weight: 27
 title: "常见问题解答（FAQ）"
 description: ""
 icon: "article"

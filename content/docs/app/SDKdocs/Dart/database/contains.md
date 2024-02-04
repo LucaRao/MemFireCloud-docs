@@ -1,5 +1,5 @@
 ---
-    weight: 98
+    weight: 23
     title: "contains()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 50
+    weight: 23
     title: "textSearch()"
     icon: "article"
     draft: false

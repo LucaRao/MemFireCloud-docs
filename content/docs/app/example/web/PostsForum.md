@@ -1,5 +1,5 @@
 ---
-    weight: 27
+    weight: 16
     title: "Posts社交网络论坛"
     description: "Posts社交网络论坛"
     icon: "article"
@@ -47,7 +47,7 @@ Posts社交网络论坛是基于supabase官网的一个todo-list应用示例为�
 
  创建应用的一步很关键，我们的posts应用就是通过在这里创建的应用来获得数据库、对象存储等一系列资源，并将获得该应用专属的API访问链接和访问密钥，用户可以轻松的与以上资源进行交互。想知道关于应用更详细的内容请查看[查看文档](https://docs.memfiredb.com/base/application-introduction.html)
 
-<img src="/docs/img/样例-posts-1.png">
+<img src="../../../img/样例-posts-1.png">
 
 
 
@@ -89,9 +89,9 @@ git clone https://github.com/LucaRao/memfire-post.git
 
 接下来我们需要创建数据表，posts表是用来存储用户论坛评论的数据，likes表用来存储用户点赞的某条评论的数据。
 
-<img src="/docs/img/样例-posts-2.png">
+<img src="../../../img/样例-posts-2.png">
 
-<img src="/docs/img/样例-posts-3.png">
+<img src="../../../img/样例-posts-3.png">
 
 数据表结构：
 
@@ -144,7 +144,7 @@ npm install
 npm run serve
 ```
 
-<img src="/docs/img/样例-posts-4.png">
+<img src="../../../img/样例-posts-4.png">
 
 注册、登录、退出登录等功能在vue3-todo-list里已经实现，我们不必再次写一遍，也不需要修改文件里面的代码。
 
@@ -160,7 +160,7 @@ npm run serve
 
 控制台显示注册并登录成功，并且已经将我们的用户信息存入了userSession中
 
-<img src="/docs/img/样例-posts-5.png">
+<img src="../../../img/样例-posts-5.png">
 
 ### 6.实现发布评论功能
 
@@ -227,7 +227,7 @@ const todo = await addTodo({ email: userSession.value.user.email, task: task.val
 
 下图就是登录后修改的posts首页
 
-<img src="/docs/img/样例-posts-6.png">
+<img src="../../../img/样例-posts-6.png">
 
 
 页面引入的Posts/src/vuetils/useTodo.ts文件是用来请求posts列表数据和新增一条post相应功能交互的api的方法
@@ -540,7 +540,7 @@ export default defineComponent({
 
 重启一下项目，登录后我们来新增一条数据，新增成功，点赞也成功了！
 
-<img src="/docs/img/样例-posts-7.png">
+<img src="../../../img/样例-posts-7.png">
 
 
 简单的post应用即完成！

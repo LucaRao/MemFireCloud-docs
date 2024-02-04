@@ -1,5 +1,5 @@
 ---
-    weight: 60
+    weight: 6
     title: "使用GitHub登录"
     description: "将GitHub OAuth添加到Supabase项目"
     icon: "article"
@@ -22,7 +22,7 @@
 - 进入 [github.com](https://github.com).
 - 单击右上角的`登录`以登录。
 
-<img src="/docs/img/guides/auth-github/github-portal.png">
+<img src="../../../img/guides/auth-github/github-portal.png">
 
 ## 创建GitHub Oauth应用程序
 
@@ -46,7 +46,7 @@
 - 现在只需在末尾添加`/auth/v1/callback`即可获得完整的`OAuth重定向URI`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 注册新的OAuth应用程序

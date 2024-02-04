@@ -1,5 +1,5 @@
 ---
-    weight: 83
+    weight: 22
     title: "signInWithOtp()"
     icon: "article"
     draft: false

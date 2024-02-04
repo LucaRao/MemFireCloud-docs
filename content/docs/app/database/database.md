@@ -30,14 +30,14 @@ PostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学�
 
 你不必是一个数据库专家就可以开始使用Supabase。我们的表视图使Postgres像电子表格一样容易使用。
 
-<img src="/docs/img/table-view.png">
+<img src="../../img/table-view.png">
 
 ### 关系
 
 挖掘你的数据中的关系.
 
 <video width="99%" loop="" muted="" playsInline="" controls="true">
-  <source src="/docs/videos/relational-drilldown-zoom.mp4" type="video/mp4" />
+  <source src="../../videos/relational-drilldown-zoom.mp4" type="video/mp4" />
 </video>
 
 ### 克隆表
@@ -45,7 +45,7 @@ PostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学�
 你可以复制你的表格，就像你在电子表格里面一样。
 
 <video width="99%" muted playsInline controls={true}>
-  <source src="/docs/videos/duplicate-tables.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/duplicate-tables.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ### SQL编辑器
@@ -53,7 +53,7 @@ PostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学�
 Supabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以便以后运行!
 
 <video width="99%" muted playsInline controls={true}>
-  <source src="/docs/videos/favorites.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/favorites.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ### 附加功能
@@ -73,7 +73,7 @@ Supabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以
 你可以通过点击Supabase仪表板上的一个按钮来启用Postgres扩展。
 
 <video width="99%" muted playsInline controls={true}>
-  <source src="/docs/videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
 </video>
 
 [了解更多](/docs/app/database/extensions/extensions)关于Supabase上提供的所有扩展。

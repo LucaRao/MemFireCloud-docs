@@ -1,5 +1,5 @@
 ---
-    weight: 31
+    weight: 23
     title: "Select 查询"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 20
+    weight: 3
     title: "包年包月套餐说明"
     description: "Description of monthly package."
     icon: "article"

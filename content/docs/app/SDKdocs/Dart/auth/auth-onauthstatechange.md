@@ -1,5 +1,5 @@
 ---
-    weight: 69
+    weight: 22
     title: "onAuthStateChange()"
     icon: "article"
     draft: false

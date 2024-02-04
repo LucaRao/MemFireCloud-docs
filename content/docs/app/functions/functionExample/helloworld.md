@@ -1,5 +1,5 @@
 ---
-    weight: 38
+    weight: 10
     title: "helloworld"
     description: "Getting started with helloworld."
     icon: "article"
@@ -87,7 +87,7 @@ exports.handler = (req, resp, context) => {
 
 3、在创建云函数弹框中，输入函数名称helloworld，并上传步骤1中准备好的ZIP代码包，无需配置环境变量，不开启initializer回调，然后单击**保存**；
 
-<img src="/docs/img/helloworld-1.png">
+<img src="../../../img/helloworld-1.png">
 
 - **基础信息：**设置函数的基本信息，包括函数名称、请求处理程序。
 {{< table "table-striped-columns" >}}
@@ -124,7 +124,7 @@ exports.handler = (req, resp, context) => {
 
 4、创建成功后，可以在函数列表中查看helloworld函数。
 
-<img src="/docs/img/helloworld-2.png">
+<img src="../../../img/helloworld-2.png">
 
 ### 步骤3：执行函数
 
@@ -134,7 +134,7 @@ exports.handler = (req, resp, context) => {
 
 3、点击“Send”按钮，即可获得返回结果。
 
-<img src="/docs/img/helloworld-3.png">
+<img src="../../../img/helloworld-3.png">
 
 
 

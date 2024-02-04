@@ -1,5 +1,5 @@
 ---
-    weight: 50
+    weight: 3
     title: "计费相关问题"
     description: "Billing related issues."
     icon: "article"

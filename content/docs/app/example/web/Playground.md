@@ -1,5 +1,5 @@
 ---
-    weight: 65
+    weight: 16
     title: "实时游戏场"
     description: "Web实时游戏乐园"
     icon: "article"
@@ -14,7 +14,7 @@ Realtime 游戏场是一个可以多人互动，鼠标位置共享并且可以�
 - 即时API：创建数据表时会自动生成 API。
 - Realtime：轻松构建任何类型的实时应用程序
 
-<img src="/docs/img/样例-游戏场-1.gif">
+<img src="../../../img/样例-游戏场-1.gif">
 
 
 ## 创建应用
@@ -23,7 +23,7 @@ Realtime 游戏场是一个可以多人互动，鼠标位置共享并且可以�
 
 登录[MemFire Cloud](https://cloud.memfiredb.com)，  在“我的应用”页面创建一个新应用
 
-<img src="/docs/img/样例-游戏场-2.PNG">
+<img src="../../../img/样例-游戏场-2.PNG">
 
 ## 创建数据表
 
@@ -168,7 +168,7 @@ update using (true) with check (true);
 
 在“数据库->Replication”页面，启用Realtime，可以选择Realtime监听数据表的‘插入’、‘更新’、‘删除’、‘截断’操作，可以根据业务自身需求勾选，这里我们需要启用全部操作。点击‘1张表’按钮后，进入数据表列表，点击realtime_user、realtime_chat、realtime_playbutton表的开关按钮，启用Realtime功能。
 
-<img src="/docs/img/样例-游戏场-3.gif">
+<img src="../../../img/样例-游戏场-3.gif">
 
 ## 开启扩展
 
@@ -239,7 +239,7 @@ export const supabase = createClient(
 
 回到MemFire Cloud首页，在应用/首页页面，获取服务地址以及token信息，只需要从首页中获取URL接口地址和anon的密钥。
 
-<img src="/docs/img/样例-游戏场-4.png">
+<img src="../../../img/样例-游戏场-4.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
@@ -252,5 +252,5 @@ yarn dev
 然后打开浏览器到[http://localhost:3000](http://localhost:3000/)，你应该会看到完整的应用程序。
 
 
-<img src="/docs/img/样例-游戏场-5.png">
+<img src="../../../img/样例-游戏场-5.png">
 

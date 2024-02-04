@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 10
     title: "概述"
     description: "Supabase Realtime with Broadcast, Presence, and Postgres CDC."
     icon: "article"

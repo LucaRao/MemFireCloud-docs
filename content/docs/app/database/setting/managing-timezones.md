@@ -1,5 +1,5 @@
 ---
-    weight: 16
+    weight: 8
     title: "时区"
     description: "How to change your database timezone."
     icon: "article"

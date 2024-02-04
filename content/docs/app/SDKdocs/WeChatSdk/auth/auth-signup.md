@@ -1,5 +1,5 @@
 ---
-    weight: 12
+    weight: 18
     title: "signUp()"
     icon: "article"
     draft: false

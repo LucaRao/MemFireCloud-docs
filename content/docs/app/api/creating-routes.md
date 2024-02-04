@@ -1,5 +1,5 @@
 ---
-    weight: 53
+    weight: 8
     title: "创建 API 路由"
     description: "创建 API 路由"
     icon: "article"

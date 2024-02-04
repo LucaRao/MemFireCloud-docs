@@ -1,5 +1,5 @@
 ---
-    weight: 3
+    weight: 5
     title: "概述"
     description: "使用Supabase来认证和授权你的用户。"
     icon: "article"
@@ -43,7 +43,7 @@ Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我�
 
 你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 > 设置 > Auth Providers，并为每个提供商输入你的 `客户端ID`和 `密匙`。
 
-<img src="/docs/img/supabase-oauth-logins.png">
+<img src="../../img/supabase-oauth-logins.png">
 
 ### 重定向URLs和通配符
 
@@ -95,7 +95,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 认证只解决了用户身份验证的问题，但并没有涉及用户在系统中的权限和访问级别。为了解决这个问题，您需要使用到PostgreSQL的[行级安全性（RLS）](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)的特性。该特性通过打开和关闭RLS选项，使得授权变得非常简单。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/rls-zoom2.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/rls-zoom2.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ### 策略
@@ -103,7 +103,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 [策略](https://www.postgresql.org/docs/current/sql-createpolicy.html)是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以适应你独特的业务需求。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/policies-zoom2.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/policies-zoom2.mp4" type="video/mp4" muted playsInline />
 </video>
 
 如果设置了策略(Policy)，你的数据库就成了规则引擎。就不需要编写如下复杂的查询语句：
@@ -152,7 +152,7 @@ Supabase提供多个端点来验证和管理你的用户。
 当用户注册时，Supabase为他们分配了一个唯一的ID。你可以在你的数据库中的任何地方引用这个ID。例如，你可以创建一个`profiles`表，使用`user_id`字段引用`auth.users`表中的`id`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/auth-zoom2.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/auth-zoom2.mp4" type="video/mp4" muted playsInline />
 </video>
 
 

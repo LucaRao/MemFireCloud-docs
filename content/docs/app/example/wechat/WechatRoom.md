@@ -1,5 +1,5 @@
 ---
-    weight: 49
+    weight: 17
     title: "微信小程序聊天室"
     description: "微信小程序聊天室开发示例"
     icon: "article"
@@ -16,7 +16,7 @@
 - 对象存储：存储用户发布帖子中的图片。
 - Realtime：轻松构建任何类型的实时应用程序
 
-<img src="/docs/img/样例-wechat-1.gif">
+<img src="../../../img/样例-wechat-1.gif">
 
 
 ## 创建应用
@@ -25,7 +25,7 @@
 
 登录[MemFire Cloud](https://cloud.memfiredb.com)， 在“我的应用”页面创建一个新应用
 
-<img src="/docs/img/样例-wechat-2.PNG">
+<img src="../../../img/样例-wechat-2.PNG">
 
 ## 创建数据表
 
@@ -33,7 +33,7 @@
 
 建表操作如下：
 
-<img src="/docs/img/样例-wechat-3.gif">
+<img src="../../../img/样例-wechat-3.gif">
 
 在“表编辑器”页面，点击“新建表”，创建messages表。messages表主要记录用户发送的每一条信息，表结构字段如下：
 {{< table "table-striped-columns" >}}
@@ -93,7 +93,7 @@ Realtime是MemFire Cloud推出的服务，可以通过侦听、广播和共享�
 
  ② 在“数据库->Replication”页面，启用Realtime，可以选择Realtime监听数据表的‘插入’、‘更新’、‘删除’、‘截断’操作，可以根据业务自身需求勾选，这里我们需要启用全部操作。点击‘1张表’按钮后，进入数据表列表，点击message表的开关按钮，启用Realtime功能。
 
-<img src="/docs/img/样例-wechat-4.gif">
+<img src="../../../img/样例-wechat-4.gif">
 
 ## 创建bucket
 
@@ -101,7 +101,7 @@ Realtime是MemFire Cloud推出的服务，可以通过侦听、广播和共享�
 
 点击‘存储’图标菜单，点击‘创建新bucket’，创建images存储桶
 
-<img src="/docs/img/样例-wechat-5.gif">
+<img src="../../../img/样例-wechat-5.gif">
 
 
 ### 2.创建策略
@@ -133,13 +133,13 @@ Node.js (>=14.x <=16.x) 。
 
 选择目录是下载好的小程序项目的目录，AppID为您在微信公众平台注册小程序获得的专属appid。
 
-<img src="/docs/img/样例-wechat-6.png">
+<img src="../../../img/样例-wechat-6.png">
 
 ## 构建npm
 
 在右侧详情里面的本地设置把“使用npm模块”和“不校验合法域名”勾上。
 
-<img src="/docs/img/样例-wechat-7.png">
+<img src="../../../img/样例-wechat-7.png">
 
 打开终端，在项目根目录下执行如下命令 （小程序需要的MemFire Cloud的微信小程序SDK已经存在package.json里，可以直接安装全局依赖）。
 
@@ -150,12 +150,12 @@ npm install
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="/docs/img/样例-wechat-8.png">
+<img src="../../../img/样例-wechat-8.png">
 
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,根目录下会多出两个文件，如下图。
 
-<img src="/docs/img/样例-wechat-9.png">
+<img src="../../../img/样例-wechat-9.png">
 
 ## 获取 API密钥
 
@@ -173,12 +173,12 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/首页页面，获取服务地址以及token信息，只需要从首页中获取URL接口地址和anon的密钥。
 
-<img src="/docs/img/样例-wechat-10.png">
+<img src="../../../img/样例-wechat-10.png">
 
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
 ## 编译小程序
 
-<img src="/docs/img/样例-wechat-11.png">
+<img src="../../../img/样例-wechat-11.png">
 

@@ -1,5 +1,5 @@
 ---
-    weight: 50
+    weight: 6
     title: "使用Apple登录"
     description: "将Apple OAuth添加到Supabase项目"
     icon: "article"
@@ -25,7 +25,7 @@ Apple OAuth包括六大步骤：
 - 进入[developer.apple.com](https://developer.apple.com).
 - 点击右上方的 `账户`来登录。
 
-<img src="/docs/img/guides/auth-apple/apple-developer-portal.png">
+<img src="../../../img/guides/auth-apple/apple-developer-portal.png">
 
 ## 获取应用程序ID
 
@@ -69,7 +69,7 @@ Apple OAuth包括六大步骤：
 - 现在只需在末尾添加 `/auth/v1/callback` 即可获得完整的`OAuth重定向URI`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 配置服务ID

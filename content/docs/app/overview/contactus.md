@@ -1,5 +1,5 @@
 ---
-    weight: 40
+    weight: 2
     title: "联系我们"
     description: "contactus"
     icon: "article"
@@ -16,19 +16,19 @@
 <div className="t-c">
 <div>技术交流群 </div>
 
-<img src="/docs/img/群永久码200.png">  
+<img src="../../img/群永久码200.png">  
 </div>
 
 <div className="t-c">
 <div>产品公众号</div>
 
-<img src="/docs/img/公众号艺术二维码.png"> 
+<img src="../../img/公众号艺术二维码.png"> 
 </div>
 
 <div className="t-c">
 <div> 小助手</div>
 
-<img src="/docs/img/企业微信.png">  
+<img src="../../img/企业微信.png">  
 </div>
 
 </div>

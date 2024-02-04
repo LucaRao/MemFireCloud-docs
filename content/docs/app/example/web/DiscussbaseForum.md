@@ -1,5 +1,5 @@
 ---
-    weight: 49
+    weight: 16
     title: "Discussbase论坛"
     description: "Discussbase论坛"
     icon: "article"
@@ -10,7 +10,7 @@
 
 **Discussbase**是一个开源的简单论坛。使用“技术栈”（MemFire Cloud 、 Nextjs）构建和运行。
 
-<img src="/docs/img/样例-discuss-1.jpeg">
+<img src="../../../img/样例-discuss-1.jpeg">
 
 
 ## 下载代码
@@ -23,11 +23,11 @@ git clone   https://github.com/LucaRao/discussbase
 
 下载**Discussbase**代码后，登录[memfire cloud](https://memfiredb.com/),创建一个MemFire Cloud应用，为Discussbase提供后端服务，包括云数据库、对象存储、授权认证等。
 
-<img src="/docs/img/样例-discuss-2.png">
+<img src="../../../img/样例-discuss-2.png">
 
 在应用->概括页面，获取服务地址以及token信息。
 
-<img src="/docs/img/样例-discuss-3.png">
+<img src="../../../img/样例-discuss-3.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
@@ -46,7 +46,7 @@ NEXT_PUBLIC_SUPABASE_SERVICE_KEY=
 
 如图样例所示。
 
-<img src="/docs/img/样例-discuss-4.png">
+<img src="../../../img/样例-discuss-4.png">
 
 ## 创建数据表
 
@@ -114,7 +114,7 @@ create policy "Users can update own profile."
 
 在该应用的对象存储导航栏，点击“新建Bucket”按钮，创建存储桶avatars。
 
-<img src="/docs/img/样例-discuss-10.png">
+<img src="../../../img/样例-discuss-10.png">
 
 2、允许每个用户可以查看、上传、更新存储桶avatars；
 
@@ -252,17 +252,17 @@ npm run dev
 
 在浏览器中打开链接，即可查看如下页面。
 
-<img src="/docs/img/样例-discuss-28.png">
+<img src="../../../img/样例-discuss-28.png">
 
 认证设置，使用本地的IP地址来替换认证设置中的网址。 
 
-<img src="/docs/img/样例-discuss-29.png">
+<img src="../../../img/样例-discuss-29.png">
 
 点击登录页面，如下图所示，输入注册邮箱，应用会发送确认注册邮件。登录注册邮箱后，打开最新收到的确认注册邮件，点击链接，完成注册操作，即可登录论坛。
 
-<img src="/docs/img/样例-discuss-30.png">
+<img src="../../../img/样例-discuss-30.png">
 
 登录论坛后，完成个人资料的填写后，即可点击“新增+”，来发布不同类型的帖子。
 
-<img src="/docs/img/样例-discuss-31.png">
+<img src="../../../img/样例-discuss-31.png">
 

@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 3
     title: "价格文档"
     description: "Price Description."
     icon: "article"

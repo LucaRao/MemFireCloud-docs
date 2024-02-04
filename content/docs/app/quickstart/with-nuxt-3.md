@@ -9,7 +9,7 @@
 
 
 
-<img src="/docs/img/user-management-demo.png">
+<img src="../../img/user-management-demo.png">
 
 ### Github
 
@@ -232,7 +232,7 @@ npm run dev
 
 然后打开浏览器到[localhost:3000](http://localhost:3000)，你应该看到完成的应用程序。
 
-<img src="/docs/img/supabase-vue-3-demo.png">
+<img src="../../img/supabase-vue-3-demo.png">
 
 ## 个人照片
 

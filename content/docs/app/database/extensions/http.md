@@ -1,5 +1,5 @@
 ---
-    weight: 85
+    weight: 7
     title: "http: RESTful客户端"
     description: "An HTTP Client for PostgreSQL Functions."
     icon: "article"
@@ -39,11 +39,7 @@
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
+
 {{% tab tabName="Dashboard" %}}
 
 

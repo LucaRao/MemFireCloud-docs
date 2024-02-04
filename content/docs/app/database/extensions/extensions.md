@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 5
     title: "总览"
     description: "Using Postgres extensions."
     icon: "article"
@@ -15,20 +15,17 @@ Supabase已经预装了一些最有用的开源扩展。
 {{< tabs tabTotal="2" >}}
 
   
-  
-  
-  defaultActiveId="dashboard"
->
+
 {{% tab tabName="Dashboard" %}}
 
 
 
-1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。 
 2. 单击侧边栏中的**扩展程序**。
 3. 启用或停用一个扩展。
 
 <video width="99%" muted playsInline controls={true}>
-  <source src="/docs/videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../videos/toggle-extensions.mp4" type="video/mp4" muted playsInline />
 </video>
 
 

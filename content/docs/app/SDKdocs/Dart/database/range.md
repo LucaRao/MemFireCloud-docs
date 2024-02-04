@@ -1,5 +1,5 @@
 ---
-    weight: 48
+    weight: 23
     title: "range()"
     icon: "article"
     draft: false

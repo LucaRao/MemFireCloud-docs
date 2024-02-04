@@ -1,5 +1,5 @@
 ---
-    weight: 84
+    weight: 17
     title: "BBS论坛小程序"
     description: "BBS论坛小程序"
     icon: "article"
@@ -18,7 +18,7 @@ helloBBS是一个发布个人心情，查看别人发表的论坛，可以评论
 
 - 对象存储：存储用户发布帖子中的图片。
 
-<img src="/docs/img/样例-helloBBS-1.gif">
+<img src="../../../img/样例-helloBBS-1.gif">
 
 
 ## 创建应用
@@ -27,7 +27,7 @@ helloBBS是一个发布个人心情，查看别人发表的论坛，可以评论
 
 登录https://cloud.MemFiredb.com/auth/login，  在“我的应用”页面创建一个新应用
 
-<img src="/docs/img/样例-helloBBS-2.png">
+<img src="../../../img/样例-helloBBS-2.png">
 
 ## 创建数据表
 
@@ -52,7 +52,7 @@ helloBBS是一个发布个人心情，查看别人发表的论坛，可以评论
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-helloBBS-4.png">
+<img src="../../../img/样例-helloBBS-4.png">
 
 sql操作如下:
 
@@ -85,7 +85,7 @@ CREATE TABLE "public"."post_list" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-helloBBS-5.png">
+<img src="../../../img/样例-helloBBS-5.png">
 
 sql操作如下
 
@@ -119,7 +119,7 @@ CREATE TABLE "public"."comment" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-helloBBS-6.png">
+<img src="../../../img/样例-helloBBS-6.png">
 
 sql操作如下
 
@@ -150,7 +150,7 @@ CREATE TABLE "public"."reply" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-helloBBS-7.png">
+<img src="../../../img/样例-helloBBS-7.png">
 
 sql操作如下
 
@@ -178,7 +178,7 @@ CREATE TABLE "public"."like" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-helloBBS-8.png">
+<img src="../../../img/样例-helloBBS-8.png">
 
 sql操作如下
 
@@ -201,31 +201,31 @@ CREATE TABLE "public"."page_views" (
 
 在该应用的对象存储导航栏，点击“新建Bucket”按钮，创建存储桶avatar，并选为公开。
 
-<img src="/docs/img/样例-helloBBS-9.png">
+<img src="../../../img/样例-helloBBS-9.png">
 
 2.允许每个用户可以下载发布帖子里的图片
 
 选中存储桶avatar，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
 
-<img src="/docs/img/样例-helloBBS-10.png">
+<img src="../../../img/样例-helloBBS-10.png">
 
  选择SELECT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
 
-<img src="/docs/img/样例-helloBBS-11.png">
+<img src="../../../img/样例-helloBBS-11.png">
 
 3.允许用户发布帖子时可以上传图片到存储桶；
 
 选中存储桶avatar，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
 
-<img src="/docs/img/样例-helloBBS-12.png">
+<img src="../../../img/样例-helloBBS-12.png">
 
 选择INSERT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
 
-<img src="/docs/img/样例-helloBBS-13.png">
+<img src="../../../img/样例-helloBBS-13.png">
 
 查看结果：
 
-<img src="/docs/img/样例-helloBBS-14.png">
+<img src="../../../img/样例-helloBBS-14.png">
 
 ## 注册论坛小程序
 
@@ -243,11 +243,11 @@ https://github.com/LucaRao/helloBBS.git
 
 选择目录是下载好的论坛小程序项目的目录，AppID为您在微信公众平台注册论坛小程序获得的专属appid。
 
-<img src="/docs/img/样例-helloBBS-15.png">
+<img src="../../../img/样例-helloBBS-15.png">
 
 在右侧详情里面的本地设置把“使用npm模块”和“不校验合法域名”勾上。
 
-<img src="/docs/img/样例-helloBBS-16.png">
+<img src="../../../img/样例-helloBBS-16.png">
 
 打开终端，在项目根目录下执行如下命令 。
 
@@ -256,7 +256,7 @@ npm init
 npm install
 ```
 
-<img src="/docs/img/样例-helloBBS-17.png">
+<img src="../../../img/样例-helloBBS-17.png">
 
 接下来，下载论坛小程序需要的MemFire Cloud的微信论坛小程序SDK。
 
@@ -266,11 +266,11 @@ npm install supabase-wechat-stable
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="/docs/img/样例-helloBBS-18.png">
+<img src="../../../img/样例-helloBBS-18.png">
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,根目录下会多出两个文件，如下图。
 
-<img src="/docs/img/样例-helloBBS-19.png">
+<img src="../../../img/样例-helloBBS-19.png">
 
 ## 获取 API密钥
 
@@ -288,7 +288,7 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/概括页面，获取服务地址以及token信息，只需要从总览中获取URL接口地址和anon的密钥。
 
-<img src="/docs/img/样例-helloBBS-20.png">
+<img src="../../../img/样例-helloBBS-20.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
@@ -296,7 +296,7 @@ Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的�
 
 ## 编译论坛小程序
 
-<img src="/docs/img/样例-helloBBS-21.png">
+<img src="../../../img/样例-helloBBS-21.png">
 
 以上就是使用**微信小程序**和 **MemFire Cloud** 构建的一个完整论坛小程序的具体流程。一起来试试吧
 

@@ -1,5 +1,5 @@
 ---
-    weight: 19
+    weight: 17
     title: "别踩白块游戏小程序"
     description: "别踩白块游戏小程序"
     icon: "article"
@@ -21,7 +21,7 @@
 
 <div className="image-flex">
 
-<img src="/docs/img/样例-notClickWhite-1.gif">
+<img src="../../../img/样例-notClickWhite-1.gif">
 
 </div>
 
@@ -32,7 +32,7 @@
 登录https://cloud.MemFiredb.com/auth/login，  在“我的应用”页面创建一个新应用
 
 
-<img src="/docs/img/样例-notClickWhite-2.png">
+<img src="../../../img/样例-notClickWhite-2.png">
 
 
 ## 创建数据表
@@ -54,7 +54,7 @@
  {{< /table >}}
 建表页面配置：   
 
-<img src="/docs/img/样例-notClickWhite-3.png">
+<img src="../../../img/样例-notClickWhite-3.png">
 
 sql操作如下:
 
@@ -83,7 +83,7 @@ CREATE TABLE "public"."gamer" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-notClickWhite-4.png">
+<img src="../../../img/样例-notClickWhite-4.png">
 
 
 sql操作如下
@@ -111,7 +111,7 @@ CREATE TABLE "public"."get_started" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-notClickWhite-5.png">
+<img src="../../../img/样例-notClickWhite-5.png">
 
 sql操作如下
 
@@ -138,7 +138,7 @@ CREATE TABLE "public"."classic" (
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/样例-notClickWhite-6.png">
+<img src="../../../img/样例-notClickWhite-6.png">
 
 sql操作如下
 
@@ -170,13 +170,13 @@ CREATE TABLE "public"."extreme_speed" (
 
 选择目录是下载好的小程序项目的目录，AppID为您在微信公众平台注册小程序获得的专属appid。
 
-<img src="/docs/img/样例-notClickWhite-7.png">
+<img src="../../../img/样例-notClickWhite-7.png">
 
 ## 构建npm
 
 在右侧详情里面的本地设置把“使用npm模块”和“不校验合法域名”勾上。
 
-<img src="/docs/img/样例-notClickWhite-8.png">
+<img src="../../../img/样例-notClickWhite-8.png">
 
 打开终端，在项目根目录下执行如下命令 。
 
@@ -185,7 +185,7 @@ npm init
 npm install
 ```
 
-<img src="/docs/img/样例-notClickWhite-9.png">
+<img src="../../../img/样例-notClickWhite-9.png">
 
 接下来，下载小程序需要的MemFire Cloud的微信小程序SDK。
 
@@ -195,11 +195,11 @@ npm install supabase-wechat-stable
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="/docs/img/样例-notClickWhite-10.png">
+<img src="../../../img/样例-notClickWhite-10.png">
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,根目录下会多出两个文件，如下图。
 
-<img src="/docs/img/样例-notClickWhite-11.png">
+<img src="../../../img/样例-notClickWhite-11.png">
 
 ## 获取 API密钥
 
@@ -217,7 +217,7 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/概括页面，获取服务地址以及token信息，只需要从总览中获取URL接口地址和anon的密钥。
 
-<img src="/docs/img/样例-notClickWhite-12.png">
+<img src="../../../img/样例-notClickWhite-12.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
@@ -230,7 +230,7 @@ Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的�
 
 <div className="image-flex">
 
-<img src="/docs/img/样例-notClickWhite-13.png">
+<img src="../../../img/样例-notClickWhite-13.png">
 
 </div>
 
@@ -238,6 +238,6 @@ Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的�
 ## 请扫码体验
 
 
-<img src="/docs/img/样例-notClickWhite-14.png">
+<img src="../../../img/样例-notClickWhite-14.png">
 
 

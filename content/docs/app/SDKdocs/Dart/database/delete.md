@@ -1,5 +1,5 @@
 ---
-    weight: 59
+    weight: 23
     title: "Delete 数据"
     icon: "article"
     draft: false
@@ -21,9 +21,7 @@ delete()用于在表（table）或视图（view）执行 DELETE 操作。
 
   
   
-  
-  
->
+
 
 {{% tab tabName="使用方法" %}}
 
@@ -51,7 +49,6 @@ await supabase
   
   
   
->
 
 {{% tab tabName="使用方法" %}}
 

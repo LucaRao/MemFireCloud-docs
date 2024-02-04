@@ -1,5 +1,5 @@
 ---
-    weight: 20
+    weight: 6
     title: "手机登录认证"
     description: "手机登录认证"
     icon: "article"
@@ -18,7 +18,7 @@
 
 进入“用户认证”->“服务商”页面，启用手机号码验证，短信（SMS）服务商选择“阿里云”，依次填写好阿里云配置后点击保存。
 
-<img src="/docs/img/phoneauth1.png">
+<img src="../../../img/phoneauth1.png">
 
 当启用“短信验证”时，说明您需要发送短信验证码来进行手机认证，您需要填写正确的阿里云短信签名名称和短信模板CODE
 
@@ -32,12 +32,12 @@ MemFire Cloud 提供两种手机登录认证方式，分别如下：
 
 <div className="image-flex">
 
-<img src="/docs/img/phoneauth2.png">
-<img src="/docs/img/phoneauth3.png">
+<img src="../../../img/phoneauth2.png">
+<img src="../../../img/phoneauth3.png">
 
 </div>
 
-<img src="/docs/img/phoneauth4.png">
+<img src="../../../img/phoneauth4.png">
 
 
 SDK的使用教程
@@ -77,17 +77,17 @@ async function sigin(){
 
 先用手机号+密码获取验证码进行注册
 
-<img src="/docs/img/phoneauth5.png">
+<img src="../../../img/phoneauth5.png">
 
 随后会在用户列表里刚刚那条等待验证的用户信息
 
-<img src="/docs/img/phoneauth6.png">
+<img src="../../../img/phoneauth6.png">
 
 输入验证码，点击注册，会发现用户列表的用户已经认证成功。
 
-<img src="/docs/img/phoneauth7.png">
+<img src="../../../img/phoneauth7.png">
 
-<img src="/docs/img/phoneauth8.png">
+<img src="../../../img/phoneauth8.png">
 
 SDK的使用教程
 

@@ -30,7 +30,7 @@ TLDR; Prisma目前不支持跨模式外键，所以由于你的Supabase `public`
 
 在本指南结束时，你将拥有一个允许用户登录并更新一些基本资料细节的应用程序。
 
-<img src="/docs/img/user-management-demo.png">
+<img src="../../img/user-management-demo.png">
 
 {{% alert context="info" %}}
 注意：对于RedwoodJS应用程序，端口将是8910。
@@ -107,11 +107,7 @@ TLDR; Prisma目前不支持跨模式外键，所以由于你的Supabase `public`
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
+
 {{% tab tabName="Dashboard" %}}
 
 
@@ -121,7 +117,7 @@ TLDR; Prisma目前不支持跨模式外键，所以由于你的Supabase `public`
 3. 点击**运行**。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/sql-user-management-starter.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/sql-user-management-starter.mp4" type="video/mp4" muted playsInline />
 </video>
 
 
@@ -201,7 +197,7 @@ create policy "Anyone can upload an avatar."
 2. 在这个页面上找到你的API `URL`, `anon`, 和 `service_role`键。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 构建应用程序
@@ -624,7 +620,7 @@ yarn rw dev
 
 然后打开浏览器到[localhost:8910](http://localhost:8910)，你应该看到完成的应用程序。
 
-<img src="/docs/img/supabase-redwoodjs-demo.png">
+<img src="../../img/supabase-redwoodjs-demo.png">
 
 ## 个人照片
 

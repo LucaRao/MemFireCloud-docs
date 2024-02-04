@@ -1,5 +1,5 @@
 ---
-    weight: 28
+    weight: 7
     title: "pg_graphql: 为PostgreSQL提供GraphQL功能"
     description: "为PostgreSQL提供GraphQL接口"
     icon: "article"
@@ -21,11 +21,6 @@
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
 {{% tab tabName="控制台" %}}
 
 

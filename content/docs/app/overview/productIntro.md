@@ -1,5 +1,5 @@
 ---
-    weight: 67
+    weight: 2
     title: "产品介绍"
     description: "productIntro"
     icon: "article"

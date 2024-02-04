@@ -9,7 +9,7 @@
 
 
 
-<img src="/docs/img/ionic-demos/ionic-angular-account.png">
+<img src="../../img/ionic-demos/ionic-angular-account.png">
 
 ### GitHub
 
@@ -355,7 +355,7 @@ ionic serve
 
 浏览器将自动打开，显示该应用程序。
 
-<img src="/docs/img/ionic-demos/ionic-angular.png">
+<img src="../../img/ionic-demos/ionic-angular.png">
 
 ## 个人资料照片
 

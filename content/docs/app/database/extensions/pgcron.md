@@ -1,5 +1,5 @@
 ---
-    weight: 34
+    weight: 7
     title: "pg_cron: 作业调度"
     description: ""
     icon: "article"
@@ -14,12 +14,6 @@
 ### 启用扩展
 
 {{< tabs tabTotal="2" >}}
-
-  
-  
-  
-  defaultActiveId="dashboard"
->
 {{% tab tabName="Dashboard" %}}
 
 

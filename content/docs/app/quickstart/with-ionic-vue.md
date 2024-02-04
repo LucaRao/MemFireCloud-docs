@@ -9,7 +9,7 @@
 
 
 
-<img src="/docs/img/ionic-demos/ionic-angular-account.png">
+<img src="../../img/ionic-demos/ionic-angular-account.png">
 
 ### GitHub
 
@@ -384,7 +384,7 @@ ionic serve
 
 然后打开浏览器到[localhost:3000](http://localhost:3000)，你应该看到完成的应用程序。
 
-<img src="/docs/img/ionic-demos/ionic-vue.png">
+<img src="../../img/ionic-demos/ionic-vue.png">
 
 ## 个人照片
 

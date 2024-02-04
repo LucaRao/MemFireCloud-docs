@@ -1,5 +1,5 @@
 ---
-    weight: 30
+    weight: 2
     title: "架构"
     description: "Supabase design and architecture"
     icon: "article"
@@ -17,7 +17,7 @@ Supabase不是Firebase的一对一映射。虽然我们正在构建Firebase提�
 
 每个Supabase项目包括几个工具：:
 
-<img src="/docs/img/supabase-architecture.png">
+<img src="../../img/supabase-architecture.png">
 
 ### PostgreSQL (数据库)
 

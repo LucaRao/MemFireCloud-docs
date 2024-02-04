@@ -1,5 +1,5 @@
 ---
-    weight: 70
+    weight: 7
     title: "pgvector: 嵌入向量和向量相似性"
     description: ""
     icon: "article"
@@ -28,11 +28,7 @@
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
+
 {{% tab tabName="控制台" %}}
 
 

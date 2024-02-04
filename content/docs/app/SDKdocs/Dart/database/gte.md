@@ -1,5 +1,5 @@
 ---
-    weight: 43
+    weight: 23
     title: "gte()"
     icon: "article"
     draft: false

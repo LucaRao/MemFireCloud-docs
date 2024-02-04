@@ -1,5 +1,5 @@
 ---
-    weight: 52
+    weight: 9
     title: "快速入门: Expo"
     description: "了解如何在你的React Native App中使用Supabase。"
     icon: "article"
@@ -8,7 +8,7 @@
 ---
 
 
-<img src="/docs/img/supabase-flutter-demo.png">
+<img src="../../img/supabase-flutter-demo.png">
 
 ### GitHub
 

@@ -1,5 +1,5 @@
 ---
-    weight: 65
+    weight: 7
     title: "pgTAP:单元测试"
     description: "Unit testing in PostgreSQL."
     icon: "article"
@@ -23,11 +23,6 @@
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
 {{% tab tabName="Dashboard" %}}
 
 

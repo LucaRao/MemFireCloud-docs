@@ -1,5 +1,5 @@
 ---
-    weight: 1
+    weight: 23
     title: "rangeLt()"
     icon: "article"
     draft: false

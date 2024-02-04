@@ -1,5 +1,5 @@
 ---
-    weight: 55
+    weight: 8
     title: "Passwords"
     description: "如何更改你的PostgreSQL数据库密码。"
     icon: "article"

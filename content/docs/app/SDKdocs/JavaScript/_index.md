@@ -1,5 +1,5 @@
 ---
-weight: 1
+weight: 18
 title: "JavaScript"
 description: ""
 icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 9
+    weight: 5
     title: "数据库 Webhooks"
     description: "数据库 Webhooks"
     icon: "article"

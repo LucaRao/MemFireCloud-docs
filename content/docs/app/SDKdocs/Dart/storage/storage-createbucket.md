@@ -1,5 +1,5 @@
 ---
-    weight: 60
+    weight: 10
     title: "createBucket()"
     icon: "article"
     draft: false

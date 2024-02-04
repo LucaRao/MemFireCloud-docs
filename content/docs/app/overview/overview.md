@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 1
     title: "介绍"
     description: "Introduction to Supabase"
     icon: "article"
@@ -127,7 +127,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
          <img src="../_media/cpp.svg" width='40'  alt="图片名称" align=center>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/angular-icon.svg" width='40'  alt="图片名称" align=center>
+        <img src="../../img/libraries/angular-icon.svg" width='40'  alt="图片名称" align=center>
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px" > Angular示例</p>
       </div>
     </div>
@@ -141,7 +141,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/expo-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/angular-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px"> Expo示例</p>
       </div>
     </div>
@@ -156,7 +156,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/flutter-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/flutter-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Flutter示例</p>
       </div>
     </div>
@@ -173,7 +173,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/nextjs-light-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/nextjs-light-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Next.js示例</p>
       </div>
     </div>
@@ -188,7 +188,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex"> 
-        <img src="/docs/img/libraries/react-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/react-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> React示例</p>
       </div>
     </div>
@@ -202,7 +202,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/redwoodjs-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/redwoodjs-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> RedwoodJS示例</p>
       </div>
     </div>
@@ -216,7 +216,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/solidjs-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/solidjs-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> SolidJS示例</p>
       </div>
     </div>
@@ -230,7 +230,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/svelte-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/svelte-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Svelte示例</p>
       </div>
     </div>
@@ -245,7 +245,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Vue示例</p>
       </div>
     </div>
@@ -268,7 +268,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
          <img src="../_media/cpp.svg" width='40'  alt="图片名称" align=center>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/javascript-icon.svg" width='40'  alt="图片名称" align=center>
+        <img src="../../img/libraries/javascript-icon.svg" width='40'  alt="图片名称" align=center>
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px" > JavaScript</p>
       </div>
     </div>
@@ -282,7 +282,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/flutter-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/flutter-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px"> Flutter</p>
       </div>
     </div>
@@ -297,7 +297,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> 微信小程序</p>
       </div>
     </div>
@@ -323,7 +323,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
          <img src="../_media/cpp.svg" width='40'  alt="图片名称" align=center>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center>
+        <img src="../../img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center>
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px" > Posts社交网络论坛</p>
       </div>
     </div>
@@ -337,7 +337,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/vuejs-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px"> Web实时游戏场</p>
       </div>
     </div>
@@ -352,7 +352,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="/docs/img/libraries/nextjs-light-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/nextjs-light-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Discussbase论坛</p>
       </div>
     </div>
@@ -367,7 +367,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i> 
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> Super课表小程序</p>
       </div>
     </div>
@@ -381,7 +381,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> BBS论坛小程序</p>
       </div>
     </div>
@@ -396,7 +396,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex"> 
-        <img src="/docs/img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> 微信小程序聊天室</p>
       </div>
     </div>
@@ -410,7 +410,7 @@ MemFire Cloud提供了JavaScript、Flutter、微信小程序的SDK，以满足�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-        <img src="/docs/img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
+        <img src="../../img/libraries/wechat.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0"  style="margin-top:2px;margin-left:20px"> 别踩白块游戏小程序</p>
       </div>
     </div>

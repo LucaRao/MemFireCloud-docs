@@ -1,5 +1,5 @@
 ---
-    weight: 61
+    weight: 11
     title: "实时快速入门"
     description: ""
     icon: "article"

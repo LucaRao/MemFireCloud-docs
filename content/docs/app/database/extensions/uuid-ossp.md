@@ -1,5 +1,5 @@
 ---
-    weight: 51
+    weight: 7
     title: "uuid-ossp: 唯一标识符"
     description: "A UUID generator for PostgreSQL."
     icon: "article"
@@ -20,11 +20,7 @@
 
 {{< tabs tabTotal="2" >}}
 
-  
-  
-  
-  defaultActiveId="dashboard"
->
+
 {{% tab tabName="Dashboard" %}}
 
 

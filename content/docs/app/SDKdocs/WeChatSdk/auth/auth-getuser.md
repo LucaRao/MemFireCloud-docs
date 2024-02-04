@@ -1,5 +1,5 @@
 ---
-    weight: 99
+    weight: 18
     title: "getUser()"
     icon: "article"
     draft: false

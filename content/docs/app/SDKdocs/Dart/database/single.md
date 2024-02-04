@@ -1,5 +1,5 @@
 ---
-    weight: 65
+    weight: 23
     title: "single()"
     icon: "article"
     draft: false

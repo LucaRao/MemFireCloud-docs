@@ -9,7 +9,7 @@
 
 
 
-<img src="/docs/img/user-management-demo.png">
+<img src="../../img/user-management-demo.png">
 
 ### GitHub
 
@@ -254,7 +254,7 @@ npm run dev
 
 > ⚠️ 警告：Svelte使用Vite，默认端口为`5173`，Supabase使用`端口3000`。要改变supabase的重定向端口，请进入。`认证 > 设置`并将`网站网址`改为`localhost:5173`。
 
-<img src="/docs/img/supabase-svelte-demo.png">
+<img src="../../img/supabase-svelte-demo.png">
 
 ## 个人照片
 

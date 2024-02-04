@@ -1,5 +1,5 @@
 ---
-    weight: 71
+    weight: 7
     title: "plv8: JavaScript语言"
     description: "JavaScript language for PostgreSQL."
     icon: "article"

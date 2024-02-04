@@ -1,5 +1,5 @@
 ---
-    weight: 76
+    weight: 10
     title: "from.createSignedUrl()"
     icon: "article"
     draft: false

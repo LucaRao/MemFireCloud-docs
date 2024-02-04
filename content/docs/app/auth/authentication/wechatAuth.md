@@ -1,5 +1,5 @@
 ---
-    weight: 30
+    weight: 6
     title: "微信小程序登录认证"
     description: "微信小程序登录认证"
     icon: "article"
@@ -20,15 +20,15 @@
 
 - 在MemFire Cloud认证服务商页面启用微信小程序认证
 
-<img src="/docs/img/wechatauth1.png">
+<img src="../../../img/wechatauth1.png">
 
 图例
 <div className="image-flex">
 
-<img src="/docs/img/wechatauth2.png">
-<img src="/docs/img/wechatauth5.png">
-<img src="/docs/img/wechatauth3.png">
-<img src="/docs/img/wechatauth6.png">
+<img src="../../../img/wechatauth2.png">
+<img src="../../../img/wechatauth5.png">
+<img src="../../../img/wechatauth3.png">
+<img src="../../../img/wechatauth6.png">
 
 </div>
 
@@ -284,13 +284,13 @@ label{
 - 只有企业账号才有权限进行手机授权登录
 - 在MemFire Cloud认证服务商页面启用微信小程序认证
 
-<img src="/docs/img/wechatauth1.png">
+<img src="../../../img/wechatauth1.png">
 
 图例
 <div className="image-flex">
 
-<img src="/docs/img/wechatauth4.png">
-<img src="/docs/img/wechatauth7.png">
+<img src="../../../img/wechatauth4.png">
+<img src="../../../img/wechatauth7.png">
 
 </div>
 

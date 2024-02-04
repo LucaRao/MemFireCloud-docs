@@ -1,5 +1,5 @@
 ---
-    weight: 92
+    weight: 18
     title: "signInWithWechat()"
     icon: "article"
     draft: false

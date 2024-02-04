@@ -1,5 +1,5 @@
 ---
-    weight: 70
+    weight: 23
     title: "gt()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 26
+    weight: 23
     title: "Using Modifiers"
     icon: "article"
     draft: false

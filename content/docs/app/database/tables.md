@@ -1,5 +1,5 @@
 ---
-    weight: 6
+    weight: 5
     title: "表格和数据"
     description: "Creating and using Postgres tables."
     icon: "article"
@@ -26,7 +26,7 @@
 
 当创建一个表时，最好的做法是同时添加列。
 
-<img src="/docs/img/guides/database/tables-columns.png">
+<img src="../../img/guides/database/tables-columns.png">
 
 你必须在创建每一列时定义它的 "数据类型"。你可以在创建表后随时添加和删除列。
 
@@ -45,7 +45,7 @@ Supabase 为创建表提供了几个选项。你可以使用仪表板或直接�
 
 
 <video width="99%" muted playsInline controls="true">
-  <source src="/docs/videos/api/api-create-table-sm.mp4" type="video/mp4" muted playsInline />
+  <source src="../../videos/api/api-create-table-sm.mp4" type="video/mp4" muted playsInline />
 </video>
 
 1. 进入仪表板中的表编辑器页面。
@@ -267,7 +267,7 @@ psql -h DATABASE_URL -p 5432 -d postgres -U postgres \
 
 多张表可以用外键 "连接 "在一起。
 
-<img src="/docs/img/guides/database/foreign-keys.png">
+<img src="../../img/guides/database/foreign-keys.png">
 
 
 这就是 `关系型`命名的由来，因为数据通常形成某种关系。
@@ -347,7 +347,7 @@ create table performances (
 ## Schemas
 
 表属于`schemas`。`schemas`是组织你的表的一种方式，通常是出于安全原因。
-<img src="/docs/img/guides/database/schema-tables.png">
+<img src="../../img/guides/database/schema-tables.png">
 
 如果你在创建表时没有明确地传递模式，Postgres会假定你想在`public`模式中创建表。
 

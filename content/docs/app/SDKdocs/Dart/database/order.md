@@ -1,5 +1,5 @@
 ---
-    weight: 89
+    weight: 23
     title: "order()"
     icon: "article"
     draft: false

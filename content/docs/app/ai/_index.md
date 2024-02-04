@@ -1,5 +1,5 @@
 ---
-weight: 7
+weight: 6
 title: "AI 和 Vectors"
 description: ""
 icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 84
+    weight: 23
     title: "Getting started"
     icon: "article"
     draft: false

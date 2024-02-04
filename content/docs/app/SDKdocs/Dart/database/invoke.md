@@ -1,5 +1,5 @@
 ---
-    weight: 70
+    weight: 23
     title: "invoke()"
     icon: "article"
     draft: false

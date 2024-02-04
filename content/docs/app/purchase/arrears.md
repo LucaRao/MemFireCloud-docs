@@ -1,5 +1,5 @@
 ---
-    weight: 30
+    weight: 3
     title: "欠费说明"
     description: "Description of arrears."
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-weight: 8
+weight: 7
 title: "总览"
 description: ""
 icon: "article"
@@ -40,7 +40,7 @@ AI领域技术不断突破，越来越多的企业和个人积极探索利用大
 4. 然后将我们的提问内容A和过滤出来的文档块，作为prompt一同发送给OpenAI，并将OpenAI结果返回给用户。这样一来，用户得到的就是逻辑严谨准确率高且符合人类语法的回答。
 
 流程图如下：
-<img src="/docs/img/ai/流程图.png">
+<img src="../../img/ai/流程图.png">
 
 ## 关于产品
 MemFire Cloud提供了一个开源工具包，用于使用Postgres和pgvector开发人工智能应用程序。使用MemFire Cloud客户端库，在规模上存储、索引和查询你的Embedding。

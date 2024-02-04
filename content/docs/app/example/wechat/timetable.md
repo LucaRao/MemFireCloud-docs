@@ -1,5 +1,5 @@
 ---
-    weight: 91
+    weight: 17
     title: "Super课表小程序"
     description: "Super课表小程序"
     icon: "article"
@@ -20,7 +20,7 @@
 
 - 即时API：创建数据表时会自动生成 API。
 
-<img src="/docs/img/super-1.png">
+<img src="../../../img/super-1.png">
 
 
 ## 创建应用
@@ -29,7 +29,7 @@
 
 登录https://cloud.MemFiredb.com/auth/login, 在“我的应用”页面创建一个新应用
 
-<img src="/docs/img/super-2.png">
+<img src="../../../img/super-2.png">
 
 ## 创建数据表
 
@@ -47,11 +47,11 @@
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-3.png">
+<img src="../../../img/super-3.png">
 
 数据表创建完后可在school表中手动插入几条学校信息数据 ，如下图。
 
-<img src="/docs/img/super-4.png">
+<img src="../../../img/super-4.png">
 
 sql操作如下:
 
@@ -81,11 +81,11 @@ INSERT INTO "public"."school" ("id", "updated_at", "schoolName") VALUES ('4', '2
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-5.png">
+<img src="../../../img/super-5.png">
 
 数据表创建完后可在department表中手动插入几条学院信息数据，如下图。
 
-<img src="/docs/img/super-6.png">
+<img src="../../../img/super-6.png">
 
 sql操作如下
 
@@ -118,10 +118,10 @@ INSERT INTO "public"."department" ("id", "updated_at", "departmentName") VALUES 
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-7.jpg">
+<img src="../../../img/super-7.jpg">
 
 数据表创建完后可在subject表中手动插入几条课程信息数据，如下图。
-<img src="/docs/img/super-8.jpg">
+<img src="../../../img/super-8.jpg">
 
 sql操作如下
 
@@ -153,7 +153,7 @@ INSERT INTO "public"."subject" ("id", "teacherName", "updated_at", "adress", "su
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-9.jpg">
+<img src="../../../img/super-9.jpg">
    
 **说明：其中student表字段id和auth.users表中的uuid外键关联。**
 
@@ -172,7 +172,7 @@ INSERT INTO "public"."subject" ("id", "teacherName", "updated_at", "adress", "su
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-10.jpg">
+<img src="../../../img/super-10.jpg">
 
 **说明：其中subjectId与subject表中的id外键关联,schoolId与school表中的id外键关联,departmentId与****department****表中的id外键关联。**
 
@@ -180,7 +180,7 @@ INSERT INTO "public"."subject" ("id", "teacherName", "updated_at", "adress", "su
 
 其中**subjectId、schoolId、departmentId**需要对应数据表里的id。
 
-<img src="/docs/img/super-11.png">
+<img src="../../../img/super-11.png">
 sql操作
 
 ```SQL
@@ -222,11 +222,11 @@ INSERT INTO "public"."subject_student" ("id", "updated_at", "studentId", "subjec
  {{< /table >}}
 建表页面配置：
 
-<img src="/docs/img/super-12.jpg">
+<img src="../../../img/super-12.jpg">
 
 数据表创建完成后可在subject_time表中手动插入几条信息数据，如下图。
 
-<img src="/docs/img/super-13.png">
+<img src="../../../img/super-13.png">
 
 **说明：其中subjectId与subject表中的id外键关联。**
 
@@ -259,32 +259,32 @@ INSERT INTO "public"."subject_time" ("id", "updated_at", "subjectId", "weekNum",
 
 在该应用的对象存储导航栏，点击“新建Bucket”按钮，创建存储桶avatars。
 
-<img src="/docs/img/super-14.png">
+<img src="../../../img/super-14.png">
 
 
 2.允许每个用户可以查看存储桶avatars
 
 选中存储桶avatars，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
 
-<img src="/docs/img/super-15.png">
+<img src="../../../img/super-15.png">
 
  选择SELECT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
 
-<img src="/docs/img/super-16.png">
+<img src="../../../img/super-16.png">
 
 3.允许用户上传存储桶avatars；
 
 选中存储桶avatars，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
 
-<img src="/docs/img/super-17.png">
+<img src="../../../img/super-17.png">
 
 选择INSERT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
 
-<img src="/docs/img/super-18.png">
+<img src="../../../img/super-18.png">
 
 查看结果：
 
-<img src="/docs/img/super-19.png">
+<img src="../../../img/super-19.png">
 
 ## 注册小程序
 
@@ -302,13 +302,13 @@ INSERT INTO "public"."subject_time" ("id", "updated_at", "subjectId", "weekNum",
 
 选择目录是下载好的小程序项目的目录，AppID为您在微信公众平台注册小程序获得的专属appid
 
-<img src="/docs/img/super-20.png">
+<img src="../../../img/super-20.png">
 
 ## 构建npm
 
 在右侧详情里面的本地设置把“使用npm模块”和“不校验合法域名”勾上
 
-<img src="/docs/img/super-21.png">
+<img src="../../../img/super-21.png">
 
 打开终端，在项目目录miniprogram下执行如下命令 。
 
@@ -317,7 +317,7 @@ npm init
 npm install
 ```
 
-<img src="/docs/img/super-22.png">
+<img src="../../../img/super-22.png">
 
 接下来，下载小程序需要的Supabase 小程序客户端和ui组件包。
 
@@ -328,12 +328,12 @@ npm install @vant/weapp
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="/docs/img/super-23.png">
+<img src="../../../img/super-23.png">
 
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,目录miniprogram下会多出两个文件，如下图。
 
-<img src="/docs/img/super-24.png">
+<img src="../../../img/super-24.png">
 
 ## 获取 API密钥
 
@@ -351,7 +351,7 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/概括页面，获取服务地址以及token信息，只需要从总览中获取URL接口地址和anon的密钥。
 
-<img src="/docs/img/super-25.png">
+<img src="../../../img/super-25.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 
@@ -359,19 +359,19 @@ Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的�
 
 ## 编译小程序
 
-<img src="/docs/img/super-26.png">
+<img src="../../../img/super-26.png">
 
 功能1：在没有登录绑定学号时，主页不会出现当日的课程情况，请先点击“绑定学号”去注册登录后才会有该学生今日的课表情况。
 
-<img src="/docs/img/super-27.png">
+<img src="../../../img/super-27.png">
 
 功能2：点击班级课表，输入学校、学院及学号可以查看该学生本周的课程情况
 
-<img src="/docs/img/super-28.png">
+<img src="../../../img/super-28.png">
 
 功能3：更换头像
 
-<img src="/docs/img/super-29.png">
+<img src="../../../img/super-29.png">
 
 上传头像需要注意： 使用[wx.chooseMedia](https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseMedia.html)来上传文件
 
@@ -399,5 +399,5 @@ Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的�
 
 功能4：清除缓存（会清除当前学生的所有账号及课表信息）
 
-<img src="/docs/img/super-30.png">
+<img src="../../../img/super-30.png">
 

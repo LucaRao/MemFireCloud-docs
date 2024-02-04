@@ -1,5 +1,5 @@
 ---
-    weight: 32
+    weight: 22
     title: "currentUser"
     icon: "article"
     draft: false

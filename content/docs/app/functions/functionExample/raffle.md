@@ -1,5 +1,5 @@
 ---
-    weight: 75
+    weight: 10
     title: "抽奖示例"
     description: "Getting started with raffles."
     icon: "article"
@@ -69,7 +69,7 @@ exports.handler = (req, resp, context) => {
 
 3、在创建云函数弹框中，输入函数名称Prize，并上传步骤1中准备好的ZIP代码包，无需配置环境变量，不开启initializer回调，然后单击**保存**；
 
-<img src="/docs/img/raffle-1.png">
+<img src="../../../img/raffle-1.png">
 
 - **基础信息：**设置函数的基本信息，包括函数名称、请求处理程序。
 {{< table "table-striped-columns" >}}
@@ -100,7 +100,7 @@ exports.handler = (req, resp, context) => {
  {{< /table >}}
 4、创建成功后，可以在函数列表中查看Prize函数。
 
-<img src="/docs/img/raffle-2.png">
+<img src="../../../img/raffle-2.png">
 
 ### 步骤3：执行函数
 
@@ -110,6 +110,6 @@ exports.handler = (req, resp, context) => {
 
 3、点击“Send”按钮，即可获得返回结果。
 
-<img src="/docs/img/raffle-3.png">
+<img src="../../../img/raffle-3.png">
 
 

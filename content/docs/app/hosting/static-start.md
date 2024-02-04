@@ -1,5 +1,5 @@
 ---
-    weight: 20
+    weight: 12
     title: "快速开始"
     description: "快速开始"
     icon: "article"
@@ -50,11 +50,11 @@ Linux，Unix的系统环境下，使用zip命令打包，不要使用tar命令�
 
 1.登录MemFire Cloud平台，进入我的应用->某应用->静态托管页面。
 
-<img src="/docs/img/static1.png">
+<img src="../../img/static1.png">
 
 2.点击上传文件，选中网站压缩包进行上传。
 
-<img src="/docs/img/static2.png">
+<img src="../../img/static2.png">
 
 完成上传操作后，用户即可通过MemFire Cloud平台提供的**访问地址**进行访问托管的静态网站。
 

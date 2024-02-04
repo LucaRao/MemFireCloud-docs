@@ -1,5 +1,5 @@
 ---
-    weight: 15
+    weight: 8
     title: "使用cURL工具访问数据"
     description: "使用cURL工具访问数据."
     icon: "article"
@@ -26,12 +26,12 @@
 
 在**我的应用**管理页面，点击具体应用，进入应用详情页面，点击左侧菜单栏“API文档”。选中所有数据表中的“employees”，右侧点击"Bash"栏，应用API key选择“公开(anno)”, 则会出现上图所示的该数据表的专属文档。
 
-<img src="/docs/img/curl-1.png">
+<img src="../../img/curl-1.png">
 
 ### 2.访问数据
 
 打开Bash编译器，复制上图中的读取所有行数据命令，粘贴到编译器里，回车即可查询employees数据表的所有数据。
 
-<img src="/docs/img/curl-2.png">
+<img src="../../img/curl-2.png">
 
 

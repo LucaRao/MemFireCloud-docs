@@ -1,5 +1,5 @@
 ---
-    weight: 57
+    weight: 10
     title: "listBuckets()"
     icon: "article"
     draft: false

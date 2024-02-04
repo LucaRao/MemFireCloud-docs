@@ -1,5 +1,5 @@
 ---
-weight: 4
+weight: 26
 title: "实名认证"
 description: ""
 icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 80
+    weight: 8
     title: "环境变量"
     description: "Getting started with environment variable."
     icon: "article"
@@ -44,7 +44,7 @@
 
 （3）示例如下。
 
-<img src="/docs/img/variable.png">
+<img src="../../img/variable.png">
 
 4. 验证环境变量是否创建成功。
 

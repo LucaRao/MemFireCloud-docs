@@ -23,14 +23,14 @@ MemFire Cloud 提供了几种连接Postgres数据库的方式:
 3. 启用数据库直连
 4. 找到应用的`连接信息`
 
-<img src="/docs/img/guides/database/数据库连接-步骤.png">
+<img src="../../img/guides/database/数据库连接-步骤.png">
 
 
 ### 白名单
 MemFire Cloud内置白名单功能，开启白名单后，只允许白名单内的IP地址段访问你的数据库。关闭白名单后，访问你数据库的IP地址不受限制，即任何IP地址只要有连接信息都可以与你的数据库进行直连。
 在进行白名单配置时，要遵循CIDR规则。MemFire Cloud中白名单功能 默认是关闭的，需用户手动开启。
 
-<img src="/docs/img/guides/database/数据库连接-白名单.png">
+<img src="../../img/guides/database/数据库连接-白名单.png">
 
 
 
@@ -50,15 +50,15 @@ Navicat是一个用于管理Postgres数据库的图形用户界面（GUI）工�
 
 #### 步骤1
 新建一个连接，选择:PostgreSQL
-<img src="/docs/img/guides/database/数据库连接-navicat1.png">
+<img src="../../img/guides/database/数据库连接-navicat1.png">
 
 #### 步骤2
 在你的MemFire Cloud控制台中找到“连接信息”，并添加此处。点击“测试连接”，若返回成功弹窗则表明连接建立成功。
-<img src="/docs/img/guides/database/数据库连接-navicat2.png">
+<img src="../../img/guides/database/数据库连接-navicat2.png">
 
 
 连接成功后即可管理和查询你的数据。
-<img src="/docs/img/guides/database/数据库连接-navicat结果.png">
+<img src="../../img/guides/database/数据库连接-navicat结果.png">
 
 ### 案例2 使用python连接
 
@@ -66,7 +66,7 @@ Navicat是一个用于管理Postgres数据库的图形用户界面（GUI）工�
 
 #### 步骤1
 在 MemFire Cloud 控制台中启用数据库直连，找到python的“连接字符串”。
-<img src="/docs/img/guides/database/数据库连接-python.png">
+<img src="../../img/guides/database/数据库连接-python.png">
 
 #### 步骤2
 在pycharm编辑器中，导入第三方库 `psycopg2`，`psycopg2`是一个流行的Python库，用于连接和操作PostgreSQL数据库。如果尚未安装此库，请通过以下命令进行安装：
@@ -77,8 +77,8 @@ pip install psycopg2
 
 *或者*在pycharm的 Python Interpreter中进行设置，步骤如下：
 
-<img src="/docs/img/guides/database/数据库连接-python库安装1.png">
-<img src="/docs/img/guides/database/数据库连接-python库安装2.png">
+<img src="../../img/guides/database/数据库连接-python库安装1.png">
+<img src="../../img/guides/database/数据库连接-python库安装2.png">
 
 
 
@@ -122,8 +122,8 @@ except psycopg2.Error as error:
 
 这段代码返回数据库中表“city”的全部内容。可以看出，返回结果与表中数据一致。
 
-<img src="/docs/img/guides/database/数据库连接-python结果.png">
-<img src="/docs/img/guides/database/数据库连接-本地表.png">
+<img src="../../img/guides/database/数据库连接-python结果.png">
+<img src="../../img/guides/database/数据库连接-本地表.png">
 
 *注*:如编译不通过，尝试将python连接字符串中参数`database`改为`dbname`。因为`psycopg2`库并不认可`database`这个参数
 
@@ -136,7 +136,7 @@ except psycopg2.Error as error:
 #### 步骤1
 
 在 MemFire Cloud 控制台中启用数据库直连，找到nodejs的“连接字符串”。
-<img src="/docs/img/guides/database/数据库连接-nodejs.png">
+<img src="../../img/guides/database/数据库连接-nodejs.png">
 
 
 #### 步骤2
@@ -190,8 +190,8 @@ node app.js
 ```
 这段代码返回数据库中表“city”的全部内容。可以看出，返回结果与表中数据一致。
 
-<img src="/docs/img/guides/database/数据库连接-nodejs结果.png">
-<img src="/docs/img/guides/database/数据库连接-本地表.png">
+<img src="../../img/guides/database/数据库连接-nodejs结果.png">
+<img src="../../img/guides/database/数据库连接-本地表.png">
 
 
 

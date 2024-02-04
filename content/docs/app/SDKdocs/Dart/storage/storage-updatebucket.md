@@ -1,5 +1,5 @@
 ---
-    weight: 69
+    weight: 10
     title: "updateBucket()"
     icon: "article"
     draft: false

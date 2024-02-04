@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 5
     title: "数据库函数"
     description: "Creating and using Postgres functions."
     icon: "article"

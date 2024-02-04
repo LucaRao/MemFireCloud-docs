@@ -1,5 +1,5 @@
 ---
-    weight: 20
+    weight: 2
     title: "功能"
     description: "MemFire Cloud features"
     icon: "article"

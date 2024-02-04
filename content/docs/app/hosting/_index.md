@@ -1,5 +1,5 @@
 ---
-weight: 8
+weight: 11
 title: "静态托管"
 description: ""
 icon: "article"

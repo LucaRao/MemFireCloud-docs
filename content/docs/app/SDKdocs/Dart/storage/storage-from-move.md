@@ -1,5 +1,5 @@
 ---
-    weight: 25
+    weight: 10
     title: "from.move()"
     icon: "article"
     draft: false
