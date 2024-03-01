@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据库函数 on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/function/</link>
+    <link>https://github.com/docs/app/sdkdocs/dart/function/</link>
     <description>Recent content in 数据库函数 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/function/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/sdkdocs/dart/function/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>存储程序: rpc()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/function/rpc/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/function/rpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/function/rpc/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/function/rpc/</guid>
       <description>你可以用&amp;quot;远程程序调用&amp;quot;的方式调用存储程序。&#xA;这是一种高级的说法，即你可以把一些逻辑放入数据库，然后从任何地方调用它。 这在逻辑很少更改的情况下特别有用，比如密码重置和更新等情况。&#xA;案例教程 link案例1 (调用一个没有参数的存储程序) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.rpc(&amp;#39;hello_world&amp;#39;);&#xD;这是一个调用存储过程的示例。&#xA;案例2 (调用一个带参数的存储程序) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_city&amp;#39;, params: { &amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39; });&#xD;</description>
     </item>
   </channel>

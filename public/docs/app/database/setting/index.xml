@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>配置 on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/</link>
+    <link>https://github.com/docs/app/database/setting/</link>
     <description>Recent content in 配置 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/database/setting/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>时区</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/managing-timezones/</link>
+      <title>Passwords</title>
+      <link>https://github.com/docs/app/database/setting/managing-passwords/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/managing-timezones/</guid>
-      <description>每个 Supabase 数据库都默认设置为 UTC 时区。我们强烈建议保持这种方式，即使你的用户在不同的地方。 这是因为，如果你采用 &amp;ldquo;我的数据库中的一切都在UTC时间 &amp;ldquo;的心理模式，那么计算不同时区的差异就会容易得多。&#xA;改变时区 link&#xD;SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;alter database postgres&#xD;set timezone to &amp;#39;America/New_York&amp;#39;;&#xD;时区的完整列表 link获取你的数据库所支持的时区的完整列表。这将返回以下列：&#xA;name: 时区名称 abbrev: 时区缩略语 utc_offset: 与UTC的偏移（正数表示格林威治以东）。 is_dst: 如果目前遵守夏令时，则为真 SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select name, abbrev, utc_offset, is_dst&#xD;from pg_timezone_names()&#xD;order by name;&#xD;搜索一个特定的时区 link使用ilike（不区分大小写的搜索）来寻找特定的时区。&#xA;SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select *&#xD;from pg_timezone_names()&#xD;where name ilike &amp;#39;%york%&amp;#39;;&#xD;</description>
+      <guid>https://github.com/docs/app/database/setting/managing-passwords/</guid>
+      <description>你的PostgreSQL数据库是你的Supabase项目的核心，所以在任何时候都有一个强大、安全的密码是很很重要的。&#xA;如果你在你的postgres密码中使用了特殊符号，你必须记得在以后使用postgres连接字符串时对你的密码进行%-encode，例如：postgresql://postgres:p%3Dword@db.cvwawazfelidkloqmbma.supabase.co:5432/postgres。&#xA;改变你的项目密码 link当你创建你的项目时，你也被要求输入一个密码。这实际上是你的数据库的密码，特别是 &amp;ldquo;postgres&amp;quot;用户的密码。 你可以在Dashboard的数据库设置页面下更新它。&#xA;创建一个安全的密码 link安全地存储你的客户数据是绝对关键的。这里有一些创建安全密码的提示。&#xA;使用一个密码管理器来生成密码。 制作一个长密码（至少12个字符）。 不要使用任何常见的字典中的词汇。 同时使用大写和小写字符、数字和特殊符号。 资源库 link PostgreSQL ALTER USER文档 </description>
     </item>
     <item>
       <title>复制</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/replication/</link>
+      <link>https://github.com/docs/app/database/setting/replication/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/replication/</guid>
+      <guid>https://github.com/docs/app/database/setting/replication/</guid>
       <description>复制是一种将数据从一个数据库复制到另一个数据库的技术。Supabase使用复制功能来提供一个实时的API。复制在以下方面很有用：&#xA;分散 &amp;ldquo;负载&amp;rdquo;。例如，如果你的数据库有大量的读数，你可能想把它分成两个数据库。 减少延时。例如，您可能希望伦敦有一个数据库为您的欧洲客户服务，而纽约有一个为美国服务。 复制是通过发布来完成的，这是一种选择将哪些变化发送到其他系统（通常是另一个Postgres数据库）的方法。发布可以在仪表板中管理，也可以用SQL来管理。&#xA;在仪表板中管理发布 link 进入仪表板中的数据库页面。 点击侧边栏中的复制。 通过切换插入、更新和删除来控制哪些数据库事件被发送。 通过选择源和切换每个表来控制哪些表被发送变化。 创建一个发布 link这个发布包含对所有表格的修改&#xA;create publication publication_name&#xD;for all tables;&#xD;创建发布以侦听各个表 link&#xD;create publication publication_name&#xD;for table table_one, table_two;&#xD;添加表到现有发布中 link&#xD;alter publication publication_name&#xD;add table table_name;&#xD;监听插入操作 link&#xD;create publication publication_name&#xD;for all tables&#xD;with (publish = &amp;#39;insert&amp;#39;);&#xD;监听更新操作 link&#xD;create publication publication_name&#xD;for all tables&#xD;with (publish = &amp;#39;update&amp;#39;);&#xD;监听删除操作 link&#xD;create publication publication_name&#xD;for all tables&#xD;with (publish = &amp;#39;delete&amp;#39;);&#xD;删除一个发布 link&#xD;drop publication if exists publication_name;&#xD;重新创建发布 link如果要重新创建发布，最好在事务中执行，以确保操作成功。</description>
     </item>
     <item>
-      <title>超时</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/timeouts/</link>
+      <title>时区</title>
+      <link>https://github.com/docs/app/database/setting/managing-timezones/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/timeouts/</guid>
-      <description>默认情况下，Suabase将使用匿名密钥访问API的用户的最大语句执行时间限制为3秒，而经过身份验证的用户的最长语句执行时间为8秒。此外，所有用户的全局限制为2分钟。这可以防止由于查询写得不好或滥用而导致的资源耗尽。&#xA;改变默认超时 link这些超时值被选为大多数情况下的合理默认值，但可以使用alter role语句进行修改。&#xA;alter role authenticated set statement_timeout = &amp;#39;15s&amp;#39;;&#xD;你也可以更新一个会话的语句超时:&#xA;set statement_timeout to 60000; -- 1 minute in milliseconds&#xD;语句优化 link所有Supabase项目都安装了pg_stat_statements扩展，它跟踪所有针对它执行的语句的计划和执行统计数据。这些统计数据可以用来诊断你的项目的性能。&#xA;这些数据可以进一步与Postgres的explain功能结合使用，以优化你的使用。</description>
+      <guid>https://github.com/docs/app/database/setting/managing-timezones/</guid>
+      <description>每个 Supabase 数据库都默认设置为 UTC 时区。我们强烈建议保持这种方式，即使你的用户在不同的地方。 这是因为，如果你采用 &amp;ldquo;我的数据库中的一切都在UTC时间 &amp;ldquo;的心理模式，那么计算不同时区的差异就会容易得多。&#xA;改变时区 link&#xD;SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;alter database postgres&#xD;set timezone to &amp;#39;America/New_York&amp;#39;;&#xD;时区的完整列表 link获取你的数据库所支持的时区的完整列表。这将返回以下列：&#xA;name: 时区名称 abbrev: 时区缩略语 utc_offset: 与UTC的偏移（正数表示格林威治以东）。 is_dst: 如果目前遵守夏令时，则为真 SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select name, abbrev, utc_offset, is_dst&#xD;from pg_timezone_names()&#xD;order by name;&#xD;搜索一个特定的时区 link使用ilike（不区分大小写的搜索）来寻找特定的时区。&#xA;SQL&#xD;defaultActiveId=&#34;sql&#34;&#xD;&gt;&#xD;select *&#xD;from pg_timezone_names()&#xD;where name ilike &amp;#39;%york%&amp;#39;;&#xD;</description>
     </item>
     <item>
-      <title>Passwords</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/managing-passwords/</link>
+      <title>超时</title>
+      <link>https://github.com/docs/app/database/setting/timeouts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/setting/managing-passwords/</guid>
-      <description>你的PostgreSQL数据库是你的Supabase项目的核心，所以在任何时候都有一个强大、安全的密码是很很重要的。&#xA;如果你在你的postgres密码中使用了特殊符号，你必须记得在以后使用postgres连接字符串时对你的密码进行%-encode，例如：postgresql://postgres:p%3Dword@db.cvwawazfelidkloqmbma.supabase.co:5432/postgres。&#xA;改变你的项目密码 link当你创建你的项目时，你也被要求输入一个密码。这实际上是你的数据库的密码，特别是 &amp;ldquo;postgres&amp;quot;用户的密码。 你可以在Dashboard的数据库设置页面下更新它。&#xA;创建一个安全的密码 link安全地存储你的客户数据是绝对关键的。这里有一些创建安全密码的提示。&#xA;使用一个密码管理器来生成密码。 制作一个长密码（至少12个字符）。 不要使用任何常见的字典中的词汇。 同时使用大写和小写字符、数字和特殊符号。 资源库 link PostgreSQL ALTER USER文档 </description>
+      <guid>https://github.com/docs/app/database/setting/timeouts/</guid>
+      <description>默认情况下，Suabase将使用匿名密钥访问API的用户的最大语句执行时间限制为3秒，而经过身份验证的用户的最长语句执行时间为8秒。此外，所有用户的全局限制为2分钟。这可以防止由于查询写得不好或滥用而导致的资源耗尽。&#xA;改变默认超时 link这些超时值被选为大多数情况下的合理默认值，但可以使用alter role语句进行修改。&#xA;alter role authenticated set statement_timeout = &amp;#39;15s&amp;#39;;&#xD;你也可以更新一个会话的语句超时:&#xA;set statement_timeout to 60000; -- 1 minute in milliseconds&#xD;语句优化 link所有Supabase项目都安装了pg_stat_statements扩展，它跟踪所有针对它执行的语句的计划和执行统计数据。这些统计数据可以用来诊断你的项目的性能。&#xA;这些数据可以进一步与Postgres的explain功能结合使用，以优化你的使用。</description>
     </item>
   </channel>
 </rss>

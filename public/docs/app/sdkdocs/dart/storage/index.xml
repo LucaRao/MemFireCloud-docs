@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>对象存储 on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/</link>
+    <link>https://github.com/docs/app/sdkdocs/dart/storage/</link>
     <description>Recent content in 对象存储 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/sdkdocs/dart/storage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>createBucket()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-createbucket/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-createbucket/</guid>
+      <description>创建一个新的存储桶&#xA;final String bucketId = await supabase&#xD;.storage&#xD;.createBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。insert的权限 objects的权限: 没有 Examples link创建桶 link&#xD;final String bucketId = await supabase&#xD;.storage&#xD;.createBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
+    </item>
     <item>
       <title>deleteBucket()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-deletebucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-deletebucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-deletebucket/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-deletebucket/</guid>
       <description>删除一个现有的桶。一个桶不能在其内部存在对象的情况下被删除。你必须首先empty()该桶。&#xA;final String result = await supabase&#xD;.storage&#xD;.deleteBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。select and delete。 objects的权限: 没有 Examples link删除桶 link&#xD;final String result = await supabase&#xD;.storage&#xD;.deleteBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
     </item>
     <item>
-      <title>from.update()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-update/</link>
+      <title>emptyBucket()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-emptybucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-update/</guid>
-      <description>用一个新的文件替换指定路径下的一个现有文件。&#xA;final avatarFile = File(&amp;#39;path/to/local/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).update(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects 的权限: update and select Examples link更新文件 link&#xD;final avatarFile = File(&amp;#39;path/to/local/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).update(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-emptybucket/</guid>
+      <description>删除单个桶内的所有对象。&#xA;final String result = await supabase&#xD;.storage&#xD;.emptyBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。 select 的权限 objects的权限: select和delete的权限 Examples link清空存储桶 link&#xD;final String result = await supabase&#xD;.storage&#xD;.emptyBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
+    </item>
+    <item>
+      <title>from.createSignedUrl()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</guid>
+      <description>创建签名的网址，下载文件而不需要权限。这个URL可以在设定的秒数内有效。&#xA;final String signedUrl = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;avatar1.png&amp;#39;, 60);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: select Examples link创建签名的URL link&#xD;final String signedUrl = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;avatar1.png&amp;#39;, 60);&#xD;</description>
+    </item>
+    <item>
+      <title>from.createSignedUrls()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</guid>
+      <description>&#xD;final List&amp;lt;String&amp;gt; signedUrls = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60);&#xD;Notes link 需要RLS策略权限。 buckets表的权限: 没有 objects表的权限: select. 请参考存储指南中关于访问控制的工作方法 Examples link创建签名的URL link&#xD;final List&amp;lt;String&amp;gt; signedUrls = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60);&#xD;</description>
     </item>
     <item>
       <title>from.download()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-download/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-download/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-download/</guid>
       <description>下载文件&#xA;final Uint8List file = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.download(&amp;#39;avatar1.png&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: select Examples link下载文件 link&#xD;final Uint8List file = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.download(&amp;#39;avatar1.png&amp;#39;);&#xD;</description>
     </item>
     <item>
-      <title>from.list()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-list/</link>
+      <title>from.getPublicUrl()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-list/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</guid>
+      <description>检索公共资源库中资产的URL&#xA;final String publicUrl = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;avatar1.png&amp;#39;);&#xD;Notes link 水桶需要被设置为公开，可以通过updateBucket()或通过进入app.supabase.com的存储，点击水桶上的溢出菜单并选择 &amp;ldquo;Make public&amp;rdquo; 需要的策略权限。 buckets权限: 无 objects权限: 无 Examples link返回公共桶中资产的URL。 link&#xD;final String publicUrl = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;avatar1.png&amp;#39;);&#xD;</description>
+    </item>
+    <item>
+      <title>from.list()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-list/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-list/</guid>
       <description>列出一个桶内的所有文件。&#xA;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.list();&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: select Examples link在一个桶中列出文件 link&#xD;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.list();&#xD;</description>
     </item>
     <item>
       <title>from.move()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-move/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-move/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-move/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-move/</guid>
       <description>移动一个现有的文件，同时也可以选择重命名。&#xA;final String result = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.move(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: update和 select的权限 Examples link移动文件 link&#xD;final String result = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.move(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;);&#xD;</description>
     </item>
     <item>
-      <title>emptyBucket()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-emptybucket/</link>
+      <title>from.remove()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-remove/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-emptybucket/</guid>
-      <description>删除单个桶内的所有对象。&#xA;final String result = await supabase&#xD;.storage&#xD;.emptyBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。 select 的权限 objects的权限: select和delete的权限 Examples link清空存储桶 link&#xD;final String result = await supabase&#xD;.storage&#xD;.emptyBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-remove/</guid>
+      <description>删除同一桶内的文件&#xA;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.remove([&amp;#39;avatar1.png&amp;#39;]);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: delete和 select权限 Examples link删除文件 link&#xD;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.remove([&amp;#39;avatar1.png&amp;#39;]);&#xD;</description>
     </item>
     <item>
-      <title>from.createSignedUrls()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</link>
+      <title>from.update()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</guid>
-      <description>&#xD;final List&amp;lt;String&amp;gt; signedUrls = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60);&#xD;Notes link 需要RLS策略权限。 buckets表的权限: 没有 objects表的权限: select. 请参考存储指南中关于访问控制的工作方法 Examples link创建签名的URL link&#xD;final List&amp;lt;String&amp;gt; signedUrls = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60);&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-update/</guid>
+      <description>用一个新的文件替换指定路径下的一个现有文件。&#xA;final avatarFile = File(&amp;#39;path/to/local/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).update(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects 的权限: update and select Examples link更新文件 link&#xD;final avatarFile = File(&amp;#39;path/to/local/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).update(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;</description>
+    </item>
+    <item>
+      <title>from.upload()</title>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-upload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-from-upload/</guid>
+      <description>将一个文件上传到一个现有的桶。&#xA;final avatarFile = File(&amp;#39;path/to/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).upload(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: insert Examples link上传文件 link&#xD;final avatarFile = File(&amp;#39;path/to/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).upload(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;</description>
     </item>
     <item>
       <title>getBucket()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-getbucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-getbucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-getbucket/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-getbucket/</guid>
       <description>检索现有存储桶的详细信息。&#xA;final Bucket bucket = await supabase&#xD;.storage&#xD;.getBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。select 的权限 objects权限: 无 Examples link获取桶 link&#xD;final Bucket bucket = await supabase&#xD;.storage&#xD;.getBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
     </item>
     <item>
       <title>listBuckets()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-listbuckets/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-listbuckets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-listbuckets/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-listbuckets/</guid>
       <description>检索一个现有产品中所有存储桶的详细信息。&#xA;final List&amp;lt;Bucket&amp;gt; buckets = await supabase&#xD;.storage&#xD;.listBuckets();&#xD;Notes link 需要的政策权限。 buckets的权限。select的权限 objects权限: 无 Examples link列表中的桶 link&#xD;final List&amp;lt;Bucket&amp;gt; buckets = await supabase&#xD;.storage&#xD;.listBuckets();&#xD;</description>
     </item>
     <item>
-      <title>createBucket()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-createbucket/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-createbucket/</guid>
-      <description>创建一个新的存储桶&#xA;final String bucketId = await supabase&#xD;.storage&#xD;.createBucket(&amp;#39;avatars&amp;#39;);&#xD;Notes link 需要的政策权限。 buckets的权限。insert的权限 objects的权限: 没有 Examples link创建桶 link&#xD;final String bucketId = await supabase&#xD;.storage&#xD;.createBucket(&amp;#39;avatars&amp;#39;);&#xD;</description>
-    </item>
-    <item>
-      <title>from.getPublicUrl()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</guid>
-      <description>检索公共资源库中资产的URL&#xA;final String publicUrl = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;avatar1.png&amp;#39;);&#xD;Notes link 水桶需要被设置为公开，可以通过updateBucket()或通过进入app.supabase.com的存储，点击水桶上的溢出菜单并选择 &amp;ldquo;Make public&amp;rdquo; 需要的策略权限。 buckets权限: 无 objects权限: 无 Examples link返回公共桶中资产的URL。 link&#xD;final String publicUrl = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;avatar1.png&amp;#39;);&#xD;</description>
-    </item>
-    <item>
       <title>updateBucket()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-updatebucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/storage/storage-updatebucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-updatebucket/</guid>
+      <guid>https://github.com/docs/app/sdkdocs/dart/storage/storage-updatebucket/</guid>
       <description>更新一个新的存储桶&#xA;final res = await supabase&#xD;.storage&#xD;.updateBucket(&amp;#39;avatars&amp;#39;, const BucketOptions(public: false));&#xD;Notes link 需要的政策权限。 buckets的权限。update的权限 objects 的权限: 没有 Examples link更新桶 link&#xD;final res = await supabase&#xD;.storage&#xD;.updateBucket(&amp;#39;avatars&amp;#39;, const BucketOptions(public: false));&#xD;</description>
-    </item>
-    <item>
-      <title>from.createSignedUrl()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</guid>
-      <description>创建签名的网址，下载文件而不需要权限。这个URL可以在设定的秒数内有效。&#xA;final String signedUrl = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;avatar1.png&amp;#39;, 60);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: select Examples link创建签名的URL link&#xD;final String signedUrl = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;avatar1.png&amp;#39;, 60);&#xD;</description>
-    </item>
-    <item>
-      <title>from.upload()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-upload/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-upload/</guid>
-      <description>将一个文件上传到一个现有的桶。&#xA;final avatarFile = File(&amp;#39;path/to/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).upload(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: insert Examples link上传文件 link&#xD;final avatarFile = File(&amp;#39;path/to/file&amp;#39;);&#xD;final String path = await supabase.storage.from(&amp;#39;avatars&amp;#39;).upload(&#xD;&amp;#39;public/avatar1.png&amp;#39;,&#xD;avatarFile,&#xD;fileOptions: const FileOptions(cacheControl: &amp;#39;3600&amp;#39;, upsert: false),&#xD;);&#xD;</description>
-    </item>
-    <item>
-      <title>from.remove()</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-remove/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/sdkdocs/dart/storage/storage-from-remove/</guid>
-      <description>删除同一桶内的文件&#xA;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.remove([&amp;#39;avatar1.png&amp;#39;]);&#xD;Notes link 需要的政策权限。 buckets权限: 无 objects的权限: delete和 select权限 Examples link删除文件 link&#xD;final List&amp;lt;FileObject&amp;gt; objects = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.remove([&amp;#39;avatar1.png&amp;#39;]);&#xD;</description>
     </item>
   </channel>
 </rss>

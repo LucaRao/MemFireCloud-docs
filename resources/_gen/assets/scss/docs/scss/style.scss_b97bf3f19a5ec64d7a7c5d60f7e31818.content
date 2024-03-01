@@ -10800,6 +10800,13 @@ i.title-icon {
   margin-bottom: 0px;
   padding-top: 1rem; }
 
+.flex-space-between {
+  display: flex;
+  justify-content: space-between; }
+
+.t-c {
+  text-align: center; }
+
 :root {
   --toc-link-hover-bg-color: var(--gray-300);
   --toc-mobile-btn-bg-color: var(--gray-100);

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/</link>
+    <link>https://github.com/docs/app/example/web/</link>
     <description>Recent content in Web on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Posts社交网络论坛</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/postsforum/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/postsforum/</guid>
-      <description>MemFire Cloud是一款提供云数据库，用户可以创建云数据库，并对数据库进行管理，还可以对数据库进行备份操作。它还提供后端即服务，用户可以在1分钟内新建一个应用，使用自动生成的API和SDK，访问云数据库、对象存储、用户认证与授权等功能，可专注于编写前端应用程序代码，加速WEB或APP应用开发。&#xA;本篇文章将会教大家手把手使用MemFire Cloud做一个Posts社交网络论坛应用。我们基于Posts社交网络论坛应用做了一个详细的教程，来讲一讲在通过MemFire Cloud开发Posts社交网络论坛应用的开发步骤及注意事项，希望能真正解决用户使用MemFire Cloud过程中遇到的问题和提供一些应用实现的小技巧。&#xA;开发前需要知道的一些事 link应用介绍&#xA;一个开放的社交网络论坛，任何人都可以在这里分享他们的想法和意见。&#xA;应用基础&#xA;Posts社交网络论坛是基于supabase官网的一个todo-list应用示例为基础，在这个基础上进行修改，删除，增加一些代码逻辑及功能的应用。&#xA;开发条件&#xA;您需要对vue3及ts有一定的了解；&#xA;您需要对sql语法有一定的了解；&#xA;开发依赖&#xA;&amp;ldquo;@supabase/supabase-js&amp;rdquo;: &amp;ldquo;^1.1.2&amp;rdquo;&#xA;&amp;ldquo;vue&amp;rdquo;: &amp;ldquo;^3.0.0&amp;rdquo;&#xA;“node.js”:&amp;ldquo;14.19.0&amp;rdquo;&#xA;&amp;ldquo;npm&amp;rdquo;:&amp;ldquo;6.14.16&amp;rdquo;&#xA;1.准备工作 link创建应用&#xA;登录https://cloud.memfiredb.com 创建应用，打开应用后，查看并获取服务地址以及token信息&#xA;创建应用的一步很关键，我们的posts应用就是通过在这里创建的应用来获得数据库、对象存储等一系列资源，并将获得该应用专属的API访问链接和访问密钥，用户可以轻松的与以上资源进行交互。想知道关于应用更详细的内容请查看查看文档&#xA;进入应用，我们在这里可以看到，Anon public是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。&#xA;注意：service_role secret可以绕过任何安全策略完全访问您的数据。这些密钥必须保密，并且要在服务器环境中使用，决不能在客户端或浏览器上使用。&#xA;在后续示例代码中，需要提供supabaseUrl和supabaseKey。&#xA;supabaseUrl就是上图的网址链接，supabaseKey就是Anon API密钥&#xA;想知道关于应用的连接更详细的内容请查看文档&#xA;下载代码&#xA;todo-list模板代码（需要下载,选择项目为supabase /examples/vue3-ts-todo-list）：&#xA;git clone https://gitee.com/memfiredb/supabase&#xA;Posts最终代码&#xA;git clone https://github.com/LucaRao/memfire-post.git&#xA;2.修改项目名称 link将项目名vue3-ts-todo-list改为Posts&#xA;3.配置访问密钥 link每个Supabase项目都有一个独特的API URL。您的 API 在一个 API 网关的保护下，每次请求都需要一个 API 密钥。&#xA;将上一步中获取的anon public和网址分别设置到supabaseUrl和supabaseKey中&#xA;（1）将根目录下的.env.local.example改为.env.local&#xA;（2）supabaseUrl和supabaseKey分别赋值给VUE_APP_SUPABASE_URL和VUE_APP_SUPABASE_KEY&#xA;4.表结构初始化 link接下来我们需要创建数据表，posts表是用来存储用户论坛评论的数据，likes表用来存储用户点赞的某条评论的数据。&#xA;数据表结构：&#xA;posts（论坛评论列表） 名称 类型 描述 id in8 主键，自增，每条评论的唯一标识ID task text 评论 email text 用户名 created_at timestamptz 日期，可为空 likes（点赞表） 名称 类型 描述 id int8 主键，自增，每条评论的唯一标识ID email_name text 用户名 post_id int8 每条评论的唯一id created_at timestamptz 日期，可为空 sql初始化语句</description>
-    </item>
+    <atom:link href="https://github.com/docs/app/example/web/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Discussbase论坛</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/discussbaseforum/</link>
+      <link>https://github.com/docs/app/example/web/discussbaseforum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/discussbaseforum/</guid>
+      <guid>https://github.com/docs/app/example/web/discussbaseforum/</guid>
       <description>Discussbase是一个开源的简单论坛。使用“技术栈”（MemFire Cloud 、 Nextjs）构建和运行。&#xA;下载代码 link执行如下命令，获取Discussbase论坛应用的代码。&#xA;git clone https://github.com/LucaRao/discussbase&#xA;创建应用 link下载Discussbase代码后，登录memfire cloud,创建一个MemFire Cloud应用，为Discussbase提供后端服务，包括云数据库、对象存储、授权认证等。&#xA;在应用-&amp;gt;概括页面，获取服务地址以及token信息。&#xA;Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。&#xA;注意：service_role（秘密）密钥可以绕过任何安全策略完全访问您的数据。这些密钥必须保密，并且要在服务器环境中使用，决不能在客户端或浏览器上使用。 在后续示例代码中，需要提供supabaseUrl和supabaseKey。&#xA;配置访问密钥 link在根目录下创建新的 .env文件，在 .env 中添加您的 MemFire Cloud 配置；将上一步中获取的Anon（公开）密钥、service_role和网址、以及JWT密钥分别设置到该文件中，如下图所示：&#xA;NEXT_PUBLIC_SUPABASE_URL=&#xD;NEXT_PUBLIC_SUPABASE_ANON_KEY=&#xD;JWT_SECRET=&#xD;NEXT_PUBLIC_SUPABASE_SERVICE_KEY=&#xD;如图样例所示。&#xA;创建数据表 link接下来我们会创建三张表，包括&#xA;profiles (用户信息表)&#xA;posts (帖子)&#xA;replies (回复信息表)&#xA;创建profiles表 link你可以在MemFire Cloud的Discussbase_db的SQL编辑器运行如下SQL语法，涉及操作包括：&#xA;1、创建profiles表, 开启Profiles的RLS数据安全访问规则;&#xA;其中profiles表字段id和auth.users表中的uuid外键关联。&#xA;相关操作的SQL命令：&#xA;-- Create a table for Public Profiles&#xD;create table profiles (&#xD;id uuid references auth.users not null,&#xD;updated_at timestamp with time zone,&#xD;username text unique not null,&#xD;avatar_url text,&#xD;website text,&#xD;point INTEGER DEFAULT 0,&#xD;primary key (id),&#xD;unique(username),&#xD;constraint username_length check (char_length(username) &amp;gt;= 3)&#xD;);&#xD;alter table profiles enable row level security;&#xD;2、允许每个用户可以查看公共的个人信息资料, 仅允许用户增删改查本人的个人资料信息；</description>
     </item>
     <item>
-      <title>实时游戏场</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/playground/</link>
+      <title>Posts社交网络论坛</title>
+      <link>https://github.com/docs/app/example/web/postsforum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/example/web/playground/</guid>
+      <guid>https://github.com/docs/app/example/web/postsforum/</guid>
+      <description>MemFire Cloud是一款提供云数据库，用户可以创建云数据库，并对数据库进行管理，还可以对数据库进行备份操作。它还提供后端即服务，用户可以在1分钟内新建一个应用，使用自动生成的API和SDK，访问云数据库、对象存储、用户认证与授权等功能，可专注于编写前端应用程序代码，加速WEB或APP应用开发。&#xA;本篇文章将会教大家手把手使用MemFire Cloud做一个Posts社交网络论坛应用。我们基于Posts社交网络论坛应用做了一个详细的教程，来讲一讲在通过MemFire Cloud开发Posts社交网络论坛应用的开发步骤及注意事项，希望能真正解决用户使用MemFire Cloud过程中遇到的问题和提供一些应用实现的小技巧。&#xA;开发前需要知道的一些事 link应用介绍&#xA;一个开放的社交网络论坛，任何人都可以在这里分享他们的想法和意见。&#xA;应用基础&#xA;Posts社交网络论坛是基于supabase官网的一个todo-list应用示例为基础，在这个基础上进行修改，删除，增加一些代码逻辑及功能的应用。&#xA;开发条件&#xA;您需要对vue3及ts有一定的了解；&#xA;您需要对sql语法有一定的了解；&#xA;开发依赖&#xA;&amp;ldquo;@supabase/supabase-js&amp;rdquo;: &amp;ldquo;^1.1.2&amp;rdquo;&#xA;&amp;ldquo;vue&amp;rdquo;: &amp;ldquo;^3.0.0&amp;rdquo;&#xA;“node.js”:&amp;ldquo;14.19.0&amp;rdquo;&#xA;&amp;ldquo;npm&amp;rdquo;:&amp;ldquo;6.14.16&amp;rdquo;&#xA;1.准备工作 link创建应用&#xA;登录https://cloud.memfiredb.com 创建应用，打开应用后，查看并获取服务地址以及token信息&#xA;创建应用的一步很关键，我们的posts应用就是通过在这里创建的应用来获得数据库、对象存储等一系列资源，并将获得该应用专属的API访问链接和访问密钥，用户可以轻松的与以上资源进行交互。想知道关于应用更详细的内容请查看查看文档&#xA;进入应用，我们在这里可以看到，Anon public是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。&#xA;注意：service_role secret可以绕过任何安全策略完全访问您的数据。这些密钥必须保密，并且要在服务器环境中使用，决不能在客户端或浏览器上使用。&#xA;在后续示例代码中，需要提供supabaseUrl和supabaseKey。&#xA;supabaseUrl就是上图的网址链接，supabaseKey就是Anon API密钥&#xA;想知道关于应用的连接更详细的内容请查看文档&#xA;下载代码&#xA;todo-list模板代码（需要下载,选择项目为supabase /examples/vue3-ts-todo-list）：&#xA;git clone https://gitee.com/memfiredb/supabase&#xA;Posts最终代码&#xA;git clone https://github.com/LucaRao/memfire-post.git&#xA;2.修改项目名称 link将项目名vue3-ts-todo-list改为Posts&#xA;3.配置访问密钥 link每个Supabase项目都有一个独特的API URL。您的 API 在一个 API 网关的保护下，每次请求都需要一个 API 密钥。&#xA;将上一步中获取的anon public和网址分别设置到supabaseUrl和supabaseKey中&#xA;（1）将根目录下的.env.local.example改为.env.local&#xA;（2）supabaseUrl和supabaseKey分别赋值给VUE_APP_SUPABASE_URL和VUE_APP_SUPABASE_KEY&#xA;4.表结构初始化 link接下来我们需要创建数据表，posts表是用来存储用户论坛评论的数据，likes表用来存储用户点赞的某条评论的数据。&#xA;数据表结构：&#xA;posts（论坛评论列表） 名称 类型 描述 id in8 主键，自增，每条评论的唯一标识ID task text 评论 email text 用户名 created_at timestamptz 日期，可为空 likes（点赞表） 名称 类型 描述 id int8 主键，自增，每条评论的唯一标识ID email_name text 用户名 post_id int8 每条评论的唯一id created_at timestamptz 日期，可为空 sql初始化语句</description>
+    </item>
+    <item>
+      <title>实时游戏场</title>
+      <link>https://github.com/docs/app/example/web/playground/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/example/web/playground/</guid>
       <description>Realtime 游戏场是一个可以多人互动，鼠标位置共享并且可以实时聊天的小应用。应用的前端采用vue3框架，应用后端服务使用了MemFire Cloud，其中使用到的MemFire Cloud功能包括：&#xA;云数据库：存储小程序数据表的信息。 用户验证：小程序使用MemFire Cloud提供的用户认证的API接口，快速完成用户注册登录操作。 即时API：创建数据表时会自动生成 API。 Realtime：轻松构建任何类型的实时应用程序 创建应用 link目的：通过创建的一个MemFire Cloud应用来获得数据库、对象存储等一系列资源，并将获得该应用专属的API访问链接和访问密钥，用户可以轻松的调用API接口与以上资源进行交互。&#xA;登录MemFire Cloud， 在“我的应用”页面创建一个新应用&#xA;创建数据表 link点击进入应用详情页面，在“表编辑器”页面可视化建表。&#xA;1.创建realtime_user表 link在“SQL执行器”/“创建表”，创建realtime_user表。realtime_user表主要记录用户的资料，表结构字段如下： 名称 类型 描述 id uuid 主键，唯一标识ID name text 用户名 x real 用户光标的横坐标 y real 用户光标的纵坐标 message text 用户发送的消息 online boolean 用户是否在线 color text 用户头像颜色 mobile boolean 是否手机在线 last_active timestamp 最后在线时间 sql建表语句&#xA;create table realtime_user (&#xD;id uuid default uuid_generate_v4() primary key,&#xD;name text,&#xD;x real,&#xD;y real,&#xD;message text,&#xD;online boolean,&#xD;color text,&#xD;mobile boolean,&#xD;last_active timestamp default now()&#xD;);&#xD;2.</description>
     </item>
   </channel>

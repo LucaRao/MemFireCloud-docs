@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>授权 on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/</link>
+    <link>https://github.com/docs/app/auth/mandates/</link>
     <description>Recent content in 授权 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/auth/mandates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RLS使用教程</title>
+      <link>https://github.com/docs/app/auth/mandates/row-level-security2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/auth/mandates/row-level-security2/</guid>
+      <description>前言 link在使用MemFire Cloud的BaaS服务进行应用开发时，比较困扰开发者的是RLS的使用。本篇先从基本概念入手对RLS进行简要介绍，帮助大家理解RLS的工作机制和基本使用方法。&#xA;什么是RLS ？ link全称：Row level security，行级安全，允许系统管理员为数据库表创建访问策略（policy），以约束数据的可见性。当为一个表创建了policy后，相当于为该表增加了一个高优先级的过滤器。当用户访问该表时，如果policy生效，则会根据policy中定义的过滤条件来决定用户可操作的数据集合。&#xA;如何添加RLS link我们使用MemFire Cloud开发应用时，需要关注的对象包括数据表、对象存储的bucket，可以使用RLS来设置用户的访问权限，保证用户数据安全性。&#xA;数据表 link数据表里的RLS默认是不开启的，此时注册应用的用户是可以增删改查数据表中任何数据。&#xA;当用户开启了RLS，但没有设置任何访问策略时，会拒绝用户访问该表中的任何数据。&#xA;补充说明：如果启用RLS，至少要创建一条最简单的策略（如：允许任何人访问数据），否接口调试时会查询不到数据。&#xA;以下是给指定表启用RLS的方法：&#xA;① 使用SQL命令启用RLS&#xA;RLS默认是不开启的，可针对每个表执行如下语句来对该表开启RLS功能：&#xA;ALTER TABLE &amp;lt;name&amp;gt; ENABLE ROW LEVEL SECURITY&#xD;② 新建表时默认启用行级安全策略&#xA;③ 用户认证-&amp;gt;策略-&amp;gt;给指定表启用RLS&#xA;对象存储bucket link对象存储bucket的RLS默认就是开启的，无需手动开启。新建bucket时，如果选择公开bucket，则任何人可以访问bucket中的对象文件；否则无权访问。&#xA;如何给数据表设置访问权限 link创建一个应用后，MemFire Cloud后台会默认创建一个auth.users系统表，主要用来记录用户的注册信息，其中有三个字段：id(用户唯一标识UID)、email(用户注册邮箱)、role(用户角色信息)。&#xA;应用开发者在创建数据表时，可使用一个字段来标记是哪个用户的数据，通常采用id(用户唯一标识UID)、email(用户注册邮箱)来标记。&#xA;常用函数介绍 linkMemFire Cloud封装了三个函数，用于获取向数据库发出请求的不同唯一标识，其中包括：&#xA;① auth.role() :用于获取向数据库发出请求的用户的当前角色。它可以被用于策略中，根据用户的角色限制或允许访问某些表或行。该函数返回一个代表用户角色的字符串，它可以是下列之一：已认证的（authenticated），匿名的（anon），或你定义的自定义角色。&#xA;② auth.email() **:**用于获取向数据库发出请求的用户的电子邮件。这个函数可以在策略中使用，根据用户的电子邮件限制或允许访问某些表或行。&#xA;③ auth.uid() : 用于获取向数据库提出请求的用户的唯一标识符（UID）。这个函数可以在策略中使用，根据用户的UID限制或允许访问某些表或行。&#xA;策略实例 link 为所有用户启用访问权限 为所有用户提供对数据表的访问权限&#xA;当**USING设置为true**时，表示访问数据表时不需要做任何校验&#xA;Create POLICY &amp;#34;策略名称&amp;#34; ON public.&amp;#34;表名&amp;#34;&#xD;AS PERMISSIVE&#xD;FOR SELECT&#xD;USING( true ) ;&#xD;仅允许身份验证用户启用访问权限 为所有经过身份验证的用户提供对数据表的访问权限&#xA;Create POLICY &amp;#34;策略名称&amp;#34;&#xD;ON public.</description>
+    </item>
     <item>
       <title>多因素身份验证</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/auth-mfa/</link>
+      <link>https://github.com/docs/app/auth/mandates/auth-mfa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/auth-mfa/</guid>
+      <guid>https://github.com/docs/app/auth/mandates/auth-mfa/</guid>
       <description>info&#xD;Multi-Factor Authentication仅在早期访问预览中。 尽管我们 相信它已经做好了生产准备，API和一些行为可能会根据 我们在预览期收到的反馈。&#xA;多因素身份验证(MFA)，有时称为双因素身份验证 (2FA)，为您的 通过验证他们的身份附加验证步骤。&#xA;将MFA用于应用程序被认为是最佳做法。密码薄弱或社交登录帐户受损的用户 容易被恶意接管账户。这些可以通过 MFA，因为他们要求用户提供 这两个：&#xA;他们知道的事情。 密码或访问社交登录帐户。&#xA;他们有的东西。 访问验证器应用程序（也称为TOTP）、手机或恢复代码。&#xA;概述 linkSupabase Auth仅实现基于时间的一次性因素（TOTP）多因素认证。这种类型的多因素身份验证使用从由用户控制的验证器应用程序。&#xA;使用MFA的应用程序需要两个重要流程：&#xA;1.报名流程 这允许用户在应用程序中设置和控制MFA。&#xA;2.认证流程 这允许用户在常规登录步骤之后使用任何因素登录。&#xA;Supabase Auth提供：&#xA;Enrollment API构建丰富的用户界面以添加和移除身份验证因素。 Challenge and Verify API安全验证用户是否具有访问因素的权限。 List Factors API构建丰富的用户界面以使用其他身份验证因素进行登录。 这些API集允许您控制适用于您的MFA体验。你可以创建MFA为可选、强制或仅为特定的流用户组。&#xA;一旦用户注册或使用某个因子登录，Supabase Auth补充道应用程序可以向用户的访问令牌（JWT）添加附加元数据用于允许或拒绝访问。&#xA;此信息由身份验证器保证级别，一个关于确保超级认证用户身份的标准措施对于该特定会话。目前公认有两个级别：&#xA;1.保证级别1:aal1 表示使用常规登录方法验证了用户的身份例如电子邮件+密码、magic link、一次性密码、电话授权或社交登录。 2.保证级别2:aal2 意味着用户的身份已使用至少一个,例如TOTP码。&#xA;该保证级别编码在与用户相关的JWT中的aal声明中。通过解码此值，您可以在前端、后端和数据库中创建自定义授权规则，以实施适用于应用程序的MFA策略。 没有aal声明的JWT属于aal1级别。&#xA;正在添加到应用程序 link将MFA添加到应用程序包括以下三个步骤：&#xA;**添加注册流程。**您需要在应用程序中提供一个用户界面，用户可以在其中设置MFA。您可以在注册后立即添加，或作为应用程序设置部分中单独流程的一部分添加。 **将挑战步骤添加到登录。**如果用户设置了MFA，您的应用程序的登录流程需要向用户显示一个挑战屏幕，要求他们证明他们可以访问附加因素。 **强制执行MFA登录规则。**一旦您的用户能够使用MFA注册和登录，您就需要在整个应用程序中强制执行授权规则：在前端、后端、API服务器或行级别安全策略上。 添加注册流程 link注册流为用户提供了一个UI，用于设置其他身份验证因素。 大多数应用程序在其应用程序中的两个位置添加注册流程：&#xA;1.登录或注册后立即。这允许用户在登录或创建MFA后立即快速设置MFA 账户如果有意义，我们建议鼓励所有用户设置MFA 用于您的应用程序。许多应用程序将此作为 努力减少上车摩擦。 2.在设置页面内。 允许用户设置、禁用或修改MFA设置。&#xA;我们建议构建一个通用流，在这两种情况下都可以通过少量修改来重用。&#xA;注册MFA使用的因子需要三个步骤：&#xA;1.调用supabase.auth.mfa.enroll()。 此方法返回QR码和密码。显示QR代码给用户，并要求他们用他们的验证器应用程序扫描它。 如果他们无法扫描二维码，请以纯文本显示秘密 他们可以键入或粘贴到他们的验证器应用程序中。&#xA;2.调用supabase.auth.mfa.challenge()API。 这将准备Supabase Auth接受用户的验证码并返回挑战ID。</description>
     </item>
     <item>
       <title>服务器端渲染</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/server-side-rendering/</link>
+      <link>https://github.com/docs/app/auth/mandates/server-side-rendering/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/server-side-rendering/</guid>
+      <guid>https://github.com/docs/app/auth/mandates/server-side-rendering/</guid>
       <description>带有服务器端渲染（SSR）的单页应用程序是优化渲染的流行方法 性能和利用高级缓存策略。&#xA;当您需要访问用户时，Supbasse Auth支持服务器端呈现 信息，或者您的服务器需要代表您的 用户来呈现内容。&#xA;当用户使用Supabase Auth进行身份验证时 由服务器发布：&#xA;1.JWT形式的访问令牌。 2.刷新令牌，它是随机生成的字符串。&#xA;大多数Supabase项目的认证服务器都在监听 &amp;lt;project-ref&amp;gt;.supabase.co/auth/v1， 因此访问令牌和刷新令牌是 在上设置为sb-access-token和sb-refresh-tokencookie &amp;lt;project-ref&amp;gt;.supabase.co域。&#xA;info&#xD;这些cookie名称仅供Suabase内部使用，在没有 警告本指南中包含的内容仅供说明之用。&#xA;Web浏览器限制跨域访问cookie，与 同源政策 (SOP).&#xA;您的web应用程序无法访问这些cookie， 这些cookie也不会发送到应用程序的服务器。&#xA;了解身份验证流程 link调用其中一个signIn方法时 浏览器将请求发送到Supabase Auth服务器。 身份验证服务器确定 是否验证电话号码、电子邮件和密码组合、Magic Link， 或者使用社交登录（如果项目中有任何设置）。 成功验证用户身份后，Supabase认证 服务器将用户重定向回单页应用程序。&#xA;info&#xD;您可以配置重定向URL在Supabase Dashboard中。您可以使用通配符匹配模式 如*和**，以允许重定向到不同形式的URL。&#xA;这些重定向URL具有以下结构：&#xA;https://yourapp.com/...#access_token=&amp;lt;...&amp;gt;&amp;amp;refresh_token=&amp;lt;...&amp;gt;&amp;amp;...&#xD;成功验证后的第一次访问和刷新令牌是 包含在重定向的URL片段（#符号之后的任何内容）中 地方这是故意的，不可配置。 客户端库被设计为侦听这种类型的URL 访问令牌、刷新令牌以及其中的一些额外信息，最后 将其保存在本地存储中，供库和应用程序进一步使用。&#xA;info&#xD;Web浏览器不会将URL片段发送到服务器 请求。 由于您可能没有在以下服务器上托管单页应用 您的直接控制（例如在GitHub Pages或其他免费增值托管 提供商），我们希望阻止托管服务访问您的 默认情况下，用户的授权凭据。 即使服务器在您的 直接控制、GET请求及其完整URL经常被记录。这 该方法还避免了在请求或访问日志中泄漏凭据。&#xA;把它放在一起 link从身份验证流程可以看出，成功后的初始请求 用户登录后，浏览器登录到应用程序的服务器 包含有关用户的任何信息。 这是因为首先客户端 JavaScript库必须在生成访问和刷新令牌之前运行 可用于您的服务器。&#xA;确保在登录后立即重定向路由是非常重要的 无需任何服务器端渲染即可工作。 其他需要授权的路线 不具有相同的限制，前提是发送访问和刷新 令牌发送到服务器。&#xA;这通常是通过设置cookie来完成的。这里有一个例子 可以添加到应用程序的根目录：</description>
     </item>
     <item>
-      <title>行级别安全性</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/row-level-security/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/row-level-security/</guid>
-      <description>当您需要更精细的授权规则时，PostgreSQL的行级安全（RLS）是很好的选择。&#xA;策略是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以满足你独特的业务需求。&#xA;策略 link每个数据库表可以添加一个或多个策略（policy），每当表被访问（增，删，改、查等操作）时，都会执行（校验）设置的策略，就好比为每个sql语句添加了一个where的查询条件。以下是一个策略的例子：&#xA;create policy &amp;#34;Individuals can view their own todos.&amp;#34;&#xD;on todos for select&#xD;using ( auth.uid() = user_id );&#xD;上面的策略在执行sql查询时被转化成以下语句(每当用户查询todos这张表时，只会查询包含自己ID的记录)：&#xA;select *&#xD;from todos&#xD;where auth.uid() = todos.user_id; -- Policy is implicitly added.&#xD;辅助函数 linkSupabase为您提供了一些简单的功能，您可以在策略中使用这些功能。&#xA;auth.uid() link返回当前前端请求的用户id值。&#xA;auth.jwt() link返回当前前端请求的用户jwt值。&#xA;示例 link下面是一些示例，向您展示PostgreSQL的RLS的强大功能。&#xA;允许读取访问 link&#xD;-- 1. Create table&#xD;create table profiles (&#xD;id uuid references auth.users,&#xD;avatar_url text&#xD;);&#xD;-- 2. Enable RLS&#xD;alter table profiles&#xD;enable row level security;&#xD;-- 3.</description>
-    </item>
-    <item>
-      <title>RLS使用教程</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/row-level-security2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/row-level-security2/</guid>
-      <description>前言 link在使用MemFire Cloud的BaaS服务进行应用开发时，比较困扰开发者的是RLS的使用。本篇先从基本概念入手对RLS进行简要介绍，帮助大家理解RLS的工作机制和基本使用方法。&#xA;什么是RLS ？ link全称：Row level security，行级安全，允许系统管理员为数据库表创建访问策略（policy），以约束数据的可见性。当为一个表创建了policy后，相当于为该表增加了一个高优先级的过滤器。当用户访问该表时，如果policy生效，则会根据policy中定义的过滤条件来决定用户可操作的数据集合。&#xA;如何添加RLS link我们使用MemFire Cloud开发应用时，需要关注的对象包括数据表、对象存储的bucket，可以使用RLS来设置用户的访问权限，保证用户数据安全性。&#xA;数据表 link数据表里的RLS默认是不开启的，此时注册应用的用户是可以增删改查数据表中任何数据。&#xA;当用户开启了RLS，但没有设置任何访问策略时，会拒绝用户访问该表中的任何数据。&#xA;补充说明：如果启用RLS，至少要创建一条最简单的策略（如：允许任何人访问数据），否接口调试时会查询不到数据。&#xA;以下是给指定表启用RLS的方法：&#xA;① 使用SQL命令启用RLS&#xA;RLS默认是不开启的，可针对每个表执行如下语句来对该表开启RLS功能：&#xA;ALTER TABLE &amp;lt;name&amp;gt; ENABLE ROW LEVEL SECURITY&#xD;② 新建表时默认启用行级安全策略&#xA;③ 用户认证-&amp;gt;策略-&amp;gt;给指定表启用RLS&#xA;对象存储bucket link对象存储bucket的RLS默认就是开启的，无需手动开启。新建bucket时，如果选择公开bucket，则任何人可以访问bucket中的对象文件；否则无权访问。&#xA;如何给数据表设置访问权限 link创建一个应用后，MemFire Cloud后台会默认创建一个auth.users系统表，主要用来记录用户的注册信息，其中有三个字段：id(用户唯一标识UID)、email(用户注册邮箱)、role(用户角色信息)。&#xA;应用开发者在创建数据表时，可使用一个字段来标记是哪个用户的数据，通常采用id(用户唯一标识UID)、email(用户注册邮箱)来标记。&#xA;常用函数介绍 linkMemFire Cloud封装了三个函数，用于获取向数据库发出请求的不同唯一标识，其中包括：&#xA;① auth.role() :用于获取向数据库发出请求的用户的当前角色。它可以被用于策略中，根据用户的角色限制或允许访问某些表或行。该函数返回一个代表用户角色的字符串，它可以是下列之一：已认证的（authenticated），匿名的（anon），或你定义的自定义角色。&#xA;② auth.email() **:**用于获取向数据库发出请求的用户的电子邮件。这个函数可以在策略中使用，根据用户的电子邮件限制或允许访问某些表或行。&#xA;③ auth.uid() : 用于获取向数据库提出请求的用户的唯一标识符（UID）。这个函数可以在策略中使用，根据用户的UID限制或允许访问某些表或行。&#xA;策略实例 link 为所有用户启用访问权限 为所有用户提供对数据表的访问权限&#xA;当**USING设置为true**时，表示访问数据表时不需要做任何校验&#xA;Create POLICY &amp;#34;策略名称&amp;#34; ON public.&amp;#34;表名&amp;#34;&#xD;AS PERMISSIVE&#xD;FOR SELECT&#xD;USING( true ) ;&#xD;仅允许身份验证用户启用访问权限 为所有经过身份验证的用户提供对数据表的访问权限&#xA;Create POLICY &amp;#34;策略名称&amp;#34;&#xD;ON public.</description>
-    </item>
-    <item>
       <title>管理用户数据</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/managing-user-data/</link>
+      <link>https://github.com/docs/app/auth/mandates/managing-user-data/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/auth/mandates/managing-user-data/</guid>
+      <guid>https://github.com/docs/app/auth/mandates/managing-user-data/</guid>
       <description>出于安全目的，auth模式不会在自动生成的API上公开。&#xA;尽管MemFireCloud提供了一个auth.users表，用于存储用户身份验证信息，但是当你希望通过API访问用户数据时，创建在public模式中的其他表也是有帮助的。 这意味着你可以在公共模式中创建自定义的表格，用于存储其他与用户相关的数据，以便通过API进行访问和操作。这样可以灵活地组织和管理你的用户数据，并与auth.users表中的用户身份验证信息结合使用。&#xA;创建用户表 link当你创建用于存储用户数据的表时，参考auth.users表的主键可以确保数据完整性。 在引用auth.users时，还要指定on delete cascade子句。省略此子句可能会在删除用户时导致问题。&#xA;例如，一个public.profiles表可能如下所示：&#xA;create table public.profiles (&#xD;id uuid references auth.users not null,&#xD;first_name text,&#xD;last_name text,&#xD;primary key (id)&#xD;);&#xD;alter table public.profiles enable row level security;&#xD;info&#xD;如果设置了用户令牌使用服务密钥初始化客户端，不会覆盖行级安全（RLS）。如果用户使用客户端登录，MemFireCloud将遵循该用户的行级安全策略。&#xA;公共通道 link由于启用了行级别安全性，因此可以通过API访问此表，但除非我们设置了一些策略，否则不会返回任何数据。 如果我们希望每个人都可以读取数据，但只允许登录用户更新自己的数据，则策略如下：&#xA;create policy &amp;#34;Public profiles are viewable by everyone.&amp;#34;&#xD;on profiles for select&#xD;using ( true );&#xD;create policy &amp;#34;Users can insert their own profile.&amp;#34;&#xD;on profiles for insert&#xD;with check ( auth.</description>
+    </item>
+    <item>
+      <title>行级别安全性</title>
+      <link>https://github.com/docs/app/auth/mandates/row-level-security/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/auth/mandates/row-level-security/</guid>
+      <description>当您需要更精细的授权规则时，PostgreSQL的行级安全（RLS）是很好的选择。&#xA;策略是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以满足你独特的业务需求。&#xA;策略 link每个数据库表可以添加一个或多个策略（policy），每当表被访问（增，删，改、查等操作）时，都会执行（校验）设置的策略，就好比为每个sql语句添加了一个where的查询条件。以下是一个策略的例子：&#xA;create policy &amp;#34;Individuals can view their own todos.&amp;#34;&#xD;on todos for select&#xD;using ( auth.uid() = user_id );&#xD;上面的策略在执行sql查询时被转化成以下语句(每当用户查询todos这张表时，只会查询包含自己ID的记录)：&#xA;select *&#xD;from todos&#xD;where auth.uid() = todos.user_id; -- Policy is implicitly added.&#xD;辅助函数 linkSupabase为您提供了一些简单的功能，您可以在策略中使用这些功能。&#xA;auth.uid() link返回当前前端请求的用户id值。&#xA;auth.jwt() link返回当前前端请求的用户jwt值。&#xA;示例 link下面是一些示例，向您展示PostgreSQL的RLS的强大功能。&#xA;允许读取访问 link&#xD;-- 1. Create table&#xD;create table profiles (&#xD;id uuid references auth.users,&#xD;avatar_url text&#xD;);&#xD;-- 2. Enable RLS&#xD;alter table profiles&#xD;enable row level security;&#xD;-- 3.</description>
     </item>
   </channel>
 </rss>

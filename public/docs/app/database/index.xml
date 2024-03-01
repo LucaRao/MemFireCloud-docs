@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据库 on My New Hugo Site</title>
-    <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/</link>
+    <link>https://github.com/docs/app/database/</link>
     <description>Recent content in 数据库 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/database/</link>
+      <link>https://github.com/docs/app/database/database/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/database/</guid>
+      <guid>https://github.com/docs/app/database/database/</guid>
       <description>数据库 link每个Supabase项目都带有一个完整的Postgres数据库，这是一个免费的开源数据库，被认为是世界上最稳定的和先进的数据库之一。&#xA;Postgres 或 PostgreSQL? linkPostgreSQL数据库来自于POSTGRES项目，这是一个1986年在加州大学伯克利分校编写的软件包。 这个软件包包括一种叫做 &amp;ldquo;PostQUEL &amp;ldquo;的查询语言。&#xA;1994年，Postgres95建立在POSTGRES代码之上，增加了一个SQL语言解释器作为PostQUEL的替代。 最终，Postgres95被重新命名为PostgreSQL，以反映SQL查询能力。&#xA;在这之后，许多人把它称为Postgres，因为这样不容易混淆。Supabase的宗旨是简单，所以我们也把它称为Postgres。&#xA;功能 link表视图 link你不必是一个数据库专家就可以开始使用Supabase。我们的表视图使Postgres像电子表格一样容易使用。&#xA;关系 link挖掘你的数据中的关系.&#xA;克隆表 link你可以复制你的表格，就像你在电子表格里面一样。&#xA;SQL编辑器 linkSupabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以便以后运行!&#xA;附加功能 link Supabase使用我们的Realtime Server对Postgres进行实时功能的扩展。 每个项目都是一个完整的Postgres数据库，具有postgres级别的访问权限。 Supabase负责管理你的数据库备份。 直接从CSV或EXCEL电子表格中导入数据。 info&#xD;数据库备份不包括通过存储API存储的对象，因为数据库只包括关于这些对象的元数据。恢复一个旧的备份并不能恢复在那之后被删除的对象。&#xA;扩展 link为了扩展你的Postgres数据库的功能，你可以使用扩展。 你可以通过点击Supabase仪表板上的一个按钮来启用Postgres扩展。&#xA;了解更多关于Supabase上提供的所有扩展。&#xA;提示 link阅读关于重设数据库密码这里和改变服务器时区这里。&#xA;下一步 link 阅读更多关于Postgres 登录: MemFire Cloud </description>
     </item>
     <item>
-      <title>数据库连接</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/connecting-to-postgres/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/connecting-to-postgres/</guid>
-      <description>MemFire Cloud 提供了几种连接Postgres数据库的方式:&#xA;直接连接：使用Postgres标准连接系统直接与数据库进行连接和交互。 无服务器API连接：使用无服务器API以编程方式来访问数据库。 直接连接 link每个MemFire Cloud 应用内置一个完整的Postgres数据库，你可以使用任何支持Postgres的工具来连接到数据库。你可以在控制台内的数据库设置中获取连接信息：&#xA;来到左侧菜单栏的 设置部分 点击数据库 启用数据库直连 找到应用的连接信息 白名单 linkMemFire Cloud内置白名单功能，开启白名单后，只允许白名单内的IP地址段访问你的数据库。关闭白名单后，访问你数据库的IP地址不受限制，即任何IP地址只要有连接信息都可以与你的数据库进行直连。 在进行白名单配置时，要遵循CIDR规则。MemFire Cloud中白名单功能 默认是关闭的，需用户手动开启。&#xA;无服务器API连接 linkMemFire Cloud 提供了自动更新API，极大简化了操作数据库中数据的步骤（包括数据查询、插入、更新等等）。同时我们也提供了一些不同类型的API来满足你的业务需求。&#xA;REST：通过REST接口与你的数据库进行交互。 GraphQL：通过GraphQL接口与你的数据库互动。 Realtime：通过websockets监听数据库变化。 案例教程 link案例1 使用Navicat连接 linkNavicat是一个用于管理Postgres数据库的图形用户界面（GUI）工具。你可以使用它连接到你的数据库：&#xA;步骤1 link新建一个连接，选择:PostgreSQL 步骤2 link在你的MemFire Cloud控制台中找到“连接信息”，并添加此处。点击“测试连接”，若返回成功弹窗则表明连接建立成功。 连接成功后即可管理和查询你的数据。 案例2 使用python连接 link配置：本例中选用pycharm编辑器，python3.8版本。&#xA;步骤1 link在 MemFire Cloud 控制台中启用数据库直连，找到python的“连接字符串”。 步骤2 link在pycharm编辑器中，导入第三方库 psycopg2，psycopg2是一个流行的Python库，用于连接和操作PostgreSQL数据库。如果尚未安装此库，请通过以下命令进行安装：&#xA;pip install psycopg2&#xD;或者在pycharm的 Python Interpreter中进行设置，步骤如下：&#xA;步骤3 link完成psycopg2的安装后，将连接字符串中的[YOUR-PASSWORD]替换为数据库的实际密码。[YOUR-HOST]替换为数据库的主机地址。 [USER-NAME]替换为你的用户名。端口号默认为：10010，数据库名称默认为：postgres。建立与MemFire Cloud应用数据库连接，然后对数据库进行操作。&#xA;代码如下：&#xA;import psycopg2&#xD;# 定义连接字符串&#xD;connection_string = &amp;#34;user=[USER-NAME] password=[YOUR-PASSWORD] host=[YOUR-HOST] port=5432 dbname=postgres&amp;#34;&#xD;try:&#xD;# 连接到数据库&#xD;connection = psycopg2.</description>
-    </item>
-    <item>
-      <title>表格和数据</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/tables/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/tables/</guid>
-      <description>表是存储数据的地方。&#xA;表格类似于Excel电子表格。它们包含列和行。 例如，这个表有3列（id, name, description）和4行的数据： id name description 1 The Phantom Menace Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force. 2 Attack of the Clones Ten years after the invasion of Naboo, the Galactic Republic is facing a Separatist movement. 3 Revenge of the Sith As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.</description>
-    </item>
-    <item>
-      <title>数据库函数</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/functions/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/functions/</guid>
-      <description>Postgres内置了对SQL函数的支持。 这些函数存在于你的数据库中，它们可以与API一起使用。&#xA;快速演示 link&#xD;开始使用 linkSupabase 为创建数据库函数提供了几个选项。你可以使用仪表板或直接使用 SQL 创建它们。 我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 连接 到数据库并自己运行SQL查询。&#xA;进入 SQL编辑器栏。 点击 新查询。 输入创建或替换数据库功函数的SQL。 点击 运行或cmd+enter (ctrl+enter)。 简单的函数 link让我们创建一个基本的数据库函数，返回一个字符串 hello world.&#xA;create or replace function hello_world() -- 1&#xD;returns text -- 2&#xD;language sql -- 3&#xD;as $$ -- 4&#xD;select &amp;#39;hello world&amp;#39;; -- 5&#xD;$$; --6&#xD;显示/隐藏细节&#xD;最基本的是，一个函数有以下部分：&#xA;create or replace function hello_world()。函数声明，其中hello_world是函数的名称。你可以在创建一个新的函数时使用create，或者在替换一个现有函数时使用replace。或者你可以同时使用create或replace来处理这两种情况。 returns text: 函数返回的数据类型。如果它什么都不返回，你可以returns void。 language sql&#39;: 在函数主体中使用的语言。这也可以是一种程序性语言：plpgsql, plv8, plpython`等。 as $$: 函数包装器。任何包含在$$符号中的东西都将是函数主体的一部分。 select &#39;hello world&#39;;: 一个简单的函数体。如果函数体中的最后一条select语句后面没有语句，将被返回。 $$;: 函数封装器的结束符号。 函数创建后，我们有几种 &amp;ldquo;执行 &amp;ldquo;函数的方法&amp;ndash;可以直接在数据库中使用SQL，也可以使用其中一个客户端库。</description>
-    </item>
-    <item>
       <title>全文搜索</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/full-text-search/</link>
+      <link>https://github.com/docs/app/database/full-text-search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/full-text-search/</guid>
+      <guid>https://github.com/docs/app/database/full-text-search/</guid>
       <description>Postgres有内置的功能来处理 全文搜索查询。这就像Postgres中的一个 搜索引擎。&#xA;准备工作 link在本指南中，我们将使用以下示例数据：&#xA;Data&#xD;SQL&#xD;defaultActiveId=&#34;data&#34;&#xD;&gt;&#xD;id title author description 1 The Poky Little Puppy Janette Sebring Lowrey Puppy is slower than other, bigger animals. 2 The Tale of Peter Rabbit Beatrix Potter Rabbit eats some vegetables. 3 Tootle Gertrude Crampton Little toy train has big dreams. 4 Green Eggs and Ham Dr. Seuss Sam has changing food preferences and eats unusually colored food. 5 Harry Potter and the Goblet of Fire J.</description>
     </item>
     <item>
       <title>关联查询</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/associated-query/</link>
+      <link>https://github.com/docs/app/database/associated-query/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/associated-query/</guid>
+      <guid>https://github.com/docs/app/database/associated-query/</guid>
       <description>多表关联是指在关系型数据库中，通过多个数据表之间的字段关联，实现数据的联合查询和统计分析。使用场景包括：复杂的数据统计分析、跨部门的数据共享和协作、多维度的数据查询和分析等。一般情况下，需要设计合适的数据模型和关联规则来确保查询效率和数据准确性。其中包括：&#xA;过滤查询：eq 自定义字段查询 查询所有关联数据 条件过滤查询：filter 通过内关联/左关联查询 连接运算符：or 连接运算符：or &amp;amp; and 数据排序：order 过滤数据的条数： count 限制返回的行数： limit 本教程是通过数据表：学生课表信息表、课程信息表、学校信息表，三者之间存在的关联关系的示例来讲解如何通过JavaScript SDK的API进行多表关联查询数据的教程。&#xA;准备工作，创建数据表 link创建subject表 linksubject表主要记录课程信息，表结构字段如下： 名称 类型 描述 id int8 主键，自增，唯一标识ID teacherName text 老师 adress text 上课地点 subjectName text 科目 updated_at timeatamptz 修改时间 CREATE TABLE &amp;#34;public&amp;#34;.&amp;#34;subject&amp;#34; ( &amp;#34;id&amp;#34; BIGINT NOT NULL,&#xD;&amp;#34;teacherName&amp;#34; TEXT NOT NULL,&#xD;&amp;#34;updated_at&amp;#34; TIMESTAMP WITH TIME ZONE NOT NULL,&#xD;&amp;#34;adress&amp;#34; TEXT NOT NULL,&#xD;&amp;#34;subjectName&amp;#34; TEXT NOT NULL,&#xD;CONSTRAINT &amp;#34;subject_pkey&amp;#34; PRIMARY KEY (&amp;#34;id&amp;#34;)&#xD;);&#xD;INSERT INTO &amp;#34;public&amp;#34;.</description>
     </item>
     <item>
       <title>数据库 Webhooks</title>
-      <link>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/webhooks/</link>
+      <link>https://github.com/docs/app/database/webhooks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/LucaRao/MemFireCloud-docs/docs/app/database/webhooks/</guid>
+      <guid>https://github.com/docs/app/database/webhooks/</guid>
       <description>数据库 Webhooks 允许您在数据库发生表事件时将实时数据发送到另一个系统。&#xA;你可以绑定三个事件: 插入、更新、 和 删除。 所有事件在数据库行更改后触发。&#xA;数据库 Webhooks 非常类似于触发器，因为数据库Webhooks使用了pg_net 扩展，这使得它看上去更像是对触发器的便捷地封装。这个扩展是异步的，因此不会阻塞数据库更改以进行长时间运行的网络请求。&#xA;该视频演示了每次向profiles表插入一行时，如何在Stripe中创建一个新客户：&#xA;info&#xD;数据库 Webhooks 以前叫做函数 Hooks。&#xA;创建 webhook link 在控制台新建一个数据库 Webhook。 给新建的 Webhook 命名。 选择一个你想绑定的数据表。 选择一个或多个您想要连接到的事件(表的插入、更新、删除) 。 我们目前支持 HTTP webhooks。它们以带有 JSON 载荷的 POST 请求的形式发送。&#xA;载荷 link载荷是从底层表记录自动生成的:&#xA;type InsertPayload = {&#xD;type: &amp;#39;INSERT&amp;#39;&#xD;table: string&#xD;schema: string&#xD;record: TableRecord&amp;lt;T&amp;gt;&#xD;old_record: null&#xD;}&#xD;type UpdatePayload = {&#xD;type: &amp;#39;UPDATE&amp;#39;&#xD;table: string&#xD;schema: string&#xD;record: TableRecord&amp;lt;T&amp;gt;&#xD;old_record: TableRecord&amp;lt;T&amp;gt;&#xD;}&#xD;type DeletePayload = {&#xD;type: &amp;#39;DELETE&amp;#39;&#xD;table: string&#xD;schema: string&#xD;record: null&#xD;old_record: TableRecord&amp;lt;T&amp;gt;&#xD;}&#xD;资源 link pg_net: 用于 PostgreSQL 的异步网络扩展。 </description>
+    </item>
+    <item>
+      <title>数据库函数</title>
+      <link>https://github.com/docs/app/database/functions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/database/functions/</guid>
+      <description>Postgres内置了对SQL函数的支持。 这些函数存在于你的数据库中，它们可以与API一起使用。&#xA;快速演示 link&#xD;开始使用 linkSupabase 为创建数据库函数提供了几个选项。你可以使用仪表板或直接使用 SQL 创建它们。 我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 连接 到数据库并自己运行SQL查询。&#xA;进入 SQL编辑器栏。 点击 新查询。 输入创建或替换数据库功函数的SQL。 点击 运行或cmd+enter (ctrl+enter)。 简单的函数 link让我们创建一个基本的数据库函数，返回一个字符串 hello world.&#xA;create or replace function hello_world() -- 1&#xD;returns text -- 2&#xD;language sql -- 3&#xD;as $$ -- 4&#xD;select &amp;#39;hello world&amp;#39;; -- 5&#xD;$$; --6&#xD;显示/隐藏细节&#xD;最基本的是，一个函数有以下部分：&#xA;create or replace function hello_world()。函数声明，其中hello_world是函数的名称。你可以在创建一个新的函数时使用create，或者在替换一个现有函数时使用replace。或者你可以同时使用create或replace来处理这两种情况。 returns text: 函数返回的数据类型。如果它什么都不返回，你可以returns void。 language sql&#39;: 在函数主体中使用的语言。这也可以是一种程序性语言：plpgsql, plv8, plpython`等。 as $$: 函数包装器。任何包含在$$符号中的东西都将是函数主体的一部分。 select &#39;hello world&#39;;: 一个简单的函数体。如果函数体中的最后一条select语句后面没有语句，将被返回。 $$;: 函数封装器的结束符号。 函数创建后，我们有几种 &amp;ldquo;执行 &amp;ldquo;函数的方法&amp;ndash;可以直接在数据库中使用SQL，也可以使用其中一个客户端库。</description>
+    </item>
+    <item>
+      <title>数据库连接</title>
+      <link>https://github.com/docs/app/database/connecting-to-postgres/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/database/connecting-to-postgres/</guid>
+      <description>MemFire Cloud 提供了几种连接Postgres数据库的方式:&#xA;直接连接：使用Postgres标准连接系统直接与数据库进行连接和交互。 无服务器API连接：使用无服务器API以编程方式来访问数据库。 直接连接 link每个MemFire Cloud 应用内置一个完整的Postgres数据库，你可以使用任何支持Postgres的工具来连接到数据库。你可以在控制台内的数据库设置中获取连接信息：&#xA;来到左侧菜单栏的 设置部分 点击数据库 启用数据库直连 找到应用的连接信息 白名单 linkMemFire Cloud内置白名单功能，开启白名单后，只允许白名单内的IP地址段访问你的数据库。关闭白名单后，访问你数据库的IP地址不受限制，即任何IP地址只要有连接信息都可以与你的数据库进行直连。 在进行白名单配置时，要遵循CIDR规则。MemFire Cloud中白名单功能 默认是关闭的，需用户手动开启。&#xA;无服务器API连接 linkMemFire Cloud 提供了自动更新API，极大简化了操作数据库中数据的步骤（包括数据查询、插入、更新等等）。同时我们也提供了一些不同类型的API来满足你的业务需求。&#xA;REST：通过REST接口与你的数据库进行交互。 GraphQL：通过GraphQL接口与你的数据库互动。 Realtime：通过websockets监听数据库变化。 案例教程 link案例1 使用Navicat连接 linkNavicat是一个用于管理Postgres数据库的图形用户界面（GUI）工具。你可以使用它连接到你的数据库：&#xA;步骤1 link新建一个连接，选择:PostgreSQL 步骤2 link在你的MemFire Cloud控制台中找到“连接信息”，并添加此处。点击“测试连接”，若返回成功弹窗则表明连接建立成功。 连接成功后即可管理和查询你的数据。 案例2 使用python连接 link配置：本例中选用pycharm编辑器，python3.8版本。&#xA;步骤1 link在 MemFire Cloud 控制台中启用数据库直连，找到python的“连接字符串”。 步骤2 link在pycharm编辑器中，导入第三方库 psycopg2，psycopg2是一个流行的Python库，用于连接和操作PostgreSQL数据库。如果尚未安装此库，请通过以下命令进行安装：&#xA;pip install psycopg2&#xD;或者在pycharm的 Python Interpreter中进行设置，步骤如下：&#xA;步骤3 link完成psycopg2的安装后，将连接字符串中的[YOUR-PASSWORD]替换为数据库的实际密码。[YOUR-HOST]替换为数据库的主机地址。 [USER-NAME]替换为你的用户名。端口号默认为：10010，数据库名称默认为：postgres。建立与MemFire Cloud应用数据库连接，然后对数据库进行操作。&#xA;代码如下：&#xA;import psycopg2&#xD;# 定义连接字符串&#xD;connection_string = &amp;#34;user=[USER-NAME] password=[YOUR-PASSWORD] host=[YOUR-HOST] port=5432 dbname=postgres&amp;#34;&#xD;try:&#xD;# 连接到数据库&#xD;connection = psycopg2.</description>
+    </item>
+    <item>
+      <title>表格和数据</title>
+      <link>https://github.com/docs/app/database/tables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/database/tables/</guid>
+      <description>表是存储数据的地方。&#xA;表格类似于Excel电子表格。它们包含列和行。 例如，这个表有3列（id, name, description）和4行的数据： id name description 1 The Phantom Menace Two Jedi escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force. 2 Attack of the Clones Ten years after the invasion of Naboo, the Galactic Republic is facing a Separatist movement. 3 Revenge of the Sith As Obi-Wan pursues a new threat, Anakin acts as a double agent between the Jedi Council and Palpatine and is lured into a sinister plan to rule the galaxy.</description>
     </item>
   </channel>
 </rss>
