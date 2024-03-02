@@ -1,5 +1,5 @@
 ---
-weight: 15
+weight: 392
 title: "SQL语法"
 description: ""
 icon: "article"

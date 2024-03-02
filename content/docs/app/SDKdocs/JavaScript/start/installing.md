@@ -1,5 +1,5 @@
 ---
-    weight: 20
+    weight: 86
     title: "初始化客户端"
     icon: "article"
     draft: false

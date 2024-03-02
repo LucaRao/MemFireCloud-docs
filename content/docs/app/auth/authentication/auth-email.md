@@ -1,5 +1,5 @@
 ---
-    weight: 6
+    weight: 40
     title: "使用电子邮件登录"
     description: "使用MemFireCloud通过电子邮件对用户进行身份验证和授权。"
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 6
+    weight: 43
     title: "使用Magic Link登录"
     description: "使用Supabase使用魔术链接对用户进行身份验证和授权。"
     icon: "article"

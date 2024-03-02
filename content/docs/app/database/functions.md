@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 21
     title: "数据库函数"
     description: "Creating and using Postgres functions."
     icon: "article"
@@ -67,8 +67,7 @@ $$; --6
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -124,8 +123,6 @@ Reference: [rpc()](../../reference/dart/rpc)
   
   
   
-  defaultActiveId="data"
->
 {{% tab tabName="Data" %}}
 
 
@@ -205,8 +202,7 @@ $$;
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -276,8 +272,7 @@ $$;
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 

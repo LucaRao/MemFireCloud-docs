@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 52
     title: "概述"
     description: "Getting started with Cloud function."
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 11
+    weight: 69
     title: "Postgres CDC"
     description: ""
     icon: "article"

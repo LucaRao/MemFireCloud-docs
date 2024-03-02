@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 62
     title: "创建 API 路由"
     description: "创建 API 路由"
     icon: "article"
@@ -20,8 +20,7 @@
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="控制台" %}}
 
 
@@ -93,11 +92,6 @@ create table
 
 {{< tabs tabTotal="8" >}}
 
-  
-  
-  
-  defaultActiveId="javascript"
->
 {{% tab tabName="Javascript" %}}
 
 
@@ -147,8 +141,7 @@ JS 参考: [select()](/docs/app/SDKdocs/JavaScript/database/select)，
   
   
   
-  defaultActiveId="javascript"
->
+
 {{% tab tabName="Javascript" %}}
 
 
@@ -225,8 +218,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="控制台" %}}
 
 

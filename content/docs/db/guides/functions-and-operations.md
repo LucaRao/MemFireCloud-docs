@@ -1,5 +1,5 @@
 ---
-weight: 16
+weight: 390
 title: "函数与操作"
 description: ""
 icon: "article"

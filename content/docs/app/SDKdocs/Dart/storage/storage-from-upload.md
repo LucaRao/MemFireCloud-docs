@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 348
     title: "from.upload()"
     icon: "article"
     draft: false

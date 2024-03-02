@@ -1,5 +1,5 @@
 ---
-weight: 12
+weight: 382
 title: "Golang示例"
 description: ""
 icon: "article"

@@ -30,7 +30,38 @@
 <link rel="manifest" crossorigin="use-credentials" href="https://github.com/site.webmanifest">
 <meta property="og:title" content="match()" />
 <meta property="og:description" content="仅匹配每个查询(query)键中的列与其关联值相等的行。相当于多个 .eq() 的简写。
-案例教程 link案例1 link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;name&#39;).match({ id: 2, name: &#39;Albania&#39; }){&#34;data&#34;: [{&#34;name&#34;: &#34;Albania&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}参数说明 link查询（query）[必要参数]Record类型用于筛选的对象，其中列名作为键映射到它们的筛选值。" />
+案例教程 link案例1 link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;name&#39;)
+.match({ id: 2, name: &#39;Albania&#39; })
+{
+&#34;data&#34;: [
+{
+&#34;name&#34;: &#34;Albania&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+参数说明 link
+查询（query）
+[必要参数]
+Record类型
+用于筛选的对象，其中列名作为键映射到它们的筛选值。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/wechatsdk/database/match/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_164495390679647585.png"/><meta property="article:section" content="docs" />
 
@@ -38,7 +69,38 @@
 <meta name="twitter:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_164495390679647585.png"/>
 <meta name="twitter:title" content="match()"/>
 <meta name="twitter:description" content="仅匹配每个查询(query)键中的列与其关联值相等的行。相当于多个 .eq() 的简写。
-案例教程 link案例1 link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;name&#39;).match({ id: 2, name: &#39;Albania&#39; }){&#34;data&#34;: [{&#34;name&#34;: &#34;Albania&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}参数说明 link查询（query）[必要参数]Record类型用于筛选的对象，其中列名作为键映射到它们的筛选值。"/>
+案例教程 link案例1 link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;name&#39;)
+.match({ id: 2, name: &#39;Albania&#39; })
+{
+&#34;data&#34;: [
+{
+&#34;name&#34;: &#34;Albania&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+参数说明 link
+查询（query）
+[必要参数]
+Record类型
+用于筛选的对象，其中列名作为键映射到它们的筛选值。"/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2275,7 +2337,7 @@
     <li>
       <ul>
         <li><a href="#案例教程">案例教程</a>
-          <ul>
+  
             <li><a href="#案例1">案例1</a></li>
           </ul>
         </li>

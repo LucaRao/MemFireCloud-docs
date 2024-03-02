@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 47
     title: "管理用户数据"
     description: "使用行级别安全性保护用户数据。"
     icon: "article"

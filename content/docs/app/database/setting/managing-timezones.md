@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 25
     title: "时区"
     description: "How to change your database timezone."
     icon: "article"
@@ -17,8 +17,7 @@
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -48,8 +47,7 @@ set timezone to 'America/New_York';
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -75,8 +73,7 @@ order by name;
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 

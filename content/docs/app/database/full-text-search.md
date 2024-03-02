@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 18
     title: "全文搜索"
     description: "How to use full text search in PostgreSQL."
     icon: "article"
@@ -17,9 +17,6 @@ Postgres有内置的功能来处理 `全文搜索`查询。这就像Postgres中�
 
   
   
-  
-  defaultActiveId="data"
->
 {{% tab tabName="Data" %}}
 
 
@@ -96,8 +93,7 @@ select to_tsvector('green eggs and ham')
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -148,8 +144,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -203,8 +198,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -272,8 +266,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -315,8 +308,7 @@ where
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -386,8 +378,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -467,8 +458,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -515,8 +505,7 @@ from books;
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -588,8 +577,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -646,8 +634,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -706,8 +693,7 @@ final result = await client
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 

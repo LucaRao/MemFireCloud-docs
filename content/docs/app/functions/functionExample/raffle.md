@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 58
     title: "抽奖示例"
     description: "Getting started with raffles."
     icon: "article"

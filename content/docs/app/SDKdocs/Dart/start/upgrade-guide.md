@@ -1,5 +1,5 @@
 ---
-    weight: 61
+    weight: 296
     title: "更新"
     icon: "article"
     draft: false
@@ -27,8 +27,7 @@ supabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -74,8 +73,7 @@ try {
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -127,8 +125,7 @@ await Supabase.initialize(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -175,8 +172,7 @@ signIn()方法已被废弃，转而采用更明确的方法签名来帮助类型
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -209,8 +205,7 @@ await supabase.auth.signInWithPassword(email: email, password: password);
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -243,8 +238,7 @@ await supabase.auth.signInWithOtp(email: email);
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -286,8 +280,7 @@ await supabase.auth.signInWithOAuth(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -326,8 +319,7 @@ await supabase.auth.signInWithPassword(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -369,8 +361,7 @@ await supabase.auth.verifyOTP(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -410,8 +401,7 @@ await supabase.auth.resetPasswordForEmail(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -444,8 +434,7 @@ final Session? session = supabase.auth.currentSession;
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -478,8 +467,7 @@ final User? user = supabase.auth.currentUser;
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -526,8 +514,7 @@ await supabase.updateUser(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -564,8 +551,7 @@ await supabase.from('my_table').insert(data);
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -605,8 +591,7 @@ final insertedData = await supabase.from('my_table').insert(data).select();
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -644,8 +629,7 @@ supabase.from('my_table')
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 
@@ -690,8 +674,7 @@ channel.on(
   
   
   
-  defaultActiveId="0.x"
->
+  
 {{% tab tabName="Before" %}}
 
 

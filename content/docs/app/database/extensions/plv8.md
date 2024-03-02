@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 36
     title: "plv8: JavaScript语言"
     description: "JavaScript language for PostgreSQL."
     icon: "article"
@@ -25,8 +25,7 @@
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 
@@ -81,8 +80,7 @@ $$ language plv8;
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 

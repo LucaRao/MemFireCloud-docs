@@ -1,5 +1,5 @@
 ---
-    weight: 12
+    weight: 73
     title: "静态托管"
     description: "静态托管"
     icon: "article"

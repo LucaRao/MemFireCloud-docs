@@ -1,5 +1,5 @@
 ---
-    weight: 12
+    weight: 72
     title: "自定义域名"
     description: "自定义域名"
     icon: "article"

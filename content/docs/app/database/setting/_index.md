@@ -1,5 +1,5 @@
 ---
-weight: 5
+weight: 24
 title: "配置"
 description: ""
 icon: "article"

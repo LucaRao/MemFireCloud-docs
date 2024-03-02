@@ -31,8 +31,36 @@
 <meta property="og:title" content="初始化客户端" />
 <meta property="og:description" content="你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。
 Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。
-案例教程 link案例1 （createClient()） link使用方法defaultActiveId=&#34;demo1&#34;&gt;import { createClient } from &#39;@supabase/supabase-js&#39;// Create a single supabase client for interacting with your databaseconst supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;public-anon-key&#39;)使用自定义域名：
-import { createClient } from &#39;@supabase/supabase-js&#39;// Use a custom domain as the supabase URLconst supabase = createClient(&#39;https://my-custom-domain.com&#39;, &#39;public-anon-key&#39;)案例2 （带附加参数的情况） link使用方法defaultActiveId=&#34;demo1&#34;&gt;import { createClient } from &#39;@supabase/supabase-js&#39;const options = {db: {schema: &#39;public&#39;,},auth: {autoRefreshToken: true,persistSession: true,detectSessionInUrl: true},global: {headers: { &#39;x-my-custom-header&#39;: &#39;my-app-name&#39; },},}const supabase = createClient(&#34;https://xyzcompany." />
+案例教程 link案例1 （createClient()） link
+使用方法
+defaultActiveId=&#34;demo1&#34;
+&gt;
+import { createClient } from &#39;@supabase/supabase-js&#39;
+// Create a single supabase client for interacting with your database
+const supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;public-anon-key&#39;)
+使用自定义域名：
+import { createClient } from &#39;@supabase/supabase-js&#39;
+// Use a custom domain as the supabase URL
+const supabase = createClient(&#39;https://my-custom-domain.com&#39;, &#39;public-anon-key&#39;)
+案例2 （带附加参数的情况） link
+使用方法
+defaultActiveId=&#34;demo1&#34;
+&gt;
+import { createClient } from &#39;@supabase/supabase-js&#39;
+const options = {
+db: {
+schema: &#39;public&#39;,
+},
+auth: {
+autoRefreshToken: true,
+persistSession: true,
+detectSessionInUrl: true
+},
+global: {
+headers: { &#39;x-my-custom-header&#39;: &#39;my-app-name&#39; },
+},
+}
+const supabase = createClient(&#34;https://xyzcompany." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/javascript/database/initializing/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_17175967973398372072.png"/><meta property="article:section" content="docs" />
 
@@ -41,8 +69,36 @@ import { createClient } from &#39;@supabase/supabase-js&#39;// Use a custom dom
 <meta name="twitter:title" content="初始化客户端"/>
 <meta name="twitter:description" content="你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。
 Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。
-案例教程 link案例1 （createClient()） link使用方法defaultActiveId=&#34;demo1&#34;&gt;import { createClient } from &#39;@supabase/supabase-js&#39;// Create a single supabase client for interacting with your databaseconst supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;public-anon-key&#39;)使用自定义域名：
-import { createClient } from &#39;@supabase/supabase-js&#39;// Use a custom domain as the supabase URLconst supabase = createClient(&#39;https://my-custom-domain.com&#39;, &#39;public-anon-key&#39;)案例2 （带附加参数的情况） link使用方法defaultActiveId=&#34;demo1&#34;&gt;import { createClient } from &#39;@supabase/supabase-js&#39;const options = {db: {schema: &#39;public&#39;,},auth: {autoRefreshToken: true,persistSession: true,detectSessionInUrl: true},global: {headers: { &#39;x-my-custom-header&#39;: &#39;my-app-name&#39; },},}const supabase = createClient(&#34;https://xyzcompany."/>
+案例教程 link案例1 （createClient()） link
+使用方法
+defaultActiveId=&#34;demo1&#34;
+&gt;
+import { createClient } from &#39;@supabase/supabase-js&#39;
+// Create a single supabase client for interacting with your database
+const supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;public-anon-key&#39;)
+使用自定义域名：
+import { createClient } from &#39;@supabase/supabase-js&#39;
+// Use a custom domain as the supabase URL
+const supabase = createClient(&#39;https://my-custom-domain.com&#39;, &#39;public-anon-key&#39;)
+案例2 （带附加参数的情况） link
+使用方法
+defaultActiveId=&#34;demo1&#34;
+&gt;
+import { createClient } from &#39;@supabase/supabase-js&#39;
+const options = {
+db: {
+schema: &#39;public&#39;,
+},
+auth: {
+autoRefreshToken: true,
+persistSession: true,
+detectSessionInUrl: true
+},
+global: {
+headers: { &#39;x-my-custom-header&#39;: &#39;my-app-name&#39; },
+},
+}
+const supabase = createClient(&#34;https://xyzcompany."/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2324,7 +2380,7 @@ import { createClient } from &#39;@supabase/supabase-js&#39;// Use a custom dom
 
 		<a class="nav-link  active"
 		   id="aebdcfTab" data-bs-toggle="tab" data-bs-target="#aebdcf"
-		   type="button" role="tab" aria-controls="aebdcf" aria-selected="true">使用方法</a>
+		tab" aria-controls="aebdcf" aria-selected="true">使用方法</a>
 
 		
 
@@ -2457,7 +2513,7 @@ const supabase = createClient(&#39;https://my-custom-domain.com&#39;, &#39;publi
 
 		<a class="nav-link  active"
 		   id="edabfcTab" data-bs-toggle="tab" data-bs-target="#edabfc"
-		   type="button" role="tab" aria-controls="edabfc" aria-selected="true">使用方法</a>
+		tab" aria-controls="edabfc" aria-selected="true">使用方法</a>
 
 		
 
@@ -2579,7 +2635,7 @@ const supabase = createClient(&#34;https://xyzcompany.supabase.co&#34;, &#34;pub
 
 		<a class="nav-link  active"
 		   id="daecfbTab" data-bs-toggle="tab" data-bs-target="#daecfb"
-		   type="button" role="tab" aria-controls="daecfb" aria-selected="true">使用方法</a>
+		tab" aria-controls="daecfb" aria-selected="true">使用方法</a>
 
 		
 
@@ -2706,7 +2762,7 @@ const supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;pub
 
 		<a class="nav-link  active"
 		   id="fcebadTab" data-bs-toggle="tab" data-bs-target="#fcebad"
-		   type="button" role="tab" aria-controls="fcebad" aria-selected="true">使用方法</a>
+		tab" aria-controls="fcebad" aria-selected="true">使用方法</a>
 
 		
 
@@ -2831,7 +2887,7 @@ const supabase = createClient(&#39;https://xyzcompany.supabase.co&#39;, &#39;pub
 
 		<a class="nav-link  active"
 		   id="adfecbTab" data-bs-toggle="tab" data-bs-target="#adfecb"
-		   type="button" role="tab" aria-controls="adfecb" aria-selected="true">使用方法</a>
+		tab" aria-controls="adfecb" aria-selected="true">使用方法</a>
 
 		
 

@@ -1,5 +1,5 @@
 ---
-    weight: 86
+    weight: 242
     title: "lte()"
     icon: "article"
     draft: false

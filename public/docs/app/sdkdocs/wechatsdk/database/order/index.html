@@ -32,7 +32,48 @@
 <meta property="og:description" content="按列对查询结果进行排序。
 你可以多次调用这个方法来按多列排序。
 你可以对外部表进行排序，但这并不影响对当前表的排序。
-案例教程 link案例1 （使用select） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;id&#39;, &#39;name&#39;).order(&#39;id&#39;, { ascending: false }){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;},{&#34;id&#34;: 2,&#34;name&#34;: &#34;Albania&#34;},{&#34;id&#34;: 1,&#34;name&#34;: &#34;Afghanistan&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表） link建表使用方法返回结果注意事项defaultActiveId=&#34;" />
+案例教程 link案例1 （使用select） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;id&#39;, &#39;name&#39;)
+.order(&#39;id&#39;, { ascending: false })
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 3,
+&#34;name&#34;: &#34;Algeria&#34;
+},
+{
+&#34;id&#34;: 2,
+&#34;name&#34;: &#34;Albania&#34;
+},
+{
+&#34;id&#34;: 1,
+&#34;name&#34;: &#34;Afghanistan&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （在外部表） link
+建表
+使用方法
+返回结果
+注意事项
+defaultActiveId=&#34;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/wechatsdk/database/order/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_2975608663126095568.png"/><meta property="article:section" content="docs" />
 
@@ -42,7 +83,48 @@
 <meta name="twitter:description" content="按列对查询结果进行排序。
 你可以多次调用这个方法来按多列排序。
 你可以对外部表进行排序，但这并不影响对当前表的排序。
-案例教程 link案例1 （使用select） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;id&#39;, &#39;name&#39;).order(&#39;id&#39;, { ascending: false }){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;},{&#34;id&#34;: 2,&#34;name&#34;: &#34;Albania&#34;},{&#34;id&#34;: 1,&#34;name&#34;: &#34;Afghanistan&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表） link建表使用方法返回结果注意事项defaultActiveId=&#34;"/>
+案例教程 link案例1 （使用select） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;id&#39;, &#39;name&#39;)
+.order(&#39;id&#39;, { ascending: false })
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 3,
+&#34;name&#34;: &#34;Algeria&#34;
+},
+{
+&#34;id&#34;: 2,
+&#34;name&#34;: &#34;Albania&#34;
+},
+{
+&#34;id&#34;: 1,
+&#34;name&#34;: &#34;Afghanistan&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （在外部表） link
+建表
+使用方法
+返回结果
+注意事项
+defaultActiveId=&#34;"/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2293,7 +2375,7 @@
                                         <div class="docs-content col-12 col-xl-9 mt-0">
                                             <div class="mb-0 d-flex">
                                                 
-                                                <h1 class="content-title mb-0">
+                         <h1 class="content-title mb-0">
                                                     order()
                                                     
                                                 </h1>
@@ -2483,7 +2565,7 @@ values
     },
     {
       &#34;id&#34;: 2,
-      &#34;name&#34;: &#34;Albania&#34;
+  4;Albania&#34;
     },
     {
       &#34;id&#34;: 1,

@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 28
     title: "总览"
     description: "Using Postgres extensions."
     icon: "article"

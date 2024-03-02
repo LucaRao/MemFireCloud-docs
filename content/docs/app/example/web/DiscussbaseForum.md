@@ -1,5 +1,5 @@
 ---
-    weight: 16
+    weight: 77
     title: "Discussbase论坛"
     description: "Discussbase论坛"
     icon: "article"

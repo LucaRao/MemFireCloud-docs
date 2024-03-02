@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 38
     title: "概述"
     description: "使用Supabase来认证和授权你的用户。"
     icon: "article"

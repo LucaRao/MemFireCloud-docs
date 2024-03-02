@@ -1,5 +1,5 @@
 ---
-    weight: 100
+    weight: 246
     title: "调用Postgres函数"
     icon: "article"
     draft: false

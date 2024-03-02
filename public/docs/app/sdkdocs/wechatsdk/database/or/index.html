@@ -31,7 +31,42 @@
 <meta property="og:title" content="or()" />
 <meta property="og:description" content="仅匹配满足至少一个过滤条件的行。
 or() 期望您使用原始的 PostgREST语法 来指定过滤器的名称和值。
-.or(&#39;id.in.(5,6,7), arraycol.cs.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`..or(&#39;id.in.(5,6,7), arraycol.cd.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cd` for `containedBy()`案例教程 link案例1 （和select一起使用） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;name&#39;).or(&#39;id.eq.2,name.eq.Algeria&#39;){&#34;data&#34;: [{&#34;name&#34;: &#34;Albania&#34;},{&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （与and一起使用or） link建表使用方法defaultActiveId=&#34;" />
+.or(&#39;id.in.(5,6,7), arraycol.cs.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`.
+.or(&#39;id.in.(5,6,7), arraycol.cd.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cd` for `containedBy()`
+案例教程 link案例1 （和select一起使用） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;name&#39;)
+.or(&#39;id.eq.2,name.eq.Algeria&#39;)
+{
+&#34;data&#34;: [
+{
+&#34;name&#34;: &#34;Albania&#34;
+},
+{
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （与and一起使用or） link
+建表
+使用方法
+defaultActiveId=&#34;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/wechatsdk/database/or/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_6142646450658550145.png"/><meta property="article:section" content="docs" />
 
@@ -40,7 +75,42 @@ or() 期望您使用原始的 PostgREST语法 来指定过滤器的名称和值�
 <meta name="twitter:title" content="or()"/>
 <meta name="twitter:description" content="仅匹配满足至少一个过滤条件的行。
 or() 期望您使用原始的 PostgREST语法 来指定过滤器的名称和值。
-.or(&#39;id.in.(5,6,7), arraycol.cs.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`..or(&#39;id.in.(5,6,7), arraycol.cd.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cd` for `containedBy()`案例教程 link案例1 （和select一起使用） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select(&#39;name&#39;).or(&#39;id.eq.2,name.eq.Algeria&#39;){&#34;data&#34;: [{&#34;name&#34;: &#34;Albania&#34;},{&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （与and一起使用or） link建表使用方法defaultActiveId=&#34;"/>
+.or(&#39;id.in.(5,6,7), arraycol.cs.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`.
+.or(&#39;id.in.(5,6,7), arraycol.cd.{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cd` for `containedBy()`
+案例教程 link案例1 （和select一起使用） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select(&#39;name&#39;)
+.or(&#39;id.eq.2,name.eq.Algeria&#39;)
+{
+&#34;data&#34;: [
+{
+&#34;name&#34;: &#34;Albania&#34;
+},
+{
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （与and一起使用or） link
+建表
+使用方法
+defaultActiveId=&#34;"/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2324,7 +2394,7 @@ or() 期望您使用原始的 PostgREST语法 来指定过滤器的名称和值�
   <code>.or(&#39;id.in.(5,6,7), arraycol.cs.{&#34;a&#34;,&#34;b&#34;}&#39;)  // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`.
 .or(&#39;id.in.(5,6,7), arraycol.cd.{&#34;a&#34;,&#34;b&#34;}&#39;)  // Use `cd` for `containedBy()`</code>
   </pre>
-  </div>
+  
 <h2 id="案例教程">案例教程 <a href="#%e6%a1%88%e4%be%8b%e6%95%99%e7%a8%8b" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="案例1--和select一起使用">案例1  （和select一起使用） <a href="#%e6%a1%88%e4%be%8b1--%e5%92%8cselect%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -2514,7 +2584,7 @@ values
 
 
 
-</div>
+</
 <h3 id="案例2--与and一起使用or">案例2  （与and一起使用or） <a href="#%e6%a1%88%e4%be%8b2--%e4%b8%8eand%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8or" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -2662,7 +2732,7 @@ values
 
 
 
-</div>
+</
 <h3 id="案例3--在外部表上使用or">案例3  （在外部表上使用or） <a href="#%e6%a1%88%e4%be%8b3--%e5%9c%a8%e5%a4%96%e9%83%a8%e8%a1%a8%e4%b8%8a%e4%bd%bf%e7%94%a8or" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">

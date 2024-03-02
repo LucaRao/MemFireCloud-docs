@@ -1,5 +1,5 @@
 ---
-    weight: 80
+    weight: 248
     title: "order()"
     icon: "article"
     draft: false
@@ -23,7 +23,7 @@
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -102,7 +102,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

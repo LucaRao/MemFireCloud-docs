@@ -1,5 +1,5 @@
 ---
-    weight: 94
+    weight: 246
     title: "not()"
     icon: "article"
     draft: false
@@ -27,7 +27,7 @@
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

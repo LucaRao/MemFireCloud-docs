@@ -1,5 +1,5 @@
 ---
-    weight: 12
+    weight: 71
     title: "快速开始"
     description: "快速开始"
     icon: "article"

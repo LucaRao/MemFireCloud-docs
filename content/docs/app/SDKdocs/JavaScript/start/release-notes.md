@@ -1,5 +1,5 @@
 ---
-    weight: 39
+    weight: 87
     title: "版本说明"
     icon: "article"
     draft: false

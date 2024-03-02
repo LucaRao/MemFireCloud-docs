@@ -1,5 +1,5 @@
 ---
-    weight: 84
+    weight: 295
     title: "安装"
     icon: "article"
     draft: false

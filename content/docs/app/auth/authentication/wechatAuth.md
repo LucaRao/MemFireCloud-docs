@@ -1,5 +1,5 @@
 ---
-    weight: 6
+    weight: 45
     title: "微信小程序登录认证"
     description: "微信小程序登录认证"
     icon: "article"

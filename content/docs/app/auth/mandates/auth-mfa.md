@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 46
     title: "多因素身份验证"
     description: ""
     icon: "article"

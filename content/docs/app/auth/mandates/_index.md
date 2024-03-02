@@ -1,5 +1,5 @@
 ---
-weight: 6
+weight: 46
 title: "授权"
 description: ""
 icon: "article"

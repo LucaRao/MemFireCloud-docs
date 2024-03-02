@@ -1,5 +1,5 @@
 ---
-    weight: 53
+    weight: 294
     title: "初始化"
     icon: "article"
     draft: false

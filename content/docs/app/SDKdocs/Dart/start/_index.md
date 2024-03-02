@@ -1,5 +1,5 @@
 ---
-    weight: 4
+    weight: 293
     title: "开始"
     icon: "article"
     draft: false

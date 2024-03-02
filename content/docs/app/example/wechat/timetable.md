@@ -1,5 +1,5 @@
 ---
-    weight: 17
+    weight: 83
     title: "Super课表小程序"
     description: "Super课表小程序"
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 4
+    weight: 17
     title: "概述"
     description: "Use Supabase to manage your data."
     icon: "article"

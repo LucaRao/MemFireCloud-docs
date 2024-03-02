@@ -1,5 +1,5 @@
 ---
-    weight: 23
+    weight: 340
     title: "rangeGt()"
     icon: "article"
     draft: false

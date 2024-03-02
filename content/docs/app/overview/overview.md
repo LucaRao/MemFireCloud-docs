@@ -141,7 +141,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
         <i class="material-icons align-middle">highlight</i>
       </span> -->
       <div class="card-body p-0 content" style="display:flex">
-         <img src="../../img/libraries/angular-icon.svg" width='40'  alt="图片名称" align=center />
+         <img src="../../img/libraries/expo-icon.svg" width='40'  alt="图片名称" align=center />
         <p class="para card-text mb-0" style="margin-top:2px;margin-left:20px"> Expo示例</p>
       </div>
     </div>
@@ -150,7 +150,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
 
 
 <div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="/docs/app/quickstart/with-flutter">
+  <a class="text-decoration-none text-reset" href="/docs/app/quickstart/with-flutter/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <!-- <span class="h1 icon-color">
         <i class="material-icons align-middle">highlight</i>
@@ -162,6 +162,7 @@ MemFire Cloud是基于Postgres的数据库，这使得它兼容许多工具和�
     </div>
   </a>
 </div>
+
 
 
 

@@ -1,5 +1,5 @@
 ---
-    weight: 81
+    weight: 109
     title: "select()"
     icon: "article"
     draft: false
@@ -27,7 +27,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

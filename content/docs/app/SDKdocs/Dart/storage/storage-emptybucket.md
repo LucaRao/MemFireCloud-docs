@@ -1,5 +1,5 @@
 ---
-    weight: 10
+    weight: 356
     title: "emptyBucket()"
     icon: "article"
     draft: false

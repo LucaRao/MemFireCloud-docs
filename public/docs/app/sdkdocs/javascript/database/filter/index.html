@@ -32,7 +32,41 @@
 <meta property="og:description" content="仅匹配满足过滤器条件的行。
 尽管filter()函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。 例如，使用eq()、gt()、lt()等特定的筛选方法，可以使查询更加清晰和易于理解。
 filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
-.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values案例教程 link案例1 （和select一起使用） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select().filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表上） link建表使用方法返回结果defaultActiveId=&#34;" />
+.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter
+.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values
+案例教程 link案例1 （和select一起使用） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select()
+.filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;)
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 3,
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （在外部表上） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/javascript/database/filter/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_2704766591566316977.png"/><meta property="article:section" content="docs" />
 
@@ -42,7 +76,41 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
 <meta name="twitter:description" content="仅匹配满足过滤器条件的行。
 尽管filter()函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。 例如，使用eq()、gt()、lt()等特定的筛选方法，可以使查询更加清晰和易于理解。
 filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
-.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values案例教程 link案例1 （和select一起使用） link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select().filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表上） link建表使用方法返回结果defaultActiveId=&#34;"/>
+.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter
+.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values
+案例教程 link案例1 （和select一起使用） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;),
+(2, &#39;Albania&#39;),
+(3, &#39;Algeria&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.select()
+.filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;)
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 3,
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 200,
+&#34;statusText&#34;: &#34;OK&#34;
+}
+案例2 （在外部表上） link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;"/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2492,7 +2560,7 @@ values
     }
   ],
   &#34;status&#34;: 200,
-  &#34;statusText&#34;: &#34;OK&#34;
+  #34;OK&#34;
 }</code>
   </pre>
   </div>

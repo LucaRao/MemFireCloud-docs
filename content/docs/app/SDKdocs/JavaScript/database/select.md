@@ -1,5 +1,5 @@
 ---
-    weight: 78
+    weight: 104
     title: "Select 查询"
     icon: "article"
     draft: false
@@ -22,7 +22,7 @@
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -98,7 +98,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -170,7 +170,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -276,7 +276,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -397,7 +397,7 @@ values
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -492,7 +492,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -584,7 +584,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -671,7 +671,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -742,7 +742,7 @@ const { count, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

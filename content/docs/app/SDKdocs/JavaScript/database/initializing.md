@@ -1,5 +1,5 @@
 ---
-    weight: 34
+    weight: 103
     title: "初始化客户端"
     icon: "article"
     draft: false
@@ -20,7 +20,7 @@ Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Sup
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="使用方法" %}}
@@ -57,7 +57,7 @@ const supabase = createClient('https://my-custom-domain.com', 'public-anon-key')
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="使用方法" %}}
@@ -97,7 +97,7 @@ const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="使用方法" %}}
@@ -139,7 +139,7 @@ const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="使用方法" %}}
@@ -178,7 +178,7 @@ const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="使用方法" %}}

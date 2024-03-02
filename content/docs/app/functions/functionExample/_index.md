@@ -1,5 +1,5 @@
 ---
-weight: 9
+weight: 56
 title: "函数示例"
 description: ""
 icon: "article"

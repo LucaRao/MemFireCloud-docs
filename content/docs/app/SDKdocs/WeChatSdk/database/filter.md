@@ -1,5 +1,5 @@
 ---
-    weight: 62
+    weight: 233
     title: "filter()"
     icon: "article"
     draft: false
@@ -32,7 +32,7 @@
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -101,7 +101,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

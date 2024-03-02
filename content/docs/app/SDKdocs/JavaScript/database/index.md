@@ -1,5 +1,5 @@
 ---
-    weight: 48
+    weight: 
     title: "Supabase Client"
     icon: "article"
     draft: false

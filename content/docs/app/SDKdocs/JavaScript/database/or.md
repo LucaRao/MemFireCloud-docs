@@ -1,5 +1,5 @@
 ---
-    weight: 18
+    weight: 126
     title: "or()"
     icon: "article"
     draft: false
@@ -26,7 +26,7 @@ or() 期望您使用原始的 [PostgREST语法](https://postgrest.org/en/stable/
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -96,7 +96,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}
@@ -144,7 +144,7 @@ const { data, error } = await supabase
   
   
   
-  defaultActiveId="demo1"
+  
 >
 
 {{% tab tabName="建表" %}}

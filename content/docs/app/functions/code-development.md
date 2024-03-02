@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 53
     title: "代码开发"
     description: "Getting started with code development."
     icon: "article"

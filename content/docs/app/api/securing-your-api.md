@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 67
     title: "开始使用"
     description: "开始使用"
     icon: "article"
@@ -23,8 +23,7 @@
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 
@@ -129,8 +128,7 @@ MemFire Cloud在[Dashboard](https://cloud.memfiredb.com/)中生成文档，当�
   
   
   
-  defaultActiveId="javascript"
->
+
 {{% tab tabName="Javascript" %}}
 
 
@@ -180,8 +178,7 @@ JS 参考: [select()](../reference/javascript/select),
   
   
   
-  defaultActiveId="javascript"
->
+
 {{% tab tabName="Javascript" %}}
 
 
@@ -257,8 +254,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 
@@ -320,8 +316,7 @@ const { data: todos, error } = await supabase.from('todos').on('INSERT', handleI
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 

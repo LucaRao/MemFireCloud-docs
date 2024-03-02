@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 54
     title: "管理函数"
     description: "Getting started with function management."
     icon: "article"

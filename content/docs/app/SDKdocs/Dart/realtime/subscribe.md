@@ -1,5 +1,5 @@
 ---
-    weight: 59
+    weight: 363
     title: "on().subscribe()"
     icon: "article"
     draft: false

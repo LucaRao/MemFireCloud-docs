@@ -31,7 +31,41 @@
 <meta property="og:title" content="select()" />
 <meta property="og:description" content="对查询结果执行SELECT。
 默认情况下，.insert(), .update(), .upsert(), 和 .delete()不会返回修改过的记录。通过调用这个方法，修改过的行会返回到data。
-const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 1, name: &#39;Algeria&#39; }).select()案例教程 link案例1 link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 1, name: &#39;Algeria&#39; }).select(){&#34;data&#34;: [{&#34;id&#34;: 1,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 201,&#34;statusText&#34;: &#34;Created&#34;}参数说明 link列（column）[可选参数]query类型要检索的列，用逗号分隔" />
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.upsert({ id: 1, name: &#39;Algeria&#39; })
+.select()
+案例教程 link案例1 link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.upsert({ id: 1, name: &#39;Algeria&#39; })
+.select()
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 1,
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 201,
+&#34;statusText&#34;: &#34;Created&#34;
+}
+参数说明 link
+列（column）
+[可选参数]
+query类型
+要检索的列，用逗号分隔" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/wechatsdk/database/db-modifiers-select/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_43993039448312825.png"/><meta property="article:section" content="docs" />
 
@@ -40,7 +74,41 @@ const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 
 <meta name="twitter:title" content="select()"/>
 <meta name="twitter:description" content="对查询结果执行SELECT。
 默认情况下，.insert(), .update(), .upsert(), 和 .delete()不会返回修改过的记录。通过调用这个方法，修改过的行会返回到data。
-const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 1, name: &#39;Algeria&#39; }).select()案例教程 link案例1 link建表使用方法返回结果defaultActiveId=&#34;demo1&#34;&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 1, name: &#39;Algeria&#39; }).select(){&#34;data&#34;: [{&#34;id&#34;: 1,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 201,&#34;statusText&#34;: &#34;Created&#34;}参数说明 link列（column）[可选参数]query类型要检索的列，用逗号分隔"/>
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.upsert({ id: 1, name: &#39;Algeria&#39; })
+.select()
+案例教程 link案例1 link
+建表
+使用方法
+返回结果
+defaultActiveId=&#34;demo1&#34;
+&gt;
+create table
+countries (id int8 primary key, name text);
+insert into
+countries (id, name)
+values
+(1, &#39;Afghanistan&#39;);
+const { data, error } = await supabase
+.from(&#39;countries&#39;)
+.upsert({ id: 1, name: &#39;Algeria&#39; })
+.select()
+{
+&#34;data&#34;: [
+{
+&#34;id&#34;: 1,
+&#34;name&#34;: &#34;Algeria&#34;
+}
+],
+&#34;status&#34;: 201,
+&#34;statusText&#34;: &#34;Created&#34;
+}
+参数说明 link
+列（column）
+[可选参数]
+query类型
+要检索的列，用逗号分隔"/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2294,7 +2362,7 @@ const { data, error } = await supabase.from(&#39;countries&#39;).upsert({ id: 
                                                     
                                                 </h1>
                                             </div>
-                                            
+                     
                                             <div id="content" class="main-content" data-bs-spy="scroll" data-bs-root-margin="0px 0px -65%" data-bs-target="#toc-mobile">
                                                 
     

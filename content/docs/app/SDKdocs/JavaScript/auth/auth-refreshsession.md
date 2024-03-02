@@ -1,5 +1,5 @@
 ---
-    weight: 17
+    weight: 97
     title: "refreshSession()"
     icon: "article"
     draft: false

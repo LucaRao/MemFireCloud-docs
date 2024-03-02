@@ -1,5 +1,5 @@
 ---
-weight: 12
+weight: 388
 title: "兼容性说明"
 description: ""
 icon: "article"

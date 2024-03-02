@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 66
     title: "使用Postman访问数据"
     description: "使用Postman访问数据."
     icon: "article"

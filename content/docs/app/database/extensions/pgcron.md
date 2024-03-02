@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 31
     title: "pg_cron: 作业调度"
     description: ""
     icon: "article"

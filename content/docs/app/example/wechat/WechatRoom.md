@@ -1,5 +1,5 @@
 ---
-    weight: 17
+    weight: 84
     title: "微信小程序聊天室"
     description: "微信小程序聊天室开发示例"
     icon: "article"

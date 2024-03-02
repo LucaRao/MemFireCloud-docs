@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 20
     title: "关联查询"
     description: "Creating and using associated query."
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 8
+    weight: 64
     title: "生成类型"
     description: "How to generate types for your API and Supabase libraries."
     icon: "article"

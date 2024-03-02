@@ -31,9 +31,35 @@
 <meta property="og:title" content="更新" />
 <meta property="og:description" content="supabase-flutter专注于改善开发者的体验，使其更容易使用。本指南将帮助你从supabase-flutter v0升级到v1。
 升级客户端库 link更新你的pubspec.yaml文件中的软件包。
-supabase_flutter: ^1.0.0错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。
-BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;final res = await supabase.from(&#39;my_table&#39;).select().execute();final error = res.error;if (error != null) {// handle error}final data = res.data;try {final data = supabase.from(&#39;my_table&#39;).select();} catch (error) {// handle error}Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。
-BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;await Supabase.initialize(url: &#39;SUPABASE_URL&#39;,anonKey: &#39;SUPABASE_ANON_KEY&#39;,);...class AuthState&lt;T extends StatefulWidget&gt; extends SupabaseAuthState&lt;T&gt; {." />
+supabase_flutter: ^1.0.0
+错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。
+Before
+After
+defaultActiveId=&#34;0.x&#34;
+&gt;
+final res = await supabase.from(&#39;my_table&#39;).select().execute();
+final error = res.error;
+if (error != null) {
+// handle error
+}
+final data = res.data;
+try {
+final data = supabase.from(&#39;my_table&#39;).select();
+} catch (error) {
+// handle error
+}
+Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。
+Before
+After
+defaultActiveId=&#34;0.x&#34;
+&gt;
+await Supabase.initialize(
+url: &#39;SUPABASE_URL&#39;,
+anonKey: &#39;SUPABASE_ANON_KEY&#39;,
+);
+...
+class AuthState&lt;T extends StatefulWidget&gt; extends SupabaseAuthState&lt;T&gt; {
+." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://github.com/docs/app/sdkdocs/dart/start/upgrade-guide/" /><meta property="og:image" content="https://github.com/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_15055189545364738850.png"/><meta property="article:section" content="docs" />
 
@@ -42,9 +68,35 @@ BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;await Supabase.initialize(url: 
 <meta name="twitter:title" content="更新"/>
 <meta name="twitter:description" content="supabase-flutter专注于改善开发者的体验，使其更容易使用。本指南将帮助你从supabase-flutter v0升级到v1。
 升级客户端库 link更新你的pubspec.yaml文件中的软件包。
-supabase_flutter: ^1.0.0错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。
-BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;final res = await supabase.from(&#39;my_table&#39;).select().execute();final error = res.error;if (error != null) {// handle error}final data = res.data;try {final data = supabase.from(&#39;my_table&#39;).select();} catch (error) {// handle error}Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。
-BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;await Supabase.initialize(url: &#39;SUPABASE_URL&#39;,anonKey: &#39;SUPABASE_ANON_KEY&#39;,);...class AuthState&lt;T extends StatefulWidget&gt; extends SupabaseAuthState&lt;T&gt; {."/>
+supabase_flutter: ^1.0.0
+错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。
+Before
+After
+defaultActiveId=&#34;0.x&#34;
+&gt;
+final res = await supabase.from(&#39;my_table&#39;).select().execute();
+final error = res.error;
+if (error != null) {
+// handle error
+}
+final data = res.data;
+try {
+final data = supabase.from(&#39;my_table&#39;).select();
+} catch (error) {
+// handle error
+}
+Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。
+Before
+After
+defaultActiveId=&#34;0.x&#34;
+&gt;
+await Supabase.initialize(
+url: &#39;SUPABASE_URL&#39;,
+anonKey: &#39;SUPABASE_ANON_KEY&#39;,
+);
+...
+class AuthState&lt;T extends StatefulWidget&gt; extends SupabaseAuthState&lt;T&gt; {
+."/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -2538,7 +2590,7 @@ BeforeAfterdefaultActiveId=&#34;0.x&#34;&gt;await Supabase.initialize(url: 
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -2839,7 +2891,7 @@ final data = res.data;</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -3148,7 +3200,7 @@ class AuthRequiredState&lt;T extends StatefulWidget&gt; extends SupabaseAuthStat
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -3452,7 +3504,7 @@ authSubscription.cancel();</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -3743,7 +3795,7 @@ authSubscription.cancel();</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -4034,7 +4086,7 @@ authSubscription.cancel();</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -4334,7 +4386,7 @@ authSubscription.cancel();</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -4631,7 +4683,7 @@ authSubscription.cancel();</code>
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -4931,7 +4983,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -5229,7 +5281,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -5520,7 +5572,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -5811,7 +5863,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -6111,7 +6163,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -6405,7 +6457,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -6701,7 +6753,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -6997,7 +7049,7 @@ await supabase.auth.verifyOTP(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 
@@ -7300,7 +7352,7 @@ channel.on(
 
 		
 
-		<a class="nav-link "
+		
 		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
 		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
 

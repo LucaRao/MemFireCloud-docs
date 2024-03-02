@@ -1,5 +1,5 @@
 ---
-    weight: 7
+    weight: 34
     title: "pgTAP:单元测试"
     description: "Unit testing in PostgreSQL."
     icon: "article"

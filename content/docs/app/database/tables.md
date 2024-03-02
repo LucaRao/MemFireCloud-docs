@@ -1,5 +1,5 @@
 ---
-    weight: 5
+    weight: 22
     title: "表格和数据"
     description: "Creating and using Postgres tables."
     icon: "article"
@@ -38,8 +38,7 @@ Supabase 为创建表提供了几个选项。你可以使用仪表板或直接�
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 
@@ -186,8 +185,7 @@ create table movies (
   
   
   
-  defaultActiveId="sql"
->
+  
 {{% tab tabName="SQL" %}}
 
 
@@ -297,8 +295,7 @@ alter table movies
   
   
   
-  defaultActiveId="dashboard"
->
+  
 {{% tab tabName="Dashboard" %}}
 
 
