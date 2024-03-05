@@ -1,5 +1,5 @@
 ---
-    weight: 130
+    weight: 1534
     title: "pg_graphql: 为PostgreSQL提供GraphQL功能"
     description: "为PostgreSQL提供GraphQL接口"
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-weight: 103
+weight: 1100
 title: "动态与公告"
 description: ""
 icon: "article"

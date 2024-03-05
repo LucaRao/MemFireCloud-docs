@@ -1,5 +1,5 @@
 ---
-    weight: 113
+    weight: 1306
     title: "快速入门: Android Kotlin"
     description: "了解如何在你的Android Kotlin中使用Supabase。"
     icon: "article"

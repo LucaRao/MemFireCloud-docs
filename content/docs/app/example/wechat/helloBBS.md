@@ -1,5 +1,5 @@
 ---
-    weight: 181
+    weight: 3102
     title: "BBS论坛小程序"
     description: "BBS论坛小程序"
     icon: "article"

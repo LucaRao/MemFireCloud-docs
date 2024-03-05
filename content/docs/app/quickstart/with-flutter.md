@@ -1,5 +1,5 @@
 ---
-    weight: 106
+    weight: 1303
     title: "快速入门: Flutter"
     description: "了解如何在您的 Flutter 应用程序中使用 Supabase。"
     icon: "article"

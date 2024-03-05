@@ -1,5 +1,5 @@
 ---
-    weight: 141
+    weight: 1416
     title: "使用GitHub登录"
     description: "将GitHub OAuth添加到Supabase项目"
     icon: "article"

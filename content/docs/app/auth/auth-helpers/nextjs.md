@@ -1,5 +1,5 @@
 ---
-    weight: 177
+    weight: 1453
     title: "使用Next.js进行Supabase认证"
     description: 'Next的身份验证助手。js API路由、中间件和SSR。'
     icon: "article"

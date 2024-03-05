@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on My New Hugo Site</title>
-    <link>https://github.com/docs/</link>
+    <link>http://localhost:1313/docs/</link>
     <description>Recent content in Docs on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>文档中心</title>
-      <link>https://github.com/docs/overview/</link>
+      <link>http://localhost:1313/docs/overview/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://github.com/docs/overview/</guid>
+      <guid>http://localhost:1313/docs/overview/</guid>
       <description>欢迎来到MemFire Cloud文档中心！我们为您提供丰富的操作指南和详细的参考资料，帮助您轻松上手MemFire Cloud产品，顺利完成基于数据库的应用开发～&#xA;MemFire Cloud云数据库 linkMemFire Cloud致力于提供一站式数据库自助服务，隐藏复杂、专业的工作（比如：复杂的配置、数据库扩展、备份、运维等），实现开箱即用、按需使用、动态扩容、运维托管。&#xA;云数据库文档&#xA;查看MemFire Cloud云数据库产品的全部文档&#xA;云数据库快速上手&#xA;快速了解和使用MemFire Cloud云数据库&#xA;各种开发语言样例&#xA;使用MemFire Cloud云数据库和各种开发语言来构建一个简单的CURD应用程序&#xA;MemFire Cloud应用开发 linkMemFire Cloud推出的基于Supabase与MemFireDB打造的一站式后端服务，为应用开发者提供云数据库、云存储、自动生成API、用户认证与授权、静态托管等功能，加速移动/Web/IoT/游戏等应用的开发，并降低运维成本。&#xA;应用开发文档&#xA;查看MemFire Cloud应用开发产品的全部文档&#xA;应用开发快速上手&#xA;快速体验和上手MemFire Cloud应用开发&#xA;开发应用样例&#xA;学习应用样例，快速构建一个应用</description>
     </item>
     <item>
       <title>实名认证</title>
-      <link>https://github.com/docs/real-name-authentication/</link>
+      <link>http://localhost:1313/docs/real-name-authentication/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://github.com/docs/real-name-authentication/</guid>
+      <guid>http://localhost:1313/docs/real-name-authentication/</guid>
       <description>MemFire Cloud实名认证目前仅支持个人实名认证操作，接下来会详细介绍如何进行实名认证。&#xA;如果你想参与MemFire Cloud官网个人运营活动，或想将MemFire Cloud账号及云资源归属于您个人名下，则需要您进行个人实名认证。&#xA;操作场景 link本文将指导您通过采用身份证正、反面照片+手持身份证照片进行实名认证操作。&#xA;操作前提 link已注册MemFire Cloud账号。&#xA;操作步骤 link 登录MemFire Cloud平台，进入个人中心-&amp;gt;实名认证页面。&#xA;点击开始个人认证，进入实名认证详情页面。&#xA;上传身份证正反面照片、手持身份证照片、并完善个人信息，核对姓名、身份证号。&#xA;上传清晰且包含完整边框，无遮挡、涂抹的证件照片 必须本人手持身份证 人脸、身份证上信息需清晰可见 格式支持JPG、PNG、JPEG格式，大小不超过1M 阅读《实名认证服务协议》，勾选您已阅读并同意该协议，点击提交，则提交个人实名认证申请。 完成个人实名认证申请操作后，平台预计在1~3个工作日完成个人实名认证审核工作。 特别说明：&#xA;针对个人实名认证，同一个身份信息（身份证号码）默认支持实名认证2个MemFire Cloud账号。 个人实名认证适用于年满18周岁的用户。 目前不支持港澳台个人用户进行实名认证操作。 不支持15位号码的一代身份证认证。 </description>
     </item>
     <item>
       <title>常见问题解答（FAQ）</title>
-      <link>https://github.com/docs/frequently-asked-questions/</link>
+      <link>http://localhost:1313/docs/frequently-asked-questions/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://github.com/docs/frequently-asked-questions/</guid>
+      <guid>http://localhost:1313/docs/frequently-asked-questions/</guid>
       <description>产品FAQ link1、什么是MemFireDB Cloud？&#xA;MemFire Cloud是基于MemFireDB打造的数据库云服务，依托于MemFireDB的云原生和线性扩展能力，为互联网用户提供一站式数据库自助服务，实现按需使用，随用随取，最大化的节约成本、提高效率、减少维护。&#xA;2、MemFireDB Cloud支持哪些客户端？&#xA;MemFire Cloud支持所有MemFireDB兼容的客户端: 运行环境 客户端名称 下载地址 linux客户端 psql 命令：yum -y install postgresql11 windows客户端 dbeaver 、pgadmin 地址：https://dbeaver.io/files/7.1.0/dbeaver-ce-7.1.0-win32.win32.x86_64.zip mac客户端 dbeaver 地址：https://dbeaver.io/files/7.1.0/dbeaver-ce-7.1.0-macosx.cocoa.x86_64.tar.gz 3、MemFire Cloud是基于分布式数据库打造的吗？&#xA;是的，MemFire Cloud是基于分布式数据库MemFireDB打造的；&#xA;MemFireDB是基于 Raft一致性协议的分布式存储集群，可在线动态扩容存储和计算资源，扩容时不会影响业务的正常运行。&#xA;4、MemFire Cloud兼容哪个PostgreSQL版本?&#xA;MemFire Cloud支持符合ANSI标准的结构化查询语言。兼容PostgreSQL 11.2版本。&#xA;MemFireDB复用了PostgreSQL的原生查询层。MemFireDB支持所有的传统关系模型功能，例如引用完整性（例如外键）、JOIN、分布式事务、部分索引、触发器和存储过程。&#xA;5、MemFire Cloud支持哪些编程语言？&#xA;MemFire Cloud 支持python、Java、go等编程语言，具体编程样例可以参考：https://gitee.com/memfiredb&#xA;6、MemFireDB与MemFire Cloud有什么区别？&#xA;MemFireDB是敏博科技推出的一款高性能、分布式关系型数据库，支持分布式事务，在线平滑弹性伸缩，服务能力线性扩展，跨数据中心部署等能力，可以较好地兼容PostgreSQL的SQL访问形式。&#xA;MemFire Cloud是面向公有云的数据库即服务产品，提供自助服务，便捷的管理服务，满足中小企业开发人员对数据库的使用需求； 名称 MemFireDB MemFire Cloud 定义 分布式关系数据库 面向公有云的数据库即服务产品 DBaaS 部署方式 私有云（X86服务器、虚拟机） 公有云（阿里云） 关系 基础组件，数据库内核 MemFireDB作为内核 维护成本 硬件、DBA 无 售卖方式 “软件+售后服务” 租赁，”资源的使用权+SLA“ 迭代方式 主动升级 自动升级 面向客户 政府、企业等客户 互联网+中小企业客户 应用场景 高性能业务、金融业务 小程序、简单应用 7、MemFire Cloud 提供哪些机制来保障安全性？</description>
     </item>
   </channel>

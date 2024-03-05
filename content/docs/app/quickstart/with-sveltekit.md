@@ -1,5 +1,5 @@
 ---
-    weight: 108
+    weight: 1315
     title: "快速入门: SvelteKit"
     description: "了解如何在你的SvelteKit应用程序中使用Supabase。"
     icon: "article"

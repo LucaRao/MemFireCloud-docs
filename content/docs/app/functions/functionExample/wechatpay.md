@@ -1,5 +1,5 @@
 ---
-    weight: 159
+    weight: 1722
     title: "wechatpay"
     description: "Getting started with wechatpay."
     icon: "article"

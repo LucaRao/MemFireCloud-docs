@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>开始 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/wechatsdk/start/</link>
+    <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/</link>
     <description>Recent content in 开始 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/app/sdkdocs/wechatsdk/start/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>初始化客户端</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/start/installing/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/start/installing/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</guid>
       <description>supabase-wechat-stable-v2是由MemFire Cloud团队直接建立的。&#xA;supabase-wechat-stable-v2 link使用NPM安装&#xA;npm install supabase-wechat-stable-v2&#xD;使用Yarn安装&#xA;yarn add supabase-wechat-stable-v2&#xD;</description>
     </item>
     <item>
       <title>版本说明</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/start/release-notes/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/release-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/start/release-notes/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/release-notes/</guid>
       <description>supabase-wechat-stable-v2 v2发布说明。&#xA;2.0.0 link用npm install supabase-wechat-stable-v2安装最新版本。&#xA;明确的构造器选项 link构造函数中的所有客户端特定选项都是键入库的。&#xA;const supabase = createClient(apiURL, apiKey, {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;storage: AsyncStorage,&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true,&#xD;},&#xD;realtime: {&#xD;channels,&#xD;endpoint,&#xD;},&#xD;global: {&#xD;fetch: customFetch,&#xD;headers: DEFAULT_HEADERS,&#xD;},&#xD;})&#xD;支持typescript link这些库现在支持typescript。&#xA;// v2 - definitions are injected in `createClient()`&#xD;import type { Database } from &amp;#39;./DatabaseDefinitions&amp;#39;&#xD;const supabase = createClient&amp;lt;Database&amp;gt;(SUPABASE_URL, ANON_KEY)&#xD;const { data } = await supabase.</description>
     </item>
     <item>
       <title>支持Typescript</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/start/typescript-support/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/typescript-support/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/start/typescript-support/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/typescript-support/</guid>
       <description>supabase-wechat-stable-v2支持Typescript。&#xA;生成类型 link你可以使用我们的CLI来生成类型。&#xA;supabase start&#xD;supabase gen types typescript --local &amp;gt; lib/database.types.ts&#xD;这些类型是直接从你的数据库中生成的。给定一个表public.movies，该定义将提供以下数据。&#xA;interface Database {&#xD;public: {&#xD;Tables: {&#xD;movies: {&#xD;Row: {} // The data expected to be returned from a &amp;#34;select&amp;#34; statement.&#xD;Insert: {} // The data expected passed to an &amp;#34;insert&amp;#34; statement.&#xD;Update: {} // The data expected passed to an &amp;#34;update&amp;#34; statement.&#xD;}&#xD;}&#xD;}&#xD;}&#xD;在 &amp;ldquo;选择&amp;rdquo;、&amp;ldquo;插入 &amp;ldquo;和 &amp;ldquo;更新 &amp;ldquo;之间是有区别的，因为通常你会在数据库中为特定的列设置默认值。 有了默认值，你就不需要通过网络发送任何数据，即使该列是一个 &amp;ldquo;必填 &amp;ldquo;字段。我们的类型系统是精细的 足以处理这些情况。</description>
     </item>
   </channel>

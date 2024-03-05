@@ -1,5 +1,5 @@
 ---
-    weight: 177
+    weight: 1472
     title: "第二部分:行级安全"
     description: 'Supabase Auth Deep Dive第二部分 - 行级安全'
     icon: "article"

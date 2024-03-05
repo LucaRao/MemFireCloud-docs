@@ -1,5 +1,5 @@
 ---
-    weight: 110
+    weight: 1314
     title: "快速入门: SolidJS"
     description: "了解如何在您的 SolidJS 应用程序中使用 Supabase。"
     icon: "article"

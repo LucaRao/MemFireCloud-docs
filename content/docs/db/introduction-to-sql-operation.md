@@ -1,5 +1,5 @@
 ---
-weight: 471
+weight: 4006
 title: "SQL操作入门"
 description: ""
 icon: "article"

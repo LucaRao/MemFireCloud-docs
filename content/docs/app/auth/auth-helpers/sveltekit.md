@@ -1,5 +1,5 @@
 ---
-    weight: 177
+    weight: 1454
     title: "使用SveltKit进行Supabase认证"
     description: '在SveltKit中实现用户身份验证的方便助手。'
     icon: "article"

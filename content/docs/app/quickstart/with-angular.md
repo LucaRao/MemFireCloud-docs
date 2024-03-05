@@ -1,5 +1,5 @@
 ---
-    weight: 105
+    weight: 1305
     title: "快速入门: Angular"
     description: "了解如何在你的Angular App中使用Supabase。"
     icon: "article"
