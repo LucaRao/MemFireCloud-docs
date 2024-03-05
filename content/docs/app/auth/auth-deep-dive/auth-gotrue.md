@@ -1,0 +1,87 @@
+---
+    weight: 177
+    title: "第四部分: GoTrue"
+    description: 'Supabase深潜第四部分：Gotrue概述'
+    icon: "article"
+    draft: true
+    toc: true
+---
+
+
+### 关于
+
+如何将表的访问限制在认证用户、行级策略和基于电子邮件域的访问。
+
+### 观察
+
+<div className="video-container">
+  <iframe
+    src="https://www.youtube.com/embed/neqfYym_84k"
+    frameBorder="1"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+</div>
+
+### Gotrue Server
+
+Gotrue是一个由Netlify团队用Go编写的认证API服务器，在这里可以找到Supabase的分叉：https://github.com/supabase/gotrue
+可用的API端点列表可在[这里](https://github.com/supabase/gotrue#endpoints)。
+
+当你部署一个新的Supabase项目时，我们会在你的数据库旁边部署一个新的服务器实例，同时也为你的数据库注入所需的`auth`模式。
+
+这使得它非常容易，例如，发送神奇的链接电子邮件，你的用户可以用它来登录:
+
+```bash
+# replace <project-ref> with your own project reference
+# and SUPABASE_KEY with your anon api key
+curl -X POST 'https://<project-ref>.supabase.co/auth/v1/magiclink' \
+-H "apikey: SUPABASE_KEY" \
+-H "Content-Type: application/json" \
+-d '{
+  "email": "someone@email.com"
+}'
+```
+
+Gotrue负责为你的用户发放访问令牌，发送确认邮件、魔法链接和密码恢复邮件（默认情况下，我们从Supabase的SMTP服务器发送这些邮件，但你可以在仪表板的Auth > Settings中轻松插入你自己的邮件），也可以与第三方OAuth提供商进行交易，获得基本的用户数据。
+
+如果你的用户需要与供应商进行更密切的互动，社区最近甚至还内置了请求自定义OAuth范围的功能。请看这里的scopes参数。[https://github.com/supabase/gotrue#get-authorize](https://github.com/supabase/gotrue#get-authorize)。
+
+因此，假设你想通过gmail代表用户发送电子邮件，你可能会请求gmail.send范围，把他们引导到：
+
+```
+https://sjvwsaokcugktsdaxxze.supabase.co/auth/v1/authorize?provider=google&https://www.googleapis.com/auth/gmail.send
+```
+
+当然，你必须确保你的谷歌应用经过验证，以便申请这些高级范围。
+
+[Gotrue-js](https://github.com/supabase/gotrue-js) (还有 [gotrue-csharp](https://github.com/supabase/gotrue-csharp), [gotrue-py](https://github.com/j0/gotrue-py), [gotrue-kt](https://github.com/supabase/gotrue-kt), 和 [gotrue-dart](https://github.com/supabase/gotrue-dart)) 都是对Getrue API端点的封装，使你的客户端更容易进行会话管理。
+
+但是gotrue-js的所有功能在supabase-js中也是可用的，当你做一些事情时，supabase-js在内部使用gotrue-js。
+
+```jsx
+const { user, session, error } = await supabase.auth.signIn({
+  email: 'example@email.com',
+  password: 'example-password',
+})
+```
+
+如果你想申请一个功能，或直接为项目做贡献，只需前往 https://github.com/supabase/gotrue 
+并打开一些问题/PR，我们总是愿意帮助。
+
+在下一个指南中，我们将研究如何设置外部OAuth提供者。观看[第五部分：Google Oauth](././learn/auth-deep-dive/auth-google-oauth)
+
+### 资源
+
+- JWT debugger: https://jwt.io​
+
+### 下一步
+
+- 观看[第一部分：JWTs](./auth-deep-dive-jwts) 
+
+- [第二部分:行级安全](./auth-row-level-security)
+- [第三部分:政策](./auth-policies)
+<!--- [第四部分: GoTrue](../../learn/auth-deep-dive/auth-gotrue)-->
+- 注册加入[MemFire Cloud](https://cloud.memfiredb.com/)
+
+

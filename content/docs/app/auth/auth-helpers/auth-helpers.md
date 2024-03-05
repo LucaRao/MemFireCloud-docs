@@ -1,0 +1,58 @@
+---
+    weight: 177
+    title: "身份验证帮助程序"
+    description: '用于使用Supabase的特定于框架的Auth实用程序的集合。'
+    icon: "article"
+    draft: true
+    toc: true
+---
+
+用于使用Supabase的特定于框架的Auth实用程序的集合。
+
+<div className="container" style={{ padding: 0 }}>
+  <div className="grid md:grid-cols-12 gap-4">
+    {/* Auth UI */}
+    <div className="col-span-6">
+      <ButtonCard
+        to={'/guides/auth/auth-helpers/auth-ui'}
+        title={'Auth UI'}
+        description={'一个预建的React组件，用于验证用户。'}
+      />
+    </div>
+    {/* Next.js */}
+    <div className="col-span-6">
+      <ButtonCard
+        to={'/guides/auth/auth-helpers/nextjs'}
+        title={'Next.js'}
+        description={'用于在Next.js应用程序中验证用户身份的辅助工具。'}
+      />
+    </div>
+    {/* SvelteKit */}
+    <div className="col-span-6">
+      <ButtonCard
+        to={'/guides/auth/auth-helpers/sveltekit'}
+        title={'SvelteKit'}
+        description={'用于在SvelteKit应用程序中验证用户身份的帮助器。'}
+      />
+    </div>
+    {/* Remix */}
+    <div className="col-span-6">
+      <ButtonCard
+        to={'/guides/auth/auth-helpers/remix'}
+        title={'Remix'}
+        description={'用于在Remix应用程序中验证用户身份的辅助工具。'}
+      />
+    </div>
+  </div>
+</div>
+
+## 状态
+
+身份验证助手处于`测试`状态。它们在当前状态下是可用的，但很可能会有突破性的变化。
+
+## 其他链接
+
+- [源代码](https://github.com/supabase/auth-helpers)
+- [已知错误和问题](https://github.com/supabase/auth-helpers/issues)
+
+

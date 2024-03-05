@@ -702,7 +702,7 @@ regexp_replace('foobarbaz', 'b(..)', 'X\1Y', 'g')
 
 regexp_match返回一个文本数组，它包含一个POSIX正则表达式模式与一个字符串第一个匹配所得到的子串。其语法是**regexp_match(string, pattern [, flags ])**。如果没有匹配，则结果为NULL。如果找到一个匹配并且pattern不包含带括号的子表达式，那么结果是一个单一元素的文本数组，其中包含匹配整个模式的子串。如果找到一个匹配并且pattern含有带括号的子表达式，那么结果是一个文本数组，其中第n个元素是与pattern的第n个圆括号子表达式匹配的子串（“非捕获”圆括号不计入在内，详见下文）。flags参数是一个可选的文本字符串，它包含零个或者更多个可以改变该函数行为的单字母标志。所支持的标志在表 中介绍。
 
-**一些例子：**
+**一些例子**：
 
 ```
 SELECT regexp_match('foobarbequebaz', 'bar.*que');

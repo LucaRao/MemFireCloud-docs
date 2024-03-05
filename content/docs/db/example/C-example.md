@@ -30,7 +30,7 @@ Npgsql是 PostgreSQL 数据库的 ADO.NET 规范的实现,采用 C# 语言编写
 
 <img src='../../_media/样例-db-c-1.png'> 
 
-**2、采用命令行的方式进行安装：**
+**2、采用命令行的方式进行安装**：
 在 Windows、Linux 和 macOS 上安装 .NET Core、.NET 5 及更高版本，参考地址：https://docs.microsoft.com/zh-cn/dotnet/core/install/      
 安装完成后，可以通过 .NET CLI 的通用驱动程序dotnet来安装Npgsql。   
 

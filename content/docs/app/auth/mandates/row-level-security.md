@@ -146,7 +146,7 @@ create policy "Team members can update team details if they belong to the team."
     )
   );
 ```
-**注意：**如果还为_members_启用了RLS，则用户还必须具有对_members_1的读取（_select_）权限。否则，连接的查询将不会产生任何结果。
+**注意**：如果还为_members_启用了RLS，则用户还必须具有对_members_1的读取（_select_）权限。否则，连接的查询将不会产生任何结果。
 
 ### 具有安全定义功能的策略
 
