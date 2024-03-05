@@ -16,6 +16,13 @@
       <description>要为项目启用Apple Auth，您需要设置Apple OAuth应用程序，并将应用程序凭据添加到MemFire Cloud项目仪表板。&#xA;概述 linkApple OAuth包括六大步骤：&#xA;获取具有 使用Apple登录 功能的 App Id。 获取Services Id - 这将用作 client_id。 获取用于获取 client_secret的secret key。 使用 secret key生成client_secret。 将您的 client id和 client secret 密钥添加到MemFire Clpud Project。 将登录代码添加到JS客户端应用程序。 访问您的Apple Developer帐户 link 进入developer.apple.com. 点击右上方的 账户来登录。 获取应用程序ID link 跳转到Certificates, Identifiers &amp;amp; Profiles文件. 单击左侧的Identifiers。 单击左上角Identifiers旁边的+符号。 选择 App IDs并单击 继续。 选择 App 类型，然后单击继续。 填写应用程序信息： 应用程序描述。 绑定ID (苹果推荐反向域名风格，所以如果你的域名是acme.com，而您的应用程序称为roadrunner，请使用：com.acme.roadrunner)。 向下滚动并选中使用Apple登录。 单击右上角的继续。 单击右上角的注册。 获取服务ID link当您进行API调用以验证用户时，这将用作client_id。&#xA;跳转到Certificates, Identifiers &amp;amp; Profiles文件. 单击左侧的Identifiers。 单击左上角Identifiers旁边的+符号。 选择 Services IDs 并单击“继续”。 填写应用程序信息： 应用程序描述。 绑定ID (您不能使用上一步中的同一绑定的ID，但可以在开头添加一些内容，例如app.</description>
     </item>
     <item>
+      <title>使用电子邮件登录</title>
+      <link>https://github.com/docs/app/auth/authentication/auth-email/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/auth/authentication/auth-email/</guid>
+      <description>概述 link为 MemFireCloud 应用程序设置电子邮件登录。&#xA;将电子邮件验证器添加到MemFire Cloud项目 将登录代码添加到应用程序 - JavaScript | Flutter 配置电子邮件设置 link 对于 网站 URL, 输入应用程序的最终（托管）URL。 对于 身份验证服务商, 启用电子邮件提供程序. info&#xD;对于自托管，可以使用提供的文件和环境变量更新项目配置。 有关详细信息，请参阅自托管文档。&#xA;将登录代码添加到客户端应用程序 link&#xD;JavaScript&#xD;Dart&#xD;当用户登录时，使用其电子邮件地址和密码调用signInWithPassword()：&#xA;async function signInWithEmail() {&#xD;const { data, error } = await supabase.auth.signInWithPassword({&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;})&#xD;}&#xD;当用户登录时，使用其电子邮件地址和密码调用signInWithPassword()：&#xA;Future&amp;lt;void&amp;gt; signInWithEmail() async {&#xD;final AuthResponse res = await supabase.auth.signInWithPassword(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;&#xD;);&#xD;}&#xD;JavaScript&#xD;Dart&#xD;当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除：&#xA;async function signOut() {&#xD;const { error } = await supabase.</description>
+    </item>
+    <item>
       <title>使用GitHub登录</title>
       <link>https://github.com/docs/app/auth/authentication/auth-github/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -37,11 +44,11 @@
       <description>Magic Link是一种无密码登录的形式，用户单击发送到其电子邮件地址的链接即可登录其帐户。 Magic Link仅适用于电子邮件地址。默认情况下，用户只能每60秒请求一次Magic Link。&#xA;概述 link为MemfireCloud应用程序提供Magic Link登录。&#xA;将登录代码添加到应用程序 - JavaScript | Flutter 将Magic Link添加到您的 MemfireCloud 项目中 link 对于网站URL, 输入应用程序的最终（托管）URL。 对于 身份验证服务商, 启用电子邮件提供商. 将登录代码添加到客户端应用程序 link&#xD;JavaScript&#xD;Dart&#xD;当您的用户登录时，使用其电子邮件地址调用signInWithOtp():&#xA;async function signInWithEmail() {&#xD;const { data, error } = await supabase.auth.signInWithOtp({&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;})&#xD;}&#xD;当您的用户登录时，使用其电子邮件地址调用signIn():&#xA;Future&amp;lt;void&amp;gt; signInWithEmail() async {&#xD;final AuthResponse res = await supabase.auth.signinwithotp(email: &amp;#39;example@email.com&amp;#39;);&#xD;}&#xD;JavaScript&#xD;Dart&#xD;当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除:&#xA;async function signOut() {&#xD;const { error } = await supabase.</description>
     </item>
     <item>
-      <title>使用电子邮件登录</title>
-      <link>https://github.com/docs/app/auth/authentication/auth-email/</link>
+      <title>手机登录认证</title>
+      <link>https://github.com/docs/app/auth/authentication/phoneauth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/auth/authentication/auth-email/</guid>
-      <description>概述 link为 MemFireCloud 应用程序设置电子邮件登录。&#xA;将电子邮件验证器添加到MemFire Cloud项目 将登录代码添加到应用程序 - JavaScript | Flutter 配置电子邮件设置 link 对于 网站 URL, 输入应用程序的最终（托管）URL。 对于 身份验证服务商, 启用电子邮件提供程序. info&#xD;对于自托管，可以使用提供的文件和环境变量更新项目配置。 有关详细信息，请参阅自托管文档。&#xA;将登录代码添加到客户端应用程序 link&#xD;JavaScript&#xD;Dart&#xD;当用户登录时，使用其电子邮件地址和密码调用signInWithPassword()：&#xA;async function signInWithEmail() {&#xD;const { data, error } = await supabase.auth.signInWithPassword({&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;})&#xD;}&#xD;当用户登录时，使用其电子邮件地址和密码调用signInWithPassword()：&#xA;Future&amp;lt;void&amp;gt; signInWithEmail() async {&#xD;final AuthResponse res = await supabase.auth.signInWithPassword(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;&#xD;);&#xD;}&#xD;JavaScript&#xD;Dart&#xD;当用户注销时，调用signOut()将其从浏览器会话和localStorage中删除：&#xA;async function signOut() {&#xD;const { error } = await supabase.</description>
+      <guid>https://github.com/docs/app/auth/authentication/phoneauth/</guid>
+      <description>前言 link为了顺应国内用户的使用习惯，MemFire Cloud提供了手机号码验证的登录方式，可以兼容国内的阿里云服务商，用户可以采用手机号+短信的放式进行用户身份认证。&#xA;使用步骤 link1.开启手机验证 link进入“用户认证”-&amp;gt;“服务商”页面，启用手机号码验证，短信（SMS）服务商选择“阿里云”，依次填写好阿里云配置后点击保存。&#xA;当启用“短信验证”时，说明您需要发送短信验证码来进行手机认证，您需要填写正确的阿里云短信签名名称和短信模板CODE&#xA;2.示例教程 linkMemFire Cloud 提供两种手机登录认证方式，分别如下：&#xA;① 手机号+验证码登录认证 link用户使用手机号获取验证码。&#xA;SDK的使用教程&#xA;//获取验证码&#xD;async function getQRcode(){&#xD;let { data, error } = await _supabase.auth.signInWithOtp({&#xD;phone: phone,&#xD;})&#xD;if(error){&#xD;alert(error)&#xD;}&#xD;alert(&amp;#39;短信已发送至您的手机中，请注意查收。&amp;#39;)&#xD;}&#xD;//登录&#xD;async function sigin(){&#xD;let { data, error } = await _supabase.auth.verifyOtp({&#xD;phone: phone,&#xD;token: QRcode,&#xD;type: &amp;#39;sms&amp;#39;,&#xD;})&#xD;if(error){&#xD;alert(error)&#xD;return;&#xD;}&#xD;alert(&amp;#39;登录成功！&amp;#39;) }&#xD;② 手机号+密码+验证码认证 link图示 link先用手机号+密码获取验证码进行注册&#xA;随后会在用户列表里刚刚那条等待验证的用户信息&#xA;输入验证码，点击注册，会发现用户列表的用户已经认证成功。&#xA;SDK的使用教程&#xA;1.用户使用手机号+密码先来获取验证码进行注册。&#xA;//获取验证码（注册）&#xD;async function getQRcode(){&#xD;let { data, error } = await _supabase.</description>
     </item>
     <item>
       <title>微信小程序登录认证</title>
@@ -49,13 +56,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/docs/app/auth/authentication/wechatauth/</guid>
       <description>前言 link为了顺应国内用户的使用习惯，MemFire Cloud 的SDK推出了微信可以在不同应用场景下的登录方式，以下两种场景是MemFire Cloud 推荐的微信登录方式，我们以简单的小示例来做示范，具体的实现还需要根据业务自身的场景来判断。&#xA;① 微信用户授权登录 link首次进入小程序，点击登录后会立即跳转个人中心页进行个人资料的修改，或者可以点击个人中心页面进行个人资料的修改&#xA;前提条件：&#xA;在MemFire Cloud认证服务商页面启用微信小程序认证 图例&#xA;首页代码示例：&#xA;html&#xA;&amp;lt;button style=&amp;#34;border-radius: 100rpx;margin-top: 300rpx;&amp;#34; type=&amp;#34;primary&amp;#34; bindtap=&amp;#34;login&amp;#34;&amp;gt;微信快速登录&amp;lt;/button&amp;gt;&#xD;SDK使用教程&#xA;signInWithWechat接口接受一个wx.login返回的code参数，通过code兑换openid等信息，并判断用户是否存在，不存在则自动创建&#xA;// pages/main/index.ts&#xD;import { supabase } from &amp;#39;../../lib/supabase&amp;#39;&#xD;Page({&#xD;data: {&#xD;},&#xD;login(){&#xD;wx.login({&#xD;success: async res =&amp;gt; {&#xD;const { data, error } = await supabase.auth.signInWithWechat({code:res.code})&#xD;if(error){&#xD;wx.showToast({&#xD;title: error?.error || error?.msg,&#xD;icon: &amp;#34;none&amp;#34;,&#xD;duration: 2000&#xD;})&#xD;}else if(data){&#xD;setTimeout(() =&amp;gt; {&#xD;wx.showModal({&#xD;title: &amp;#39;提示&amp;#39;,&#xD;content: &amp;#39;登录成功！去填充个人资料吧！&amp;#39;,&#xD;success (res) {&#xD;if (res.</description>
-    </item>
-    <item>
-      <title>手机登录认证</title>
-      <link>https://github.com/docs/app/auth/authentication/phoneauth/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/auth/authentication/phoneauth/</guid>
-      <description>前言 link为了顺应国内用户的使用习惯，MemFire Cloud提供了手机号码验证的登录方式，可以兼容国内的阿里云服务商，用户可以采用手机号+短信的放式进行用户身份认证。&#xA;使用步骤 link1.开启手机验证 link进入“用户认证”-&amp;gt;“服务商”页面，启用手机号码验证，短信（SMS）服务商选择“阿里云”，依次填写好阿里云配置后点击保存。&#xA;当启用“短信验证”时，说明您需要发送短信验证码来进行手机认证，您需要填写正确的阿里云短信签名名称和短信模板CODE&#xA;2.示例教程 linkMemFire Cloud 提供两种手机登录认证方式，分别如下：&#xA;① 手机号+验证码登录认证 link用户使用手机号获取验证码。&#xA;SDK的使用教程&#xA;//获取验证码&#xD;async function getQRcode(){&#xD;let { data, error } = await _supabase.auth.signInWithOtp({&#xD;phone: phone,&#xD;})&#xD;if(error){&#xD;alert(error)&#xD;}&#xD;alert(&amp;#39;短信已发送至您的手机中，请注意查收。&amp;#39;)&#xD;}&#xD;//登录&#xD;async function sigin(){&#xD;let { data, error } = await _supabase.auth.verifyOtp({&#xD;phone: phone,&#xD;token: QRcode,&#xD;type: &amp;#39;sms&amp;#39;,&#xD;})&#xD;if(error){&#xD;alert(error)&#xD;return;&#xD;}&#xD;alert(&amp;#39;登录成功！&amp;#39;) }&#xD;② 手机号+密码+验证码认证 link图示 link先用手机号+密码获取验证码进行注册&#xA;随后会在用户列表里刚刚那条等待验证的用户信息&#xA;输入验证码，点击注册，会发现用户列表的用户已经认证成功。&#xA;SDK的使用教程&#xA;1.用户使用手机号+密码先来获取验证码进行注册。&#xA;//获取验证码（注册）&#xD;async function getQRcode(){&#xD;let { data, error } = await _supabase.</description>
     </item>
   </channel>
 </rss>

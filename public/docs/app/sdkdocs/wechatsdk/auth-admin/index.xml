@@ -9,6 +9,13 @@
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
     <atom:link href="https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>概览</title>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/supabase-auth-admin-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/supabase-auth-admin-api/</guid>
+      <description> 在 supabase.auth.admin 命名空间下的任何方法都需要使用 service_role 密钥。 这些方法被认为是管理员级别的方法，它们应该只在可信任的服务器端被调用执行，而不应该在客户端浏览器等不受信任的环境中使用。 绝对不要在客户端浏览器中公开或传递 service_role 密钥。因为这个密钥拥有管理用户认证和权限的权限，如果泄露给不信任的用户，可能会导致安全风险. 案例教程 link案例1 （创建服务器端认证客户端） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const supabase = createClient(supabase_url, service_role_key, {&#xD;auth: {&#xD;autoRefreshToken: false,&#xD;persistSession: false&#xD;}&#xD;})&#xD;// Access auth admin api&#xD;const adminAuthClient = supabase.auth.admin&#xD;</description>
+    </item>
+    <item>
       <title>createUser()</title>
       <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-createuser/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -21,6 +28,20 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-deleteuser/</guid>
       <description>deleteUser()用于删除用户。这个过程需要使用 service_role 密钥。&#xA;案例教程 link案例1 （移除一个用户） link&#xD;使用方法&#xD;const { data, error } = await supabase.auth.admin.deleteUser(&#xD;&amp;#39;715ed5db-f090-4b8c-a067-640ecee36aa0&amp;#39;&#xD;)&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;你想删除的用户ID。&#xA;shouldSoftDelete&#xD;[可选参数]&#xD;boolean类型&#xD;当设置为 true 时，将对用户进行软删除操作（&amp;ldquo;软删除&amp;rdquo; 是一种在数据库中标记数据为已删除但不立即物理删除的操作方式。），即在认证模式（auth schema）中进行软删除。而当设置为 false 时，用户将被物理删除。&#xA;默认情况下，&amp;ldquo;shouldSoftDelete&amp;rdquo; 参数的值为 false，这是为了保持向后兼容性。这意味着如果在调用删除用户的函数时不显式指定 &amp;ldquo;shouldSoftDelete&amp;rdquo; 参数，那么默认情况下用户将会被物理删除，而不是软删除。&#xA;需要特别注意的是绝对不能将这个参数暴露给客户端浏览器。这是因为这个参数涉及到对数据进行软删除或物理删除的决定，是一个敏感的操作。确保在服务器端安全地处理这个参数，并且绝不要在客户端浏览器中传递敏感的 service_role 密钥。</description>
+    </item>
+    <item>
+      <title>listUsers()</title>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-listusers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-listusers/</guid>
+      <description>listUsers()用于获取用户列表，默认每页返回50个用户。&#xA;案例教程 link案例1 （获取用户的一页数据） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers()&#xD;案例2 （用户的分页列表） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers({&#xD;page: 1,&#xD;perPage: 1000&#xD;})&#xD;参数说明 link&#xD;params&#xD;[可选参数]&#xD;PageParams&#xD;一个对象，支持 page 和 perPage 作为数字，用于更改分页结果。&#xA;特性&#xD;page&#xD;[可选参数]&#xD;数字类型&#xD;页数&#xA;perPage&#xD;[可选参数]&#xD;数字类型&#xD;每一页返回项目的个数</description>
+    </item>
+    <item>
+      <title>updateUserById()</title>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-updateuserbyid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-updateuserbyid/</guid>
+      <description>updateUserById()用于更新用户数据。&#xA;案例教程 link案例1 （更新用户的电子邮件地址） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ email: &amp;#39;new@email.com&amp;#39; }&#xD;)&#xD;案例2 （更新用户的密码） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ password: &amp;#39;new_password&amp;#39; }&#xD;)&#xD;案例3 （更新用户的元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ user_metadata: { hello: &amp;#39;world&amp;#39; } }&#xD;)&#xD;案例4 （更新用户的应用程序元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.</description>
     </item>
     <item>
       <title>generateLink()</title>
@@ -42,27 +63,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-inviteuserbyemail/</guid>
       <description>inviteUserByEmail()函数用于向一个用户电子邮件地址发送邀请链接。&#xA;案例教程 link案例1 （邀请一个用户） link&#xD;使用方法&#xD;const { data, error } = await supabase.auth.admin.inviteUserByEmail(&amp;#39;email@example.com&amp;#39;)&#xD;参数说明 link&#xD;email&#xD;[必要参数]&#xD;string类型&#xD;用户的电子邮件地址。&#xA;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;用于指定在邀请时包含的额外选项。&#xA;特性&#xD;data&#xD;[可选参数]&#xD;object类型&#xD;用于存储关于用户的其他元数据。这个数据对象映射到 auth.users.user_metadata 列，可以用于存储一些用户特定的信息。&#xA;redirectTo&#xD;[可选参数]&#xD;string类型&#xD;它会附加在发送给用户电子邮件地址的邀请链接的 URL 后面。用户点击链接后将跳转到这个指定的 URL。</description>
-    </item>
-    <item>
-      <title>listUsers()</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-listusers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-listusers/</guid>
-      <description>listUsers()用于获取用户列表，默认每页返回50个用户。&#xA;案例教程 link案例1 （获取用户的一页数据） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers()&#xD;案例2 （用户的分页列表） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers({&#xD;page: 1,&#xD;perPage: 1000&#xD;})&#xD;参数说明 link&#xD;params&#xD;[可选参数]&#xD;PageParams&#xD;一个对象，支持 page 和 perPage 作为数字，用于更改分页结果。&#xA;特性&#xD;page&#xD;[可选参数]&#xD;数字类型&#xD;页数&#xA;perPage&#xD;[可选参数]&#xD;数字类型&#xD;每一页返回项目的个数</description>
-    </item>
-    <item>
-      <title>Overview</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/supabase-auth-admin-api/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/supabase-auth-admin-api/</guid>
-      <description> 在 supabase.auth.admin 命名空间下的任何方法都需要使用 service_role 密钥。 这些方法被认为是管理员级别的方法，它们应该只在可信任的服务器端被调用执行，而不应该在客户端浏览器等不受信任的环境中使用。 绝对不要在客户端浏览器中公开或传递 service_role 密钥。因为这个密钥拥有管理用户认证和权限的权限，如果泄露给不信任的用户，可能会导致安全风险. 案例教程 link案例1 （创建服务器端认证客户端） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const supabase = createClient(supabase_url, service_role_key, {&#xD;auth: {&#xD;autoRefreshToken: false,&#xD;persistSession: false&#xD;}&#xD;})&#xD;// Access auth admin api&#xD;const adminAuthClient = supabase.auth.admin&#xD;</description>
-    </item>
-    <item>
-      <title>updateUserById()</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-updateuserbyid/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-updateuserbyid/</guid>
-      <description>updateUserById()用于更新用户数据。&#xA;案例教程 link案例1 （更新用户的电子邮件地址） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ email: &amp;#39;new@email.com&amp;#39; }&#xD;)&#xD;案例2 （更新用户的密码） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ password: &amp;#39;new_password&amp;#39; }&#xD;)&#xD;案例3 （更新用户的元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ user_metadata: { hello: &amp;#39;world&amp;#39; } }&#xD;)&#xD;案例4 （更新用户的应用程序元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.</description>
     </item>
   </channel>
 </rss>

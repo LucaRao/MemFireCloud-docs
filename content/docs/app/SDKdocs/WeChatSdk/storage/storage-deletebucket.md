@@ -1,5 +1,5 @@
 ---
-    weight: 265
+    weight: 365
     title: "deleteBucket()"
     icon: "article"
     draft: false

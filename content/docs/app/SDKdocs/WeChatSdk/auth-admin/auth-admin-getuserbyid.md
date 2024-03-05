@@ -1,5 +1,5 @@
 ---
-    weight: 290
+    weight: 390
     title: "getUserById()"
     icon: "article"
     draft: false

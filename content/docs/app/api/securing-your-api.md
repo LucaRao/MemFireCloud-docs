@@ -1,5 +1,5 @@
 ---
-    weight: 67
+    weight: 167
     title: "开始使用"
     description: "开始使用"
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 187
+    weight: 287
     title: "updateUser()"
     icon: "article"
     draft: false

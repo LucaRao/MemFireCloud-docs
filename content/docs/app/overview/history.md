@@ -1,5 +1,5 @@
 ---
-    weight: 2
+    weight: 102
     title: "产品动态"
     description: "历史迭代版本"
     icon: "article"

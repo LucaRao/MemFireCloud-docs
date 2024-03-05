@@ -1,5 +1,5 @@
 ---
-    weight: 126
+    weight: 226
     title: "or()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 77
+    weight: 177
     title: "Discussbase论坛"
     description: "Discussbase论坛"
     icon: "article"
@@ -23,7 +23,7 @@ git clone   https://github.com/LucaRao/discussbase
 
 下载**Discussbase**代码后，登录[memfire cloud](https://memfiredb.com/),创建一个MemFire Cloud应用，为Discussbase提供后端服务，包括云数据库、对象存储、授权认证等。
 
-<img src="../../../img/样例-discuss-2.png">
+<img src="../../../img/样例-discuss-1.png">
 
 在应用->概括页面，获取服务地址以及token信息。
 

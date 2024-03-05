@@ -1,5 +1,5 @@
 ---
-    weight: 83
+    weight: 183
     title: "Super课表小程序"
     description: "Super课表小程序"
     icon: "article"
@@ -29,7 +29,7 @@
 
 登录https://cloud.MemFiredb.com/auth/login, 在“我的应用”页面创建一个新应用
 
-<img src="../../../img/super-2.png">
+<img src="../../../img/样例-discuss-1.png">
 
 ## 创建数据表
 
@@ -351,7 +351,7 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/概括页面，获取服务地址以及token信息，只需要从总览中获取URL接口地址和anon的密钥。
 
-<img src="../../../img/super-25.png">
+<img src="../../../img/样例-discuss-3.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 

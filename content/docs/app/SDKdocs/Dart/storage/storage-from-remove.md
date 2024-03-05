@@ -1,5 +1,5 @@
 ---
-    weight: 352
+    weight: 452
     title: "from.remove()"
     icon: "article"
     draft: false

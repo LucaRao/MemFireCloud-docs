@@ -1,5 +1,5 @@
 ---
-    weight: 2
+    weight: 102
     title: "联系我们"
     description: "contactus"
     icon: "article"

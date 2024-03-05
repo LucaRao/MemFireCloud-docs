@@ -1,5 +1,5 @@
 ---
-    weight: 317
+    weight: 417
     title: "eq()"
     icon: "article"
     draft: false

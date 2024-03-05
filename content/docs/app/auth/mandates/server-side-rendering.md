@@ -1,5 +1,5 @@
 ---
-    weight: 50
+    weight: 150
     title: "服务器端渲染"
     description: "在服务器上呈现包含用户信息的页面。"
     icon: "article"

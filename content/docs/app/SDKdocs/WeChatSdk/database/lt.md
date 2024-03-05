@@ -1,5 +1,5 @@
 ---
-    weight: 241
+    weight: 341
     title: "lt()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 4
+    weight: 104
     title: "快速入门: Next.js"
     description: "了解如何在你的下一个应用程序中使用Supabase。"
     icon: "article"

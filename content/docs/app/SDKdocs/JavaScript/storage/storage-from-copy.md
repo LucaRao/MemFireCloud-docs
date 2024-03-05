@@ -1,5 +1,5 @@
 ---
-    weight: 152
+    weight: 252
     title: "from.copy()"
     icon: "article"
     draft: false

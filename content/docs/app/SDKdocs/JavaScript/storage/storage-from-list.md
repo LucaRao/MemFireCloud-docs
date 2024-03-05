@@ -1,5 +1,5 @@
 ---
-    weight: 150
+    weight: 250
     title: "from.list()"
     icon: "article"
     draft: false

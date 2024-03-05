@@ -1,5 +1,5 @@
 ---
-    weight: 172
+    weight: 272
     title: "inviteUserByEmail()"
     icon: "article"
     draft: false

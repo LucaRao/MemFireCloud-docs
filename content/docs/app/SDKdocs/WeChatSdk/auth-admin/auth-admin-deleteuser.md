@@ -1,5 +1,5 @@
 ---
-    weight: 285
+    weight: 385
     title: "deleteUser()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 244
+    weight: 344
     title: "maybeSingle()"
     icon: "article"
     draft: false

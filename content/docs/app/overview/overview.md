@@ -1,5 +1,5 @@
 ---
-    weight: 1
+    weight: 101
     title: "介绍"
     description: "Introduction to Supabase"
     icon: "article"

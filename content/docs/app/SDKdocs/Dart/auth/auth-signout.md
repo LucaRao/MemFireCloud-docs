@@ -1,5 +1,5 @@
 ---
-    weight: 308
+    weight: 408
     title: "signOut()"
     icon: "article"
     draft: false

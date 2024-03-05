@@ -1,5 +1,5 @@
 ---
-    weight: 184
+    weight: 284
     title: "getSession()"
     icon: "article"
     draft: false

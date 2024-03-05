@@ -9,6 +9,13 @@
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
     <atom:link href="https://github.com/docs/app/sdkdocs/javascript/auth-admin/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>概览</title>
+      <link>https://github.com/docs/app/sdkdocs/javascript/auth-admin/supabase-auth-admin-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/docs/app/sdkdocs/javascript/auth-admin/supabase-auth-admin-api/</guid>
+      <description> 在 supabase.auth.admin 命名空间下的任何方法都需要使用 service_role 密钥。 这些方法被认为是管理员级别的方法，它们应该只在可信任的服务器端被调用执行，而不应该在客户端浏览器等不受信任的环境中使用。 绝对不要在客户端浏览器中公开或传递 service_role 密钥。因为这个密钥拥有管理用户认证和权限的权限，如果泄露给不信任的用户，可能会导致安全风险. 案例教程 link案例1 （创建服务器端认证客户端） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const supabase = createClient(supabase_url, service_role_key, {&#xD;auth: {&#xD;autoRefreshToken: false,&#xD;persistSession: false&#xD;}&#xD;})&#xD;// Access auth admin api&#xD;const adminAuthClient = supabase.auth.admin&#xD;</description>
+    </item>
+    <item>
       <title>createUser()</title>
       <link>https://github.com/docs/app/sdkdocs/javascript/auth-admin/auth-admin-createuser/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -49,13 +56,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/docs/app/sdkdocs/javascript/auth-admin/auth-admin-listusers/</guid>
       <description>listUsers()用于获取用户列表，默认每页返回50个用户。&#xA;案例教程 link案例1 （获取用户的一页数据） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers()&#xD;案例2 （用户的分页列表） link&#xD;使用方法&#xD;const { data: { users }, error } = await supabase.auth.admin.listUsers({&#xD;page: 1,&#xD;perPage: 1000&#xD;})&#xD;参数说明 link&#xD;params&#xD;[可选参数]&#xD;PageParams&#xD;一个对象，支持 page 和 perPage 作为数字，用于更改分页结果。&#xA;特性&#xD;page&#xD;[可选参数]&#xD;数字类型&#xD;页数&#xA;perPage&#xD;[可选参数]&#xD;数字类型&#xD;每一页返回项目的个数</description>
-    </item>
-    <item>
-      <title>Overview</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/auth-admin/supabase-auth-admin-api/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/auth-admin/supabase-auth-admin-api/</guid>
-      <description> 在 supabase.auth.admin 命名空间下的任何方法都需要使用 service_role 密钥。 这些方法被认为是管理员级别的方法，它们应该只在可信任的服务器端被调用执行，而不应该在客户端浏览器等不受信任的环境中使用。 绝对不要在客户端浏览器中公开或传递 service_role 密钥。因为这个密钥拥有管理用户认证和权限的权限，如果泄露给不信任的用户，可能会导致安全风险. 案例教程 link案例1 （创建服务器端认证客户端） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const supabase = createClient(supabase_url, service_role_key, {&#xD;auth: {&#xD;autoRefreshToken: false,&#xD;persistSession: false&#xD;}&#xD;})&#xD;// Access auth admin api&#xD;const adminAuthClient = supabase.auth.admin&#xD;</description>
     </item>
     <item>
       <title>updateUserById()</title>

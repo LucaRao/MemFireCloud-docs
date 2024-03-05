@@ -1,5 +1,5 @@
 ---
-    weight: 74
+    weight: 174
     title: "概述"
     description: "Use Supabase to store and serve files."
     icon: "article"
@@ -52,7 +52,6 @@ Bucket是文件和文件夹的不同容器。你可以把它们想象成“超�
   
   
   
-  "
 {{% tab tabName="Dashboard" %}}
 
 
@@ -126,7 +125,6 @@ void main() async {
   
   
   
-  "
 {{% tab tabName="Dashboard" %}}
 
 
@@ -194,7 +192,6 @@ void main() async {
   
   
   
-  "
 {{% tab tabName="Dashboard" %}}
 
 
@@ -257,7 +254,6 @@ void main() async {
   
   
   
-  "
 {{% tab tabName="Dashboard" %}}
 
 

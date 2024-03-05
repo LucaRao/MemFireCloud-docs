@@ -1,5 +1,5 @@
 ---
-    weight: 81
+    weight: 181
     title: "BBS论坛小程序"
     description: "BBS论坛小程序"
     icon: "article"
@@ -27,7 +27,7 @@ helloBBS是一个发布个人心情，查看别人发表的论坛，可以评论
 
 登录https://cloud.MemFiredb.com/auth/login，  在“我的应用”页面创建一个新应用
 
-<img src="../../../img/样例-helloBBS-2.png">
+<img src="../../../img/样例-discuss-1.png">
 
 ## 创建数据表
 
@@ -205,23 +205,20 @@ CREATE TABLE "public"."page_views" (
 
 2.允许每个用户可以下载发布帖子里的图片
 
-选中存储桶avatar，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
+点击**配置**下的策略，选中avatar右侧的**新建策略**，选择**完全定制**如下图所示：
 
 <img src="../../../img/样例-helloBBS-10.png">
 
- 选择SELECT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
-
-<img src="../../../img/样例-helloBBS-11.png">
+ 选择SELECT操作，输入策略名称，点击“回看”并点击保存策略按钮
 
 3.允许用户发布帖子时可以上传图片到存储桶；
 
-选中存储桶avatar，切换到**权限设置**栏，点击“新规则”按钮，弹出策略编辑弹框，选择“自定义”，如下图所示：
+点击**配置**下的策略，选中avatar右侧的**新建策略**，选择**完全定制**如下图所示：
 
 <img src="../../../img/样例-helloBBS-12.png">
 
-选择INSERT操作，输入策略名称，点击“生成策略”按钮，如下图所示。
+选择INSERT操作，输入策略名称，点击“回看”并点击保存策略按钮。
 
-<img src="../../../img/样例-helloBBS-13.png">
 
 查看结果：
 
@@ -288,7 +285,7 @@ export const supabase = createClient(url, key)
 
 回到MemFire Cloud首页，在应用/概括页面，获取服务地址以及token信息，只需要从总览中获取URL接口地址和anon的密钥。
 
-<img src="../../../img/样例-helloBBS-20.png">
+<img src="../../../img/样例-discuss-3.png">
 
 Anon（公开）密钥是客户端API密钥。它允许“匿名访问”您的数据库，直到用户登录。登录后，密钥将切换到用户自己的登录令牌。这将为数据启用行级安全性。 
 

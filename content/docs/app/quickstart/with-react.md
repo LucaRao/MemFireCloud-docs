@@ -1,5 +1,5 @@
 ---
-    weight: 4
+    weight: 104
     title: "快速入门: React"
     description: "了解如何在你的React App中使用Supabase。"
     icon: "article"

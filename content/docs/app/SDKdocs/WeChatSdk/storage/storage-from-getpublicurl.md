@@ -1,5 +1,5 @@
 ---
-    weight: 270
+    weight: 370
     title: "from.getPublicUrl()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 106
+    weight: 206
     title: "Delete 数据"
     icon: "article"
     draft: false

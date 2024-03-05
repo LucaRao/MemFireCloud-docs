@@ -1,5 +1,5 @@
 ---
-    weight: 14
+    weight: 114
     title: "快速入门: Ionic Vue"
     description: "了解如何在你的Ionic Vue应用程序中使用Supabase。"
     icon: "article"

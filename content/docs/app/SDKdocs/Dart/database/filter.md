@@ -1,5 +1,5 @@
 ---
-    weight: 318
+    weight: 418
     title: ".filter()"
     icon: "article"
     draft: false

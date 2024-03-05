@@ -1,5 +1,5 @@
 ---
-    weight: 11
+    weight: 111
     title: "快速入门: RedwoodJS"
     description: "了解如何在你的RedwoodJS应用程序中使用Supabase。"
     icon: "article"

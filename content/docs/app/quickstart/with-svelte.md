@@ -1,5 +1,5 @@
 ---
-    weight: 9
+    weight: 109
     title: "快速入门: Svelte"
     description: "Learn how to use Supabase in your Svelte App."
     icon: "article"

@@ -1,5 +1,5 @@
 ---
-    weight: 301
+    weight: 401
     title: "signInWithPassword()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 49
+    weight: 149
     title: "RLS使用教程"
     description: "使用Postgres行级安全保护您的数据。"
     icon: "article"

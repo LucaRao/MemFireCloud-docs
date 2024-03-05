@@ -1,5 +1,5 @@
 ---
-weight: 1
+weight: 101
 title: "文档中心"
 description: ""
 icon: "article"

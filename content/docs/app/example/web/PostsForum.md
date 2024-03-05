@@ -1,5 +1,5 @@
 ---
-    weight: 79
+    weight: 179
     title: "Posts社交网络论坛"
     description: "Posts社交网络论坛"
     icon: "article"
@@ -47,7 +47,7 @@ Posts社交网络论坛是基于supabase官网的一个todo-list应用示例为�
 
  创建应用的一步很关键，我们的posts应用就是通过在这里创建的应用来获得数据库、对象存储等一系列资源，并将获得该应用专属的API访问链接和访问密钥，用户可以轻松的与以上资源进行交互。想知道关于应用更详细的内容请查看[查看文档](https://docs.memfiredb.com/base/application-introduction.html)
 
-<img src="../../../img/样例-posts-1.png">
+<img src="../../../img/样例-discuss-3.png">
 
 
 

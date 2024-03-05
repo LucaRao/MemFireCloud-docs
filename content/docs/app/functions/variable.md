@@ -1,5 +1,5 @@
 ---
-    weight: 55
+    weight: 155
     title: "环境变量"
     description: "Getting started with environment variable."
     icon: "article"
@@ -48,7 +48,7 @@
 
 4. 验证环境变量是否创建成功。
 
-**在代码中使用环境变量，**假设配置的环境变量为`{"key":"val"}`，以下为Node.js运行环境读取并打印此环境变量值的方法。
+**在代码中使用环境变量**,假设配置的环境变量为`{"key":"val"}`，以下为Node.js运行环境读取并打印此环境变量值的方法。
 
 ```Plain
 var value = process.env.keyconsole.log(value)

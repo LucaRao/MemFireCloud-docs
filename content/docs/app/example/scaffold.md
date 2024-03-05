@@ -1,5 +1,5 @@
 ---
-    weight: 75
+    weight: 175
     title: "前端框架的脚手架"
     description: "Scaffolding for front-end frame"
     icon: "article"

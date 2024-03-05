@@ -1,5 +1,5 @@
 ---
-    weight: 58
+    weight: 158
     title: "抽奖示例"
     description: "Getting started with raffles."
     icon: "article"
@@ -71,14 +71,14 @@ exports.handler = (req, resp, context) => {
 
 <img src="../../../img/raffle-1.png">
 
-- **基础信息：**设置函数的基本信息，包括函数名称、请求处理程序。
+- **基础信息**：设置函数的基本信息，包括函数名称、请求处理程序。
 {{< table "table-striped-columns" >}}
 | **配置项**   | **说明**                                                     |
 | ------------ | ------------------------------------------------------------ |
 | 函数名       | 函数名称，必填项；只能包含字母、数字、下划线；不能以数字开头，长度在 1-64 之间；同一应用下的云函数不能重名； |
 | 请求处理程序 | 即函数入口，默认为index.handler；在“运行环境”为 Node.js 时，当前值的格式为 [文件名].[函数名]； |
  {{< /table >}}
-- **函数配置：**配置函数的代码和运行环境。
+- **函数配置**：配置函数的代码和运行环境。
 {{< table "table-striped-columns" >}}
 | **配置项**   | **说明**                                                     |
 | ------------ | ------------------------------------------------------------ |
@@ -88,8 +88,8 @@ exports.handler = (req, resp, context) => {
 | 访问方法     | 访问方法包括：GET、POST、PUT、DELETE、OPTIONS、HEAD、PATCH   |
 | 函数描述     | 函数描述信息；                                               |
  {{< /table >}}
-- **环境变量：**配置函数运行环境中的环境变量。可以配置多个环境变量，详见：[环境变量](/docs//guides/functions/variable)
-- **函数生命周期回调：**配置函数实例的生命周期回调，**初始化（Initializer）函数**；
+- **环境变量**：配置函数运行环境中的环境变量。可以配置多个环境变量，详见：[环境变量](/docs//guides/functions/variable)
+- **函数生命周期回调**：配置函数实例的生命周期回调，**初始化（Initializer）函数**；
   - 在函数实例启动成功之后，运行请求处理程序（Handler）之前执行；
   - 云函数保证在一个实例生命周期内，成功且只成功执行一次Initializer回调；
 {{< table "table-striped-columns" >}}

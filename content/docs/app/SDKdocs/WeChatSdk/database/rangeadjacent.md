@@ -1,5 +1,5 @@
 ---
-    weight: 251
+    weight: 351
     title: "rangeAdjacent()"
     icon: "article"
     draft: false

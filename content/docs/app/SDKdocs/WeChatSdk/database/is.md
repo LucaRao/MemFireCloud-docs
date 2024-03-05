@@ -1,5 +1,5 @@
 ---
-    weight: 238
+    weight: 338
     title: "is()"
     icon: "article"
     draft: false

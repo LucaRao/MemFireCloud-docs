@@ -1,5 +1,5 @@
 ---
-weight: 4
+weight: 104
 title: "公告"
 description: ""
 icon: "article"

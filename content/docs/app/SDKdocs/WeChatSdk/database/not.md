@@ -1,5 +1,5 @@
 ---
-    weight: 246
+    weight: 346
     title: "not()"
     icon: "article"
     draft: false
