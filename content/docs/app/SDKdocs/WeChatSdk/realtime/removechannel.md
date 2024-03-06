@@ -1,5 +1,5 @@
 ---
-    weight: 380
+    weight: 2862
     title: "removeChannel()"
     icon: "article"
     draft: false

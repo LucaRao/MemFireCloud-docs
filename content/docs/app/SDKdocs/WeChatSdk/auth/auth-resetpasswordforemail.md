@@ -1,5 +1,5 @@
 ---
-    weight: 291
+    weight: 2808
     title: "resetPasswordForEmail()"
     icon: "article"
     draft: false
