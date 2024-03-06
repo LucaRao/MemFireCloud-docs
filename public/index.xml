@@ -30,11 +30,46 @@
       <description>MemFire Cloud提供了全面的前端框架的脚手架，包括vue/react/uni-app微信小程序/taro微信小程序/微信原生小程序。脚手架的功能和页面包括登录注册、个人中心、备忘录、聊天室、文件管理中心，也分别代表了MemFire Cloud不同的特性，其中包括用户认证、自动生成API、实时数据库、对象存储。&#xA;脚手架提供一套基础的MemFire Cloud项目结构和配置，旨在以加快和简化项目的开发过程，不仅可以帮助用户快速启动项目、规范开发流程，集成常用工具和底层框架，并具有一定的定制性和扩展性，提高开发效率和代码质量，为用户提供全面的服务。&#xA;不同前端框架的项目代码&#xA;React link&#xD;npx create-react-app --template memfire-react-template &amp;lt;your_project_name&amp;gt;&#xD;Vue link&#xD;vue create --preset memfire-cloud/memfire-vue-tempalte &amp;lt;your_project_name&amp;gt;&#xD;原生微信小程序模版 link&#xD;npx degit MemFire-Cloud/wechat-template &amp;lt;my-project&amp;gt;&#xD;uni-app微信小程序模版 link&#xD;npx degit MemFire-Cloud/uni-app-template &amp;lt;my-project&amp;gt;&#xD;taro微信小程序模版 link&#xD;npx degit MemFire-Cloud/memfire-taro-template &amp;lt;my-project&amp;gt;&#xD;根据项目的readme文件里的提示，在MemFire Cloud创建应用后，将提供的sql脚本在该应用的SQL执行器里执行。&#xA;再将应用的anon_key和URL添加到对应项目的supabaseClient.js文件里，最后查看项目是否有node_modules包管理器文件夹，如果没有就执行npm install，最后就可以运行项目了。</description>
     </item>
     <item>
+      <title>Flutter库</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</guid>
+      <description>本参考文献记录了Supabase的同构Flutter库supabase-flutter中的每个对象和方法。&#xA;你可以使用supabase-flutter库来。&#xA;与您的Postgres数据库互动 听取数据库的变化 调用数据库函数 建立登录和用户管理功能 管理大文件 适用于非Flutter项目 link我们还有supabase-dart用于非Flutter Dart项目，如服务器端Dart或Angular-Dart。 supabase-dart与supabase-flutter共享大部分的API，而不依赖于Flutter，因此你可以在任何可以运行Dart的地方使用Supabase!&#xA;相关链接 link 源代码 已知的错误和问题 </description>
+    </item>
+    <item>
+      <title>JavaScript库</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</guid>
+      <description>@supabase/supabase-js 是 Supabase 官方提供的一个同构 JavaScript 库，MemFire Cloud采用了开源了 Supabase 项目。&#xA;这里详细记录了该库中的所有对象和方法。&#xA;通过使用 supabase-js，你可以实现如下功能：&#xA;与你的 Postgres 数据库进行交互 监听数据库变化 调用 Postgres 函数 构建登录和用户管理功能 管理大文件 相关链接 link 源代码 TypeDoc NPM 已知的错误和问题 </description>
+    </item>
+    <item>
       <title>初始化客户端</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</guid>
+      <description>你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。&#xA;Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。&#xA;案例教程 link案例1 （createClient()） link&#xD;使用方法&#xD;如果密码超过72个字符，它将被截断为前72个字符。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Create a single supabase client for interacting with your database&#xD;const supabase = createClient(&amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;使用自定义域名：&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Use a custom domain as the supabase URL&#xD;const supabase = createClient(&amp;#39;https://my-custom-domain.com&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;案例2 （带附加参数的情况） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const options = {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true&#xD;},&#xD;global: {&#xD;headers: { &amp;#39;x-my-custom-header&amp;#39;: &amp;#39;my-app-name&amp;#39; },&#xD;},&#xD;}&#xD;const supabase = createClient(&amp;#34;https://xyzcompany.</description>
+    </item>
+    <item>
+      <title>初始化客户端</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/initializing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/initializing/</guid>
+      <description>你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。&#xA;Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。&#xA;案例教程 link案例1 （createClient()） link&#xD;使用方法&#xD;如果密码超过72个字符，它将被截断为前72个字符。&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;// Create a single supabase client for interacting with your database&#xD;const supabase = createClient(&amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;使用自定义域名：&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;// Use a custom domain as the supabase URL&#xD;const supabase = createClient(&amp;#39;https://my-custom-domain.com&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;案例2 （带附加参数的情况） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;const options = {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true&#xD;},&#xD;global: {&#xD;headers: { &amp;#39;x-my-custom-header&amp;#39;: &amp;#39;my-app-name&amp;#39; },&#xD;},&#xD;}&#xD;const supabase = createClient(&amp;#34;https://xyzcompany.</description>
+    </item>
+    <item>
+      <title>安装</title>
       <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/installing/</guid>
       <description>所有的 JavaScript 库都是由 Supabase 团队直接建立的。其他语言由社区构建，并由 Supabase 支持。&#xA;通过终端安装 link你可以通过在终端中执行相应的安装命令来完成@supabase/supabase-js库的安装。&#xA;为你提供两种终端安装的方式（NPM 和 Yarn）：&#xA;@supabase/supabase-js link使用NPM安装&#xA;npm install @supabase/supabase-js&#xD;使用Yarn安装&#xA;yarn add @supabase/supabase-js&#xD;通过CDN安装 link您可以通过 CDN 链接安装 @supabase/supabase-js。&#xA;&amp;lt;script src=&amp;#34;https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&#xD;//or&#xD;&amp;lt;script src=&amp;#34;https://unpkg.com/@supabase/supabase-js@2&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&#xD;CDN是内容分发网络（Content Delivery Network）的缩写。它是一种用于加速网络资源传输的系统，通过将数据和文件分布在全球各地的多个服务器节点上，使用户可以从离自己地理位置较近的服务器获取所需的内容，从而提高网页加载速度和响应时间。&#xA;Supabase提供了一个通过CDN链接安装 @supabase/supabase-js 的选项。这意味着你可以通过在你的HTML文件中引入相关的CDN链接，来直接使用Supabase的JavaScript客户端库，而无需通过npm或其他包管理工具进行安装。这样做的好处是，当用户访问你的网页时，他们可以从离他们最近的CDN服务器加载Supabase的库，从而更快地获得响应。&#xA;相关链接 link在GitHub上查找源代码。</description>
+    </item>
+    <item>
+      <title>微信小程序库</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/javascript/</guid>
+      <description>supabase-wechat-stable-v2 是 MemFire Cloud 官方提供的一个同构微信小程序库库，MemFire Cloud采用了开源了 Supabase 项目的JavaScript库改造而成。&#xA;这里详细记录了该库中的所有对象和方法。&#xA;通过使用 supabase-js，你可以实现如下功能：&#xA;与你的 Postgres 数据库进行交互 监听数据库变化 调用 Postgres 函数 构建登录和用户管理功能 管理大文件 相关链接 link 源代码 NPM 已知的错误和问题 </description>
     </item>
     <item>
       <title>版本说明</title>
@@ -625,7 +660,7 @@
       <description>updateUserById()用于更新用户数据。&#xA;案例教程 link案例1 （更新用户的电子邮件地址） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ email: &amp;#39;new@email.com&amp;#39; }&#xD;)&#xD;案例2 （更新用户的密码） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ password: &amp;#39;new_password&amp;#39; }&#xD;)&#xD;案例3 （更新用户的元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.auth.admin.updateUserById(&#xD;&amp;#39;6aa5d0d4-2a9f-4483-b6c8-0cf4c6c98ac4&amp;#39;,&#xD;{ user_metadata: { hello: &amp;#39;world&amp;#39; } }&#xD;)&#xD;案例4 （更新用户的应用程序元数据） link&#xD;使用方法&#xD;const { data: user, error } = await supabase.</description>
     </item>
     <item>
-      <title>初始化客户端</title>
+      <title>安装</title>
       <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</guid>
@@ -1375,9 +1410,9 @@
     </item>
     <item>
       <title>使用过滤器</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/using-filters/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/using-filters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/using-filters/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/using-filters/</guid>
       <description>过滤器允许你只返回符合某些条件的记录。&#xA;过滤器可以用于select()、update()和delete()查询。&#xA;如果一个数据库函数返回一个表的响应，你也可以应用过滤器。&#xA;案例教程 link案例1 (使用过滤器) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;); // Correct&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;) // Incorrect&#xD;.select(&amp;#39;name, country_id&amp;#39;);&#xD;过滤器必须在select(), update()、upsert()、delete()和rpc()之后，并在修改器之前应用。&#xA;案例2 (链式过滤) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.gte(&amp;#39;population&amp;#39;, 1000)&#xD;.lt(&amp;#39;population&amp;#39;, 10000)&#xD;过滤器必须在select(), update()、upsert()、delete()和rpc()之后，并在修改器之前应用。&#xA;案例3 (条件链式) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final filterByName = null;&#xD;final filterPopLow = 1000;&#xD;final filterPopHigh = 10000;&#xD;var query = supabase&#xD;.</description>
     </item>
     <item>
