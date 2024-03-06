@@ -8,11 +8,11 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>getChannels()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</link>
+      <title>stream()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</guid>
-      <description>返回所有的Realtime通道。&#xA;final channels = supabase.getChannels();&#xD;Examples link获取所有通道 link&#xD;final channels = supabase.getChannels();&#xD;</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</guid>
+      <description>通知被查询表的数据。&#xA;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;Notes link stream()通过结合Postgrest和Realtime，将初始数据以及数据库上的任何进一步变化作为List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;的Stream发出。 接受一个主键列的列表作为其参数。 Examples link监听一个特定的表 link&#xD;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;监听表格中的特定行数 link你可以使用{table}:{col}=eq.{val}的格式来监听个别行，其中{col}是列名，{val}是你想要匹配的值。 这种语法与你在Realtime中过滤数据的方式相同&#xA;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.eq(&amp;#39;id&amp;#39;, &amp;#39;120&amp;#39;)&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;使用 order() link&#xD;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.order(&amp;#39;name&amp;#39;, ascending: true)&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;使用 limit() link&#xD;supabase.</description>
     </item>
     <item>
       <title>on().subscribe()</title>
@@ -22,11 +22,11 @@
       <description>订阅你的数据库中的实时变化。&#xA;supabase.channel(&amp;#39;*&amp;#39;).on(&#xD;RealtimeListenTypes.postgresChanges,&#xD;ChannelFilter(event: &amp;#39;*&amp;#39;, schema: &amp;#39;*&amp;#39;),&#xD;(payload, [ref]) {&#xD;print(&amp;#39;Change received: ${payload.toString()}&amp;#39;);&#xD;},&#xD;).subscribe();&#xD;Notes link 为了提高数据库性能和安全性，新项目的实时性默认是禁用的。你可以通过管理复制打开它。 如果你想在更新和删除时接收 &amp;ldquo;以前的&amp;quot;数据，你需要将REPLICA IDENTITY设置为FULL，像这样。ALTER TABLE your_table REPLICA IDENTITY FULL;。 Examples link监听所有的数据库变化 link&#xD;supabase.channel(&amp;#39;*&amp;#39;).on(&#xD;RealtimeListenTypes.postgresChanges,&#xD;ChannelFilter(event: &amp;#39;*&amp;#39;, schema: &amp;#39;*&amp;#39;),&#xD;(payload, [ref]) {&#xD;print(&amp;#39;Change received: ${payload.toString()}&amp;#39;);&#xD;},&#xD;).subscribe();&#xD;监听一个特定的表 link&#xD;supabase.channel(&amp;#39;public:countries&amp;#39;).on(&#xD;RealtimeListenTypes.postgresChanges,&#xD;ChannelFilter(event: &amp;#39;*&amp;#39;, schema: &amp;#39;public&amp;#39;, table: &amp;#39;countries&amp;#39;),&#xD;(payload, [ref]) {&#xD;print(&amp;#39;Change received: ${payload.toString()}&amp;#39;);&#xD;},&#xD;).subscribe();&#xD;监听插入 link&#xD;supabase.channel(&amp;#39;public:countries&amp;#39;).on(&#xD;RealtimeListenTypes.postgresChanges,&#xD;ChannelFilter(event: &amp;#39;INSERT&amp;#39;, schema: &amp;#39;public&amp;#39;, table: &amp;#39;countries&amp;#39;),&#xD;(payload, [ref]) {&#xD;print(&amp;#39;Change received: ${payload.</description>
     </item>
     <item>
-      <title>stream()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</link>
+      <title>removeChannel()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</guid>
-      <description>通知被查询表的数据。&#xA;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;Notes link stream()通过结合Postgrest和Realtime，将初始数据以及数据库上的任何进一步变化作为List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;的Stream发出。 接受一个主键列的列表作为其参数。 Examples link监听一个特定的表 link&#xD;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;监听表格中的特定行数 link你可以使用{table}:{col}=eq.{val}的格式来监听个别行，其中{col}是列名，{val}是你想要匹配的值。 这种语法与你在Realtime中过滤数据的方式相同&#xA;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.eq(&amp;#39;id&amp;#39;, &amp;#39;120&amp;#39;)&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;使用 order() link&#xD;supabase.from(&amp;#39;countries&amp;#39;)&#xD;.stream(primaryKey: [&amp;#39;id&amp;#39;])&#xD;.order(&amp;#39;name&amp;#39;, ascending: true)&#xD;.listen((List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data) {&#xD;// Do something awesome with the data&#xD;});&#xD;使用 limit() link&#xD;supabase.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</guid>
+      <description>取消订阅并从Realtime客户端删除Realtime频道。&#xA;final status = await supabase.removeChannel(channel);&#xD;Notes link 如果你在监听Postgres的变化，删除一个通道是保持你项目的Realtime服务以及你的数据库性能的一个好方法。Supabase会在客户端断开连接后的30秒内自动处理清理工作，但未使用的通道可能会因为更多的客户端同时订阅而导致性能下降。 Examples link删除一个通道 link&#xD;final status = await supabase.removeChannel(channel);&#xD;</description>
     </item>
     <item>
       <title>removeAllChannels()</title>
@@ -36,11 +36,11 @@
       <description>取消订阅并从Realtime客户端删除所有Realtime频道。&#xA;final statuses = await supabase.removeAllChannels();&#xD;Notes link 如果你在监听Postgres的变化，移除通道是保持你项目的Realtime服务以及数据库性能的一个好方法。Supabase会在客户端断开连接后的30秒内自动处理清理工作，但未使用的通道可能会因为更多的客户端同时订阅而导致性能下降。 Examples link删除所有通道 link&#xD;final statuses = await supabase.removeAllChannels();&#xD;</description>
     </item>
     <item>
-      <title>removeChannel()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</link>
+      <title>getChannels()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</guid>
-      <description>取消订阅并从Realtime客户端删除Realtime频道。&#xA;final status = await supabase.removeChannel(channel);&#xD;Notes link 如果你在监听Postgres的变化，删除一个通道是保持你项目的Realtime服务以及你的数据库性能的一个好方法。Supabase会在客户端断开连接后的30秒内自动处理清理工作，但未使用的通道可能会因为更多的客户端同时订阅而导致性能下降。 Examples link删除一个通道 link&#xD;final status = await supabase.removeChannel(channel);&#xD;</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</guid>
+      <description>返回所有的Realtime通道。&#xA;final channels = supabase.getChannels();&#xD;Examples link获取所有通道 link&#xD;final channels = supabase.getChannels();&#xD;</description>
     </item>
   </channel>
 </rss>

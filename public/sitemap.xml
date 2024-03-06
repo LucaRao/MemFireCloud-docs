@@ -9,8 +9,6 @@
   </url><url>
     <loc>http://localhost:1313/docs/app/example/scaffold/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</loc>
-  </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</loc>
@@ -57,6 +55,12 @@
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/</loc>
+    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/</loc>
+    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/initializing/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/select/</loc>
@@ -69,73 +73,73 @@
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/upsert/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/db-modifiers-select/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-modifiers-select/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/containedby/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/containedby/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/filter/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/gt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/gt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/gte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/gte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/ilike/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/ilike/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/in/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/in/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/contains/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/contains/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/is/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/is/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/like/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/like/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/limit/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/limit/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/lt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/lt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/lte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/lte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/match/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/match/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/maybesingle/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/maybesingle/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/neq/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/neq/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/not/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/not/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/or/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/or/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/order/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/order/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/overlaps/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/overlaps/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/range/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/range/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rangeadjacent/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/rangeadjacent/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rangegt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/rangegt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rangegte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/rangegte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rangelt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/rangelt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rangelte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/rangelte/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/rpc/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/eq/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/eq/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/single/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/single/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/textsearch/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/textsearch/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/db-abortsignal/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-abortsignal/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/db-csv/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-csv/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/using-filters/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/using-filters/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/using-modifiers/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/using-modifiers/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/storage/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
@@ -256,6 +260,12 @@
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/</loc>
+    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/</loc>
+    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/select/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/insert/</loc>
@@ -266,73 +276,77 @@
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/upsert/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/using-filters/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/using-modifiers/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/limit/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/containedby/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-returns/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/contains/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/db-returns/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-abortsignal/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/using-modifiers/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-csv/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/containedby/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-modifiers-select/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/contains/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/eq/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/db-abortsignal/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/db-csv/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/gt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/db-modifiers-select/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/gte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/eq/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/ilike/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/filter/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/in/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/is/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/like/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/ilike/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/limit/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/in/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/lt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/is/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/lte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/like/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/match/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/maybesingle/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangelte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/match/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/neq/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/maybesingle/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/not/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/neq/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/not/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rpc/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/or/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/or/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/order/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/order/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/overlaps/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/range/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/range/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangeadjacent/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangegt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangegte/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangelt/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/single/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/single/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/textsearch/</loc>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/storage/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
@@ -403,158 +417,6 @@
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-getuserbyid/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/auth-admin/auth-admin-inviteuserbyemail/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/initializing/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/installing/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/upgrade-guide/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signup/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentsession/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentuser/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/select/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/insert/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/update/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/upsert/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/using-filters/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/using-modifiers/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/eq/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/containedby/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/contains/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/getchannels/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/gt/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/gte/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/ilike/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/in_/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/invoke/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/is_/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/like/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/limit/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/lt/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/lte/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/match/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/neq/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/not/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/or/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/order/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/range/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rangeadjacent/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/overlaps/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rangegt/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rangegte/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rangelt/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rangelte/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/single/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/textsearch/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-download/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-upload/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-update/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-list/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-move/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-remove/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-createbucket/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-deletebucket/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-emptybucket/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-getbucket/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-listbuckets/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-updatebucket/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/subscribe/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removeallchannels/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/function/</loc>
-  </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/dart/function/rpc/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
@@ -810,6 +672,164 @@
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/dart/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/initializing/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/installing/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/upgrade-guide/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/select/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/insert/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/update/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/upsert/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/rpc/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/using-filters/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/eq/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/neq/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gt/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gte/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lt/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lte/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/like/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/ilike/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/is_/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/in_/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/contains/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/containedby/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegt/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegte/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelt/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelte/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangeadjacent/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/overlaps/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/textsearch/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/match/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/not/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/or/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/filter/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/using-modifiers/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/order/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/limit/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/range/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/single/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signup/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentsession/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentuser/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/function/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/function/invoke/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/subscribe/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/removeallchannels/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-createbucket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-getbucket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-listbuckets/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-updatebucket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-deletebucket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-emptybucket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-upload/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-download/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-list/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-update/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-move/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-remove/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>

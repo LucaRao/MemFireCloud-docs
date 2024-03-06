@@ -14,7 +14,7 @@
 
 <html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8" />
-    <title>filter() | Lotus Docs Example Site</title>
+    <title>数据库 | Lotus Docs Example Site</title>
     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Documentation, Hugo, Hugo Theme, Bootstrap" />
@@ -29,21 +29,13 @@
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="manifest" crossorigin="use-credentials" href="http://localhost:1313/site.webmanifest">
-<meta property="og:title" content="filter()" />
-<meta property="og:description" content="仅匹配满足过滤器条件的行。
-尽管filter()函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。 例如，使用eq()、gt()、lt()等特定的筛选方法，可以使查询更加清晰和易于理解。
-filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
-.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values案例教程 link案例1 （和select一起使用） link建表使用方法返回结果&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select().filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表上） link建表使用方法返回结果&gt;create tablecountries (id int8 primary key, name text);create tablecities (id int8 primary key,country_id int8 not null references countries,name text);insert intocountries (id, name)values(1, &#39;Germany&#39;),(2, &#39;Indonesia&#39;);insert intocities (id, country_id, name)values(1, 2, &#39;Bali&#39;),(2, 1, &#39;Munich&#39;);const { data, error } = await supabase." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_2704766591566316977.png"/><meta property="article:section" content="docs" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_2704766591566316977.png"/>
-<meta name="twitter:title" content="filter()"/>
-<meta name="twitter:description" content="仅匹配满足过滤器条件的行。
-尽管filter()函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。 例如，使用eq()、gt()、lt()等特定的筛选方法，可以使查询更加清晰和易于理解。
-filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
-.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;) // Use `()` for `in` filter.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;) // Use `cs` for `contains()`, `{}` for array values案例教程 link案例1 （和select一起使用） link建表使用方法返回结果&gt;create tablecountries (id int8 primary key, name text);insert intocountries (id, name)values(1, &#39;Afghanistan&#39;),(2, &#39;Albania&#39;),(3, &#39;Algeria&#39;);const { data, error } = await supabase.from(&#39;countries&#39;).select().filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;){&#34;data&#34;: [{&#34;id&#34;: 3,&#34;name&#34;: &#34;Algeria&#34;}],&#34;status&#34;: 200,&#34;statusText&#34;: &#34;OK&#34;}案例2 （在外部表上） link建表使用方法返回结果&gt;create tablecountries (id int8 primary key, name text);create tablecities (id int8 primary key,country_id int8 not null references countries,name text);insert intocountries (id, name)values(1, &#39;Germany&#39;),(2, &#39;Indonesia&#39;);insert intocities (id, country_id, name)values(1, 2, &#39;Bali&#39;),(2, 1, &#39;Munich&#39;);const { data, error } = await supabase."/>
+<meta property="og:title" content="数据库" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/" /><meta property="og:image" content="http://localhost:1313/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_3299091305273200481.png"/><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/opengraph/card-base-2_hu06b1a92291a380a0d2e0ec03dab66b2f_17642_filter_3299091305273200481.png"/>
+<meta name="twitter:title" content="数据库"/>
+<meta name="twitter:description" content=""/>
 
     
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
@@ -943,6 +935,12 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                             <ul>
                                                                                                 
                                                                                                     
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/">数据库</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/">数据库</a></li>
+                                                                                                
+                                                                                                    
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/initializing/">初始化客户端</a></li>
                                                                                                 
                                                                                                     
@@ -961,106 +959,7 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/upsert/">Upsert 数据</a></li>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/db-modifiers-select/">select()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/containedby/">containedBy()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/filter/">filter()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/gt/">gt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/gte/">gte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/ilike/">ilike()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/in/">in()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/contains/">contains()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/is/">is()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/like/">like()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/limit/">limit()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/lt/">lt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/lte/">lte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/match/">match()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/maybesingle/">maybeSingle()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/neq/">neq()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/not/">not()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/or/">or()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/order/">order()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/overlaps/">overlaps()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/range/">range()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rangeadjacent/">rangeAdjacent()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rangegt/">rangeGt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rangegte/">rangeGte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rangelt/">rangeLt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rangelte/">rangeLte()</a></li>
-                                                                                                
-                                                                                                    
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/rpc/">调用Postgres函数</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/eq/">eq()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/single/">single()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/textsearch/">textSearch()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/db-abortsignal/">abortSignal()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/db-csv/">csv()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/using-filters/">使用过滤器</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/javascript/database/using-modifiers/">使用修改器</a></li>
                                                                                                 
                                                                                             </ul>
                                                                                         </div>
@@ -1291,6 +1190,45 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                     <li class="sidebar-dropdown nested  ">
                                                                                         <button class="btn">
                                                                                             
+                                                                                            数据库
+                                                                                        </button>
+                                                                                        <div class="sidebar-submenu ">
+                                                                                            <ul>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/select/">Select 查询</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/insert/">Insert 数据</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/update/">Update 数据</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/upsert/">Upsert 数据</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/delete/">Delete 数据</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rpc/">存储程序: rpc()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/filter/">过滤器</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/">修改器</a></li>
+                                                                                                
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                
+                                                                            
+                                                                                
+                                                                                
+                                                                                    <li class="sidebar-dropdown nested  ">
+                                                                                        <button class="btn">
+                                                                                            
                                                                                             认证
                                                                                         </button>
                                                                                         <div class="sidebar-submenu ">
@@ -1300,16 +1238,19 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signup/">signUp()</a></li>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/">verifyOtp()</a></li>
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/">signInWithPassword()</a></li>
                                                                                                 
                                                                                                     
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithotp/">signInWithOtp()</a></li>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/">signInWithPassword()</a></li>
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/">signInWithOAuth()</a></li>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/">signInWithOAuth()</a></li>
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/">signOut()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/">verifyOtp()</a></li>
                                                                                                 
                                                                                                     
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentsession/">currentSession</a></li>
@@ -1318,217 +1259,13 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentuser/">currentUser</a></li>
                                                                                                 
                                                                                                     
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/">updateUser()</a></li>
+                                                                                                
+                                                                                                    
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/">onAuthStateChange()</a></li>
                                                                                                 
                                                                                                     
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/">resetPasswordForEmail()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/">updateUser()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/">signOut()</a></li>
-                                                                                                
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                                    <li class="sidebar-dropdown nested  ">
-                                                                                        <button class="btn">
-                                                                                            
-                                                                                            数据库
-                                                                                        </button>
-                                                                                        <div class="sidebar-submenu ">
-                                                                                            <ul>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/filter/">数据库</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/">数据库</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/select/">Select 查询</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/insert/">Insert 数据</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/delete/">Delete 数据</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/update/">Update 数据</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/upsert/">Upsert 数据</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/containedby/">containedBy()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/contains/">contains()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/getchannels/">getChannels()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/gt/">gt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/gte/">gte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/ilike/">ilike()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/in_/">in_()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/invoke/">invoke()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/is_/">is_()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/like/">like()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/limit/">limit()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/lt/">lt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/lte/">lte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/match/">match()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/not/">.not()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/or/">.or()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/order/">order()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/range/">range()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rangeadjacent/">rangeAdjacent()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/overlaps/">overlaps()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rangegt/">rangeGt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rangegte/">rangeGte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rangelt/">rangeLt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/rangelte/">rangeLte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/single/">single()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/database/textsearch/">textSearch()</a></li>
-                                                                                                
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                                    <li class="sidebar-dropdown nested  ">
-                                                                                        <button class="btn">
-                                                                                            
-                                                                                            对象存储
-                                                                                        </button>
-                                                                                        <div class="sidebar-submenu ">
-                                                                                            <ul>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-download/">from.download()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-upload/">from.upload()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-update/">from.update()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-list/">from.list()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-move/">from.move()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-remove/">from.remove()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/">from.getPublicUrl()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-createbucket/">createBucket()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-deletebucket/">deleteBucket()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-emptybucket/">emptyBucket()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/">from.createSignedUrl()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/">from.createSignedUrls()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-getbucket/">getBucket()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-listbuckets/">listBuckets()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-updatebucket/">updateBucket()</a></li>
-                                                                                                
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </li>
-                                                                                
-                                                                            
-                                                                                
-                                                                                
-                                                                                    <li class="sidebar-dropdown nested  ">
-                                                                                        <button class="btn">
-                                                                                            
-                                                                                            实时数据库
-                                                                                        </button>
-                                                                                        <div class="sidebar-submenu ">
-                                                                                            <ul>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/subscribe/">on().subscribe()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/">stream()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/removeallchannels/">removeAllChannels()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/">removeChannel()</a></li>
                                                                                                 
                                                                                             </ul>
                                                                                         </div>
@@ -1546,7 +1283,97 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                             <ul>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/function/rpc/">存储程序: rpc()</a></li>
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/function/invoke/">invoke()</a></li>
+                                                                                                
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                
+                                                                            
+                                                                                
+                                                                                
+                                                                                    <li class="sidebar-dropdown nested  ">
+                                                                                        <button class="btn">
+                                                                                            
+                                                                                            实时数据库
+                                                                                        </button>
+                                                                                        <div class="sidebar-submenu ">
+                                                                                            <ul>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/stream/">stream()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/subscribe/">on().subscribe()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/removechannel/">removeChannel()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/removeallchannels/">removeAllChannels()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/">getChannels()</a></li>
+                                                                                                
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </li>
+                                                                                
+                                                                            
+                                                                                
+                                                                                
+                                                                                    <li class="sidebar-dropdown nested  ">
+                                                                                        <button class="btn">
+                                                                                            
+                                                                                            对象存储
+                                                                                        </button>
+                                                                                        <div class="sidebar-submenu ">
+                                                                                            <ul>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-createbucket/">createBucket()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-getbucket/">getBucket()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-listbuckets/">listBuckets()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-updatebucket/">updateBucket()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-deletebucket/">deleteBucket()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-emptybucket/">emptyBucket()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-upload/">from.upload()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-download/">from.download()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-list/">from.list()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-update/">from.update()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-move/">from.move()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-remove/">from.remove()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurl/">from.createSignedUrl()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-createsignedurls/">from.createSignedUrls()</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/dart/storage/storage-from-getpublicurl/">from.getPublicUrl()</a></li>
                                                                                                 
                                                                                             </ul>
                                                                                         </div>
@@ -1675,6 +1502,12 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                             <ul>
                                                                                                 
                                                                                                     
+                                                                                                    <li class="current "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/">数据库</a></li>
+                                                                                                
+                                                                                                    
+                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/modifier/">数据库</a></li>
+                                                                                                
+                                                                                                    
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/select/">Select 查询</a></li>
                                                                                                 
                                                                                                     
@@ -1690,106 +1523,7 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/upsert/">Upsert 数据</a></li>
                                                                                                 
                                                                                                     
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/using-filters/">使用过滤器</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/using-modifiers/">使用修改器</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/containedby/">containedBy()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/contains/">contains()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-abortsignal/">abortSignal()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-csv/">csv()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/db-modifiers-select/">select()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/eq/">eq()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class="current "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/">filter()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/gt/">gt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/gte/">gte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/ilike/">ilike()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/in/">in()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/is/">is()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/like/">like()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/limit/">limit()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/lt/">lt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/lte/">lte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/match/">match()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/maybesingle/">maybeSingle()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangelte/">rangeLte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/neq/">neq()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/not/">not()</a></li>
-                                                                                                
-                                                                                                    
                                                                                                     <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rpc/">调用Postgres函数</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/or/">or()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/order/">order()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/overlaps/">overlaps()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/range/">range()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangeadjacent/">rangeAdjacent()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangegt/">rangeGt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangegte/">rangeGte()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/rangelt/">rangeLt()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/single/">single()</a></li>
-                                                                                                
-                                                                                                    
-                                                                                                    <li class=" "><a class="sidebar-nested-link" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/textsearch/">textSearch()</a></li>
                                                                                                 
                                                                                             </ul>
                                                                                         </div>
@@ -2331,7 +2065,7 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
             
         
             <li class="breadcrumb-item text-capitalize active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <span itemprop="name">filter()</span>
+                <span itemprop="name">数据库</span>
                 <meta itemprop="position" content='6' />
             </li>
         
@@ -2340,535 +2074,443 @@ filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。
                                     
                                     <div class="row flex-xl-nowrap">
                                         
-                                        <div class="docs-toc col-xl-3    d-xl-block"><toc>
+                                        <div class="docs-toc col-xl-3 visually-hidden visually-hidden  d-xl-block"><toc>
     <div class="fw-bold text-uppercase mb-2">本页</div>
-    <nav id="toc">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#案例教程">案例教程</a>
-          <ul>
-            <li><a href="#案例1--和select一起使用">案例1  （和select一起使用）</a></li>
-            <li><a href="#案例2--在外部表上">案例2  （在外部表上）</a></li>
-          </ul>
-        </li>
-        <li><a href="#参数说明">参数说明</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    <nav id="toc"></nav>
     </toc></div>
                                         
                                         
-                                        <div class="docs-toc-mobile    d-print-none d-xl-none">
+                                        <div class="docs-toc-mobile visually-hidden visually-hidden  d-print-none d-xl-none">
                                             <button id="toc-dropdown-btn" class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" data-bs-offset="0,0" aria-expanded="false">
                                                 Table of Contents
                                             </button>
-<nav id="toc-mobile">
-  <ul class="dropdown-menu">
-    <li>
-      <ul>
-        <li><a href="#案例教程">案例教程</a>
-          <ul>
-            <li><a href="#案例1--和select一起使用">案例1  （和select一起使用）</a></li>
-            <li><a href="#案例2--在外部表上">案例2  （在外部表上）</a></li>
-          </ul>
-        </li>
-        <li><a href="#参数说明">参数说明</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-                                        <div class="docs-content col-12 col-xl-9 mt-0">
+<nav id="toc-mobile"></nav></div>
+                                        <div class="docs-content col-12  mt-0">
                                             <div class="mb-0 d-flex">
                                                 
                                                 <h1 class="content-title mb-0">
-                                                    filter()
+                                                    数据库
                                                     
                                                 </h1>
                                             </div>
                                             
                                             <div id="content" class="main-content" data-bs-spy="scroll" data-bs-root-margin="0px 0px -65%" data-bs-target="#toc-mobile">
                                                 
-    
-    <div data-prismjs-copy="" data-prismjs-copy-success="" data-prismjs-copy-error="">
-        <p>仅匹配满足过滤器条件的行。</p>
-<p>尽管<code>filter()</code>函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。
-例如，使用<code>eq()</code>、<code>gt()</code>、<code>lt()</code>等特定的筛选方法，可以使查询更加清晰和易于理解。</p>
-<p><code>filter()</code> 期望您使用原始的 <a href="https://postgrest.org/en/stable/api.html#operators" rel="external" target="_blank">PostgREST语法<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/></svg></a> 来指定过滤器的值。</p>
-
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="ab9ff21" class="language-ts ">
-  <code>.filter(&#39;id&#39;, &#39;in&#39;, &#39;(5,6,7)&#39;)  // Use `()` for `in` filter
-.filter(&#39;arraycol&#39;, &#39;cs&#39;, &#39;{&#34;a&#34;,&#34;b&#34;}&#39;)  // Use `cs` for `contains()`, `{}` for array values</code>
-  </pre>
-  </div>
-<h2 id="案例教程">案例教程 <a href="#%e6%a1%88%e4%be%8b%e6%95%99%e7%a8%8b" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><h3 id="案例1--和select一起使用">案例1  （和select一起使用） <a href="#%e6%a1%88%e4%be%8b1--%e5%92%8cselect%e4%b8%80%e8%b5%b7%e4%bd%bf%e7%94%a8" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
-<nav>
-	<div class="nav nav-tabs" id="nav-tab" role="tablist">
-
-		
-		
-		
-		
-
-		
-
-		<a class="nav-link  active"
-		   id="becfdaTab" data-bs-toggle="tab" data-bs-target="#becfda"
-		   type="button" role="tab" aria-controls="becfda" aria-selected="true">建表</a>
-
-		
-
-		<a class="nav-link "
-		   id="eabfdcTab" data-bs-toggle="tab" data-bs-target="#eabfdc"
-		   type="button" role="tab" aria-controls="eabfdc" aria-selected="true">使用方法</a>
-
-		
-
-		<a class="nav-link "
-		   id="abfdecTab" data-bs-toggle="tab" data-bs-target="#abfdec"
-		   type="button" role="tab" aria-controls="abfdec" aria-selected="true">返回结果</a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-	</div>
-</nav>
-
-<div class="tab-content" id="nav-tab-content">
-
-	
-
-  
-  
-  
-  
->
-
-
-
-
-
-
-
-<div class="tab-pane fade show active" id="becfda" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="6d95b4c" class="language-sql ">
-  <code>create table
-  countries (id int8 primary key, name text);
-
-insert into
-  countries (id, name)
-values
-  (1, &#39;Afghanistan&#39;),
-  (2, &#39;Albania&#39;),
-  (3, &#39;Algeria&#39;);</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="tab-pane fade" id="eabfdc" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="34c0f9a" class="language-ts ">
-  <code>const { data, error } = await supabase
-  .from(&#39;countries&#39;)
-  .select()
-  .filter(&#39;name&#39;, &#39;in&#39;, &#39;(&#34;Algeria&#34;,&#34;Japan&#34;)&#39;)</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="tab-pane fade" id="abfdec" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="737a411" class="language-json ">
-  <code>{
-  &#34;data&#34;: [
-    {
-      &#34;id&#34;: 3,
-      &#34;name&#34;: &#34;Algeria&#34;
-    }
-  ],
-  &#34;status&#34;: 200,
-  &#34;statusText&#34;: &#34;OK&#34;
-}</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-</div>
-<h3 id="案例2--在外部表上">案例2  （在外部表上） <a href="#%e6%a1%88%e4%be%8b2--%e5%9c%a8%e5%a4%96%e9%83%a8%e8%a1%a8%e4%b8%8a" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h3>
-<nav>
-	<div class="nav nav-tabs" id="nav-tab" role="tablist">
-
-		
-		
-		
-		
-
-		
-
-		<a class="nav-link  active"
-		   id="eacbfdTab" data-bs-toggle="tab" data-bs-target="#eacbfd"
-		   type="button" role="tab" aria-controls="eacbfd" aria-selected="true">建表</a>
-
-		
-
-		<a class="nav-link "
-		   id="cebfdaTab" data-bs-toggle="tab" data-bs-target="#cebfda"
-		   type="button" role="tab" aria-controls="cebfda" aria-selected="true">使用方法</a>
-
-		
-
-		<a class="nav-link "
-		   id="edfcbaTab" data-bs-toggle="tab" data-bs-target="#edfcba"
-		   type="button" role="tab" aria-controls="edfcba" aria-selected="true">返回结果</a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-		<a class="nav-link "
-		   id="Tab" data-bs-toggle="tab" data-bs-target="#"
-		   type="button" role="tab" aria-controls="" aria-selected="true"></a>
-
-		
-
-	</div>
-</nav>
-
-<div class="tab-content" id="nav-tab-content">
-
-	
-
-  
-  
-  
-  
->
-
-
-
-
-
-
-
-<div class="tab-pane fade show active" id="eacbfd" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="1f11c67" class="language-sql ">
-  <code>create table
-  countries (id int8 primary key, name text);
-create table
-  cities (
-    id int8 primary key,
-    country_id int8 not null references countries,
-    name text
-  );
-
-insert into
-  countries (id, name)
-values
-  (1, &#39;Germany&#39;),
-  (2, &#39;Indonesia&#39;);
-insert into
-  cities (id, country_id, name)
-values
-  (1, 2, &#39;Bali&#39;),
-  (2, 1, &#39;Munich&#39;);</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="tab-pane fade" id="cebfda" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="f534cd8" class="language-ts ">
-  <code>const { data, error } = await supabase
-  .from(&#39;countries&#39;)
-  .select(`
-    name,
-    cities!inner (
-      name
-    )
-  `)
-  .filter(&#39;cities.name&#39;, &#39;eq&#39;, &#39;Bali&#39;)</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="tab-pane fade" id="edfcba" role="tabpanel" aria-labelledby="nav-1">
-
-	
-
-
-  
-  
-  
-
-  
-  
-  
-  
-
-  
-
-  <div class="prism-codeblock ">
-  <pre id="7d31616" class="language-json ">
-  <code>{
-  &#34;data&#34;: [
-    {
-      &#34;name&#34;: &#34;Indonesia&#34;,
-      &#34;cities&#34;: [
-        {
-          &#34;name&#34;: &#34;Bali&#34;
-        }
-      ]
-    }
-  ],
-  &#34;status&#34;: 200,
-  &#34;statusText&#34;: &#34;OK&#34;
-}</code>
-  </pre>
-  </div>
-
-
-</div>
-
-
-
-</div>
-<h2 id="参数说明">参数说明 <a href="#%e5%8f%82%e6%95%b0%e8%af%b4%e6%98%8e" class="anchor" aria-hidden="true"><i class="material-icons align-middle">link</i></a></h2><ul className="method-list-group">
-<li className="method-list-item">
-  <h4 className="method-list-item-label">
-    <span className="method-list-item-label-name">
-      列（column）
-    </span>
-    <span className="method-list-item-label-badge required">
-      [必要参数]
-    </span>
-    <span className="method-list-item-validation">
-      <code>string类型</code>
-    </span>
-  </h4>
-  <div class="method-list-item-description">
-<p>要过滤的列</p>
-  </div>
-</li>
-<li className="method-list-item">
-  <h4 className="method-list-item-label">
-    <span className="method-list-item-label-name">
-      操作符（operator）
-    </span>
-    <span className="method-list-item-label-badge required">
-      [必要参数]
-    </span>
-    <span className="method-list-item-validation">
-      <code>string类型</code> 
-    </span>
-  </h4>
-  <div class="method-list-item-description">
-<p>用来过滤的操作符，遵循PostgREST的语法</p>
-  </div>
-</li>
-<li className="method-list-item">
-  <h4 className="method-list-item-label">
-    <span className="method-list-item-label-name">
-      值（value）
-    </span>
-    <span className="method-list-item-label-badge required">
-      [必要参数]
-    </span>
-    <span className="method-list-item-validation">
-      <code>任意类型</code>
-    </span>
-  </h4>
-  <div class="method-list-item-description">
-<p>用来过滤的值，遵循PostgREST的语法</p>
-  </div>
-</li>
-</ul>
-
+    <div class="row flex-xl-wrap">
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">使用过滤器</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/containedby/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">containedBy()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/contains/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">contains()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/eq/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">eq()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/filter/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">filter()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gt/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">gt()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gte/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">gte()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/ilike/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">ilike()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/in/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">in()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/is/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">is()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/like/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">like()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lt/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">lt()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lte/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">lte()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/match/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">match()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">rangeLte()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/neq/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">neq()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/not/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">not()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/or/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">or()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">overlaps()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">rangeAdjacent()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">rangeGt()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">rangeGte()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">rangeLt()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
+        <div id="list-item" class="col-md-4 col-12 mt-4 pt-2">
+            <a class="text-decoration-none text-reset" href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/">
+                <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+                    <span class="icon-color d-flex my-3">
+                        <i class="material-icons align-middle">article</i>
+                        
+                        
+                    </span>
+                    <div class="card-body p-0 content">
+                        <p class="fs-5 fw-semibold card-title mb-1">textSearch()</p>
+                        <p class="para card-text mb-0"></p>
+                    </div>
+                    
+                </div>
+            </a>
+        </div>
+        
     </div>
 
-    
-
-    
                                             </div>
                                             <div><hr class="doc-hr">
 <div id="doc-nav" class="d-print-none">
-
-	<div class="row flex-xl-nowrap ">
-	<div class="col-sm-6 pt-2 doc-next">
-		<a href="/docs/app/sdkdocs/wechatsdk/database/eq/">
-			<div class="card h-100 my-1">
-				<div class="card-body py-2">
-                    <p class="card-title fs-5 fw-semibold lh-base mb-0"><i class="material-icons align-middle">navigate_before</i> eq()</p>
-					
-				</div>
-			</div>
-		</a>
-        </div>
-	<div class="col-sm-6 pt-2 doc-prev">
-		<a class="ms-auto" href="/docs/app/sdkdocs/wechatsdk/database/gt/">
-			<div class="card h-100 my-1 text-end">
-				<div class="card-body py-2">
-                    <p class="card-title fs-5 fw-semibold lh-base mb-0">gt() <i class="material-icons align-middle">navigate_next</i></p>
-					
-				</div>
-			</div>
-		</a>
-        </div>
-	</div>
 </div></div>
                                         </div>
                                     </div>

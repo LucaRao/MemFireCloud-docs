@@ -22,13 +22,6 @@
       <description>insert()用于在表(table)或视图(view)执行 INSERT 操作。&#xA;案例教程 link案例1 (创建记录) link&#xD;使用方法&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.insert({&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554});&#xD;案例2 (批量创建) link&#xD;使用方法&#xD;&gt;&#xD;await supabase.from(&amp;#39;cities&amp;#39;).insert([&#xD;{&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554},&#xD;{&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555},&#xD;]);&#xD;案例3 (获取插入的记录) link&#xD;使用方法&#xD;&gt;&#xD;final List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data =&#xD;await supabase.from(&amp;#39;cities&amp;#39;).insert([&#xD;{&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554},&#xD;{&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555},&#xD;]).select();&#xD;</description>
     </item>
     <item>
-      <title>Delete 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</guid>
-      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 (删除记录) link&#xD;使用方法&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 });&#xD;案例2 (找回已删除的记录) link&#xD;使用方法&#xD;final List&amp;lt;Map&amp;lt;String,dynamic&amp;gt;&amp;gt; data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 })&#xD;.select();&#xD;</description>
-    </item>
-    <item>
       <title>Update 数据</title>
       <link>http://localhost:1313/docs/app/sdkdocs/dart/database/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -41,6 +34,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/upsert/</guid>
       <description>upsert()用于对表（table）或视图（view）执行 UPSERT 操作。&#xA;在关系型数据库中，Upsert是一种结合了&amp;quot;插入（Insert）&amp;ldquo;和&amp;quot;更新（Update）&amp;ldquo;的操作,它允许我们在表或视图上执行插入或更新操作。 通常情况下，当我们想要向数据库中插入一行数据时，我们会使用INSERT语句。 但是，如果该行数据已经存在（通常通过主键来判断），我们可能希望更新该行数据而不是插入重复的数据。&#xA;Upsert通过传递列到onConflict方法，我们可以使用.upsert()来实现以下功能：&#xA;如果不存在具有相应onConflict列的行，则执行等效于.insert()的插入操作。 如果存在具有相应onConflict列的行，则根据ignoreDuplicates的设置执行另一种操作。 需要注意的是，为了使用upsert，必须在values中包含主键。主键是用于唯一标识表中每一行的一列或一组列，确保数据的唯一性和完整性。&#xA;案例教程 link案例1 (Upsert数据) link&#xD;使用方法&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;messages&amp;#39;)&#xD;.upsert({ &amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; });&#xD;案例2 (将数据Upsert到带有约束的表中) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;users&amp;#39;)&#xD;.upsert({ &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; }, { &amp;#39;onConflict&amp;#39;: &amp;#39;username&amp;#39; });&#xD;运行以下代码将使 Supabase 进行数据的 UPSERT 操作到 &amp;ldquo;users&amp;rdquo; 表中。如果用户名 &amp;lsquo;supabot&amp;rsquo; 已经存在，onConflict 参数会告诉 Supabase 根据传递给 onConflict 的列来覆盖那一行的数据。&#xA;案例3 (返回确切的行数) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final res = await supabase.from(&amp;#39;users&amp;#39;).upsert(&#xD;{&amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39;},&#xD;options: const FetchOptions(count: CountOption.</description>
+    </item>
+    <item>
+      <title>Delete 数据</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/delete/</guid>
+      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 (删除记录) link&#xD;使用方法&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 });&#xD;案例2 (找回已删除的记录) link&#xD;使用方法&#xD;final List&amp;lt;Map&amp;lt;String,dynamic&amp;gt;&amp;gt; data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 })&#xD;.select();&#xD;</description>
     </item>
     <item>
       <title>存储程序: rpc()</title>
