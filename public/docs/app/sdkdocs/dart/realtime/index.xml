@@ -8,6 +8,13 @@
     <language>en-us</language>
     <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/realtime/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>getChannels()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/realtime/getchannels/</guid>
+      <description>返回所有的Realtime通道。&#xA;final channels = supabase.getChannels();&#xD;Examples link获取所有通道 link&#xD;final channels = supabase.getChannels();&#xD;</description>
+    </item>
+    <item>
       <title>on().subscribe()</title>
       <link>http://localhost:1313/docs/app/sdkdocs/dart/realtime/subscribe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

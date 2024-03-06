@@ -9,7 +9,21 @@
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/docs/app/sdkdocs/javascript/start/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>JavaScript库</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</guid>
+      <description>@supabase/supabase-js 是 Supabase 官方提供的一个同构 JavaScript 库，MemFire Cloud采用了开源了 Supabase 项目。&#xA;这里详细记录了该库中的所有对象和方法。&#xA;通过使用 supabase-js，你可以实现如下功能：&#xA;与你的 Postgres 数据库进行交互 监听数据库变化 调用 Postgres 函数 构建登录和用户管理功能 管理大文件 相关链接 link 源代码 TypeDoc NPM 已知的错误和问题 </description>
+    </item>
+    <item>
       <title>初始化客户端</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</guid>
+      <description>你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。&#xA;Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。&#xA;案例教程 link案例1 （createClient()） link&#xD;使用方法&#xD;如果密码超过72个字符，它将被截断为前72个字符。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Create a single supabase client for interacting with your database&#xD;const supabase = createClient(&amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;使用自定义域名：&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Use a custom domain as the supabase URL&#xD;const supabase = createClient(&amp;#39;https://my-custom-domain.com&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;案例2 （带附加参数的情况） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const options = {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true&#xD;},&#xD;global: {&#xD;headers: { &amp;#39;x-my-custom-header&amp;#39;: &amp;#39;my-app-name&amp;#39; },&#xD;},&#xD;}&#xD;const supabase = createClient(&amp;#34;https://xyzcompany.</description>
+    </item>
+    <item>
+      <title>安装</title>
       <link>http://localhost:1313/docs/app/sdkdocs/javascript/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/app/sdkdocs/javascript/start/installing/</guid>

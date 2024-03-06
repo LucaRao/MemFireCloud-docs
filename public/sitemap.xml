@@ -9,10 +9,17 @@
   </url><url>
     <loc>http://localhost:1313/docs/app/example/scaffold/</loc>
   </url><url>
-    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/</loc>
-    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+    <loc>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/javascript/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/initializing/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/initializing/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/installing/</loc>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/javascript/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/release-notes/</loc>
   </url><url>
@@ -794,6 +801,9 @@
     <loc>http://localhost:1313/docs/app/hosting/static-domain/</loc>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/</loc>
+    <lastmod>2023-12-13T17:39:49+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/docs/app/sdkdocs/javascript/start/</loc>
     <lastmod>2023-12-13T17:39:49+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/docs/app/sdkdocs/javascript/</loc>
