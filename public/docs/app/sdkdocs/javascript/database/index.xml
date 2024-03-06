@@ -9,13 +9,6 @@
     <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/docs/app/sdkdocs/javascript/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>初始化客户端</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/initializing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/initializing/</guid>
-      <description>你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。&#xA;Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。&#xA;案例教程 link案例1 （createClient()） link&#xD;使用方法&#xD;&gt;&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Create a single supabase client for interacting with your database&#xD;const supabase = createClient(&amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;使用自定义域名：&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;// Use a custom domain as the supabase URL&#xD;const supabase = createClient(&amp;#39;https://my-custom-domain.com&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;案例2 （带附加参数的情况） link&#xD;使用方法&#xD;&gt;&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const options = {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true&#xD;},&#xD;global: {&#xD;headers: { &amp;#39;x-my-custom-header&amp;#39;: &amp;#39;my-app-name&amp;#39; },&#xD;},&#xD;}&#xD;const supabase = createClient(&amp;#34;https://xyzcompany.</description>
-    </item>
-    <item>
       <title>Select 查询</title>
       <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/select/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -30,13 +23,6 @@
       <description>在表（table）或视图（view）执行 INSERT 操作。&#xA;案例教程 link案例1 （创建一个记录） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.insert({ id: 1, name: &amp;#39;Denmark&amp;#39; })&#xD;{&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例2 （创建一个记录并返回） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.insert({ id: 1, name: &amp;#39;Denmark&amp;#39; })&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Denmark&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例3 （批量创建） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { error } = await supabase&#xD;.</description>
     </item>
     <item>
-      <title>Delete 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</guid>
-      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 （删除记录） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Spain&amp;#39;);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.eq(&amp;#39;id&amp;#39;, 1)&#xD;{&#xD;&amp;#34;status&amp;#34;: 204,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;No Content&amp;#34;&#xD;}&#xD;参数说明 link&#xD;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;命名的参数&#xA;特性&#xD;count&#xD;optional&#xD;exact | planned | estimated&#xD;用来计算更新行的计数算法。&#xA;exact:可以精确计算行数，但执行速度较慢。执行 &amp;ldquo;COUNT(*)&amp;ldquo;操作。</description>
-    </item>
-    <item>
       <title>Update 数据</title>
       <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -49,6 +35,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/upsert/</guid>
       <description>upsert()用于对表（table）或视图（view）执行 UPSERT 操作。&#xA;在关系型数据库中，Upsert是一种结合了&amp;quot;插入（Insert）&amp;ldquo;和&amp;quot;更新（Update）&amp;ldquo;的操作,它允许我们在表或视图上执行插入或更新操作。 通常情况下，当我们想要向数据库中插入一行数据时，我们会使用INSERT语句。 但是，如果该行数据已经存在（通常通过主键来判断），我们可能希望更新该行数据而不是插入重复的数据。&#xA;Upsert通过传递列到onConflict方法，我们可以使用.upsert()来实现以下功能：&#xA;如果不存在具有相应onConflict列的行，则执行等效于.insert()的插入操作。 如果存在具有相应onConflict列的行，则根据ignoreDuplicates的设置执行另一种操作。 需要注意的是，为了使用upsert，必须在values中包含主键。主键是用于唯一标识表中每一行的一列或一组列，确保数据的唯一性和完整性。&#xA;案例教程 link案例1 （Upsert数据） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.upsert({ id: 1, name: &amp;#39;Albania&amp;#39; })&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例2 （批量Upsert数据） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>Delete 数据</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</guid>
+      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 （删除记录） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Spain&amp;#39;);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.eq(&amp;#39;id&amp;#39;, 1)&#xD;{&#xD;&amp;#34;status&amp;#34;: 204,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;No Content&amp;#34;&#xD;}&#xD;参数说明 link&#xD;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;命名的参数&#xA;特性&#xD;count&#xD;optional&#xD;exact | planned | estimated&#xD;用来计算更新行的计数算法。&#xA;exact:可以精确计算行数，但执行速度较慢。执行 &amp;ldquo;COUNT(*)&amp;ldquo;操作。</description>
     </item>
     <item>
       <title>调用Postgres函数</title>

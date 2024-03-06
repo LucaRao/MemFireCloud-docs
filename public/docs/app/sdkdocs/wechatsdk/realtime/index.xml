@@ -16,11 +16,11 @@
       <description>on().subscribe()创建一个事件处理程序，用于监听变更。&#xA;默认情况下，广播（Broadcast）和在线状态（Presence）对所有项目都是启用的。 对于新项目，默认情况下禁用了监听数据库变更，原因是出于数据库性能和安全方面的考虑。你可以通过管理实时数据的复制功能来启用它。 你可以通过将表的 REPLICA IDENTITY 设置为 FULL（例如，执行 ALTER TABLE your_table REPLICA IDENTITY FULL;），来接收更新和删除操作的&amp;quot;之前&amp;quot;的数据。 删除语句(delete statements)不适用行级安全（Row level security）。当启用行级安全并将复制标识（replica identity）设置为 full 时，只有主键会被发送到客户端。 案例教程 link案例1 （监听广播消息） link&#xD;使用方法&#xD;supabase&#xD;.channel(&amp;#39;any&amp;#39;)&#xD;.on(&amp;#39;broadcast&amp;#39;, { event: &amp;#39;cursor-pos&amp;#39; }, payload =&amp;gt; {&#xD;console.log(&amp;#39;Cursor position received!&amp;#39;, payload)&#xD;})&#xD;.subscribe((status) =&amp;gt; {&#xD;if (status === &amp;#39;SUBSCRIBED&amp;#39;) {&#xD;channel.send({&#xD;type: &amp;#39;broadcast&amp;#39;,&#xD;event: &amp;#39;cursor-pos&amp;#39;,&#xD;payload: { x: Math.random(), y: Math.random() },&#xD;})&#xD;}&#xD;})&#xD;案例2 （监听在线状态同步） link&#xD;使用方法&#xD;const channel = supabase.</description>
     </item>
     <item>
-      <title>getChannels()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/getchannels/</link>
+      <title>removeChannel()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/removechannel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/getchannels/</guid>
-      <description>getChannels()用于返回所有的Realtime通道。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;const channels = supabase.getChannels() </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/removechannel/</guid>
+      <description>removeChannel()用于取消订阅并从实时（realtime）客户端移除实时（realtime）频道。&#xA;移除频道是维护项目的实时服务性能以及在监听Postgres更改时维护数据库性能的好方法。 在客户端断开连接后，MemFire Cloud会自动在30秒后进行清理，但是未使用的频道可能会导致性能下降，特别是当有更多客户端同时订阅时。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;supabase.removeChannel(myChannel)&#xD;参数说明 link&#xD;频道（channel）&#xD;[必要参数]&#xD;default&#xD;实时（realtime）通道的名称。如果没有显式指定通道名称，系统将使用&amp;quot;default&amp;quot;作为默认值。</description>
     </item>
     <item>
       <title>removeAllChannels()</title>
@@ -30,11 +30,11 @@
       <description>removeAllChannels()用于取消订阅并从实时客户端移除所有实时通道。&#xA;移除频道是维护项目的实时服务性能以及在监听Postgres更改时维护数据库性能的好方法。 在客户端断开连接后，MemFire Cloud会自动在30秒后进行清理，但是未使用的频道可能会导致性能下降，特别是当有更多客户端同时订阅时。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;supabase.removeAllChannels()&#xD;</description>
     </item>
     <item>
-      <title>removeChannel()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/removechannel/</link>
+      <title>getChannels()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/getchannels/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/removechannel/</guid>
-      <description>removeChannel()用于取消订阅并从实时（realtime）客户端移除实时（realtime）频道。&#xA;移除频道是维护项目的实时服务性能以及在监听Postgres更改时维护数据库性能的好方法。 在客户端断开连接后，MemFire Cloud会自动在30秒后进行清理，但是未使用的频道可能会导致性能下降，特别是当有更多客户端同时订阅时。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;supabase.removeChannel(myChannel)&#xD;参数说明 link&#xD;频道（channel）&#xD;[必要参数]&#xD;default&#xD;实时（realtime）通道的名称。如果没有显式指定通道名称，系统将使用&amp;quot;default&amp;quot;作为默认值。</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/realtime/getchannels/</guid>
+      <description>getChannels()用于返回所有的Realtime通道。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;const channels = supabase.getChannels() </description>
     </item>
   </channel>
 </rss>
