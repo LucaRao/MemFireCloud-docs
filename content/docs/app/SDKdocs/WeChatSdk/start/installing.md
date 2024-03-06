@@ -1,6 +1,6 @@
 ---
     weight: 278
-    title: "初始化客户端"
+    title: "安装"
     icon: "article"
     draft: false
     toc: true
