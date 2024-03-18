@@ -11,13 +11,8 @@
 
 ## 安装Remix助手库
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="npm"
->
-<TabPanel id="npm" label="npm">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="npm" %}}
 
 ```sh
 npm install @supabase/auth-helpers-remix
@@ -27,8 +22,8 @@ npm install @supabase/auth-helpers-remix
 
 - Remix: `>=1.7.2`
 
-</TabPanel>
-<TabPanel id="yarn" label="Yarn">
+{{% /tab %}}
+{{% tab tabName="Yarn" %}}
 
 ```sh
 yarn add @supabase/auth-helpers-remix
@@ -38,8 +33,8 @@ yarn add @supabase/auth-helpers-remix
 
 - Remix: `>=1.7.2`
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 设置环境变量
 
@@ -52,13 +47,8 @@ SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 
 ## 加载器
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 
 加载器函数在组件呈现之前立即在服务器上运行。它们响应路由上的所有GET请求。您可以通过调用 `createServerClient`函数并将`SUPABASE_URL`、`SUPABASE_ANON_KEY`以及`请求`和`响应`传递给它，来创建经过身份验证的超级数据库客户端。
@@ -93,8 +83,8 @@ export const loader = async ({ request }) => {
 
 > Supabase将设置cookie头来管理用户的认证会话，因此，`response.headers`必须从`Loader`函数返回。
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 在组件被渲染之前，加载器函数立即在服务器上运行。你可以通过调用`createServerClient`函数并将你的`SUPABASE_URL`、`SUPABASE_ANON_KEY`以及`Request`和`Response`传递给它来创建一个经过认证的Supabase客户端。
 
@@ -123,18 +113,13 @@ export const loader: LoaderFunction = async ({ request }: { request: Request }) 
 
 > Supabase将设置cookie头来管理用户的认证会话，因此，`response.headers`必须从`Loader`函数返回。
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## Action
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 动作函数在服务器上运行，并响应对路由的HTTP请求，而不是GET - POST、PUT、PATCH、DELETE等。你可以通过调用`createServerClient`函数并将你的`SUPABASE_URL`、`SUPABASE_ANON_KEY`以及`Request`和`Response`传递给它来创建一个经过认证的Supabase客户端。
 
@@ -164,8 +149,8 @@ export const action = async ({ request }) => {
 
 > Supabase将设置cookie头来管理用户的认证会话，因此，`response.headers`必须从`Action`函数中返回。
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 动作函数在服务器上运行，并响应对路由的HTTP请求，而不是GET - POST、PUT、PATCH、DELETE等。你可以通过调用`createServerClient`函数并将你的`SUPABASE_URL`、`SUPABASE_ANON_KEY`以及`Request`和`Response`传递给它来创建一个经过认证的Supabase客户端。
 
@@ -195,8 +180,8 @@ export const action: ActionFunction = async ({ request }: { request: Request }) 
 
 > Supabase将设置cookie头来管理用户的认证会话，因此，`response.headers`必须从`Action`函数中返回。
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 会话和用户
 
@@ -218,13 +203,8 @@ const user = session?.user
 
 ## 客户端
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 为了在浏览器中使用Supabase客户端--在`useEffect`中获取数据或订阅实时事件--我们需要多做一些工作。Remix不包括使环境变量对浏览器可用的方法，所以我们需要从`root.jsx`路由中的`loader`函数将它们连接到`window`中。
 
@@ -317,8 +297,8 @@ export default function App() {
 
 现在我们可以在我们的组件中调用`createBrowserClient`来获取客户端的数据，或者订阅实时事件--数据库中的变化。
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 为了在浏览器中使用Supabase客户端--在`useEffect`中获取数据或订阅实时事件--我们需要多做一些工作。Remix不包括使环境变量对浏览器可用的方法，所以我们需要从`root.tsx`路由中的`loader`函数将它们连接到`window`上。
 
@@ -411,8 +391,8 @@ export default function App() {
 
 现在我们可以在我们的组件中调用`createBrowserClient`来获取客户端的数据，或者订阅实时事件--数据库中的变化。
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 身份认证
 
@@ -430,15 +410,10 @@ export default function App() {
 
 ### 注册
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
-任何[来自`supabase-js`的支持的认证策略](/docs/reference/javascript/auth-signup)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
+任何[来自`supabase-js`的支持的认证策略](/docs/app/sdkdocs/javascript/auth-signup)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
 
 ```jsx
 export const action = async ({ request }) => {
@@ -467,10 +442,10 @@ export const action = async ({ request }) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
-任何[来自`supabase-js`的支持的认证策略](/docs/reference/javascript/auth-signup)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
+任何[来自`supabase-js`的支持的认证策略](/docs/app/sdkdocs/javascript/auth-signup)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
 
 ```jsx
 export const action: ActionFunction = async ({
@@ -503,20 +478,15 @@ export const action: ActionFunction = async ({
 };
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 登录
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
-任何[来自`supabase-js`的支持的认证策略](/docs/reference/javascript/auth-signinwithpassword)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
+任何[来自`supabase-js`的支持的认证策略](/docs/app/sdkdocs/javascript/auth-signinwithpassword)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
 
 ```jsx
 export const action = async ({ request }) => {
@@ -545,10 +515,10 @@ export const action = async ({ request }) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
-任何[来自`supabase-js`的支持的认证策略](/docs/reference/javascript/auth-signinwithpassword)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
+任何[来自`supabase-js`的支持的认证策略](/docs/app/sdkdocs/javascript/auth-signinwithpassword)都可以在服务器端工作。这就是你如何处理简单的 `email`和 `password`认证。
 
 ```jsx
 export const action: ActionFunction = async ({
@@ -581,18 +551,13 @@ export const action: ActionFunction = async ({
 };
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 退出登录
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 ```jsx
 export const action = async ({ request }) => {
@@ -618,8 +583,8 @@ export const action = async ({ request }) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 ```jsx
 export const action: ActionFunction = async ({
@@ -649,8 +614,8 @@ export const action: ActionFunction = async ({
 };
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 订阅实时事件
 
@@ -745,7 +710,7 @@ export default function SubscribeToRealtime() {
       window.env.SUPABASE_ANON_KEY
     );
     // make sure you have enabled `Replication` for your table to receive realtime events
-    // https://supabase.com/docs/guides/database/replication
+    // https://supabase.com/docs/app/database/replication
     const channel = supabaseClient
       .channel('test')
       .on(
@@ -779,7 +744,7 @@ export default function SubscribeToRealtime() {
 
 ## 使用TypeScript的用法
 
-你可以将[用Supabase CLI生成的](/docs/reference/javascript/typescript-support#generating-types)类型传递给`createServerClient`或`createBrowserClient`函数以获得增强的类型安全和自动完成。
+你可以将[用Supabase CLI生成的](/docs/app/sdkdocs/javascript/typescript-support#generating-types)类型传递给`createServerClient`或`createBrowserClient`函数以获得增强的类型安全和自动完成。
 
 ### 服务器端
 

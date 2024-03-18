@@ -41,7 +41,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 用于管理用户和颁发访问令牌的基于JWT的API。这与PostgreSQL的行级安全和API服务器集成。
 
-- 官方文件: [Supabase Auth reference docs](/docs/reference/auth)
+- 官方文件: [Supabase Auth reference docs](/docs/app/sdkdocs/auth)
 - 源代码: [github.com/supabase/gotrue](https://github.com/supabase/gotrue)
 - License: [MIT](https://github.com/supabase/gotrue/blob/master/LICENSE)
 - 开发语言: Go
@@ -69,7 +69,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 兼容S3的对象存储服务，在Postgres中存储元数据。
 
-- 官方文件: [Supabase Storage reference docs](/docs/reference/storage)
+- 官方文件: [Supabase Storage reference docs](/docs/app/sdkdocs/storage)
 - 源代码: [github.com/supabase/storage-api](https://github.com/supabase/storage-api)
 - License: [Apache 2.0](https://github.com/supabase/storage-api/blob/master/LICENSE)
 - 开发语言: NodeJS / TypeScript

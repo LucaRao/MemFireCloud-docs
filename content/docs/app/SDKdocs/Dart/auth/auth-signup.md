@@ -29,7 +29,7 @@ final User? user = res.user;
 - **确认电子邮件**决定了用户在注册后是否需要确认他们的电子邮件地址。
   - 如果**确认电子邮件**被启用，将返回一个`用户`，但`会话`为空。
   - 如果**确认电子邮件**被禁用，则同时返回一个`用户'和一个`会话`。
-- 当用户确认他们的电子邮件地址时，他们默认会被重定向到[`SITE_URL`](https://supabase.com/docs/reference/auth/config#site_url)。你可以修改你的`SITE_URL`或在[你的项目](https://app.supabase.com/project/_/auth/settings)中添加额外的重定向URL。
+- 当用户确认他们的电子邮件地址时，他们默认会被重定向到[`SITE_URL`](https://supabase.com/docs/app/sdkdocs/auth/config#site_url)。你可以修改你的`SITE_URL`或在[你的项目](https://app.supabase.com/project/_/auth/settings)中添加额外的重定向URL。
 - 如果为一个现有的确认用户调用signUp()。
     - 如果在[你的项目](https://app.supabase.com/project/_/auth/settings)中启用了**确认邮件**，将返回一个混淆的/假的用户对象。
     - 如果**确认电子邮件**被禁用，将返回错误信息 "用户已经注册"。

@@ -13,27 +13,22 @@
 
 此库支持Node.js`^16.15.0`。
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="npm"
->
-<TabPanel id="npm" label="npm">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="npm" %}}
 
 ```sh
 npm install @supabase/auth-helpers-sveltekit
 ```
 
-</TabPanel>
-<TabPanel id="yarn" label="Yarn">
+{{% /tab %}}
+{{% tab tabName="Yarn" %}}
 
 ```sh
 yarn add @supabase/auth-helpers-sveltekit
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 入门
 
@@ -375,13 +370,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 ### 设置Supabase客户端 {#migration-set-up-supabase-client}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0.7"
->
-<TabPanel id="older-0.7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.7.x" %}}
 
 ```js title=src/lib/db.ts
 import { createClient } from '@supabase/supabase-js'
@@ -405,8 +395,8 @@ setupSupabaseHelpers({
 })
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```js title=src/lib/db.ts
 import { createClient } from '@supabase/auth-helpers-sveltekit'
@@ -418,18 +408,14 @@ import { env } from '$env/dynamic/public'
 export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY)
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 初始化客户端 {#migration-initialize-client}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0.7"
->
-<TabPanel id="older-0.7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.7.x" %}}
+
 
 ```html title=src/routes/+layout.svelte
 <script lang="ts">
@@ -449,8 +435,8 @@ export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_S
 <slot />
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```html title=src/routes/+layout.svelte
 <script>
@@ -474,18 +460,13 @@ export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_S
 <slot />
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 设置挂钩 {#migration-set-up-hooks}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0-7"
->
-<TabPanel id="older-0-7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.7.x" %}}
 
 ```ts title=src/hooks.server.ts
 // make sure the supabase instance is initialized on the server
@@ -508,8 +489,8 @@ import { sequence } from '@sveltejs/kit/hooks'
 export const handle = sequence(auth(), yourHandler)
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```ts title=src/hooks.server.ts
 // make sure the supabase instance is initialized on the server
@@ -521,18 +502,14 @@ import '$lib/db'
 import '$lib/db'
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 键入 {#migration-typings}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0-7"
->
-<TabPanel id="older-0-7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+
+{{% tab tabName="0.7.x" %}}
 
 ```ts title=src/app.d.ts
 /// <reference types="@sveltejs/kit" />
@@ -554,8 +531,8 @@ declare namespace App {
 }
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```ts title=src/app.d.ts
 /// <reference types="@sveltejs/kit" />
@@ -578,18 +555,13 @@ declare namespace App {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### withPageAuth {#migration-with-page-auth}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0-7"
->
-<TabPanel id="older-0-7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.7.x" %}}
 
 ```html title=src/routes/protected-route/+page.svelte
 <script lang="ts">
@@ -621,8 +593,8 @@ export const load: PageLoad = withAuth(async ({ session, getSupabaseClient }) =>
 })
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```html title=src/routes/protected-route/+page.svelte
 <script>
@@ -656,18 +628,13 @@ export const load: PageLoad = async (event) => {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### withApiAuth {#migration-with-api-auth}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older-0-7"
->
-<TabPanel id="older-0-7" label="0.7.x">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.7.x" %}}
 
 ```ts title=src/routes/api/protected-route/+server.ts
 import type { RequestHandler } from './$types'
@@ -690,8 +657,8 @@ export const GET: RequestHandler = withAuth(async ({ session, getSupabaseClient 
 })
 ```
 
-</TabPanel>
-<TabPanel id="0.8.0" label="0.8.0">
+{{% /tab %}}
+{{% tab tabName="0.8.0" %}}
 
 ```ts title=src/routes/api/protected-route/+server.ts
 import type { RequestHandler } from './$types'
@@ -709,8 +676,8 @@ export const GET: RequestHandler = async (event) => {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 从0.6.11及以下迁移到0.7.0 {#migration-0-7}
 
@@ -722,13 +689,8 @@ export const GET: RequestHandler = async (event) => {
 
 ### 设置Supabase客户端 {#migration-set-up-supabase-client-0-7}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```js title=src/lib/db.ts
 import { createSupabaseClient } from '@supabase/auth-helpers-sveltekit';
@@ -741,8 +703,8 @@ const { supabaseClient } = createSupabaseClient(
 export { supabaseClient };
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```js title=src/lib/db.ts
 import { createClient } from '@supabase/supabase-js'
@@ -766,18 +728,13 @@ setupSupabaseHelpers({
 })
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 初始化客户端 {#migration-initialize-client-0-7}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```html title=src/routes/__layout.svelte
 <script>
@@ -791,8 +748,8 @@ setupSupabaseHelpers({
 </SupaAuthHelper>
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 不再需要`@supabase/auth-helpers-svelte`库，因为 `@supabase/auth-helpers-sveltekit` 库处理所有客户端代码。
 
@@ -814,18 +771,13 @@ setupSupabaseHelpers({
 <slot />
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 设置挂钩 {#migration-set-up-hooks-0-7}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```ts title=src/hooks.ts
 import { handleAuth } from '@supabase/auth-helpers-sveltekit'
@@ -844,8 +796,8 @@ export const getSession: GetSession = async (event) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```ts title=src/hooks.server.ts
 // make sure the supabase instance is initialized on the server
@@ -868,18 +820,13 @@ import { sequence } from '@sveltejs/kit/hooks'
 export const handle = sequence(auth(), yourHandler)
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 键入 {#migration-typings-0-7}
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```ts title=src/app.d.ts
 /// <reference types="@sveltejs/kit" />
@@ -902,8 +849,8 @@ declare namespace App {
 }
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```ts title=src/app.d.ts
 /// <reference types="@sveltejs/kit" />
@@ -925,18 +872,13 @@ declare namespace App {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 检查客户端上的用户
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```html title=src/routes/index.svelte
 <script>
@@ -951,8 +893,8 @@ declare namespace App {
 {/if}
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```html title=src/routes/+page.svelte
 <script>
@@ -967,18 +909,13 @@ declare namespace App {
 {/if}
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### withPageAuth
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```html title=src/routes/protected-route.svelte
 <script lang="ts" context="module">
@@ -1010,8 +947,8 @@ declare namespace App {
 <pre>{JSON.stringify(user, null, 2)}</pre>
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```html title=src/routes/protected-route/+page.svelte
 <script lang="ts">
@@ -1043,18 +980,13 @@ export const load: PageLoad = withAuth(async ({ session, getSupabaseClient }) =>
 })
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### withApiAuth
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="older"
->
-<TabPanel id="older" label="0.6.11 and below">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="0.6.11 and below" %}}
 
 ```ts title=src/routes/api/protected-route.ts
 import { supabaseServerClient, withApiAuth } from '@supabase/auth-helpers-sveltekit'
@@ -1081,8 +1013,8 @@ export const GET: RequestHandler<GetOutput> = async ({ locals, request }) =>
   })
 ```
 
-</TabPanel>
-<TabPanel id="0.7.0" label="0.7.0">
+{{% /tab %}}
+{{% tab tabName="0.7.0" %}}
 
 ```ts title=src/routes/api/protected-route/+server.ts
 import type { RequestHandler } from './$types';
@@ -1107,8 +1039,8 @@ export const GET: RequestHandler = withAuth(async ({ session, getSupabaseClient 
 );
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 其他链接
 

@@ -47,7 +47,7 @@ Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我�
 
 ### 重定向URLs和通配符
 
-当使用第三方提供商时，[Supabase客户端库](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth#sign-in-using-a-third-party-provider-with-redirect)将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到`redirectTo`参数中指定的URL。这个参数默认为[`SITE_URL`](/docs/reference/auth/config#site_url)。你可以修改`SITE_URL`或添加额外的重定向URL。
+当使用第三方提供商时，[Supabase客户端库](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth#sign-in-using-a-third-party-provider-with-redirect)将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到`redirectTo`参数中指定的URL。这个参数默认为[`SITE_URL`](/docs/app/sdkdocs/auth/config#site_url)。你可以修改`SITE_URL`或添加额外的重定向URL。
 
 你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见[支持模式的完整列表](https://pkg.go.dev/github.com/gobwas/glob#Compile)。
 

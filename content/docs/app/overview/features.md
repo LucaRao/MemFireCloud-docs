@@ -91,7 +91,7 @@ RESTful API是从数据库自动生成的，无需一行代码. [文档](/docs/a
 
 ### 客户端库
 
-官方客户端库[JavaScript](/docs/app/SDKdocs/JavaScript/start/installing)和非官方客户端库[Dart](/docs/reference/dart)，[由社区支持](https://github.com/supabase-community#client-libraries)。 
+官方客户端库[JavaScript](/docs/app/SDKdocs/JavaScript/start/installing)和非官方客户端库[Dart](/docs/app/sdkdocs/dart)，[由社区支持](https://github.com/supabase-community#client-libraries)。 
 
 <br />
 

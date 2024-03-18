@@ -11,13 +11,8 @@
 
 ## 安装Next.js助手库
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="npm"
->
-<TabPanel id="npm" label="npm">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="npm" %}}
 
 ```sh
 npm install @supabase/auth-helpers-nextjs
@@ -35,8 +30,8 @@ npm install @supabase/auth-helpers-nextjs
 npm install @supabase/auth-helpers-react
 ```
 
-</TabPanel>
-<TabPanel id="yarn" label="Yarn">
+{{% /tab %}}
+{{% tab tabName="Yarn" %}}
 
 ```sh
 yarn add @supabase/auth-helpers-nextjs
@@ -54,8 +49,8 @@ yarn add @supabase/auth-helpers-nextjs
 yarn add @supabase/auth-helpers-react
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 设置环境变量
 在项目的[API设置](https://app.supabase.com/project/_/settings/api)中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，可以在`.env.local`文件。参见[示例](https://github.com/supabase/auth-helpers/blob/main/examples/nextjs/.env.local.example)。
@@ -67,13 +62,8 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 
 ## 基本设置
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 包装`pages/_app.js`组件与`SessionContextProvider`组件：
 
@@ -97,8 +87,8 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 包装`pages/_app.js`组件与`SessionContextProvider`组件：
 
@@ -126,14 +116,14 @@ function MyApp({
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 现在，您可以通过检查 `useUser()`钩子返回的`user`对象是否已定义来确定用户是否已通过身份验证。
 
 ## 使用TypeScript
 
-您可以将[使用Supabase CLI](/docs/reference/javascript/typescript-support#generating-types)生成的类型传递给Supabase客户端，以获得增强的类型安全性和自动完成：
+您可以将[使用Supabase CLI](/docs/app/sdkdocs/javascript/typescript-support#generating-types)生成的类型传递给Supabase客户端，以获得增强的类型安全性和自动完成：
 
 ### 浏览器客户端
 
@@ -264,13 +254,8 @@ export const getServerSideProps = async (ctx) => {
 
 您可以使用服务器超级数据库客户端运行[行级别安全性](/docs/learn/auth-deep-dive/auth-row-level-security)服务器端验证查询：
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 ```jsx
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -314,8 +299,8 @@ export const getServerSideProps = async (ctx) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 ```tsx
 import { User, createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -360,20 +345,15 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 使用 `provider token`将服务器端数据提取到OAuth API {#oauth-provider-token}
 
 当使用第三方身份验证提供程序时，会话将使用附加的 `provider_token`字段启动，该字段保存在身份验证cookie中，可以在会话对象中访问。`provider_token`可用于代表登录用户向OAuth提供程序的API端点发出API请求。
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 ```jsx
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -423,8 +403,8 @@ export const getServerSideProps = async (ctx) => {
 }
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 ```tsx
 import { User, createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -475,20 +455,15 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 保护API路由
 
 创建服务器超级客户端以检索登录用户的会话：
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="js"
->
-<TabPanel id="js" label="JavaScript">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="JavaScript" %}}
 
 ```jsx title=pages/api/protected-route.js
 import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -515,8 +490,8 @@ const ProtectedRoute = async (req, res) => {
 export default ProtectedRoute
 ```
 
-</TabPanel>
-<TabPanel id="ts" label="TypeScript">
+{{% /tab %}}
+{{% tab tabName="TypeScript" %}}
 
 ```tsx title=pages/api/protected-route.ts
 import { NextApiHandler } from 'next'
@@ -544,8 +519,8 @@ const ProtectedRoute: NextApiHandler = async (req, res) => {
 export default ProtectedRoute
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ## 使用Next.js中间件进行身份验证。
 
@@ -598,13 +573,8 @@ export const config = {
 
 在`NextApiHandler`中使用`createServerSubaseClient`：
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="before"
->
-<TabPanel id="before" label="Before">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="Before" %}}
 
 ```tsx title=pages/api/protected-route.ts
 import { withApiAuth } from '@supabase/auth-helpers-nextjs'
@@ -616,8 +586,9 @@ export default withApiAuth(async function ProtectedRoute(req, res, supabase) {
 })
 ```
 
-</TabPanel>
-<TabPanel id="after" label="After">
+{{% /tab %}}
+
+{{% tab tabName="After" %}}
 
 ```tsx title=pages/api/protected-route.ts
 import { NextApiHandler } from 'next'
@@ -645,20 +616,15 @@ const ProtectedRoute: NextApiHandler = async (req, res) => {
 export default ProtectedRoute
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 #### `withPageAuth`已弃用！
 
 在`getServerSideProps`中使用`createServerSubaseClient`：
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="before"
->
-<TabPanel id="before" label="Before">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="Before" %}}
 
 ```tsx title=pages/profile.tsx
 import { withPageAuth, User } from '@supabase/auth-helpers-nextjs'
@@ -670,8 +636,8 @@ export default function Profile({ user }: { user: User }) {
 export const getServerSideProps = withPageAuth({ redirectTo: '/' })
 ```
 
-</TabPanel>
-<TabPanel id="after" label="After">
+{{% /tab %}}
+{{% tab tabName="After" %}}
 
 ```tsx title=pages/profile.js
 import { createServerSupabaseClient, User } from '@supabase/auth-helpers-nextjs'
@@ -706,18 +672,13 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 #### `withMiddlewareAuth`已弃用！
 
-<Tabs
-  scrollable
-  size="small"
-  type="underlined"
-  defaultActiveId="before"
->
-<TabPanel id="before" label="Before">
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="Before" %}}
 
 ```tsx title=middleware.ts
 import { withMiddlewareAuth } from '@supabase/auth-helpers-nextjs'
@@ -737,8 +698,8 @@ export const config = {
 }
 ```
 
-</TabPanel>
-<TabPanel id="after" label="After">
+{{% /tab %}}
+{{% tab tabName="After" %}}
 
 ```tsx title=middleware.ts
 import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs'
@@ -773,12 +734,12 @@ export const config = {
 }
 ```
 
-</TabPanel>
-</Tabs>
+{{% /tab %}}
+{{< /tabs >}}
 
 ### 迁移到v0.4.X和supabase js v2
 
-随着`supabase-js` v2的更新，不再需要 `auth`API路由，因此您可以继续删除 `/pages/api/`目录下的 `auth`目录。请参阅[v2迁移指南](/docs/reference/javascript/upgrade-guide)以了解supabase js中的全部更改。
+随着`supabase-js` v2的更新，不再需要 `auth`API路由，因此您可以继续删除 `/pages/api/`目录下的 `auth`目录。请参阅[v2迁移指南](/docs/app/sdkdocs/javascript/upgrade-guide)以了解supabase js中的全部更改。
 
 `/api/auth/logout` api路由已删除，请改用 `signout` 方法：
 
@@ -818,7 +779,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 - `UserProvider` 已被 `SessionContextProvider`替换。确保包装您的 `pages/_app.js`与`SessionContextProvider`兼容。然后，在整个应用程序中，您可以使用 `useSessionContext`钩子获取 `session`，使用`useSubaseClient`钩子获取经过身份验证的`supbaseClient`。
 - `useUser`钩子现在返回`user`对象或`null`。
-- TypeScript的用法：您可以将[使用Suabase CLI](/docs/reference/javascript/typescript-support#generating-types)生成的类型传递给Supabase客户端，以获得增强的类型安全性和自动完成:
+- TypeScript的用法：您可以将[使用Suabase CLI](/docs/app/sdkdocs/javascript/typescript-support#generating-types)生成的类型传递给Supabase客户端，以获得增强的类型安全性和自动完成:
 
 创建新的超级数据库客户端对象：
 

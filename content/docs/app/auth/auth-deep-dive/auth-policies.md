@@ -31,7 +31,7 @@
 比方说，我们要把一个用户第一次注册到我们的服务中。典型的方法是在supabase-js中调用以下方法：
 
 ```jsx
-// see full api reference here: /docs/reference/javascript/auth-signup
+// see full api reference here: /docs/app/sdkdocs/javascript/auth-signup
 supabase.auth.signUp({ email, password })
 ```
 
@@ -90,7 +90,7 @@ http://localhost:3000/
 select * from auth.users;
 ```
 
-如果supabase-js在你的网站上被加载（这里是http://localhost:3000），它会自动从URL中提取`access_token`并启动一个会话。你可以检索[session](/docs/reference/javascript/auth-getsession)以查看是否有一个有效的会话。
+如果supabase-js在你的网站上被加载（这里是http://localhost:3000），它会自动从URL中提取`access_token`并启动一个会话。你可以检索[session](/docs/app/sdkdocs/javascript/auth-getsession)以查看是否有一个有效的会话。
 
 ```jsx
 console.log(supabase.auth.getSession())
