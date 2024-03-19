@@ -13,12 +13,12 @@
 {{< table "table-striped-columns" >}}
 | 版本   | 发布日期    |
 |-------|------------|
-| [2.3.23](/docs/history#2323) | 2023-05-04 |
-| [2.3.22](/docs/history#2322) | 2023-03-18 |
-| [2.2.X](/docs/history#22x)  | 2023-02-28 |
-| [2.0.X](/docs/history#20x)  | 2023-01-14 |
-| [1.2.X](/docs/history#12x)  | 2022-03-04 |
-| [1.0.X](/docs/history#10x)  | 2021-11-09 |
+| [2.3.23](/docs/app/overview/history/#2323) | 2023-05-04 |
+| [2.3.22](/docs/app/overview/history/#2322) | 2023-03-18 |
+| [2.2.X](/docs/app/overview/history/#22x)  | 2023-02-28 |
+| [2.0.X](/docs/app/overview/history/#20x)  | 2023-01-14 |
+| [1.2.X](/docs/app/overview/history/#12x)  | 2022-03-04 |
+| [1.0.X](/docs/app/overview/history/#10x)  | 2021-11-09 |
  {{< /table >}}
 
 ## **2.3.23**

@@ -77,7 +77,7 @@ MemFire Cloud是CloudBase的替代方案，提供构建产品所需的所有后�
         <i class="material-icons align-middle">code</i>
       </span> -->
       <div class="card-body p-0 content">
-        <p class="fs-5  card-title mb-1">文件存储</p>
+        <p class="fs-5  card-title mb-1">对象存储</p>
         <p class="para card-text mb-0">存储、组织和服务大型文件.</p>
       </div>
     </div>
@@ -85,7 +85,7 @@ MemFire Cloud是CloudBase的替代方案，提供构建产品所需的所有后�
 </div>
 
 <div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="/docs/app/hosting/tatic-start">
+  <a class="text-decoration-none text-reset" href="/docs/app/hosting/static-start">
     <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <!-- <span class="h1 icon-color">
         <i class="material-icons align-middle">reviews</i>

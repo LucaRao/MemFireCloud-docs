@@ -41,7 +41,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 用于管理用户和颁发访问令牌的基于JWT的API。这与PostgreSQL的行级安全和API服务器集成。
 
-- 官方文件: [Supabase Auth reference docs](/docs/reference/auth)
+- 官方文件: [Supabase Auth reference docs](/docs/app/auth)
 - 源代码: [github.com/supabase/gotrue](https://github.com/supabase/gotrue)
 - License: [MIT](https://github.com/supabase/gotrue/blob/master/LICENSE)
 - 开发语言: Go
@@ -69,7 +69,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 兼容S3的对象存储服务，在Postgres中存储元数据。
 
-- 官方文件: [Supabase Storage reference docs](/docs/reference/storage)
+- 官方文件: [Supabase Storage reference docs](/docs/app/storage/storage/)
 - 源代码: [github.com/supabase/storage-api](https://github.com/supabase/storage-api)
 - License: [Apache 2.0](https://github.com/supabase/storage-api/blob/master/LICENSE)
 - 开发语言: NodeJS / TypeScript
@@ -114,7 +114,7 @@ PostgreSQL的轻量级连接池。这对于使用无服务器函数时连接到P
 
 我们的目标是提供一个任何大型公司都可以为自己设计的架构， 然后围绕独立开发人员和小团队易于使用的架构提供工具。
 
-我们使用一系列原则来确保可伸缩性和可用性永远不会相互排斥：
+我们使用一系列原则来确保可伸缩性和可用性永远不会相互排斥。
 
 ### 所有的运行都是隔离的
 
@@ -143,7 +143,7 @@ Supabase是可组合的。尽管每个产品都是独立工作的，但平台上
 
 ### 为开发人员构建
 
-"开发者 "是一个特殊的用户形象：他们是_建设者。
+"开发者"是一个特殊的用户形象：他们是建设者。
 当评估作为努力的函数的影响时，由于开发人员可以构建产品和系统的类型，他们有很大的效率。
 随着开发人员的特征随着时间的推移而变化，Supabase将继续发展产品以适应这种不断变化的特征。
 
