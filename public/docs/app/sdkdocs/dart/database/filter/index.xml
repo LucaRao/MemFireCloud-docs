@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>过滤器 on My New Hugo Site</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/</link>
+    <description>Recent content in 过滤器 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/database/filter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用过滤器</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/using-filters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/using-filters/</guid>
+      <description>过滤器允许你只返回符合某些条件的记录。&#xA;过滤器可以用于select()、update()和delete()查询。&#xA;如果一个数据库函数返回一个表的响应，你也可以应用过滤器。&#xA;案例教程 link案例1 (使用过滤器) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;); // Correct&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;) // Incorrect&#xD;.select(&amp;#39;name, country_id&amp;#39;);&#xD;过滤器必须在select(), update()、upsert()、delete()和rpc()之后，并在修改器之前应用。&#xA;案例2 (链式过滤) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.gte(&amp;#39;population&amp;#39;, 1000)&#xD;.lt(&amp;#39;population&amp;#39;, 10000)&#xD;过滤器必须在select(), update()、upsert()、delete()和rpc()之后，并在修改器之前应用。&#xA;案例3 (条件链式) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final filterByName = null;&#xD;final filterPopLow = 1000;&#xD;final filterPopHigh = 10000;&#xD;var query = supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>eq()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/eq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/eq/</guid>
+      <description>eq()用于匹配列值等于指定值的行。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The shire&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;San Francisco&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;Mordor&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>neq()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/neq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/neq/</guid>
+      <description>neq()用于匹配列值不等于指定值的行。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.neq(&amp;#39;name&amp;#39;, &amp;#39;The shire&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.neq(&amp;#39;name&amp;#39;, &amp;#39;San Francisco&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.neq(&amp;#39;name&amp;#39;, &amp;#39;Mordor&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>gt()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gt/</guid>
+      <description>gt()用于查找所有在所述列（column）上的值大于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.gt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.gt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.gt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_all_cities&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>gte()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/gte/</guid>
+      <description>gte()用于查找所有在所述列（column）上的值大于或等于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.gte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.gte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.gte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_all_cities&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>lt()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lt/</guid>
+      <description>lt()用于查找所有在所述列（column）上的值小于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.lt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.lt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.lt(&amp;#39;country_id&amp;#39;, 250);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_all_cities&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>lte()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/lte/</guid>
+      <description>lte()用于查找所有在所述列（column）上的值小于或等于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.lte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.lte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.lte(&amp;#39;country_id&amp;#39;, 250);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_all_cities&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>like()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/like/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/like/</guid>
+      <description>like()用于查找所有在所述列（column）上的值与提供的 模板（pattern）相符的记录（区分大小写）。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.like(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.like(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.like(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>ilike()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/ilike/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/ilike/</guid>
+      <description>ilike()用于查找所有在所述列（column）上的值与提供的 模板（pattern）相符的记录（不区分大小写）。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.ilike(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.ilike(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.ilike(&amp;#39;name&amp;#39;, &amp;#39;%la%&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>is_()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/is_/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/is_/</guid>
+      <description>is_()用于检查是否完全相等(null, true, false),找到所有在所述列（column）上的值与指定的值（value）完全匹配的记录。&#xA;is_和in_过滤方法的后缀是_，以避免与保留的关键字发生冲突。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.is_(&amp;#39;name&amp;#39;, null);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.is_(&amp;#39;name&amp;#39;, null);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.is_(&amp;#39;name&amp;#39;, null);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>in_()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/in_/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/in_/</guid>
+      <description>in_()用于查找所有在指定列（column）上数值存在于指定值列表（arry）中的记录&#xA;is_和in_过滤方法的后缀是_，以避免与保留的关键字发生冲突。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.in_(&amp;#39;name&amp;#39;, [&amp;#39;Rio de Janeiro&amp;#39;, &amp;#39;San Francisco&amp;#39;]);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.in_(&amp;#39;name&amp;#39;, [&amp;#39;Rio de Janeiro&amp;#39;, &amp;#39;San Francisco&amp;#39;]);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.in_(&amp;#39;name&amp;#39;, [&amp;#39;Rio de Janeiro&amp;#39;, &amp;#39;San Francisco&amp;#39;]);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.</description>
+    </item>
+    <item>
+      <title>contains()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/contains/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/contains/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, main_exports&amp;#39;)&#xD;.contains(&amp;#39;main_exports&amp;#39;, [&amp;#39;oil&amp;#39;]);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.contains(&amp;#39;main_exports&amp;#39;, [&amp;#39;oil&amp;#39;]);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.contains(&amp;#39;main_exports&amp;#39;, [&amp;#39;oil&amp;#39;]);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_all_countries&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>containedBy()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/containedby/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/containedby/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, main_exports&amp;#39;)&#xD;.containedBy(&amp;#39;main_exports&amp;#39;, [&amp;#39;cars&amp;#39;, &amp;#39;food&amp;#39;, &amp;#39;machine&amp;#39;]);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.containedBy(&amp;#39;main_exports&amp;#39;, [&amp;#39;orks&amp;#39;, &amp;#39;surveillance&amp;#39;, &amp;#39;evil&amp;#39;]);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.containedBy(&amp;#39;main_exports&amp;#39;, [&amp;#39;cars&amp;#39;, &amp;#39;food&amp;#39;, &amp;#39;machine&amp;#39;]);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>rangeGt()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegt/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, population_range_millions&amp;#39;)&#xD;.rangeGt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.rangeGt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.rangeGt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>rangeGte()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangegte/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, population_range_millions&amp;#39;)&#xD;.rangeGte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.rangeGte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.rangeGte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>rangeLt()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelt/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, population_range_millions&amp;#39;)&#xD;.rangeLt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.rangeLt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.rangeLt(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>rangeLte()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelte/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangelte/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, population_range_millions&amp;#39;)&#xD;.rangeLte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.rangeLte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.rangeLte(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[150, 250]&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>rangeAdjacent()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangeadjacent/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/rangeadjacent/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, population_range_millions&amp;#39;)&#xD;.rangeAdjacent(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[70, 185]&amp;#39;);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.rangeAdjacent(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[70, 185]&amp;#39;);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.rangeAdjacent(&amp;#39;population_range_millions&amp;#39;, &amp;#39;[70, 185]&amp;#39;);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>overlaps()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/overlaps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/overlaps/</guid>
+      <description>案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, id, main_exports&amp;#39;)&#xD;.overlaps(&amp;#39;main_exports&amp;#39;, [&amp;#39;computers&amp;#39;, &amp;#39;minerals&amp;#39;]);&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.overlaps(&amp;#39;main_exports&amp;#39;, [&amp;#39;computers&amp;#39;, &amp;#39;minerals&amp;#39;]);&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.overlaps(&amp;#39;main_exports&amp;#39;, [&amp;#39;computers&amp;#39;, &amp;#39;minerals&amp;#39;]);&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>textSearch()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/textsearch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/textsearch/</guid>
+      <description>textSearch()作用是找到所有在指定列上的 tsvector 值与给定的 to_tsquery 查询条件匹配的记录。&#xA;案例教程 link案例1 (文本搜索) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;quotes&amp;#39;)&#xD;.select(&amp;#39;catchphrase&amp;#39;)&#xD;.textSearch(&amp;#39;catchphrase&amp;#39;, &amp;#34;&amp;#39;fat&amp;#39; &amp;amp; &amp;#39;cat&amp;#39;&amp;#34;,&#xD;config: &amp;#39;english&amp;#39;&#xD;);&#xD;案例2 (基本归一化) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;quotes&amp;#39;)&#xD;.select(&amp;#39;catchphrase&amp;#39;)&#xD;.textSearch(&amp;#39;catchphrase&amp;#39;, &amp;#34;&amp;#39;fat&amp;#39; &amp;amp; &amp;#39;cat&amp;#39;&amp;#34;,&#xD;type: TextSearchType.plain,&#xD;config: &amp;#39;english&amp;#39;&#xD;);&#xD;使用 PostgreSQL 的 plainto_tsquery 函数。&#xA;案例3 (全面归一化) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;quotes&amp;#39;)&#xD;.select(&amp;#39;catchphrase&amp;#39;)&#xD;.textSearch(&amp;#39;catchphrase&amp;#39;, &amp;#34;&amp;#39;fat&amp;#39; &amp;amp; &amp;#39;cat&amp;#39;&amp;#34;,&#xD;type: TextSearchType.</description>
+    </item>
+    <item>
+      <title>match()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/match/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/match/</guid>
+      <description>match()用于查找表（table）中所有列与指定的查询（query）对象相匹配的行。&#xA;案例教程 link案例1 (使用select) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.match({&amp;#39;name&amp;#39;: &amp;#39;Beijing&amp;#39;, &amp;#39;country_id&amp;#39;: 156});&#xD;案例2 (使用update) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Mordor&amp;#39; })&#xD;.match({&amp;#39;name&amp;#39;: &amp;#39;Beijing&amp;#39;, &amp;#39;country_id&amp;#39;: 156});&#xD;案例3 (使用delete) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({&amp;#39;name&amp;#39;: &amp;#39;Beijing&amp;#39;, &amp;#39;country_id&amp;#39;: 156});&#xD;案例4 (使用rpc) link&#xD;使用方法&#xD;&gt;&#xD;// Only valid if the Stored Procedure returns a table type.&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>.not()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/not/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/not/</guid>
+      <description>找到所有不符合过滤器要求的行。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.not(&amp;#39;name&amp;#39;, &amp;#39;eq&amp;#39;, &amp;#39;Paris&amp;#39;);&#xD;Notes link .not()希望你使用原始的PostgREST语法作为过滤器的名称和值。&#xA;.not(&amp;#39;name&amp;#39;,&amp;#39;eq&amp;#39;,&amp;#39;Paris&amp;#39;)&#xD;.not(&amp;#39;arraycol&amp;#39;,&amp;#39;cs&amp;#39;,&amp;#39;{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use Postgres array {} for array column and &amp;#39;cs&amp;#39; for contains.&#xD;.not(&amp;#39;rangecol&amp;#39;,&amp;#39;cs&amp;#39;,&amp;#39;(1,2]&amp;#39;) // Use Postgres range syntax for range column.&#xD;.not(&amp;#39;id&amp;#39;,&amp;#39;in&amp;#39;,&amp;#39;(6,7)&amp;#39;) // Use Postgres list () and &amp;#39;in&amp;#39; for in_ filter.&#xD;.not(&amp;#39;id&amp;#39;,&amp;#39;in&amp;#39;,&amp;#39;(${mylist.join(&amp;#39;,&amp;#39;)})&amp;#39;) // You can insert a Dart list array.&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.</description>
+    </item>
+    <item>
+      <title>.or()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/or/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/or/</guid>
+      <description>找到所有满足至少一个过滤器的行。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.or(&amp;#39;id.eq.20,id.eq.30&amp;#39;);&#xD;Notes link .or()希望你使用原始的PostgREST语法作为过滤器的名称和值。&#xA;.or(&amp;#39;id.in.(6,7),arraycol.cs.{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use Postgres list () and &amp;#39;in&amp;#39; for in_ filter. Array {} and &amp;#39;cs&amp;#39; for contains.&#xD;.or(&amp;#39;id.in.(${mylist.join(&amp;#39;,&amp;#39;)}),arraycol.cs.{${mylistArray.join(&amp;#39;,&amp;#39;)}}&amp;#39;)&#x9;// You can insert a Dart list for list or array column.&#xD;.or(&amp;#39;id.in.(${mylist.join(&amp;#39;,&amp;#39;)}),rangecol.cs.(${mylistRange.join(&amp;#39;,&amp;#39;)}]&amp;#39;)&#x9;// You can insert a Dart list for list or range column.&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.or(&amp;#39;id.eq.20,id.eq.30&amp;#39;);&#xD;使用 or与 and。 link&#xD;final data = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>.filter()</title>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/filter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/filter/filter/</guid>
+      <description>找到所有column符合过滤器的记录。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.filter(&amp;#39;name&amp;#39;, &amp;#39;in&amp;#39;, &amp;#39;(&amp;#34;Paris&amp;#34;,&amp;#34;Tokyo&amp;#34;)&amp;#39;);&#xD;Notes link .filter()希望你使用原始的PostgREST语法来表示过滤器的名称和值，所以它只能作为其他过滤器不工作时的一个转义。 .filter(&amp;#39;arraycol&amp;#39;,&amp;#39;cs&amp;#39;,&amp;#39;{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use Postgres array {} and &amp;#39;cs&amp;#39; for contains.&#xD;.filter(&amp;#39;rangecol&amp;#39;,&amp;#39;cs&amp;#39;,&amp;#39;(1,2]&amp;#39;) // Use Postgres range syntax for range column.&#xD;.filter(&amp;#39;id&amp;#39;,&amp;#39;in&amp;#39;,&amp;#39;(6,7)&amp;#39;) // Use Postgres list () and &amp;#39;in&amp;#39; for in_ filter.&#xD;.filter(&amp;#39;id&amp;#39;,&amp;#39;cs&amp;#39;,&amp;#39;{${mylist.join(&amp;#39;,&amp;#39;)}}&amp;#39;) // You can insert a Dart array list.&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.filter(&amp;#39;name&amp;#39;, &amp;#39;in&amp;#39;, &amp;#39;(&amp;#34;Paris&amp;#34;,&amp;#34;Tokyo&amp;#34;)&amp;#39;);&#xD;使用 update() link&#xD;final data = await supabase&#xD;.</description>
+    </item>
+  </channel>
+</rss>

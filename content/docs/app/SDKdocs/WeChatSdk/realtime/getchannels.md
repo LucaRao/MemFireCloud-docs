@@ -1,5 +1,5 @@
 ---
-    weight: 378
+    weight: 2864
     title: "getChannels()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 199
+    weight: 2403
     title: "setSession()"
     icon: "article"
     draft: false
@@ -18,7 +18,7 @@
 
 刷新令牌是单次使用的，一旦被用来获取新的会话后，就会失效。
 
-为了保护系统免受重放攻击，所有项目默认启用[刷新令牌轮换功能](/docs/reference/auth/config#refresh_token_rotation_enabled)。重放攻击是指攻击者通过重复使用先前获取的令牌来模拟合法用户的行为，从而进行未经授权的操作。
+为了保护系统免受重放攻击，所有项目默认启用[刷新令牌轮换功能](/docs/app/sdkdocs/auth/config#refresh_token_rotation_enabled)。重放攻击是指攻击者通过重复使用先前获取的令牌来模拟合法用户的行为，从而进行未经授权的操作。
 
 为了灵活性，MemFire Cloud允许你配置`REFRESH_TOKEN_REUSE_INTERVAL`，这是一个时间窗口，在这个窗口内，相同的刷新令牌可以在并发或离线问题的情况下多次使用。
 

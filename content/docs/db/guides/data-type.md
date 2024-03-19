@@ -1,5 +1,5 @@
 ---
-weight: 489
+weight: 4303
 title: "数据类型"
 description: ""
 icon: "article"

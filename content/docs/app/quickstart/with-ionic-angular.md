@@ -1,5 +1,5 @@
 ---
-    weight: 116
+    weight: 1311
     title: "快速入门: Ionic Angular"
     description: "Learn how to use Supabase in your Ionic Angular App."
     icon: "article"

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>认证 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/auth/</link>
+    <link>http://localhost:1313/docs/app/auth/</link>
     <description>Recent content in 认证 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/app/auth/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/auth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>https://github.com/docs/app/auth/auth/</link>
+      <link>http://localhost:1313/docs/app/auth/auth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/auth/auth/</guid>
-      <description>概述 link每个认证系统都有两个部分。&#xA;**认证：**这个人应该被允许进入吗？如果是的话，他们是谁？ **授权：**一旦他们进入，他们被允许做什么？ Supabase Auth被设计为既可以作为一个独立的产品，也可以与其他Supabase产品深度集成。 Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我们尽可能地利用Postgres的内置Auth功能。&#xA;下面是Supabase内置的Auth功能的2分钟快速浏览。&#xA;身份认证 link你可以通过几种方式来验证你的用户。&#xA;电子邮件和密码。 Magic links（一键登录）。 社交媒体登录认证服务商。 电话登录。 配置第三方服务商 link你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 &amp;gt; 设置 &amp;gt; Auth Providers，并为每个提供商输入你的 客户端ID和 密匙。&#xA;重定向URLs和通配符 link当使用第三方提供商时，Supabase客户端库将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到redirectTo参数中指定的URL。这个参数默认为SITE_URL。你可以修改SITE_URL或添加额外的重定向URL。&#xA;你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见支持模式的完整列表。&#xA;Netlify预览URLs link对于使用Netlify的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**--my_org.netlify.app/* Vercel预览网址 link对于使用Vercel的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**vercel.app/*/* Vercel为部署的URL提供了一个环境变量，称为NEXT_PUBLIC_VERCEL_URL。更多细节见Vercel docs。你可以使用这个变量，根据环境动态地重定向。&#xA;const { data, error } = await supabase.auth.signInWithOAuth({&#xD;provider: &amp;#39;github&amp;#39;&#xD;options: {&#xD;redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL&#xD;? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`&#xD;: &amp;#34;http://localhost:3000&amp;#34;&#xD;}&#xD;}&#xD;移动端深层链接 URI link对于移动应用程序，您可以使用深度链接URI。例如，对于您的SITE_URL，您可以指定类似于com.supabase://login-callback/的内容，如果需要额外的重定向URL，则可以使用类似于com.supabase.staging://login-callback/的内容。&#xA;授权 link当你需要细化的授权规则时，没有什么比PostgreSQL的行级安全（RLS）更重要了。&#xA;策略是PostgreSQL的规则引擎。它们是非常强大和灵活的，允许你编写复杂的SQL规则，以满足你独特的业务需求。&#xA;从我们的行级安全指南开始吧。&#xA;行级安全 link认证只解决了用户身份验证的问题，但并没有涉及用户在系统中的权限和访问级别。为了解决这个问题，您需要使用到PostgreSQL的行级安全性（RLS）的特性。该特性通过打开和关闭RLS选项，使得授权变得非常简单。&#xA;策略 link策略是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以适应你独特的业务需求。&#xA;如果设置了策略(Policy)，你的数据库就成了规则引擎。就不需要编写如下复杂的查询语句：</description>
+      <guid>http://localhost:1313/docs/app/auth/auth/</guid>
+      <description>概述 link每个认证系统都有两个部分。&#xA;认证：这个人应该被允许进入吗？如果是的话，他们是谁？ 授权：一旦他们进入，他们被允许做什么？ Supabase Auth被设计为既可以作为一个独立的产品，也可以与其他Supabase产品深度集成。 Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我们尽可能地利用Postgres的内置Auth功能。&#xA;下面是Supabase内置的Auth功能的2分钟快速浏览。&#xA;身份认证 link你可以通过几种方式来验证你的用户。&#xA;电子邮件和密码。 Magic links（一键登录）。 社交媒体登录认证服务商。 电话登录。 配置第三方服务商 link你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 &amp;gt; 设置 &amp;gt; Auth Providers，并为每个提供商输入你的 客户端ID和 密匙。&#xA;重定向URLs和通配符 link当使用第三方提供商时，Supabase客户端库将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到redirectTo参数中指定的URL。这个参数默认为SITE_URL。你可以修改SITE_URL或添加额外的重定向URL。&#xA;你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见支持模式的完整列表。&#xA;Netlify预览URLs link对于使用Netlify的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**--my_org.netlify.app/* Vercel预览网址 link对于使用Vercel的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**vercel.app/*/* Vercel为部署的URL提供了一个环境变量，称为NEXT_PUBLIC_VERCEL_URL。更多细节见Vercel docs。你可以使用这个变量，根据环境动态地重定向。&#xA;const { data, error } = await supabase.auth.signInWithOAuth({&#xD;provider: &amp;#39;github&amp;#39;&#xD;options: {&#xD;redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL&#xD;? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`&#xD;: &amp;#34;http://localhost:3000&amp;#34;&#xD;}&#xD;}&#xD;移动端深层链接 URI link对于移动应用程序，您可以使用深度链接URI。例如，对于您的SITE_URL，您可以指定类似于com.supabase://login-callback/的内容，如果需要额外的重定向URL，则可以使用类似于com.supabase.staging://login-callback/的内容。&#xA;授权 link当你需要细化的授权规则时，没有什么比PostgreSQL的行级安全（RLS）更重要了。&#xA;策略是PostgreSQL的规则引擎。它们是非常强大和灵活的，允许你编写复杂的SQL规则，以满足你独特的业务需求。&#xA;从我们的行级安全指南开始吧。&#xA;行级安全 link认证只解决了用户身份验证的问题，但并没有涉及用户在系统中的权限和访问级别。为了解决这个问题，您需要使用到PostgreSQL的行级安全性（RLS）的特性。该特性通过打开和关闭RLS选项，使得授权变得非常简单。&#xA;策略 link策略是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以适应你独特的业务需求。&#xA;如果设置了策略(Policy)，你的数据库就成了规则引擎。就不需要编写如下复杂的查询语句：</description>
     </item>
   </channel>
 </rss>

@@ -1,5 +1,5 @@
 ---
-    weight: 165
+    weight: 1604
     title: "GraphQL 介绍"
     description: "Some docs on graphql."
     icon: "article"

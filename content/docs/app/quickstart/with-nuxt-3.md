@@ -1,5 +1,5 @@
 ---
-    weight: 112
+    weight: 1307
     title: "快速入门: Nuxt 3"
     description: "了解如何在你的Nuxt 3应用程序中使用Supabase。"
     icon: "article"

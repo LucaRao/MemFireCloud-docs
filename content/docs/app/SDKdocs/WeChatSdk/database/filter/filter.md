@@ -1,0 +1,256 @@
+---
+    weight: 2754
+    title: "filter()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+仅匹配满足过滤器条件的行。
+
+尽管`filter()`函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。
+例如，使用`eq()`、`gt()`、`lt()`等特定的筛选方法，可以使查询更加清晰和易于理解。
+
+`filter()` 期望您使用原始的 [PostgREST语法](https://postgrest.org/en/stable/api.html#operators) 来指定过滤器的值。
+
+
+```ts
+.filter('id', 'in', '(5,6,7)')  // Use `()` for `in` filter
+.filter('arraycol', 'cs', '{"a","b"}')  // Use `cs` for `contains()`, `{}` for array values
+```
+
+
+
+
+## 案例教程 
+
+### 案例1  （和select一起使用）
+
+{{< tabs tabTotal="6" >}}
+
+  
+  
+  
+  
+>
+
+{{% tab tabName="建表" %}}
+
+
+
+```sql
+create table
+  countries (id int8 primary key, name text);
+
+insert into
+  countries (id, name)
+values
+  (1, 'Afghanistan'),
+  (2, 'Albania'),
+  (3, 'Algeria');
+```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="使用方法" %}}
+
+
+
+```ts
+const { data, error } = await supabase
+  .from('countries')
+  .select()
+  .filter('name', 'in', '("Algeria","Japan")')
+```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="返回结果" %}}
+
+
+
+```json
+{
+  "data": [
+    {
+      "id": 3,
+      "name": "Algeria"
+    }
+  ],
+  "status": 200,
+  "statusText": "OK"
+}
+```
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+### 案例2  （在外部表上）
+
+{{< tabs tabTotal="6" >}}
+
+  
+  
+  
+  
+>
+
+{{% tab tabName="建表" %}}
+
+
+
+```sql
+create table
+  countries (id int8 primary key, name text);
+create table
+  cities (
+    id int8 primary key,
+    country_id int8 not null references countries,
+    name text
+  );
+
+insert into
+  countries (id, name)
+values
+  (1, 'Germany'),
+  (2, 'Indonesia');
+insert into
+  cities (id, country_id, name)
+values
+  (1, 2, 'Bali'),
+  (2, 1, 'Munich');
+```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="使用方法" %}}
+
+
+
+```ts
+const { data, error } = await supabase
+  .from('countries')
+  .select(`
+    name,
+    cities!inner (
+      name
+    )
+  `)
+  .filter('cities.name', 'eq', 'Bali')
+```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="返回结果" %}}
+
+
+
+```json
+{
+  "data": [
+    {
+      "name": "Indonesia",
+      "cities": [
+        {
+          "name": "Bali"
+        }
+      ]
+    }
+  ],
+  "status": 200,
+  "statusText": "OK"
+}
+
+```
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+## 参数说明
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      列（column）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要过滤的列
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      操作符（operator）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code> 
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用来过滤的操作符，遵循PostgREST的语法
+
+  </div>
+
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      值（value）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>任意类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用来过滤的值，遵循PostgREST的语法
+
+  </div>
+  
+</li>
+
+</ul>

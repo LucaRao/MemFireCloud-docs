@@ -1,5 +1,5 @@
 ---
-    weight: 106
+    weight: 1303
     title: "快速入门: Flutter"
     description: "了解如何在您的 Flutter 应用程序中使用 Supabase。"
     icon: "article"
@@ -32,7 +32,7 @@ create table profiles (
   constraint username_length check (char_length(username) >= 3)
 );
 -- Set up Row Level Security (RLS)
--- See https://supabase.com/docs/guides/auth/row-level-security for more details.
+-- See https://supabase.com/docs/app/auth/row-level-security for more details.
 alter table profiles
   enable row level security;
 
@@ -46,7 +46,7 @@ create policy "Users can update own profile." on profiles
   for update using (auth.uid() = id);
 
 -- This trigger automatically creates a profile entry when a new user signs up via Supabase Auth.
--- See https://supabase.com/docs/guides/auth/managing-user-data#using-triggers for more details.
+-- See https://supabase.com/docs/app/auth/managing-user-data#using-triggers for more details.
 create function public.handle_new_user()
 returns trigger as $$
 begin
@@ -64,7 +64,7 @@ insert into storage.buckets (id, name)
   values ('avatars', 'avatars');
 
 -- Set up access controls for storage.
--- See https://supabase.com/docs/guides/storage/security/access-control#policy-examples for more details.
+-- See https://supabase.com/docs/app/storage/security/access-control#policy-examples for more details.
 create policy "Avatar images are publicly accessible." on storage.objects
   for select using (bucket_id = 'avatars');
 

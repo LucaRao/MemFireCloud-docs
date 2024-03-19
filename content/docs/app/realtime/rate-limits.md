@@ -1,5 +1,5 @@
 ---
-    weight: 170
+    weight: 1804
     title: "实时速率限制"
     description: "Understanding Realtime rate limiting"
     icon: "article"
@@ -7,14 +7,14 @@
     toc: true
 ---
 
-Supabase Realtime是一个全球集群。我们已经实施了一些速率限制，以帮助确保所有客户的高可用性。
+MemFire Cloud Realtime是一个全球集群。我们已经实施了一些速率限制，以帮助确保所有客户的高可用性。
 
-速率限制可按项目配置，我们的集群支持数百万的并发连接。[联系支持](https://app.supabase.com/support/new)如果这些限制造成了问题。
+速率限制可按项目配置，我们的集群支持数百万的并发连接。如果这些限制造成了问题请立即通过小助手联系我们。
 
 
 ## 按计划限制
 
-免费计划和专业计划都有相应的限制。更多信息见我们的[定价页](https://supabase.com/pricing)。
+免费计划和专业计划都有相应的限制。
 
 企业计划是按使用量计费的。我们仍然对企业计划采用限制措施。如果你使用企业计划，只需联系支持，我们将根据需要增加你的限额。
 
@@ -47,9 +47,7 @@ Supabase Realtime是一个全球集群。我们已经实施了一些速率限制
 使用[Realtime Inspector](https://realtime.supabase.com/inspector/new)来重现错误，并与Supabase支持部门分享这些连接细节。
 {{% /alert %}}
 
-### 后端日志
 
-如果你的项目被限制了速率，请检查你的[Realtime logs](https://app.supabase.com/project/_/database/realtime-logs)。
 
 ### WebSocket错误
 

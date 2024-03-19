@@ -1,5 +1,5 @@
 ---
-    weight: 144
+    weight: 1412
     title: "手机登录认证"
     description: "手机登录认证"
     icon: "article"

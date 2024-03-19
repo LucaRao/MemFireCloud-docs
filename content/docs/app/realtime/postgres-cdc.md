@@ -1,5 +1,5 @@
 ---
-    weight: 169
+    weight: 1803
     title: "Postgres CDC"
     description: ""
     icon: "article"
@@ -24,7 +24,7 @@ GRANT SELECT ON "private_schema"."table" TO authenticated;
 我们强烈建议你启用RLS并为私有模式中的表创建策略。否则，你所授予的任何角色都将拥有对表的不受限制的读取权限。
 {{% /alert %}}
 
-你可以在仪表板的[Replication](https://app.supabase.com/project/_/database/replication)部分或用[SQL editor](https://app.supabase.com/project/_/sql)来做这个。
+你可以在仪表板的Replication部分或用`SQL editor`来做这个。
 
 ```sql
 begin;

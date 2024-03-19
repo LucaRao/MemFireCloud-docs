@@ -1,5 +1,5 @@
 ---
-    weight: 177
+    weight: 1452
     title: "身份验证UI"
     description: '一个预构建的、可定制的React组件，用于验证用户。'
     icon: "article"
@@ -21,7 +21,7 @@ Auth UI是用于验证用户的预构建React组件。
 
 ## 设置身份验证UI
 
-安装最新版本的[supabase js](/docs/reference/javascript)和Auth UI包：
+安装最新版本的[supabase js](/docs/app/sdkdocs/javascript)和Auth UI包：
 
 ```bash
 npm install @supabase/supabase-js @supabase/auth-ui-react
@@ -88,11 +88,11 @@ const App = () => (
 )
 ```
 
-<Admonition type="info">
+{{% alert context="info" %}}
 
 目前只有一个预定义的主题可用，但我们计划添加更多主题。
 
-</Admonition>
+{{% /alert %}}
 
 ### 切换主题变体
 

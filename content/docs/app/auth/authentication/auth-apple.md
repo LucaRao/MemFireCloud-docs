@@ -1,5 +1,5 @@
 ---
-    weight: 139
+    weight: 1415
     title: "使用Apple登录"
     description: "将Apple OAuth添加到Supabase项目"
     icon: "article"

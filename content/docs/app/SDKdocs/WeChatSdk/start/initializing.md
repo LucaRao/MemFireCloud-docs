@@ -1,0 +1,539 @@
+---
+    weight: 2713
+    title: "初始化客户端"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+
+你可以使用 `createClient()` 方法初始化一个新的 Supabase 客户端。
+
+Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。
+
+
+## 案例教程
+
+### 案例1  （createClient()）
+
+{{< tabs tabTotal="1" >}}
+{{% tab tabName="使用方法" %}}
+
+
+
+如果密码超过72个字符，它将被截断为前72个字符。
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+
+// Create a single supabase client for interacting with your database
+const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+```
+
+使用自定义域名：
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+
+// Use a custom domain as the supabase URL
+const supabase = createClient('https://my-custom-domain.com', 'public-anon-key')
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
+
+
+### 案例2 （带附加参数的情况）
+
+
+{{< tabs tabTotal="1" >}}
+{{% tab tabName="使用方法" %}}
+
+
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+
+const options = {
+  db: {
+    schema: 'public',
+  },
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true
+  },
+  global: {
+    headers: { 'x-my-custom-header': 'my-app-name' },
+  },
+}
+const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key", options)
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
+
+
+
+
+### 案例3  （API模式）
+
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="使用方法" %}}
+
+
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+
+// Provide a custom schema. Defaults to "public".
+const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key', {
+  db: { schema: 'other_schema' }
+})
+```
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+默认情况下，API服务器指向public模式。您可以在控制台中启用其他数据库模式。
+前往 `“设置”>“API”>“public模式”`，然后添加您想要暴露给API的模式。
+
+注意：每个客户端连接只能访问一个模式，因此上述代码可以访问`other_schema`模式，但无法访问`public`模式。
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+### 案例4  （自定义fetch实现）
+
+
+
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="使用方法" %}}
+
+
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+
+const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key', {
+  global: { fetch: fetch.bind(globalThis) }
+})
+```
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+`supabase-js`使用`cross-fetch`库进行HTTP请求，但是可以作为选项提供替代的`fetch`实现。
+这在`cross-fetch`不兼容的环境中特别有用（例如Cloudflare Workers）。
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+### 案例5  （React Native选项）
+
+{{< tabs tabTotal="2" >}}
+{{% tab tabName="使用方法" %}}
+
+
+
+```javascript
+import { createClient } from 'supabase-wechat-stable-v2'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key", {
+  auth: {
+    storage: AsyncStorage,
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false,
+  },
+});
+```
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+对于React Native，我们推荐使用`AsyncStorage`作为Supabase Auth的存储实现。
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      supabaseUrl
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+唯一的Supabase URL，当你在项目控制台上创建一个新项目时提供。
+
+点击控制台左侧菜单栏的“应用设置”，然后找到“API”，此时的页面可以找到应用的URL。
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      supabaseKey
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+唯一的Supabase密钥，当你在你的项目控制台上创建一个新项目时提供。
+
+点击控制台左侧菜单栏的“应用设置”，然后找到“API”，此时的页面可以找到应用的API密钥。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      SupabaseClientOptions
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      auth
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      autoRefreshToken
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+自动刷新登录用户的令牌。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      detectSessionInUrl
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+从URL中检测一个会话。用于OAuth登录的回调。
+
+  </div>
+  
+</li>
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      flowType
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要使用的OAuth流程 - 默认为隐式流程。推荐在移动端和服务器端应用中使用PKCE流程。
+
+  </div>
+</li>
+
+
+
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      persistSession
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>boolean类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+是否将登录的会话持久化到存储中。
+  </div>
+</li>
+
+
+
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      storage
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+一个存储提供者。用来存储登录的会话。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      storageKey
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+可选的密钥名称，用于在本地存储中存储令牌
+
+  </div>
+  
+</li>
+
+
+
+</ul>
+
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      db
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+你的表所属的Postgres模式。必须在Supabase中公开的模式列表中。默认为 "public"。
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      schema
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>SchemaName类型</code>
+    </span>
+  </h4>
+  
+</li>
+
+</ul>
+
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      global
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      fetch
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>Fetch类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+一个自定义的 fetch 实现。
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      headers
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>Record类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用于初始化客户端的可选头文件。
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      realtime
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>RealtimeClientOptions类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+传递给realtime-js实例的选项
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+

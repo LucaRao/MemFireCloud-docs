@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>云函数 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/functions/</link>
+    <link>http://localhost:1313/docs/app/functions/</link>
     <description>Recent content in 云函数 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/app/functions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/functions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>https://github.com/docs/app/functions/overview/</link>
+      <link>http://localhost:1313/docs/app/functions/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/functions/overview/</guid>
+      <guid>http://localhost:1313/docs/app/functions/overview/</guid>
       <description>MemFire Cloud云函数，是运行在云端（服务器端）的、无关联、可重复使用的函数代码。使用MemFire Cloud云函数，您无需购买、管理服务器等基础设施，只需编写和上传代码。MemFire Cloud云函数为您准备好了计算资源，可以弹性、可靠的运行任务，从而可轻松构建任何类型的应用和服务。&#xA;应用场景 link数据ETL处理&#xA;一些数据量比较大、运算成本比较高、不适合在客户端进行运算，比如数据统计、周期性/计划性的处理庞大的数据量工作。例如：统计每天有多少用户查看了商品，平均停留时长；&#xA;编写服务端逻辑&#xA;开发人员利用云函数来处理一些不适合将判断逻辑写在客户端的事件，以保证程序的安全性，如抽奖功能。&#xA;调用第三方API&#xA;在云函数中调用第三方 API ，接入第三方服务，比如调用微信支付接口。</description>
     </item>
     <item>
-      <title>代码开发</title>
-      <link>https://github.com/docs/app/functions/code-development/</link>
+      <title>管理函数</title>
+      <link>http://localhost:1313/docs/app/functions/function-management/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/functions/code-development/</guid>
+      <guid>http://localhost:1313/docs/app/functions/function-management/</guid>
+      <description>本文介绍函数的属性和运行环境，以及如何通过MemFire Cloud控制台创建函数、更新函数、删除函数等操作。&#xA;云函数支持的函数运行环境列表 link&#xD;运行环境 说明 操作系统 架构 Node.js 12 Node.js 12版本 Linux x86_64 Node.js 14 Node.js 14版本 Linux x86_64 Node.js 16 Node.js 16版本 Linux x86_64 云函数的默认配置 link免费版的云函数默认配置： 运行环境 CPU 内存 磁盘 并发运行数 Node.js 14 0.2 核 256 MB 512MB 10 创建函数 link操作前提 link 已创建应用 操作说明 link1.登录MemFire Cloud平台，进入我的应用-&amp;gt;某应用-&amp;gt;云函数页；&#xA;2.在云函数页面，单击新建函数；&#xA;3.在创建云函数弹框中，点配置以下配置项，然后单击保存；&#xA;基础信息 ：设置函数的基本信息，包括函数名称、请求处理程序。 配置项 说明 函数名 函数名称，必填项；只能包含字母、数字、下划线；不能以数字开头，长度在 1-64 之间；同一应用下的云函数不能重名； 请求处理程序 即函数入口，默认为index.handler；在“运行环境”为 Node.js 时，当前值的格式为 [文件名].[函数名]； 函数配置 ：配置函数的代码和运行环境。 配置项 说明 上传代码包 支持ZIP包上传代码；ZIP文件大小不能超过20Mb, 且index.js必须在ZIP文件的根目录下，采用handler函数为入口函数； 运行环境 目前MemFire Cloud云函数仅支持JavaScript语言，支持的运行环境包括：Node.</description>
+    </item>
+    <item>
+      <title>代码开发</title>
+      <link>http://localhost:1313/docs/app/functions/code-development/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/functions/code-development/</guid>
       <description>本文介绍使用云函数编写代码的相关基础概念，包括请求处理函数、函数实例生命周期回调方法等。&#xA;请求处理程序 linkMemFire Cloud云函数的请求处理程序，是函数代码中处理请求的方法。当您的云函数被调用时，会运行您提供的Handler方法处理请求。对于Node.js语言的云函数而言，函数入口为 [文件名].[函数名]，默认为index.handler；&#xA;您可以使用HTTP请求处理程序更方便地处理HTTP请求。当调用函数时，MemFire Cloud云函数使用您提供的执行方法来处理HTTP请求。&#xA;HTTP Handler签名 linkNode.js的HTTP Handler的签名如下。您只需实现一个函数，就能响应HTTP请求。&#xA;exports.handler = (req, resp, context) =&amp;gt; {&#xD;console.log(&amp;#34;receive body: &amp;#34;, req.body.toString());&#xD;resp.setHeader(&amp;#34;Content-Type&amp;#34;, &amp;#34;text/plain&amp;#34;);&#xD;resp.send(&amp;#39;&amp;lt;h1&amp;gt;Hello, world!&amp;lt;/h1&amp;gt;&amp;#39;);&#xD;} 示例解析如下：&#xA;handler：HTTP Handler名称。 req：HTTP请求结构体。 resp：HTTP返回结构体。 context：上下文信息。 HTTP请求结构体 link&#xD;字段 类型 描述 headers Object 存放来自HTTP客户端的键值对。 path String 表示HTTP路径。 queries Object 存放来自HTTP路径中的查询部分的键值对，值的类型可以为字符串或数组。 method String 表示HTTP方法。 clientIP String 客户端的IP地址。 url String 请求的地址。 说明 Headers键值对中的key中包含以下字段或以x-fc-开头的key均会被忽略，因此，不支持自定义。&#xA;connection keep-alive HTTP响应结构体 link&#xD;字段 类型 描述 response.setStatusCode(statusCode) interger 设置状态码。 response.setHeader(headerKey, headerValue) String，String 设置响应头。 response.</description>
     </item>
     <item>
-      <title>管理函数</title>
-      <link>https://github.com/docs/app/functions/function-management/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/functions/function-management/</guid>
-      <description>本文介绍函数的属性和运行环境，以及如何通过MemFire Cloud控制台创建函数、更新函数、删除函数等操作。&#xA;云函数支持的函数运行环境列表 link&#xD;运行环境 说明 操作系统 架构 Node.js 12 Node.js 12版本 Linux x86_64 Node.js 14 Node.js 14版本 Linux x86_64 Node.js 16 Node.js 16版本 Linux x86_64 云函数的默认配置 link免费版的云函数默认配置： 运行环境 CPU 内存 磁盘 并发运行数 Node.js 14 0.2 核 256 MB 512MB 10 创建函数 link操作前提 link 已创建应用 操作说明 link1.登录MemFire Cloud平台，进入我的应用-&amp;gt;某应用-&amp;gt;云函数页；&#xA;2.在云函数页面，单击新建函数；&#xA;3.在创建云函数弹框中，点配置以下配置项，然后单击保存；&#xA;**基础信息：**设置函数的基本信息，包括函数名称、请求处理程序。 配置项 说明 函数名 函数名称，必填项；只能包含字母、数字、下划线；不能以数字开头，长度在 1-64 之间；同一应用下的云函数不能重名； 请求处理程序 即函数入口，默认为index.handler；在“运行环境”为 Node.js 时，当前值的格式为 [文件名].[函数名]； **函数配置：**配置函数的代码和运行环境。 配置项 说明 上传代码包 支持ZIP包上传代码；ZIP文件大小不能超过20Mb, 且index.js必须在ZIP文件的根目录下，采用handler函数为入口函数； 运行环境 目前MemFire Cloud云函数仅支持JavaScript语言，支持的运行环境包括：Node.</description>
-    </item>
-    <item>
       <title>环境变量</title>
-      <link>https://github.com/docs/app/functions/variable/</link>
+      <link>http://localhost:1313/docs/app/functions/variable/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/functions/variable/</guid>
+      <guid>http://localhost:1313/docs/app/functions/variable/</guid>
       <description>安全性 link创建或者更新环境变量时，函数计算会对您的环境变量使用AES256（Advanced Encryption Standard 256）标准加密存储，在初始化函数实例时，会将环境变量解密后注入到函数实例环境中。&#xA;使用限制 link 字符集规则 Key的字符集：必须以大小写字母开头，只能包含大小写字母、数字和下划线。 Value的字符集：必须是可显示的ASCII字符，不能包含中文等其他字符。 大小限制 所有环境变量的大小总和不能超过4 KB。 应用环境变量，包括： API_URL：应用访问URL地址； ANON_KEY: Anon（公开）密钥是客户端API密钥； SERVICE_ROLE_KEY: 服务端访问密钥，可以绕过任何安全策略完全访问您的数据； 通过控制台配置环境变量 link前提条件 link1、存在已创建的云函数&#xA;操作步骤 link 登录MemFire Cloud平台，进入我的应用-&amp;gt;某应用-&amp;gt;云函数页。 在函数管理页面，单击目标函数操作列的编辑。 在编辑函数配置页面的环境变量区域，按需选择配置环境变量的方式，然后单击保存。 （1）单击添加变量。&#xA;（2）配置环境变量的键值对：&#xA;变量名：自定义。 值：自定义。 （3）示例如下。&#xA;验证环境变量是否创建成功。 在代码中使用环境变量,假设配置的环境变量为{&amp;quot;key&amp;quot;:&amp;quot;val&amp;quot;}，以下为Node.js运行环境读取并打印此环境变量值的方法。&#xA;var value = process.env.keyconsole.log(value)&#xD;</description>
     </item>
   </channel>

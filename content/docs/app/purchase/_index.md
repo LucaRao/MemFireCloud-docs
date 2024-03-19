@@ -1,5 +1,5 @@
 ---
-weight: 102
+weight: 1200
 title: "购买指南"
 description: ""
 icon: "article"

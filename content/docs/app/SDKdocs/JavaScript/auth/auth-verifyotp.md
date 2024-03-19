@@ -1,5 +1,5 @@
 ---
-    weight: 192
+    weight: 2398
     title: "通过 OTP 进行验证和登录"
     icon: "article"
     draft: false

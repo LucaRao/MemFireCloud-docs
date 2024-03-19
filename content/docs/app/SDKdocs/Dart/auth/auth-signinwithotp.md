@@ -1,5 +1,5 @@
 ---
-    weight: 400
+    weight: 2593
     title: "signInWithOtp()"
     icon: "article"
     draft: false
@@ -26,7 +26,7 @@ await supabase.auth.signInWithOtp(
 - 这种方法用于无密码登录，OTP被发送到用户的电子邮件或电话号码。
 - 如果你使用电子邮件，你可以配置你是否想让用户收到一个魔术链接或OTP。
 - 如果你使用电话，你可以配置你是否希望用户收到OTP。
-- 魔法链接的目标URL是由[`SITE_URL`](https://supabase.com/docs/reference/auth/config#site_url)决定的。你可以修改`SITE_URL`或在[你的项目](https://app.supabase.com/project/_/auth/settings)中添加额外的重定向url。
+- 魔法链接的目标URL是由[`SITE_URL`](https://supabase.com/docs/app/sdkdocs/auth/config#site_url)决定的。你可以修改`SITE_URL`或在[你的项目](https://app.supabase.com/project/_/auth/settings)中添加额外的重定向url。
 
 
 

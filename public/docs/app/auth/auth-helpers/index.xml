@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>认证帮助程序 on My New Hugo Site</title>
+    <link>http://localhost:1313/docs/app/auth/auth-helpers/</link>
+    <description>Recent content in 认证帮助程序 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/auth/auth-helpers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>身份验证帮助程序</title>
+      <link>http://localhost:1313/docs/app/auth/auth-helpers/auth-helpers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/auth/auth-helpers/auth-helpers/</guid>
+      <description>用于使用Supabase的特定于框架的Auth实用程序的集合。&#xA;{/* Auth UI */}&#xD;</description>
+    </item>
+    <item>
+      <title>身份验证UI</title>
+      <link>http://localhost:1313/docs/app/auth/auth-helpers/auth-ui/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/auth/auth-helpers/auth-ui/</guid>
+      <description>Auth UI是用于验证用户的预构建React组件。 它支持定制主题和可扩展样式，以符合您的品牌和审美。&#xA;设置身份验证UI link安装最新版本的supabase js和Auth UI包：&#xA;npm install @supabase/supabase-js @supabase/auth-ui-react&#xD;导入Auth组件 link将 @supabase/supabase-js 中的 supabaseClient 作为属性传递给组件。&#xA;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;import { Auth } from &amp;#39;@supabase/auth-ui-react&amp;#39;&#xD;const supabase = createClient(&amp;#39;&amp;lt;INSERT PROJECT URL&amp;gt;&amp;#39;, &amp;#39;&amp;lt;INSERT PROJECT ANON API KEY&amp;gt;&amp;#39;)&#xD;const App = () =&amp;gt; &amp;lt;Auth supabaseClient={supabase} /&amp;gt;&#xD;这将在没有任何样式的情况下渲染Auth组件。 我们建议使用预定义的主题之一来设置UI的样式。 导入要使用的主题并将其传递给appearence.theme属性。&#xA;import {&#xD;Auth,&#xD;// Import predefined theme&#xD;ThemeSupa,&#xD;} from &amp;#39;@supabase/auth-ui-react&amp;#39;&#xD;const App = () =&amp;gt; (&#xD;&amp;lt;Auth&#xD;supabaseClient={supabase}&#xD;{/* Apply predefined theme */}&#xD;appearance={{ theme: ThemeSupa }}&#xD;/&amp;gt;&#xD;)&#xD;自定义 link有几种自定义身份验证UI的方法：</description>
+    </item>
+    <item>
+      <title>使用Next.js进行Supabase认证</title>
+      <link>http://localhost:1313/docs/app/auth/auth-helpers/nextjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/auth/auth-helpers/nextjs/</guid>
+      <description>该子模块为在Next中实现用户身份验证提供了方便的帮助Next.js应用程序。&#xA;安装Next.js助手库 link&amp;lt;Tabs scrollable size=&amp;ldquo;small&amp;rdquo; type=&amp;ldquo;underlined&amp;rdquo; defaultActiveId=&amp;ldquo;npm&amp;rdquo;&#xA;npm install @supabase/auth-helpers-nextjs&#xD;此库支持以下工具版本：&#xA;Node.js: ^10.13.0 || &amp;gt;=12.0.0 Next.js: &amp;gt;=10 注：Next.js13除了新的app目录方法外，其他都受支持。我们正在努力增加对此的支持，您可以关注此处. 此外，为可在所有基于React的框架中使用的组件和挂钩安装React Auth Helpers。&#xA;npm install @supabase/auth-helpers-react&#xD;yarn add @supabase/auth-helpers-nextjs&#xD;此库支持以下工具版本：&#xA;Node.js: ^10.13.0 || &amp;gt;=12.0.0 Next.js: &amp;gt;=10 注：Next.js13除了新的app目录方法外，其他都受支持。我们正在努力增加对此的支持，您可以关注此处. 此外，为可在所有基于React的框架中使用的组件和挂钩安装React Auth Helpers。&#xA;yarn add @supabase/auth-helpers-react&#xD;设置环境变量 link在项目的API设置中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，可以在.env.local文件。参见示例。&#xA;NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL&#xD;NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY&#xD;基本设置 link&amp;lt;Tabs scrollable size=&amp;ldquo;small&amp;rdquo; type=&amp;ldquo;underlined&amp;rdquo; defaultActiveId=&amp;ldquo;js&amp;rdquo;&#xA;包装pages/_app.js组件与SessionContextProvider组件：&#xA;import { createBrowserSupabaseClient } from &amp;#39;@supabase/auth-helpers-nextjs&amp;#39;&#xD;import { SessionContextProvider } from &amp;#39;@supabase/auth-helpers-react&amp;#39;&#xD;function MyApp({ Component, pageProps }) {&#xD;const router = useRouter()&#xD;// Create a new supabase browser client on every first render.</description>
+    </item>
+    <item>
+      <title>使用SveltKit进行Supabase认证</title>
+      <link>http://localhost:1313/docs/app/auth/auth-helpers/sveltekit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/auth/auth-helpers/sveltekit/</guid>
+      <description>该子模块提供了在SvelteKit中实现用户身份验证的方便助手应用程序。&#xA;安装 link此库支持Node.js^16.15.0。&#xA;&amp;lt;Tabs scrollable size=&amp;ldquo;small&amp;rdquo; type=&amp;ldquo;underlined&amp;rdquo; defaultActiveId=&amp;ldquo;npm&amp;rdquo;&#xA;npm install @supabase/auth-helpers-sveltekit&#xD;yarn add @supabase/auth-helpers-sveltekit&#xD;入门 link配置 link设置填充环境变量。对于本地开发，您可以将其设置为.env文件。参见示例.&#xA;# Find these in your Supabase project settings &amp;gt; API&#xD;PUBLIC_SUPABASE_URL=https://your-project.supabase.co&#xD;PUBLIC_SUPABASE_ANON_KEY=your-anon-key&#xD;设置Suabase客户端 link首先创建一个db.ts文件，并实例化 supabaseClient。&#xA;import { createClient } from &amp;#39;@supabase/auth-helpers-sveltekit&amp;#39;&#xD;import { env } from &amp;#39;$env/dynamic/public&amp;#39;&#xD;// or use the static env&#xD;// import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from &amp;#39;$env/static/public&amp;#39;;&#xD;export const supabaseClient = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY)&#xD;要确保在服务器和客户端上初始化了客户端，请在src/hooks.server.js中包含此文件。js和src/hooks.client.js`：&#xA;import &amp;#39;$lib/db&amp;#39;&#xD;同步页面存储 link编辑+layout.svelte文件并设置客户端。&#xA;&amp;lt;script&amp;gt;&#xD;import { supabaseClient } from &amp;#39;$lib/db&amp;#39;&#xD;import { invalidate } from &amp;#39;$app/navigation&amp;#39;&#xD;import { onMount } from &amp;#39;svelte&amp;#39;&#xD;onMount(() =&amp;gt; {&#xD;const {&#xD;data: { subscription },&#xD;} = supabaseClient.</description>
+    </item>
+    <item>
+      <title>Supabase Remix认证</title>
+      <link>http://localhost:1313/docs/app/auth/auth-helpers/remix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/app/auth/auth-helpers/remix/</guid>
+      <description>该子模块为在Remix应用程序中实现用户身份验证提供了方便的帮助。&#xA;安装Remix助手库 link&amp;lt;Tabs scrollable size=&amp;ldquo;small&amp;rdquo; type=&amp;ldquo;underlined&amp;rdquo; defaultActiveId=&amp;ldquo;npm&amp;rdquo;&#xA;npm install @supabase/auth-helpers-remix&#xD;此库支持以下工具版本：&#xA;Remix: &amp;gt;=1.7.2 yarn add @supabase/auth-helpers-remix&#xD;此库支持以下工具版本：&#xA;Remix: &amp;gt;=1.7.2 设置环境变量 link在项目的API设置中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，您可以将其设置为.env文件。参见示例.&#xA;SUPABASE_URL=YOUR_SUPABASE_URL&#xD;SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY&#xD;加载器 link&amp;lt;Tabs scrollable size=&amp;ldquo;small&amp;rdquo; type=&amp;ldquo;underlined&amp;rdquo; defaultActiveId=&amp;ldquo;js&amp;rdquo;&#xA;加载器函数在组件呈现之前立即在服务器上运行。它们响应路由上的所有GET请求。您可以通过调用 createServerClient函数并将SUPABASE_URL、SUPABASE_ANON_KEY以及请求和响应传递给它，来创建经过身份验证的超级数据库客户端。&#xA;import { json } from &amp;#39;@remix-run/node&amp;#39; // change this import to whatever runtime you are using&#xD;import { createServerClient } from &amp;#39;@supabase/auth-helpers-remix&amp;#39;&#xD;export const loader = async ({ request }) =&amp;gt; {&#xD;const response = new Response()&#xD;// an empty response is required for the auth helpers&#xD;// to set cookies to manage auth&#xD;const supabaseClient = createServerClient(&#xD;process.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,146 @@
+---
+    weight: 2345
+    title: "rangeGte()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+
+仅适用于范围（range）列
+
+仅匹配`列`中的每个元素要么包含在`范围(range)`内，要么大于`范围(range)`中的任何元素的行。
+
+
+## 案例教程
+
+### 案例1 (使用select)
+
+{{< tabs tabTotal="4" >}}
+ 
+{{% tab tabName="建表" %}}
+
+
+
+  ```sql
+                                                                                
+create table
+  reservations (
+    id int8 primary key,
+    room_name text,
+    during tsrange
+  );
+
+insert into
+  reservations (id, room_name, during)
+values
+  (1, 'Emerald', '[2000-01-01 13:00, 2000-01-01 15:00)'),
+  (2, 'Topaz', '[2000-01-02 09:00, 2000-01-02 10:00)');
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase
+  .from('reservations')
+  .select()
+  .rangeGte('during', '[2000-01-02 08:30, 2000-01-02 09:30)')
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="返回结果" %}}
+
+
+
+  ```json
+                                                                                
+  {
+    "data": [
+      {
+        "id": 2,
+        "room_name": "Topaz",
+        "during": "[\"2000-01-02 09:00:00\",\"2000-01-02 10:00:00\")"
+      }
+    ],
+    "status": 200,
+    "statusText": "OK"
+  }
+  ```
+
+
+
+{{% /tab %}}
+
+{{% tab tabName="注意事项" %}}
+
+
+
+Postgres 支持多种[范围类型](https://www.postgresql.org/docs/current/rangetypes.html)。您可以使用范围值的字符串表示来过滤范围列。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      列（column）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要过滤的范围列
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      range
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+用来过滤的范围
+
+  </div>
+  
+</li>
+
+</ul>

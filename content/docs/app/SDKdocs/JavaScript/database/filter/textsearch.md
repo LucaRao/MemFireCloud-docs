@@ -1,0 +1,299 @@
+---
+    weight: 2350
+    title: "textSearch()"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+
+仅适用于文本和 tsvector 列。
+
+textSearch()作用是找到所有在指定列上的 tsvector 值与给定的 to_tsquery 查询条件匹配的记录。
+
+
+* 更多信息，请参见[Postgres全文搜索](/docs/app/database/full-text-search)。
+
+
+
+
+## 案例教程
+
+### 案例1  （文本搜索）
+
+{{< tabs tabTotal="7" >}}
+ 
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase
+  .from('quotes')
+  .select('catchphrase')
+  .textSearch('catchphrase', `'fat' & 'cat'`, {
+    config: 'english'
+  })
+  ```
+
+
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+
+
+
+
+
+### 案例2  （基本归一化）
+
+{{< tabs tabTotal="7" >}}
+ 
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase
+  .from('quotes')
+  .select('catchphrase')
+  .textSearch('catchphrase', `'fat' & 'cat'`, {
+    type: 'plain',
+    config: 'english'
+  })
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="注意事项" %}}
+
+
+
+使用PostgreSQL的`plainto_tsquery`函数。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+### 案例3  （全面归一化）
+
+{{< tabs tabTotal="7" >}}
+ 
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase
+  .from('quotes')
+  .select('catchphrase')
+  .textSearch('catchphrase', `'fat' & 'cat'`, {
+    type: 'phrase',
+    config: 'english'
+  })
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="注意事项" %}}
+
+
+
+使用PostgreSQL的`phraseto_tsquery`功能。
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+### 案例4  （Websearch）
+
+{{< tabs tabTotal="7" >}}
+ 
+{{% tab tabName="使用方法" %}}
+
+
+
+  ```ts
+                                                                                
+const { data, error } = await supabase
+  .from('quotes')
+  .select('catchphrase')
+  .textSearch('catchphrase', `'fat or cat'`, {
+    type: 'websearch',
+    config: 'english'
+  })
+  ```
+
+
+
+{{% /tab %}}
+{{% tab tabName="注意事项" %}}
+
+
+
+使用PostgreSQL的websearch_to_tsquery函数。 这个函数不会引发语法错误，这使得使用用户提供的原始输入进行搜索成为可能，并且可以使用 与高级运算符一起使用。
+
+* `未加引号的文本`：不在引号内的文本将被转换为由&运算符分隔的术语，就像由plainto_tsquery处理一样。
+* `带引号的文本`：带引号的文本将被转换为由<->运算符分隔的术语，就像由phraseto_tsquery处理的那样。
+* `OR`:“or”字将被转换为 | 操作符。
+* `—`：破折号将被转换为操作符！。
+
+
+
+
+{{% /tab %}}
+
+
+{{< /tabs >}}
+
+
+
+
+
+
+
+
+## 参数说明
+
+
+<ul className="method-list-group">
+  
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      列（column）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要过滤的文本或tsvector列
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      查询（query）
+    </span>
+    <span className="method-list-item-label-badge required">
+      [必要参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要与之匹配的查询文本
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      选项（option）
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>object类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+命名的参数
+
+  </div>
+  
+<ul className="method-list-group">
+  <h5 class="method-list-title method-list-title-isChild expanded">特性</h5>
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      config
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>string类型</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+要使用的文本搜索配置
+
+  </div>
+  
+</li>
+
+
+<li className="method-list-item">
+  <h4 className="method-list-item-label">
+    <span className="method-list-item-label-name">
+      type
+    </span>
+    <span className="method-list-item-label-badge false">
+      [可选参数]
+    </span>
+    <span className="method-list-item-validation">
+      <code>plain</code> | <code>phrase</code> | <code>websearch</code>
+    </span>
+  </h4>
+  <div class="method-list-item-description">
+
+改变 "查询 "文本的解释方式
+
+  </div>
+  
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+

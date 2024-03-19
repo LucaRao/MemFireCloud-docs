@@ -1,5 +1,5 @@
 ---
-    weight: 168
+    weight: 1802
     title: "实时快速入门"
     description: ""
     icon: "article"
@@ -31,7 +31,7 @@ npm install @supabase/supabase-js
 
 在[multiplayer.dev](https://multiplayer.dev)中，客户端的光标位置被发送到房间里的其他客户端。然而，在这个例子中，光标位置将是随机生成的。
 
-你需要从你的项目的[API设置](https://app.supabase.com/project/_/settings/api)中获得公共的`anon`访问令牌。然后你就可以设置Supabase客户端，并开始发送一个客户端的光标位置到通道`room1`中的其他客户端。
+你需要从你的项目的API设置中获得公共的`anon`访问令牌。然后你就可以设置Supabase客户端，并开始发送一个客户端的光标位置到通道`room1`中的其他客户端。
 
 ```js
 const { createClient } = require('@supabase/supabase-js')

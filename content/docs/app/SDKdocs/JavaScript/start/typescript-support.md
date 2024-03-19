@@ -1,5 +1,5 @@
 ---
-    weight: 188
+    weight: 2314
     title: "支持Typescript"
     icon: "article"
     draft: false

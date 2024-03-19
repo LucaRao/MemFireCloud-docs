@@ -1,5 +1,5 @@
 ---
-    weight: 122
+    weight: 1506
     title: "表格和数据"
     description: "Creating and using Postgres tables."
     icon: "article"

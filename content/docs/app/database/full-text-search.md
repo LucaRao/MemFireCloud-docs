@@ -1,5 +1,5 @@
 ---
-    weight: 118
+    weight: 1502
     title: "全文搜索"
     description: "How to use full text search in PostgreSQL."
     icon: "article"

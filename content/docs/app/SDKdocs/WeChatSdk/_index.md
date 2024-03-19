@@ -1,5 +1,5 @@
 ---
-weight: 276
+weight: 2700
 title: "微信小程序"
 description: ""
 icon: "article"

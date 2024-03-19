@@ -1,5 +1,5 @@
 ---
-    weight: 373
+    weight: 2872
     title: "getBucket()"
     icon: "article"
     draft: false

@@ -1,5 +1,5 @@
 ---
-    weight: 142
+    weight: 1417
     title: "使用GitLab登录"
     description: "将GitLab OAuth添加到Supabase项目"
     icon: "article"

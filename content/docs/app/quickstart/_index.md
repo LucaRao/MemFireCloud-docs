@@ -1,5 +1,5 @@
 ---
-weight: 104
+weight: 1300
 title: "快速入门"
 description: ""
 icon: "article"

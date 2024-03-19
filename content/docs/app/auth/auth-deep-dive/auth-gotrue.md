@@ -1,5 +1,5 @@
 ---
-    weight: 177
+    weight: 1474
     title: "第四部分: GoTrue"
     description: 'Supabase深潜第四部分：Gotrue概述'
     icon: "article"
