@@ -10225,35 +10225,52 @@ body {
   body {
     font-size: 0.9rem; } }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: var(--bs-font-sans-serif);
   line-height: 1.4;
   font-weight: 500; }
 
-h1, .h1 {
+h1,
+.h1 {
   font-size: 2rem !important;
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
-h2, .h2 {
+h2,
+.h2 {
   font-size: 1.5rem !important;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem; }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 1.25rem !important;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem; }
 
-h4, .h4 {
+h4,
+.h4 {
   font-size: 1rem !important;
   padding-top: 1rem;
   padding-bottom: 0.5rem; }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 1rem !important; }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 0.8rem !important; }
 
 ::selection {
@@ -10287,6 +10304,43 @@ table {
 .fs-5 {
   font-size: 1.25rem !important;
   margin-top: 10px; }
+
+.banner {
+  color: #FFFFFF;
+  position: relative;
+  height: 250px;
+  border-radius: 10px;
+  overflow: hidden; }
+  .banner .banner_back {
+    position: absolute;
+    left: 0%; }
+  .banner .projection {
+    position: absolute;
+    right: 171px;
+    top: 2%;
+    width: 55%;
+    height: auto;
+    height: 86%;
+    right: 10%; }
+  .banner .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff !important; }
+  .banner .text {
+    font-size: 16px;
+    color: #fff !important; }
+
+.m-l60 {
+  margin-left: 60px; }
+
+.w80 {
+  position: absolute;
+  z-index: 99;
+  top: -30px;
+  width: 70%; }
+
+.m-t64 {
+  margin-top: 64px; }
 
 :root {
   --content-icon-color: var(--primary);

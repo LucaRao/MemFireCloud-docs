@@ -3,7 +3,7 @@
     title: "实时概念"
     description: '了解Supabase Realtime中的频道和其他功能'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 

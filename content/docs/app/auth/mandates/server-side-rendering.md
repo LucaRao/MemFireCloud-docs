@@ -37,7 +37,7 @@ Web浏览器限制跨域访问cookie，与 [同源政策 (SOP)](https://develope
 
 
 {{% alert context="info" %}}
-您可以配置重定向URL在Supabase Dashboard中。您可以使用[通配符匹配模式](/docs/app/auth/auth#redirect-urls-and-wildcards) 如`*`和`**`，以允许[重定向到不同形式的URL](https://app.supabase.com/project/_/auth/url-configuration)。
+您可以配置重定向URL在Supabase Dashboard中。您可以使用[通配符匹配模式](/docs/app/auth/auth#redirect-urls-and-wildcards) 如`*`和`**`，以允许重定向到不同形式的URL。
 {{% /alert %}}
 
 这些重定向URL具有以下结构：

@@ -6,14 +6,14 @@
     toc: true
 ---
 
-应用使用MemFire Cloud的云函数功能时，需要结合supabase-wechat-stable-v2与memfire-cloud-functions-js 这两个SDK进行云函数的调用。
+应用使用MemFire Cloud的云函数功能时，需要结合@supabase/supabase-js与memfire-cloud-functions-js 这两个SDK进行云函数的调用。
 
 ## 使用方法
 
 在根目录下执行命令，安装依赖
 
 ```js
-npm install supabase-wechat-stable-v2
+npm install @supabase/supabase-js
 
 ```
 
@@ -21,7 +21,7 @@ npm install supabase-wechat-stable-v2
 
 ```js
 
-import { createClient } from 'supabase-wechat-stable-v2'
+import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = ''
 const supabaseAnonKey = ''
@@ -121,7 +121,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 
 ```js
-import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from "supabase-wechat-stable-v2";
+import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from "@supabase/supabase-js";
 
 const { data, error } = await supabase.functions.invoke('访问地址', {
   headers: {

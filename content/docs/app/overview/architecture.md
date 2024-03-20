@@ -23,7 +23,7 @@ Supabase不是Firebase的一对一映射。虽然我们正在构建Firebase提�
 
 PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访问它并以完全权限使用它。我们只是提供了一些工具，使PostgreSQL与Firebase一样易于使用。
 
-- 官方文件: [postgresql.org/docs](https://www.postgresql.org/docs/current/index.html)
+- 官方文档: [postgresql.org/docs](https://www.postgresql.org/docs/current/index.html)
 - 源代码: [github.com/postgres/postgres](https://github.com/postgres/postgres) (mirror)
 - License: [PostgreSQL Licence](https://www.postgresql.org/about/licence/)
 - 语言: C
@@ -32,7 +32,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 用于管理数据库和服务的一个开源Dashboard.
 
-- 官方文件: [Supabase docs](/docs)
+- 官方文档: [MemFire Cloud docs](/docs)
 - 源代码: [github.com/supabase/supabase](https://github.com/supabase/supabase/tree/master/studio)
 - License: [Apache 2](https://github.com/supabase/supabase/blob/master/LICENSE)
 - 开发语言: TypeScript
@@ -41,7 +41,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 用于管理用户和颁发访问令牌的基于JWT的API。这与PostgreSQL的行级安全和API服务器集成。
 
-- 官方文件: [Supabase Auth reference docs](/docs/app/sdkdocs/auth)
+- 官方文档: [MemFire Cloud Auth  docs](/docs/app/sdkdocs/javascript/auth/auth-api/)
 - 源代码: [github.com/supabase/gotrue](https://github.com/supabase/gotrue)
 - License: [MIT](https://github.com/supabase/gotrue/blob/master/LICENSE)
 - 开发语言: Go
@@ -51,7 +51,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 一个将PostgreSQL数据库直接转换为RESTful API的独立web服务器。 
 我们将此与一起使用[pg_graphql](https://github.com/supabase/pg_graphql)扩展以提供GraphQL API。
 
-- 官方文件: [postgrest.org](https://postgrest.org/)
+- 官方文档: [postgrest.org](https://postgrest.org/)
 - 源代码: [github.com/PostgREST/postgrest](https://github.com/PostgREST/postgrest)
 - License: [MIT](https://github.com/PostgREST/postgrest/blob/main/LICENSE)
 - 开发语言: Haskel
@@ -60,7 +60,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 一个可扩展的websocket引擎，用于管理用户状态、广播消息和流数据库更改。
 
-- 官方文件: [Supabase Realtime docs](/docs/app/realtime/realtime)
+- 官方文档: [MemFire Cloud Realtime docs](/docs/app/sdkdocs/javascript/realtime/subscribe/)
 - 源代码: [github.com/supabase/realtime](https://github.com/supabase/realtime)
 - License: [Apache 2](https://github.com/supabase/realtime/blob/master/LICENSE)
 - 开发语言: Elixir
@@ -69,7 +69,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 兼容S3的对象存储服务，在Postgres中存储元数据。
 
-- 官方文件: [Supabase Storage reference docs](/docs/app/sdkdocs/storage)
+- 官方文档: [MemFire Cloud Storage docs](/docs/app/sdkdocs/javascript/storage/storage-createbucket/)
 - 源代码: [github.com/supabase/storage-api](https://github.com/supabase/storage-api)
 - License: [Apache 2.0](https://github.com/supabase/storage-api/blob/master/LICENSE)
 - 开发语言: NodeJS / TypeScript
@@ -78,7 +78,7 @@ PostgreSQL是Supabase的核心。我们不抽象PostgreSQL数据库-您可以访
 
 JavaScript和TypeScript的现代运行时。
 
-- 官方文件: [deno.land](https://deno.land/)
+- 官方文档: [deno.land](https://deno.land/)
 - 源代码: [github.com/denoland/deno](https://github.com/denoland/deno)
 - License: [MIT](https://github.com/denoland/deno/blob/main/LICENSE.md)
 - 开发语言: TypeScript / Rust
@@ -87,7 +87,7 @@ JavaScript和TypeScript的现代运行时。
 
 用于管理Postgres的RESTful API。这是用来获取表、添加角色和运行查询。
 
-- 官方文件: [supabase.github.io/postgres-meta](https://supabase.github.io/postgres-meta/)
+- 官方文档: [supabase.github.io/postgres-meta](https://supabase.github.io/postgres-meta/)
 - 源代码: [github.com/supabase/postgres-meta](https://github.com/supabase/postgres-meta)
 - License: [Apache 2.0](https://github.com/supabase/postgres-meta/blob/master/LICENSE)
 - 开发语言: NodeJS / TypeScript
@@ -96,7 +96,7 @@ JavaScript和TypeScript的现代运行时。
 
 PostgreSQL的轻量级连接池。这对于使用无服务器函数时连接到Postgres非常有用。
 
-- 官方文件: [pgbouncer.org](http://www.pgbouncer.org/)
+- 官方文档: [pgbouncer.org](http://www.pgbouncer.org/)
 - 源代码: [pgbouncer/pgbouncer](https://github.com/pgbouncer/pgbouncer)
 - License: [ISC](https://github.com/pgbouncer/pgbouncer/blob/master/COPYRIGHT)
 - 开发语言: C
@@ -105,7 +105,7 @@ PostgreSQL的轻量级连接池。这对于使用无服务器函数时连接到P
 
  一个基于Nginx的云原生API网关。
 
-- 官方文件: [docs.konghq.com](https://docs.konghq.com/)
+- 官方文档: [docs.konghq.com](https://docs.konghq.com/)
 - 源代码: [github.com/kong/kong](https://github.com/kong/kong)
 - License: [Apache 2.0](https://github.com/Kong/kong/blob/master/LICENSE)
 - 开发语言: Lua

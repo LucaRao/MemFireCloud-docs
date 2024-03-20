@@ -16,8 +16,8 @@
 
 ## 配置电子邮件设置
 
-1. 对于 [网站 URL](https://app.supabase.com/project/_/auth/url-configuration), 输入应用程序的最终（托管）URL。
-1. 对于 [身份验证服务商](https://app.supabase.com/project/_/auth/providers), **启用电子邮件提供程序**.
+1. 对于 网站 URL（`用户认证`-> `URL 配置`）, 输入应用程序的最终（托管）URL。
+1. 对于 身份验证服务商（`用户认证`-> `服务商`）, **启用电子邮件提供程序**.
 
 {{% alert context="info" %}}
 对于自托管，可以使用提供的文件和环境变量更新项目配置。
@@ -50,7 +50,7 @@ async function signInWithEmail() {
 
 
 
-当用户登录时，使用其电子邮件地址和密码调用[signInWithPassword()](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithpassword)：
+当用户登录时，使用其电子邮件地址和密码调用[signInWithPassword()](/docs/app/SDKdocs/Dart/auth/auth-signinwithpassword)：
 
 ```dart
 Future<void> signInWithEmail() async {

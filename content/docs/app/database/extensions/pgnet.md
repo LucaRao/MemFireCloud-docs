@@ -25,7 +25,7 @@ pg_net的API还处于beta阶段。函数签名可能会改变。
 
 
 
-1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+1. 进入仪表板中的**数据库**页面。
 2. 点击侧边栏中的*扩展*.
 3. 3. 搜索 "pg_net "并启用该扩展。
 

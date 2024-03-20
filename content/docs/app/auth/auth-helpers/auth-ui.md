@@ -3,7 +3,7 @@
     title: "身份验证UI"
     description: '一个预构建的、可定制的React组件，用于验证用户。'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 

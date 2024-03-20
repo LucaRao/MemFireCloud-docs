@@ -262,7 +262,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
 
 
 
-1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+1. 进入仪表板中的**数据库**页面。
 2. 点击侧边栏中的**复制**。
 3. 通过切换**插入**、**更新**和**删除**来控制哪些数据库事件被发送。
 4. 通过选择**Source**和切换每个表来控制哪些表被发送变化。

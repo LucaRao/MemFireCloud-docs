@@ -3,7 +3,7 @@
     title: "Supabase Remix认证"
     description: 'Remix中加载程序和操作的身份验证助手。'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 
@@ -38,7 +38,7 @@ yarn add @supabase/auth-helpers-remix
 
 ## 设置环境变量
 
-在项目的[API设置](https://app.supabase.com/project/_/settings/api)中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，您可以将其设置为`.env`文件。[参见示例](https://github.com/supabase/auth-helpers/blob/main/examples/remix/.env.example).
+在项目的`应用设置`->`API`中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，您可以将其设置为`.env`文件。[参见示例](https://github.com/supabase/auth-helpers/blob/main/examples/remix/.env.example).
 
 ```bash title=.env
 SUPABASE_URL=YOUR_SUPABASE_URL

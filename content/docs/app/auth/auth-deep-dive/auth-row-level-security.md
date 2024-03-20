@@ -3,7 +3,7 @@
     title: "第二部分:行级安全"
     description: 'Supabase Auth Deep Dive第二部分 - 行级安全'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 ### 关于
@@ -109,7 +109,7 @@ CREATE POLICY anon_read_leaderboard ON leaderboard
 
 快速提醒你，你总是可以使用你的`service_role`API密钥来绕过这些行级安全策略。但是要格外小心，不要把这个密钥包含在客户端中，以免泄露。如果你正在建立内部管理工具，或者你需要通过API批量插入或删除数据，这可能很有用。
 
-在下一篇指南中，我们将探讨如何将策略与用户账户结合起来使用，这样你就可以在用户的基础上限制对数据的访问。观看[第三部分：策略](././learn/auth-deep-dive/auth-policy)
+在下一篇指南中，我们将探讨如何将策略与用户账户结合起来使用，这样你就可以在用户的基础上限制对数据的访问。观看[第三部分：策略](/docs/app/auth/auth-deep-dive/auth-policies/)
 
 ### 资源
 

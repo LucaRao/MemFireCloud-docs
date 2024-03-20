@@ -18,8 +18,8 @@ Magic Link仅适用于电子邮件地址。默认情况下，用户只能每60�
 
 ## 将Magic Link添加到您的 MemfireCloud 项目中
 
-1. 对于[网站URL](https://app.supabase.com/project/_/auth/url-configuration), 输入应用程序的最终（托管）URL。
-1. 对于 [身份验证服务商](https://app.supabase.com/project/_/auth/providers), **启用电子邮件提供商**.
+1. 对于 网站 URL（`用户认证`-> `URL 配置`）, 输入应用程序的最终（托管）URL。
+1. 对于 身份验证服务商（`用户认证`-> `服务商`）, **启用电子邮件提供程序**.
 
 ## 将登录代码添加到客户端应用程序
 
@@ -47,7 +47,7 @@ async function signInWithEmail() {
 
 
 
-当您的用户登录时，使用其电子邮件地址调用[signIn()](/docs/app/SDKdocs/dartauth/auth-signinwithotp):
+当您的用户登录时，使用其电子邮件地址调用[signIn()](/docs/app/SDKdocs/Dart/auth/auth-signinwithotp):
 
 ```dart
 Future<void> signInWithEmail() async {
@@ -82,7 +82,7 @@ async function signOut() {
 
 
 
-当用户注销时，调用[signOut()](/docs/app/SDKdocs/dartauth/auth-signout)将其从浏览器会话和localStorage中删除:
+当用户注销时，调用[signOut()](/docs/app/SDKdocs/Dart/auth/auth-signout)将其从浏览器会话和localStorage中删除:
 
 ```dart
 Future<void> signOut() async {

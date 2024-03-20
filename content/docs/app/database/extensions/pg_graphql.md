@@ -25,7 +25,7 @@
 
 
 
-1. 跳转到控制台的 [数据库](https://supabase.com/dashboard/project/_/database/tables) 。
+1. 跳转到控制台的 **数据库** 。
 2. 点击侧栏中的**扩展**。
 3. 搜索"pg_graphql"并启用扩展。
 

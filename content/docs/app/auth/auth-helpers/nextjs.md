@@ -3,7 +3,7 @@
     title: "使用Next.js进行Supabase认证"
     description: 'Next的身份验证助手。js API路由、中间件和SSR。'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 
@@ -53,7 +53,7 @@ yarn add @supabase/auth-helpers-react
 {{< /tabs >}}
 
 ## 设置环境变量
-在项目的[API设置](https://app.supabase.com/project/_/settings/api)中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，可以在`.env.local`文件。参见[示例](https://github.com/supabase/auth-helpers/blob/main/examples/nextjs/.env.local.example)。
+在项目的`应用设置`->`API`中检索项目URL和匿名密钥以设置以下环境变量。对于本地开发，可以在`.env.local`文件。参见[示例](https://github.com/supabase/auth-helpers/blob/main/examples/nextjs/.env.local.example)。
 
 ```bash title=.env.local
 NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
@@ -167,7 +167,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 ## 使用RLS获取客户端数据
 
-为了使[行级别安全](/docs/learn/auth-deep-dive/auth-row-level-security)在客户端获取数据时正常工作，您需要确保使用`supabaseClient`钩子中的 `useSupabaseClient`，并且仅在 `useUser()`钩子中定义了客户端用户后才运行查询：
+为了使[行级别安全](/docs/app/auth/auth-deep-dive/auth-row-level-security/)在客户端获取数据时正常工作，您需要确保使用`supabaseClient`钩子中的 `useSupabaseClient`，并且仅在 `useUser()`钩子中定义了客户端用户后才运行查询：
 
 
 ```jsx lines=10-17
@@ -252,7 +252,7 @@ export const getServerSideProps = async (ctx) => {
 
 ## 使用RLS获取服务器端数据
 
-您可以使用服务器超级数据库客户端运行[行级别安全性](/docs/learn/auth-deep-dive/auth-row-level-security)服务器端验证查询：
+您可以使用服务器超级数据库客户端运行[行级别安全性](/docs/app/auth/auth-deep-dive/auth-row-level-security/)服务器端验证查询：
 
 {{< tabs tabTotal="2" >}}
 {{% tab tabName="JavaScript" %}}

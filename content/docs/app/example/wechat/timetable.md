@@ -322,13 +322,13 @@ npm install
 接下来，下载小程序需要的Supabase 小程序客户端和ui组件包。
 
 ```JavaScript
-npm install supabase-wechat-stable
+npm install supabase-wechat-stable-v2
 npm install @vant/weapp
 ```
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="../../../img/super-23.png">
+<img src="../../../img/sdk版本.png">
 
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,目录miniprogram下会多出两个文件，如下图。

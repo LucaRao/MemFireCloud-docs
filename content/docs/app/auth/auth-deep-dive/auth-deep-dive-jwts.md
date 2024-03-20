@@ -2,7 +2,7 @@
     weight: 1471
     title: "第一部分:JWTS"
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 
@@ -139,7 +139,7 @@ curl 'https://xscduanzzfseqszwzhcy.supabase.co/rest/v1/colors?select=name' \
 
 这个JWT是由开发人员的Supabase令牌所特有的`jwt_secret`签署的（你可以在设置>API页面下的仪表板上找到这个秘密和这个编码的 "anon key"），并且需要通过Supabase API网关并访问开发人员的项目。
 
-这个特定密钥的想法是，它可以安全地放入你的客户端，也就是说，如果你的终端用户看到这个密钥是可以的 - 但_只有在你首先启用行级安全的情况下，这是本系列的[第二部分](.../.../learn/auth-deep-dive/auth-row-level-security) 的主题。
+这个特定密钥的想法是，它可以安全地放入你的客户端，也就是说，如果你的终端用户看到这个密钥是可以的 - 但_只有在你首先启用行级安全的情况下，这是本系列的[第二部分](/docs/app/auth/auth-deep-dive/auth-row-level-security/) 的主题。
 
 第二个密钥，`服务角色密钥`，应该只在你自己的服务器或环境中使用，而不应该与终端用户共享。你可以使用这个令牌来做一些事情，比如批量插入数据。
 
@@ -176,7 +176,7 @@ curl 'https://xscduanzzfseqszwzhcy.supabase.co/rest/v1/colors?select=name' \
 }
 ```
 
-现在你已经了解了什么是JWTs以及它们在Supabase中的用途，你可以探索如何将它们与行级安全相结合，开始限制对Postgres数据库中某些表、行和列的访问。[第二部分：行级安全](././learn/auth-deep-dive/auth-row-level-security)
+现在你已经了解了什么是JWTs以及它们在Supabase中的用途，你可以探索如何将它们与行级安全相结合，开始限制对Postgres数据库中某些表、行和列的访问。[第二部分：行级安全](/docs/app/auth/auth-deep-dive/auth-row-level-security/)
 
 ### 资源
 

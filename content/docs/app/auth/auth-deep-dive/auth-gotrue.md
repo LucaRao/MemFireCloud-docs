@@ -3,7 +3,7 @@
     title: "第四部分: GoTrue"
     description: 'Supabase深潜第四部分：Gotrue概述'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 

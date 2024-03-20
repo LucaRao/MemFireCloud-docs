@@ -59,7 +59,7 @@
 
 ### 将用户重定向到服务器端终结点
 
-如果打算使用[服务器端](/docs/app/auth/server-side-rendering)呈现，则可能需要电子邮件链接将用户重定向到服务器端终结点，以在返回页面之前检查他们是否经过身份验证。但是，默认电子邮件链接会在验证后将用户重定向到查询片段中包含会话的重定向 URL。由于默认情况下，会话在查询片段中返回，因此您将无法在服务器端访问它。
+如果打算使用[服务器端](/docs/app/auth/mandates/server-side-rendering)呈现，则可能需要电子邮件链接将用户重定向到服务器端终结点，以在返回页面之前检查他们是否经过身份验证。但是，默认电子邮件链接会在验证后将用户重定向到查询片段中包含会话的重定向 URL。由于默认情况下，会话在查询片段中返回，因此您将无法在服务器端访问它。
 
 
 您可以在电子邮件模板中自定义电子邮件链接，以成功将用户重定向到服务器端终结点。例如：
@@ -71,7 +71,7 @@
 </a>
 ```
 
-当用户点击链接时，请求将点击 https://api.example.com/v1/authenticate，您可以从 URL 中获取token_hash、键入和redirect_to查询参数。然后，可以调用 [verifyOtp](/docs/app/sdkdocs/javascript/auth-verifyotp) 方法以在将用户重定向回客户端之前取回经过身份验证的会话。由于 verifyOtp 方法向 MemFireCloud Auth 发出 POST 请求以验证用户，因此会话将在响应正文中返回，服务器可以读取该正文。例如：
+当用户点击链接时，请求将点击 https://api.example.com/v1/authenticate，您可以从 URL 中获取token_hash、键入和redirect_to查询参数。然后，可以调用 [verifyOtp](/docs/app/sdkdocs/javascript/auth/auth-verifyotp) 方法以在将用户重定向回客户端之前取回经过身份验证的会话。由于 verifyOtp 方法向 MemFireCloud Auth 发出 POST 请求以验证用户，因此会话将在响应正文中返回，服务器可以读取该正文。例如：
 ```js
 const { token_hash, type } = Object.fromEntries(new URLSearchParams(window.location.search))
 const {

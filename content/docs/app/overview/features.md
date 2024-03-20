@@ -25,12 +25,12 @@
 
 ### 数据库触发器
 
-将触发器附加到表以处理数据库更改. [文档](/docs/app/auth/mandates/managing-user-data#using-triggers).
+将触发器附加到表以处理数据库更改. 
 
 
 ### 数据库备份
 
-每天备份项目，可选择升级到时间点恢复.
+每天准时备份项目，可恢复，保证数据的可靠性.
 
 ### 搜索
 
@@ -103,7 +103,7 @@ MemFire Cloud 存储使存储和服务大文件变得简单. [文档](/docs/app/
 
 ### 存储CDN
 
-使用MemFire Cloud CDN缓存大文件. [文档](/docs/app/storage/storage-cdn).
+使用MemFire Cloud CDN缓存大文件. [文档](/docs/app/storage/storage-cdn/).
 
 <br />
 

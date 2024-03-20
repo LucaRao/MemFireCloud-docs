@@ -20,7 +20,7 @@ Supabase已经预装了一些最有用的开源扩展。
 
 
 
-1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。 
+1. 进入仪表板中的**数据库**页面。 
 2. 单击侧边栏中的**扩展程序**。
 3. 启用或停用一个扩展。
 

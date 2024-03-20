@@ -80,7 +80,7 @@ Supabase自带一个SQL编辑器。你还可以保存你最喜欢的查询，以
 
 ## 提示
 
-阅读关于重设数据库密码[这里](/docs/app/database/managing-passwords)和改变服务器时区[这里](/docs/app/database/managing-timezones)。
+阅读关于重设数据库密码[这里](/docs/app/database/setting/managing-passwords/)和改变服务器时区[这里](/docs/app/database/setting/managing-timezones/)。
 
 
 ## 下一步

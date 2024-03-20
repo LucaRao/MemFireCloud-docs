@@ -67,7 +67,7 @@
 
 ## 定制高配套餐
 
-如果以上基础套餐如部分指标不满足，可以[联系我们](https://document.memfiredb.com/docs/contactus)，提供定制化高配套餐服务。
+如果以上基础套餐如部分指标不满足，可以[联系我们](/docs/app/overview/contactus/)，提供定制化高配套餐服务。
 
 ## 新购
 

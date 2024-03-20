@@ -193,7 +193,7 @@ create policy "Anyone can upload an avatar."
 现在你已经创建了一些数据库表，你已经准备好使用自动生成的API插入数据。
 我们只需要从API设置中获得URL以及`anon`、`service_role`和`JWT_SECRET`键。
 
-1. 进入仪表板中的[API设置](https://app.supabase.com/project/_/settings/api)页面。
+1. 进入仪表板中的`应用设置`->`API`页面。
 2. 在这个页面上找到你的API `URL`, `anon`, 和 `service_role`键。
 
 <video width="99%" muted playsInline controls="true">

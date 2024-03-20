@@ -33,7 +33,7 @@
 ### 实时配额
 
 - 查看[实时配额](/docs/app/realtime/deep-dive/quotas)。
-- 如果您需要增加配额，可以随时[联系支持人员](https://community.memfiredb.com/).
+- 如果您需要增加配额，可以随时[联系支持人员](/docs/app/overview/contactus/).
 
 ### 预防滥用
 

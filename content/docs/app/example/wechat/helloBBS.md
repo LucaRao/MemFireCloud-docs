@@ -258,12 +258,12 @@ npm install
 接下来，下载论坛小程序需要的MemFire Cloud的微信论坛小程序SDK。
 
 ```JavaScript
-npm install supabase-wechat-stable
+npm install supabase-wechat-stable-v2
 ```
 
 点击开发者工具中的菜单栏：工具 /构建 npm
 
-<img src="../../../img/样例-helloBBS-18.png">
+<img src="../../../img/sdk版本.png">
 
 这一步npm就构建完成了，我们需要的依赖也已经下载好了,根目录下会多出两个文件，如下图。
 

@@ -3,7 +3,7 @@
     title: "创建 API 路由"
     description: "创建 API 路由"
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 
@@ -124,12 +124,12 @@ curl '<SUPABASE_URL>/rest/v1/todos' \
 {{% /tab %}}
 
 {{< /tabs >}}
-JS 参考: [select()](/docs/app/SDKdocs/JavaScript/database/select)，
-[insert()](/docs/app/SDKdocs/JavaScript/database/insert)，
-[update()](/docs/app/SDKdocs/JavaScript/database/update)，
-[upsert()](/docs/app/SDKdocs/JavaScript/database/upsert)，
-[delete()](/docs/app/SDKdocs/JavaScript/database/delete)，
-[rpc()](/docs/app/SDKdocs/JavaScript/function/rpc) 。
+JS 参考: [select()](/docs/app/sdkdocs/javascript/database/select),
+[insert()](/docs/app/sdkdocs/javascript/database/insert),
+[update()](/docs/app/sdkdocs/javascript/database/update),
+[upsert()](/docs/app/sdkdocs/javascript/database/upsert),
+[delete()](/docs/app/sdkdocs/javascript/database/delete),
+[rpc()](/docs/app/sdkdocs/javascript/database/rpc) (调用Postgres函数).
 >rpc()用于调用 PostgreSQL 函数
 
 ### GraphQL API
@@ -223,7 +223,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
 
 
 
-1. 进入仪表板中的 [数据库](https://supabase.com/dashboard/project/_/database/tables) 页面。
+1. 进入仪表板中的 **数据库** 页面。
 2. 点击侧边栏中的**Replication** 。·
 3. 通过切换**插入**、**更新**和**删除**来控制哪些数据库事件被发送。
 4. 通过选择**Source**和切换每个表来控制哪些表被发送变化。

@@ -31,7 +31,7 @@
 你必须在创建每一列时定义它的 "数据类型"。你可以在创建表后随时添加和删除列。
 
 Supabase 为创建表提供了几个选项。你可以使用仪表板或直接使用 SQL 创建它们。
-我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 [连接](../../guides/database/connecting-to-postgres)到你的数据库并自己运行SQL查询。
+我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 [连接](/docs/app/database/connecting-to-postgres/)到你的数据库并自己运行SQL查询。
 
 {{< tabs tabTotal="7" >}}
 
@@ -175,7 +175,7 @@ create table movies (
 
 ## 加载数据
 
-有几种方法可以在Supabase中加载数据。你可以直接向数据库加载数据，或者使用[API](.../.../guides/api)。
+有几种方法可以在Supabase中加载数据。你可以直接向数据库加载数据，或者使用API。
 如果你要加载大型数据集，请使用 "批量加载 "说明。
 
 ### 基本数据加载
@@ -254,7 +254,7 @@ final res = await supabase
 "Return of the Jedi", "After a daring mission to rescue Han Solo from Jabba the Hutt, the Rebels dispatch to Endor to destroy the second Death Star."
 ```
 
-你将[连接](.../.../guides/database/connecting-to-postgres#direct-connections)到你的数据库，然后用COPY命令加载文件：
+你将[连接](/docs/app/database/connecting-to-postgres/)到你的数据库，然后用COPY命令加载文件：
 
 ```bash
 psql -h DATABASE_URL -p 5432 -d postgres -U postgres \

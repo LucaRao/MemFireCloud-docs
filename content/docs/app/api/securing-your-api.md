@@ -3,7 +3,7 @@
     title: "开始使用"
     description: "开始使用"
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 
@@ -162,12 +162,12 @@ curl '<SUPABASE_URL>/rest/v1/todos' \
 
 {{< /tabs >}}
 
-JS 参考: [select()](../reference/javascript/select),
-[insert()](../reference/javascript/insert),
-[update()](../reference/javascript/update),
-[upsert()](../reference/javascript/upsert),
-[delete()](../reference/javascript/delete),
-[rpc()](../reference/javascript/rpc) (调用Postgres函数)).
+JS 参考: [select()](/docs/app/sdkdocs/javascript/database/select),
+[insert()](/docs/app/sdkdocs/javascript/database/insert),
+[update()](/docs/app/sdkdocs/javascript/database/update),
+[upsert()](/docs/app/sdkdocs/javascript/database/upsert),
+[delete()](/docs/app/sdkdocs/javascript/database/delete),
+[rpc()](/docs/app/sdkdocs/javascript/database/rpc) (调用Postgres函数).
 
 ### GraphQL API
 
@@ -259,7 +259,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
 
 
 
-1. 进入仪表板中的[数据库](https://app.supabase.com/project/_/database/tables)页面。
+1. 进入仪表板中的**数据库**页面。
 2. 点击侧边栏中的**复制**。
 3. 通过切换**插入**、**更新**和**删除**来控制哪些数据库事件被发送。
 4. 通过选择**Source**和切换每个表来控制哪些表被发送变化。

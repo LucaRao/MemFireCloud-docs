@@ -13,7 +13,7 @@
 在根目录下执行命令，安装依赖
 
 ```js
-npm install supabase-wechat-stable-v2
+npm install supabase-wechat-stable-v2-v2
 
 ```
 

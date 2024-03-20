@@ -43,7 +43,7 @@ toc: true
 
 对于调用次数等单一指标需求超过套餐资源，可开启按量付费。
 
-如果以上基础套餐指标不满足您的需求，可以[联系我们](https://document.memfiredb.com/docs/contactus)，提供定制化高配套餐服务。
+如果以上基础套餐指标不满足您的需求，可以[联系我们](/docs/app/overview/contactus/)，提供定制化高配套餐服务。
 {{% /alert %}}
 
 

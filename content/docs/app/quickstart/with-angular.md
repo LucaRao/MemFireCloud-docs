@@ -535,7 +535,7 @@ export class AccountComponent implements OnInit {
 
 在这个阶段，你已经有了一个功能完备的应用程序!
 
-- 有问题吗？[在此提问](https://github.com/supabase/supabase/discussions).
+- 有问题吗？[在此提问](https://community.memfiredb.com/).
 - 请登录[MemFire Cloud](https://cloud.memfiredb.com/)
 
 

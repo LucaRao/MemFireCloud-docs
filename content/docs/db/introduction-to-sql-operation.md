@@ -12,7 +12,7 @@ toc: true
  
  
 
-MemFireDB兼容PostgreSQL 11.2版本，具体可以参考[兼容性说明](compatibility.md)。   
+MemFireDB兼容PostgreSQL 11.2版本，具体可以参考[兼容性说明](./guides/compatibility.md)。   
 新建数据库后，您可以使用在线编辑器、兼容的客户端工具连接数据库并执行SQL语句建表存储数据。   
 SQL 是一门声明性语言，它是数据库用户与数据库交互的方式。它更像是一种自然语言，好像在用英语与数据库进行对话。本文档介绍基本的SQL操作。   
 

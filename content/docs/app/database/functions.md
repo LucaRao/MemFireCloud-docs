@@ -8,7 +8,7 @@
 ---
 
 Postgres内置了对[SQL函数](https://www.postgresql.org/docs/current/sql-createfunction.html)的支持。
-这些函数存在于你的数据库中，它们可以[与API一起使用](././reference/javascript/rpc)。
+这些函数存在于你的数据库中，它们可以[与API一起使用](/docs/app/sdkdocs/javascript/database/rpc/)。
 
 ## 快速演示
 <div className="video-container">
@@ -23,7 +23,7 @@ Postgres内置了对[SQL函数](https://www.postgresql.org/docs/current/sql-crea
 ## 开始使用
 
 Supabase 为创建数据库函数提供了几个选项。你可以使用仪表板或直接使用 SQL 创建它们。
-我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 [连接](.../.../guides/database/connecting-to-postgres) 到数据库并自己运行SQL查询。
+我们在 Dashboard 中提供了一个 SQL 编辑器，或者你可以 [连接](/docs/app/database/connecting-to-postgres/) 到数据库并自己运行SQL查询。
 
 1. 进入 `SQL编辑器`栏。
 2. 点击 `新查询`。
@@ -87,7 +87,7 @@ select hello_world();
 const { data, error } = await supabase.rpc('hello_world')
 ```
 
-参考资料: [rpc()](../../reference/javascript/rpc)
+参考资料: [rpc()](/docs/app/sdkdocs/javascript/database/rpc/)
 
 
 
@@ -102,7 +102,7 @@ final res = await supabase
   .execute();
 ```
 
-Reference: [rpc()](../../reference/dart/rpc)
+Reference: [rpc()](/docs/app/sdkdocs/Dart/database/rpc/)
 
 
 
@@ -113,7 +113,7 @@ Reference: [rpc()](../../reference/dart/rpc)
 ## 返回数据集
 
 
-数据库函数也可以从[数据表](../../guides/database/tables)或视图中返回数据集。
+数据库函数也可以从[数据表](/docs/app/database/tables/)或视图中返回数据集。
 
 例如，如果我们有一个数据库，里面有一些星球大战的数据。
 
@@ -315,9 +315,9 @@ final res = await supabase
 
 ### 数据库函数vs边缘函数
 
-对于数据密集型的操作，使用数据库函数，它在你的数据库中执行并可以使用[REST和GraphQL API](.../api)远程调用。
+对于数据密集型的操作，使用数据库函数，它在你的数据库中执行并可以使用REST和GraphQL API远程调用。
 
-对于需要低延迟的使用情况，使用[边缘函数](.../.../guides/functions)，它是全局分布的，可以用Typescript编写。
+对于需要低延迟的使用情况，使用[边缘函数](/docs/app/functions/overview/)，它是全局分布的，可以用Typescript编写。
 
 
 ### 安全性 `definer`vs `invoker`
@@ -353,7 +353,7 @@ GRANT EXECUTE ON FUNCTION hello_world TO service_role;
 
 ## 资源
 
-- 官方客户端库: [JavaScript](../../reference/javascript/rpc) and [Flutter](../../reference/dart/rpc)
+- 官方客户端库: [JavaScript](/docs/app/sdkdocs/javascript/database/rpc/) and [Flutter](../../reference/dart/rpc)
 - 社区客户端库: [github.com/supabase-community](https://github.com/supabase-community)
 - PostgreSQL官方文档: [第9章 函数和运算符](https://www.postgresql.org/docs/current/functions.html)
 - PostgreSQL参考资料: [创建函数](https://www.postgresql.org/docs/9.1/sql-createfunction.html)

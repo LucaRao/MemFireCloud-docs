@@ -11,7 +11,7 @@
 ## 概览
 
 
-使用[无密码登录](/docs/app/sdkdocs/javascript/auth-signinwithotp)或[第三方提供程序](/docs/app/sdkdocs/javascript/auth-signinwithoauth#sign-in-using-a-third-party-provider-with-redirect)时，MemFire Cloud 客户端库方法提供 `redirectTo` 参数，以指定身份验证后将用户重定向到的位置。默认情况下，用户将被重定向到[`SITE_URL`](/docs/app/sdkdocs/auth/config#site_url)，但您可以修改SITE_URL或将其他重定向 URL 添加到允许列表。将必要的 URL 添加到允许列表后，可以在 redirectTo 参数中指定希望用户重定向到的 URL。
+使用[无密码登录](/docs/app/sdkdocs/javascript/auth/auth-signinwithotp)或[第三方提供程序](/docs/app/sdkdocs/javascript/auth/auth-signinwithoauth#sign-in-using-a-third-party-provider-with-redirect)时，MemFire Cloud 客户端库方法提供 `redirectTo` 参数，以指定身份验证后将用户重定向到的位置。默认情况下，用户将被重定向到`SITE_URL`，但您可以修改SITE_URL或将其他重定向 URL 添加到允许列表。将必要的 URL 添加到允许列表后，可以在 redirectTo 参数中指定希望用户重定向到的 URL。
 
 ## 在重定向 URL 中使用通配符
 MemFire Cloud 允许您在将重定向 URL 添加到允许列表时指定通配符。您可以使用通配符匹配模式来支持来自 Netlify 和 Vercel 等提供商的预览 URL。

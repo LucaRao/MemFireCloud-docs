@@ -9,9 +9,16 @@ draft: false
 toc: true
 ---
 
+<div class="banner">
+    <img class="banner_back" src="../img/index_background.svg">
+    <div class="w80 m-l60">
+        <p class="title m-t64">MemFire Cloud文档中心</p>
+        <p class="text">欢迎来到MemFire Cloud文档中心！我们为您提供丰富的操作指南和详细的参考资料，帮助您轻松上手MemFire
+            Cloud产品，顺利完成基于数据库的应用开发～</p>
+    </div>
+    <img class="projection" src="../img/index_picture.png">
+</div>
 
-
-欢迎来到MemFire Cloud文档中心！我们为您提供丰富的操作指南和详细的参考资料，帮助您轻松上手MemFire Cloud产品，顺利完成基于数据库的应用开发～
 
 
 ## MemFire Cloud云数据库
@@ -88,7 +95,7 @@ MemFire Cloud推出的基于Supabase与MemFireDB打造的一站式后端服务�
 </div>
 
 <div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="../app/landing-page/overview/">
+  <a class="text-decoration-none text-reset" href="/docs/app/quickstart/with-vue-3/">
     <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <!-- <span class="h1 icon-color">
         <i class="material-icons align-middle">flight_land</i>

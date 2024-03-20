@@ -3,7 +3,7 @@
     title: "第三部分:政策"
     description: 'Supabase Auth Deep Dive第三部分：基于用户的访问策略'
     icon: "article"
-    draft: true
+    draft: false
     toc: true
 ---
 

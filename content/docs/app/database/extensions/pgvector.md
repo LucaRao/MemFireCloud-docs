@@ -33,7 +33,7 @@
 
 
 
-1. 跳转控制台的 [数据库](https://supabase.com/dashboard/project/_/database/tables) 页面。
+1. 跳转控制台的 **数据库** 页面。
 2. 点击侧栏中的 **扩展** 。
 3. 搜索 "vector" 并启用扩展。
 
