@@ -150,7 +150,7 @@ const supabase = createClient(supabase_url, anon_key, {
 </div>
 
 <div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="/docs/app/development_guide/auth/auth-helpers/auth-helpers/">
+  <a class="text-decoration-none text-reset" href="/docs/app/development_guide/auth/auth-deep-dive/auth-deep-dive-jwts/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <!-- <span class="h1 icon-color">
         <i class="material-icons align-middle">highlight</i>
