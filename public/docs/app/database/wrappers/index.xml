@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FDW on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/database/wrappers/</link>
-    <description>Recent content in FDW on MemFire Cloud在线文档</description>
+    <title>FDW on My New Hugo Site</title>
+    <link>https://github.com/docs/app/database/wrappers/</link>
+    <description>Recent content in FDW on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/app/database/wrappers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/database/wrappers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>外部数据包装器(FDW)</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/overview/</link>
+      <link>https://github.com/docs/app/database/wrappers/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/overview/</guid>
+      <guid>https://github.com/docs/app/database/wrappers/overview/</guid>
       <description>使用 Postgres 外部数据封装器连接外部系统 link外部数据封装器（FDW）是 Postgres 的一个核心特性，它允许您访问和查询存储在外部数据源中的数据，就像它们是本地 Postgres 表一样。&#xA;Postgres 包括几个内置的外部数据封装器，例如 postgres_fdw 用于访问其他 PostgreSQL 数据库，以及file_fdw 用于从文件中读取数据。Supabase 扩展了这一特性，以便查询其他数据库或任何其他外部系统。我们通过开源 Wrappers 框架来实现这一点。在这些指南中，我们将它们称为“Wrappers”，外部数据封装器或 FDWs。它们在概念上是相同的。&#xA;概念 linkWrappers 引入了一些新的术语和不同的工作流程。&#xA;远程服务器 link远程服务器是您想要从 Postgres 数据库查询数据的外部数据库、API 或任何包含数据的系统。示例包括：&#xA;一个外部数据库，如 Postgres 或 Firebase。 一个远程数据仓库，如 ClickHouse、BigQuery 或 Snowflake。 一个 API，如 Stripe 或 GitHub。 您可以连接多个同类型的远程服务器。例如，您可以在同一个 Supabase 数据库中连接到两个不同的 Firebase 项目。&#xA;外部表 link外部表，即映射到远程服务器内部某些数据的数据库中的表。&#xA;示例：&#xA;一个 analytics 表，映射到您的数据仓库内部的表。&#xA;一个 subscriptions 表，映射到您的 Stripe 订阅。&#xA;一个 collections 表，映射到 Firebase 集合。&#xA;尽管外部表的行为像任何其他表一样，但数据并不存储在您的数据库中。数据保留在远程服务器内部。&#xA;使用 Wrappers 进行 ETL linkETL 代表提取（Extract）、转换（Transform）、加载（Load）。它是一个将数据从一个系统移动到另一个系统的既定过程。例如，将数据从生产数据库移动到数据仓库是很常见的做法。&#xA;有许多流行的 ETL 工具，如 Fivetran 和 Airbyte。</description>
     </item>
     <item>
       <title>Airtable</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/airtable/</link>
+      <link>https://github.com/docs/app/database/wrappers/airtable/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/airtable/</guid>
-      <description>Airtable 是一个易于使用的在线平台，用于创建和共享关系型数据库。&#xA;Airtable 封装器允许您在 Postgres 数据库中读取您的 Airtable 基础/表中的数据。&#xA;准备 link在开始之前，请确保您的数据库上安装了 wrappers扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器：&#xA;create foreign data wrapper airtable_wrapper&#xD;handler airtable_fdw_handler&#xD;validator airtable_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Airtable API key in Vault and retrieve the `key_id`&#xD;insert into vault.secrets (name, secret)&#xD;values (&#xD;&amp;#39;airtable&amp;#39;,&#xD;&amp;#39;&amp;lt;Airtable API Key or PAT&amp;gt;&amp;#39; -- Airtable API key or Personal Access Token (PAT)&#xD;)&#xD;returning key_id;&#xD;连接到 Airtable link我们需要为 Postgres 提供连接到 Airtable 的凭证和任何额外的选项。我们可以使用 create server命令来完成这个操作：</description>
+      <guid>https://github.com/docs/app/database/wrappers/airtable/</guid>
+      <description>Airtable 是一个易于使用的在线平台，用于创建和共享关系型数据库。&#xA;Airtable 封装器允许您在 Postgres 数据库中读取您的 Airtable 基础/表中的数据。&#xA;准备 link在开始之前，请确保您的数据库上安装了 wrappers扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器：&#xA;create foreign data wrapper airtable_wrapper handler airtable_fdw_handler validator airtable_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Airtable API key in Vault and retrieve the `key_id` insert into vault.secrets (name, secret) values ( &amp;#39;airtable&amp;#39;, &amp;#39;&amp;lt;Airtable API Key or PAT&amp;gt;&amp;#39; -- Airtable API key or Personal Access Token (PAT) ) returning key_id; 连接到 Airtable link我们需要为 Postgres 提供连接到 Airtable 的凭证和任何额外的选项。我们可以使用 create server命令来完成这个操作：</description>
     </item>
     <item>
       <title>AWS S3</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/s3/</link>
+      <link>https://github.com/docs/app/database/wrappers/s3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/s3/</guid>
+      <guid>https://github.com/docs/app/database/wrappers/s3/</guid>
       <description>AWS S3 是一个对象存储服务，提供行业领先的可扩展性、数据可用性、安全性和性能。它目前只支持读取操作，并支持以下文件格式：&#xA;通过 S3 封装器，您可以在 Postgres 数据库中从AWS S3 读取以下格式的数据：&#xA;CSV - 带或不带标题行 JSON Lines Parquet S3 封装器还支持以下压缩算法：&#xA;gzip bzip2 xz zlib CSV 和 JSONL 文件注意事项：目前 S3 文件中的所有列必须在外部表中定义，并且它们的类型必须是 text 类型。.&#xA;Parquet 文件注意事项：如果是压缩文件，整个 Parquet 文件都将加载到本地内存中，因此文件大小应尽可能小.&#xA;Parquet 文件支持的数据类型 linkS3 封装器使用 Parquet 文件的数据类型来自 arrow_array::types，以下是它们与 Postgres 数据类型的映射。&#xA;Postgres 类型 Parquet 类型 boolean BooleanType char Int8Type smallint Int16Type real Float32Type integer Int32Type double precision Float64Type bigint Int64Type numeric Float64Type text ByteArrayType date Date64Type timestamp TimestampNanosecondType 准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：</description>
     </item>
     <item>
       <title>BigQuery</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/bigquery/</link>
+      <link>https://github.com/docs/app/database/wrappers/bigquery/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/bigquery/</guid>
-      <description>BigQuery 是一个完全无服务器的、成本效益高的企业级数据仓库，它可以跨云工作，并且随着数据的增长而扩展，内置了商业智能（BI）、机器学习和人工智能（AI）。&#xA;TBigQuery 封装器允许您在 Postgres 数据库中读取和写入 BigQuery 的数据。&#xA;支持的数据类型 link Postgres 类型 BigQuery 类型 boolean BOOL bigint INT64 double precision FLOAT64 numeric NUMERIC text STRING varchar STRING date DATE timestamp DATETIME timestamp TIMESTAMP 准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器：&#xA;create foreign data wrapper bigquery_wrapper&#xD;handler big_query_fdw_handler&#xD;validator big_query_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your BigQuery service account json in Vault and retrieve the `key_id`&#xD;insert into vault.</description>
+      <guid>https://github.com/docs/app/database/wrappers/bigquery/</guid>
+      <description>BigQuery 是一个完全无服务器的、成本效益高的企业级数据仓库，它可以跨云工作，并且随着数据的增长而扩展，内置了商业智能（BI）、机器学习和人工智能（AI）。&#xA;TBigQuery 封装器允许您在 Postgres 数据库中读取和写入 BigQuery 的数据。&#xA;支持的数据类型 link Postgres 类型 BigQuery 类型 boolean BOOL bigint INT64 double precision FLOAT64 numeric NUMERIC text STRING varchar STRING date DATE timestamp DATETIME timestamp TIMESTAMP 准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器：&#xA;create foreign data wrapper bigquery_wrapper handler big_query_fdw_handler validator big_query_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your BigQuery service account json in Vault and retrieve the `key_id` insert into vault.</description>
     </item>
     <item>
       <title>ClickHouse</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/clickhouse/</link>
+      <link>https://github.com/docs/app/database/wrappers/clickhouse/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/clickhouse/</guid>
-      <description>ClickHouse 是一个快速的开源列式数据库管理系统，它允许使用 SQL 查询实时生成分析数据报告。&#xA;ClickHouse 封装器允许您在 Postgres 数据库中读取和写入 ClickHouse 的数据。&#xA;支持的数据类型 link Postgres 类型 ClickHouse 类型 boolean UInt8 smallint Int16 integer UInt16 integer Int32 bigint UInt32 bigint Int64 bigint UInt64 real Float32 double precision Float64 text String date Date timestamp DateTime 准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器:&#xA;create foreign data wrapper clickhouse_wrapper&#xD;handler click_house_fdw_handler&#xD;validator click_house_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。</description>
+      <guid>https://github.com/docs/app/database/wrappers/clickhouse/</guid>
+      <description>ClickHouse 是一个快速的开源列式数据库管理系统，它允许使用 SQL 查询实时生成分析数据报告。&#xA;ClickHouse 封装器允许您在 Postgres 数据库中读取和写入 ClickHouse 的数据。&#xA;支持的数据类型 link Postgres 类型 ClickHouse 类型 boolean UInt8 smallint Int16 integer UInt16 integer Int32 bigint UInt32 bigint Int64 bigint UInt64 real Float32 double precision Float64 text String date Date timestamp DateTime 准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器:&#xA;create foreign data wrapper clickhouse_wrapper handler click_house_fdw_handler validator click_house_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。</description>
     </item>
     <item>
       <title>Firebase</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/firebase/</link>
+      <link>https://github.com/docs/app/database/wrappers/firebase/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/firebase/</guid>
-      <description>Firebase 是一个围绕非关系型技术构建的应用开发平台。Firebase 封装器支持连接到以下对象。&#xA;认证用户 (只读) Firestore 数据库文档 (只读) 准备 link在开始之前，请确保您的数据库上安装了wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器：&#xA;create foreign data wrapper firebase_wrapper&#xD;handler firebase_fdw_handler&#xD;validator firebase_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Firebase credentials in Vault and retrieve the `key_id`&#xD;insert into vault.secrets (name, secret)&#xD;values (&#xD;&amp;#39;firebase&amp;#39;,&#xD;&amp;#39;{&#xD;&amp;#34;type&amp;#34;: &amp;#34;service_account&amp;#34;,&#xD;&amp;#34;project_id&amp;#34;: &amp;#34;your_gcp_project_id&amp;#34;,&#xD;...&#xD;}&amp;#39;&#xD;)&#xD;returning key_id;&#xD;连接到 Firebase link我们需要为 Postgres 提供连接到 Firebase 的凭证和任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
+      <guid>https://github.com/docs/app/database/wrappers/firebase/</guid>
+      <description>Firebase 是一个围绕非关系型技术构建的应用开发平台。Firebase 封装器支持连接到以下对象。&#xA;认证用户 (只读) Firestore 数据库文档 (只读) 准备 link在开始之前，请确保您的数据库上安装了wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器：&#xA;create foreign data wrapper firebase_wrapper handler firebase_fdw_handler validator firebase_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 为存储凭证提供了额外的安全级别。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Firebase credentials in Vault and retrieve the `key_id` insert into vault.secrets (name, secret) values ( &amp;#39;firebase&amp;#39;, &amp;#39;{ &amp;#34;type&amp;#34;: &amp;#34;service_account&amp;#34;, &amp;#34;project_id&amp;#34;: &amp;#34;your_gcp_project_id&amp;#34;, ... }&amp;#39; ) returning key_id; 连接到 Firebase link我们需要为 Postgres 提供连接到 Firebase 的凭证和任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
     </item>
     <item>
       <title>Logflare</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/logflare/</link>
+      <link>https://github.com/docs/app/database/wrappers/logflare/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/logflare/</guid>
-      <description>Logflare 是一个集中式的基于 Web 的日志管理解决方案，可以轻松访问 Cloudflare、Vercel 和 Elixir 的日志。&#xA;Logflare 封装器允许您在 Postgres 数据库中读取来自 Logflare 端点的数据。&#xA;准备 link在开始之前，请确保您的数据库上安装了wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器：&#xA;create foreign data wrapper logflare_wrapper&#xD;handler logflare_fdw_handler&#xD;validator logflare_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将外部数据封装器（FDW）的凭证以明文形式存储在 pg_catalog.pg_foreign_server 表中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与Vault 配合使用，Vault 提供了额外的安全级别来存储凭证。我们建议您使用 Vault 来存储您的凭证。&#xA;-- Save your Logflare API key in Vault and retrieve the `key_id`&#xD;insert into vault.secrets (name, secret)&#xD;values (&#xD;&amp;#39;logflare&amp;#39;,&#xD;&amp;#39;YOUR_SECRET&amp;#39;&#xD;)&#xD;returning key_id;&#xD;连接到Logflare link我们需要为 Postgres 提供连接到 Logflare 的凭证以及任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
+      <guid>https://github.com/docs/app/database/wrappers/logflare/</guid>
+      <description>Logflare 是一个集中式的基于 Web 的日志管理解决方案，可以轻松访问 Cloudflare、Vercel 和 Elixir 的日志。&#xA;Logflare 封装器允许您在 Postgres 数据库中读取来自 Logflare 端点的数据。&#xA;准备 link在开始之前，请确保您的数据库上安装了wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器：&#xA;create foreign data wrapper logflare_wrapper handler logflare_fdw_handler validator logflare_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将外部数据封装器（FDW）的凭证以明文形式存储在 pg_catalog.pg_foreign_server 表中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与Vault 配合使用，Vault 提供了额外的安全级别来存储凭证。我们建议您使用 Vault 来存储您的凭证。&#xA;-- Save your Logflare API key in Vault and retrieve the `key_id` insert into vault.secrets (name, secret) values ( &amp;#39;logflare&amp;#39;, &amp;#39;YOUR_SECRET&amp;#39; ) returning key_id; 连接到Logflare link我们需要为 Postgres 提供连接到 Logflare 的凭证以及任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
     </item>
     <item>
       <title>Stripe</title>
-      <link>https://docs.memfiredb.com/docs/app/database/wrappers/stripe/</link>
+      <link>https://github.com/docs/app/database/wrappers/stripe/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/database/wrappers/stripe/</guid>
-      <description>Stripe 是一个由 API 驱动的在线支付处理工具。supabase/wrappers 提供了以下端点。&#xA;准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions;&#xD;然后创建外部数据封装器：&#xA;create foreign data wrapper stripe_wrapper&#xD;handler stripe_fdw_handler&#xD;validator stripe_fdw_validator;&#xD;安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 提供了额外的安全级别来存储凭证。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Stripe API key in Vault and retrieve the `key_id`&#xD;insert into vault.secrets (name, secret)&#xD;values (&#xD;&amp;#39;stripe&amp;#39;,&#xD;&amp;#39;YOUR_SECRET&amp;#39;&#xD;)&#xD;returning key_id;&#xD;连接到 Stripe link我们需要为 Postgres 提供连接到 Stripe 的凭证和任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
+      <guid>https://github.com/docs/app/database/wrappers/stripe/</guid>
+      <description>Stripe 是一个由 API 驱动的在线支付处理工具。supabase/wrappers 提供了以下端点。&#xA;准备 link在开始之前，请确保您的数据库上安装了 wrappers 扩展：&#xA;create extension if not exists wrappers with schema extensions; 然后创建外部数据封装器：&#xA;create foreign data wrapper stripe_wrapper handler stripe_fdw_handler validator stripe_fdw_validator; 安全保护您的凭证（可选） link默认情况下，Postgres 将 FDW 凭证以明文形式存储在 pg_catalog.pg_foreign_server 中。任何有权访问此表的人都能够查看这些凭证。封装器设计为与 Vault 配合使用，Vault 提供了额外的安全级别来存储凭证。我们建议您使用 Vault 存储您的凭证。&#xA;-- Save your Stripe API key in Vault and retrieve the `key_id` insert into vault.secrets (name, secret) values ( &amp;#39;stripe&amp;#39;, &amp;#39;YOUR_SECRET&amp;#39; ) returning key_id; 连接到 Stripe link我们需要为 Postgres 提供连接到 Stripe 的凭证和任何额外的选项。我们可以使用 create server 命令来完成这个操作：</description>
     </item>
   </channel>
 </rss>

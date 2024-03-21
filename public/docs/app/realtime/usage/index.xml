@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>用法 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/realtime/usage/</link>
-    <description>Recent content in 用法 on MemFire Cloud在线文档</description>
+    <title>用法 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/realtime/usage/</link>
+    <description>Recent content in 用法 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://docs.memfiredb.com/docs/app/realtime/usage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/realtime/usage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>广播</title>
-      <link>https://docs.memfiredb.com/docs/app/realtime/usage/broadcast/</link>
+      <link>https://github.com/docs/app/realtime/usage/broadcast/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/realtime/usage/broadcast/</guid>
-      <description>让我们探讨如何实现实时广播以在客户端之间发送消息。&#xA;用法 link您可以使用 MemFire Cloud 客户端库来发送和接收广播消息。&#xA;初始化客户端 link转到 MemFire Cloud 项目的 设置-&amp;gt; API ，获取 URL 和匿名公共 API 密钥。&#xA;JavaScript&#xD;Dart&#xD;Kotlin&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const SUPABASE_URL = &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;&#xD;const SUPABASE_KEY = &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;&#xD;const client = createClient(SUPABASE_URL, SUPABASE_KEY)&#xD;import &amp;#39;package:supabase_flutter/supabase_flutter.dart&amp;#39;;&#xD;void main() async {&#xD;Supabase.initialize(&#xD;url: &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;,&#xD;anonKey: &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;,&#xD;);&#xD;runApp(MyApp());&#xD;}&#xD;final supabase = Supabase.instance.client;&#xD;val supabaseUrl = &amp;#34;https://&amp;lt;project&amp;gt;.supabase.co&amp;#34;&#xD;val supabaseKey = &amp;#34;&amp;lt;your-anon-key&amp;gt;&amp;#34;&#xD;val supabase = createSupabaseClient(supabaseUrl, supabaseKey) {&#xD;install(Realtime)&#xD;}&#xD;收听广播消息 link您可以为广播频道提供回调以接收消息。在此示例中，我们将在room-1 中接收任何广播消息：</description>
+      <guid>https://github.com/docs/app/realtime/usage/broadcast/</guid>
+      <description>让我们探讨如何实现实时广播以在客户端之间发送消息。&#xA;用法 link您可以使用 MemFire Cloud 客户端库来发送和接收广播消息。&#xA;初始化客户端 link转到 MemFire Cloud 项目的 设置-&amp;gt; API ，获取 URL 和匿名公共 API 密钥。&#xA;JavaScript Dart Kotlin import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const SUPABASE_URL = &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39; const SUPABASE_KEY = &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39; const client = createClient(SUPABASE_URL, SUPABASE_KEY) import &amp;#39;package:supabase_flutter/supabase_flutter.dart&amp;#39;; void main() async { Supabase.initialize( url: &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;, anonKey: &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;, ); runApp(MyApp()); } final supabase = Supabase.instance.client; val supabaseUrl = &amp;#34;https://&amp;lt;project&amp;gt;.supabase.co&amp;#34; val supabaseKey = &amp;#34;&amp;lt;your-anon-key&amp;gt;&amp;#34; val supabase = createSupabaseClient(supabaseUrl, supabaseKey) { install(Realtime) } 收听广播消息 link您可以为广播频道提供回调以接收消息。在此示例中，我们将在room-1 中接收任何广播消息：</description>
     </item>
     <item>
       <title>Presence </title>
-      <link>https://docs.memfiredb.com/docs/app/realtime/usage/presence/</link>
+      <link>https://github.com/docs/app/realtime/usage/presence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/realtime/usage/presence/</guid>
-      <description>让我们探讨如何实现实时状态来跟踪多个用户之间的状态。&#xA;用法 link您可以使用 Supabase 客户端库来跟踪用户之间的状态。&#xA;初始化客户端 link转到 Supabase 项目的设置-&amp;gt; API ，获取 URL 和匿名公共 API 密钥。&#xA;JavaScript&#xD;Dart&#xD;Kotlin&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const SUPABASE_URL = &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;&#xD;const SUPABASE_KEY = &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;&#xD;const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)&#xD;void main() {&#xD;Supabase.initialize(&#xD;url: &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;,&#xD;anonKey: &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;,&#xD;);&#xD;runApp(MyApp());&#xD;}&#xD;final supabase = Supabase.instance.client;&#xD;val supabaseUrl = &amp;#34;https://&amp;lt;project&amp;gt;.supabase.co&amp;#34;&#xD;val supabaseKey = &amp;#34;&amp;lt;your-anon-key&amp;gt;&amp;#34;&#xD;val supabase = createSupabaseClient(supabaseUrl, supabaseKey) {&#xD;install(Realtime)&#xD;}&#xD;同步和跟踪状态 link&#xD;JavaScript&#xD;Dart&#xD;Kotlin&#xD;侦听每当任何客户端加入或离开频道或更改其状态切片时触发的sync、join和leave事件：</description>
+      <guid>https://github.com/docs/app/realtime/usage/presence/</guid>
+      <description>让我们探讨如何实现实时状态来跟踪多个用户之间的状态。&#xA;用法 link您可以使用 Supabase 客户端库来跟踪用户之间的状态。&#xA;初始化客户端 link转到 Supabase 项目的设置-&amp;gt; API ，获取 URL 和匿名公共 API 密钥。&#xA;JavaScript Dart Kotlin import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39; const SUPABASE_URL = &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39; const SUPABASE_KEY = &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39; const supabase = createClient(SUPABASE_URL, SUPABASE_KEY) void main() { Supabase.initialize( url: &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;, anonKey: &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;, ); runApp(MyApp()); } final supabase = Supabase.instance.client; val supabaseUrl = &amp;#34;https://&amp;lt;project&amp;gt;.supabase.co&amp;#34; val supabaseKey = &amp;#34;&amp;lt;your-anon-key&amp;gt;&amp;#34; val supabase = createSupabaseClient(supabaseUrl, supabaseKey) { install(Realtime) } 同步和跟踪状态 link JavaScript Dart Kotlin 侦听每当任何客户端加入或离开频道或更改其状态切片时触发的sync、join和leave事件：</description>
     </item>
   </channel>
 </rss>

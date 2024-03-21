@@ -1,124 +1,124 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>存储 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/</link>
-    <description>Recent content in 存储 on MemFire Cloud在线文档</description>
+    <title>存储 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/</link>
+    <description>Recent content in 存储 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/sdkdocs/wechatsdk/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>createBucket()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-createbucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-createbucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-createbucket/</guid>
-      <description>createBucket()用于创建一个新的存储桶&#xA;需要RLS策略权限:&#xA;buckets表的权限: insert表权限 objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建一个存储桶） link&#xD;使用方法&#xD;const { data, error } = await supabase .storage&#xD;.createBucket(&amp;#39;avatars&amp;#39;, {&#xD;public: false,&#xD;allowedMimeTypes: [&amp;#39;image/png&amp;#39;],&#xD;fileSizeLimit: 1024&#xD;})&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;这是你创建存储桶的唯一标识符。&#xA;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;特性&#xD;public&#xD;[必要参数]&#xD;boolean类型&#xD;存储桶的可见性。公开桶不需要授权令牌来下载对象，但对于所有其他操作仍需要有效的令牌。默认情况下，存储桶是私有的。&#xA;allowedMimeTypes&#xD;[可选参数]&#xD;object类型&#xD;指定此存储桶在上传过程中允许接受的 MIME 类型。默认值为 null，允许上传具有所有 MIME 类型的文件。每个指定的 MIME 类型可以是通配符，例如 image/*，也可以是特定的 MIME 类型，例如 image/png。&#xA;fileSizeLimit&#xD;[可选参数]&#xD;null | 字符串 | 数字&#xD;指定可以上传到此存储桶的最大文件大小（以字节为单位）。全局文件大小限制优先于此值。默认值为 null，表示不设置每个存储桶的文件大小限制。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-createbucket/</guid>
+      <description>createBucket()用于创建一个新的存储桶&#xA;需要RLS策略权限:&#xA;buckets表的权限: insert表权限 objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建一个存储桶） link 使用方法 const { data, error } = await supabase .storage .createBucket(&amp;#39;avatars&amp;#39;, { public: false, allowedMimeTypes: [&amp;#39;image/png&amp;#39;], fileSizeLimit: 1024 }) 参数说明 link id [必要参数] string类型 这是你创建存储桶的唯一标识符。&#xA;选项（option） [必要参数] object类型 特性 public [必要参数] boolean类型 存储桶的可见性。公开桶不需要授权令牌来下载对象，但对于所有其他操作仍需要有效的令牌。默认情况下，存储桶是私有的。&#xA;allowedMimeTypes [可选参数] object类型 指定此存储桶在上传过程中允许接受的 MIME 类型。默认值为 null，允许上传具有所有 MIME 类型的文件。每个指定的 MIME 类型可以是通配符，例如 image/*，也可以是特定的 MIME 类型，例如 image/png。&#xA;fileSizeLimit [可选参数] null | 字符串 | 数字 指定可以上传到此存储桶的最大文件大小（以字节为单位）。全局文件大小限制优先于此值。默认值为 null，表示不设置每个存储桶的文件大小限制。</description>
     </item>
     <item>
       <title>getBucket()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-getbucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-getbucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-getbucket/</guid>
-      <description>getBucket()用于获取现有存储桶的详细信息。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （获取存储桶信息） link&#xD;使用方法&#xD;const { data, error } = await supabase .storage&#xD;.getBucket(&amp;#39;avatars&amp;#39;)&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;这是你创建存储桶的唯一标识符。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-getbucket/</guid>
+      <description>getBucket()用于获取现有存储桶的详细信息。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （获取存储桶信息） link 使用方法 const { data, error } = await supabase .storage .getBucket(&amp;#39;avatars&amp;#39;) 参数说明 link id [必要参数] string类型 这是你创建存储桶的唯一标识符。</description>
     </item>
     <item>
       <title>listBuckets()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-listbuckets/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-listbuckets/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-listbuckets/</guid>
-      <description>listBuckets()用于获取现有项目中所有存储桶的详细信息。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （获取所有存储桶信息） link&#xD;使用方法&#xD;const { data, error } = await supabase .storage&#xD;.listBuckets()&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-listbuckets/</guid>
+      <description>listBuckets()用于获取现有项目中所有存储桶的详细信息。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （获取所有存储桶信息） link 使用方法 const { data, error } = await supabase .storage .listBuckets() </description>
     </item>
     <item>
       <title>updateBucket()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-updatebucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-updatebucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-updatebucket/</guid>
-      <description>updateBucket()用于更新存储桶&#xA;需要RLS策略权限:&#xA;buckets表的权限: select和update objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （更新存储桶） link&#xD;使用方法&#xD;const { data, error } = await supabase .storage&#xD;.updateBucket(&amp;#39;avatars&amp;#39;, {&#xD;public: false,&#xD;allowedMimeTypes: [&amp;#39;image/png&amp;#39;],&#xD;fileSizeLimit: 1024&#xD;})&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;这是你创建存储桶的唯一标识符。&#xA;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;特性&#xD;public&#xD;[必要参数]&#xD;boolean类型&#xD;存储桶的可见性。公开桶不需要授权令牌来下载对象，但对于所有其他操作仍需要有效的令牌。默认情况下，存储桶是私有的。&#xA;allowedMimeTypes&#xD;[可选参数]&#xD;object类型&#xD;指定此存储桶在上传过程中允许接受的 MIME 类型。默认值为 null，允许上传具有所有 MIME 类型的文件。每个指定的 MIME 类型可以是通配符，例如 image/*，也可以是特定的 MIME 类型，例如 image/png。&#xA;fileSizeLimit&#xD;[可选参数]&#xD;null | 字符串 | 数字&#xD;指定可以上传到此存储桶的最大文件大小（以字节为单位）。全局文件大小限制优先于此值。默认值为 null，表示不设置每个存储桶的文件大小限制。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-updatebucket/</guid>
+      <description>updateBucket()用于更新存储桶&#xA;需要RLS策略权限:&#xA;buckets表的权限: select和update objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （更新存储桶） link 使用方法 const { data, error } = await supabase .storage .updateBucket(&amp;#39;avatars&amp;#39;, { public: false, allowedMimeTypes: [&amp;#39;image/png&amp;#39;], fileSizeLimit: 1024 }) 参数说明 link id [必要参数] string类型 这是你创建存储桶的唯一标识符。&#xA;选项（option） [必要参数] object类型 特性 public [必要参数] boolean类型 存储桶的可见性。公开桶不需要授权令牌来下载对象，但对于所有其他操作仍需要有效的令牌。默认情况下，存储桶是私有的。&#xA;allowedMimeTypes [可选参数] object类型 指定此存储桶在上传过程中允许接受的 MIME 类型。默认值为 null，允许上传具有所有 MIME 类型的文件。每个指定的 MIME 类型可以是通配符，例如 image/*，也可以是特定的 MIME 类型，例如 image/png。&#xA;fileSizeLimit [可选参数] null | 字符串 | 数字 指定可以上传到此存储桶的最大文件大小（以字节为单位）。全局文件大小限制优先于此值。默认值为 null，表示不设置每个存储桶的文件大小限制。</description>
     </item>
     <item>
       <title>deleteBucket()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-deletebucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-deletebucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-deletebucket/</guid>
-      <description>deleteBucket()用于删除现有的存储桶。&#xA;如果存储桶内存在对象，则无法删除存储桶。您必须首先清空empty()存储桶。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select和delete objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （删除一个存储桶） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.deleteBucket(&amp;#39;avatars&amp;#39;)&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;这是你创建存储桶的唯一标识符。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-deletebucket/</guid>
+      <description>deleteBucket()用于删除现有的存储桶。&#xA;如果存储桶内存在对象，则无法删除存储桶。您必须首先清空empty()存储桶。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select和delete objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （删除一个存储桶） link 使用方法 const { data, error } = await supabase .storage .deleteBucket(&amp;#39;avatars&amp;#39;) 参数说明 link id [必要参数] string类型 这是你创建存储桶的唯一标识符。</description>
     </item>
     <item>
       <title>emptyBucket()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-emptybucket/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-emptybucket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-emptybucket/</guid>
-      <description>emptyBucket()用于移除单个桶内的所有对象。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：select和delet 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （清空一个存储桶） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.emptyBucket(&amp;#39;avatars&amp;#39;)&#xD;参数说明 link&#xD;id&#xD;[必要参数]&#xD;string类型&#xD;这是你创建存储桶的唯一标识符。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-emptybucket/</guid>
+      <description>emptyBucket()用于移除单个桶内的所有对象。&#xA;需要RLS策略权限:&#xA;buckets表的权限: select objects表的权限：select和delet 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （清空一个存储桶） link 使用方法 const { data, error } = await supabase .storage .emptyBucket(&amp;#39;avatars&amp;#39;) 参数说明 link id [必要参数] string类型 这是你创建存储桶的唯一标识符。</description>
     </item>
     <item>
       <title>from.upload()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-upload/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-upload/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-upload/</guid>
-      <description>from.upload()用于将一个文件上传到一个现有的桶。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：仅在上传新文件时需要插入insert权限，以及在更新文件时需要选择select、插入insert和更新updata权限 请参考存储指南中关于访问控制的工作方式。&#xA;对于 React Native，使用 Blob、File 或 FormData 并不能按预期工作。相反，应该使用来自 base64 文件数据的 ArrayBuffer 来上传文件，参见下面的示例。&#xA;案例教程 link案例1 （上传文件） link&#xD;使用方法&#xD;const avatarFile = event.target.files[0]&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.upload(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, {&#xD;cacheControl: &amp;#39;3600&amp;#39;,&#xD;upsert: false&#xD;})&#xD;案例2 （使用来自 base64 文件数据的 ArrayBuffer 来上传文件） link&#xD;使用方法&#xD;const avatarFile = event.target.files[0]&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.upload(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, {&#xD;cacheControl: &amp;#39;3600&amp;#39;,&#xD;upsert: false&#xD;})&#xD;参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括文件名。应该采用folder/subfolder/filename.</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-upload/</guid>
+      <description>from.upload()用于将一个文件上传到一个现有的桶。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：仅在上传新文件时需要插入insert权限，以及在更新文件时需要选择select、插入insert和更新updata权限 请参考存储指南中关于访问控制的工作方式。&#xA;对于 React Native，使用 Blob、File 或 FormData 并不能按预期工作。相反，应该使用来自 base64 文件数据的 ArrayBuffer 来上传文件，参见下面的示例。&#xA;案例教程 link案例1 （上传文件） link 使用方法 const avatarFile = event.target.files[0] const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .upload(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, { cacheControl: &amp;#39;3600&amp;#39;, upsert: false }) 案例2 （使用来自 base64 文件数据的 ArrayBuffer 来上传文件） link 使用方法 const avatarFile = event.target.files[0] const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .upload(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, { cacheControl: &amp;#39;3600&amp;#39;, upsert: false }) 参数说明 link 路径（path） [必要参数] string类型 文件路径，包括文件名。应该采用folder/subfolder/filename.</description>
     </item>
     <item>
       <title>from.download()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-download/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-download/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-download/</guid>
-      <description>from.download()的作用是从私有存储桶下载文件。对于公共存储桶，从 getPublicUrl 返回的 URL 发起请求。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （下载文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.download(&amp;#39;folder/avatar1.png&amp;#39;)&#xD;案例2 （带transform参数的下载文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.download(&amp;#39;folder/avatar1.png&amp;#39;, {&#xD;transform: {&#xD;width: 100,&#xD;height: 100,&#xD;quality: 80&#xD;}&#xD;})&#xD;参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;选项（option）&#xD;[可选参数]&#xD;object类型 特性&#xD;transform&#xD;[可选参数]&#xD;TransformOptions类型&#xD;在向客户端提供资源之前对资源进行转换。&#xA;特性&#xD;format&#xD;[可选参数]&#xD;&#34;origin&#34;&#xD;指定请求的图像格式。当使用 &amp;lsquo;origin&amp;rsquo; 时，我们强制格式与原始图像相同。如果未传递此选项，则将图像优化为现代图像格式，如 Webp。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-download/</guid>
+      <description>from.download()的作用是从私有存储桶下载文件。对于公共存储桶，从 getPublicUrl 返回的 URL 发起请求。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （下载文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .download(&amp;#39;folder/avatar1.png&amp;#39;) 案例2 （带transform参数的下载文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .download(&amp;#39;folder/avatar1.png&amp;#39;, { transform: { width: 100, height: 100, quality: 80 } }) 参数说明 link 路径（path） [必要参数] string类型 文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;选项（option） [可选参数] object类型 特性 transform [可选参数] TransformOptions类型 在向客户端提供资源之前对资源进行转换。&#xA;特性 format [可选参数] &#34;origin&#34; 指定请求的图像格式。当使用 &amp;lsquo;origin&amp;rsquo; 时，我们强制格式与原始图像相同。如果未传递此选项，则将图像优化为现代图像格式，如 Webp。</description>
     </item>
     <item>
       <title>from.list()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-list/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-list/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-list/</guid>
-      <description>from.list()用于列出存储桶内的所有文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （在存储桶中列出文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.list(&amp;#39;folder&amp;#39;, {&#xD;limit: 100,&#xD;offset: 0,&#xD;sortBy: { column: &amp;#39;name&amp;#39;, order: &amp;#39;asc&amp;#39; },&#xD;})&#xD;案例2 （在存储桶中搜索文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.list(&amp;#39;folder&amp;#39;, {&#xD;limit: 100,&#xD;offset: 0,&#xD;sortBy: { column: &amp;#39;name&amp;#39;, order: &amp;#39;asc&amp;#39; },&#xD;search: &amp;#39;jon&amp;#39;&#xD;})&#xD;参数说明 link&#xD;路径（path）&#xD;[可选参数]&#xD;string类型&#xD;文件夹路径。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-list/</guid>
+      <description>from.list()用于列出存储桶内的所有文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （在存储桶中列出文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .list(&amp;#39;folder&amp;#39;, { limit: 100, offset: 0, sortBy: { column: &amp;#39;name&amp;#39;, order: &amp;#39;asc&amp;#39; }, }) 案例2 （在存储桶中搜索文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .list(&amp;#39;folder&amp;#39;, { limit: 100, offset: 0, sortBy: { column: &amp;#39;name&amp;#39;, order: &amp;#39;asc&amp;#39; }, search: &amp;#39;jon&amp;#39; }) 参数说明 link 路径（path） [可选参数] string类型 文件夹路径。</description>
     </item>
     <item>
       <title>from.update()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-update/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-update/</guid>
-      <description>from.update()用于实现一个新文件替换指定路径下的现有文件。.&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：update和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;对于使用 React Native 进行开发的情况，直接使用 Blob、File 或 FormData 对象来进行文件操作可能会无法达到预期的效果。 相反，建议使用来自 base64 文件数据的 ArrayBuffer 来更新文件。可以参考提供的示例代码来了解如何以此方式进行文件更新操作。&#xA;案例教程 link案例1 （更新文件） link&#xD;使用方法&#xD;const avatarFile = event.target.files[0]&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.update(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, {&#xD;cacheControl: &amp;#39;3600&amp;#39;,&#xD;upsert: true&#xD;})&#xD;案例2 （使用ArrayBuffer从base64文件数据更新文件） link&#xD;使用方法&#xD;import {decode} from &amp;#39;base64-arraybuffer&amp;#39;&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.update(&amp;#39;public/avatar1.png&amp;#39;, decode(&amp;#39;base64FileData&amp;#39;), {&#xD;contentType: &amp;#39;image/png&amp;#39;&#xD;}) 参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括文件名。应该采用folder/subfolder/filename.</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-update/</guid>
+      <description>from.update()用于实现一个新文件替换指定路径下的现有文件。.&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：update和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;对于使用 React Native 进行开发的情况，直接使用 Blob、File 或 FormData 对象来进行文件操作可能会无法达到预期的效果。 相反，建议使用来自 base64 文件数据的 ArrayBuffer 来更新文件。可以参考提供的示例代码来了解如何以此方式进行文件更新操作。&#xA;案例教程 link案例1 （更新文件） link 使用方法 const avatarFile = event.target.files[0] const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .update(&amp;#39;public/avatar1.png&amp;#39;, avatarFile, { cacheControl: &amp;#39;3600&amp;#39;, upsert: true }) 案例2 （使用ArrayBuffer从base64文件数据更新文件） link 使用方法 import {decode} from &amp;#39;base64-arraybuffer&amp;#39; const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .update(&amp;#39;public/avatar1.png&amp;#39;, decode(&amp;#39;base64FileData&amp;#39;), { contentType: &amp;#39;image/png&amp;#39; }) 参数说明 link 路径（path） [必要参数] string类型 文件路径，包括文件名。应该采用folder/subfolder/filename.</description>
     </item>
     <item>
       <title>from.move()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-move/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-move/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-move/</guid>
-      <description>from.move()用于将一个现有的文件移动到同一桶中的新路径。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：update和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （移动文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.move(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;)&#xD;参数说明 link&#xD;fromPath&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;toPath&#xD;[必要参数]&#xD;string类型&#xD;新的文件路径，包括新的文件名。例如folder/image-new.png。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-move/</guid>
+      <description>from.move()用于将一个现有的文件移动到同一桶中的新路径。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：update和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （移动文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .move(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;) 参数说明 link fromPath [必要参数] string类型 文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;toPath [必要参数] string类型 新的文件路径，包括新的文件名。例如folder/image-new.png。</description>
     </item>
     <item>
       <title>from.copy()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-copy/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-copy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-copy/</guid>
-      <description>from.copy()用于将一个现有的文件复制到存储桶中的新路径。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：insert和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （复制文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.copy(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;)&#xD;参数说明 link&#xD;fromPath&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;toPath&#xD;[必要参数]&#xD;string类型&#xD;新的文件路径，包括新的文件名。例如folder/image-copy.png。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-copy/</guid>
+      <description>from.copy()用于将一个现有的文件复制到存储桶中的新路径。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：insert和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （复制文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .copy(&amp;#39;public/avatar1.png&amp;#39;, &amp;#39;private/avatar2.png&amp;#39;) 参数说明 link fromPath [必要参数] string类型 文件路径，包括文件名。应该采用folder/subfolder/filename.png的格式。在尝试上传之前，必须确保存储桶已经存在。&#xA;toPath [必要参数] string类型 新的文件路径，包括新的文件名。例如folder/image-copy.png。</description>
     </item>
     <item>
       <title>from.remove()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-remove/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-remove/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-remove/</guid>
-      <description>from.remove()用于删除存储桶中的文件&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：delete和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （删除文件） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.remove([&amp;#39;folder/avatar1.png&amp;#39;])&#xD;参数说明 link&#xD;paths&#xD;[必要参数]&#xD;string[]类型（字符串数组）&#xD;一个要删除的文件数组，包括路径和文件名。例如[folder/image.png]。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-remove/</guid>
+      <description>from.remove()用于删除存储桶中的文件&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：delete和select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （删除文件） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .remove([&amp;#39;folder/avatar1.png&amp;#39;]) 参数说明 link paths [必要参数] string[]类型（字符串数组） 一个要删除的文件数组，包括路径和文件名。例如[folder/image.png]。</description>
     </item>
     <item>
       <title>from.createSignedUrl()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurl/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurl/</guid>
-      <description>创建一个签名的URL。使用签名的URL在固定时间内分享一个文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建一个带有签名的URL） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60)&#xD;案例2 （创建带有转换的签名URL） link&#xD;使用方法&#xD;const { data } = supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60, {&#xD;transform: {&#xD;width: 100,&#xD;height: 100,&#xD;}&#xD;})&#xD;案例3 （创建用于触发资源下载的签名URL） link&#xD;使用方法&#xD;const { data } = supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60, {&#xD;download: true,&#xD;})&#xD;参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括当前文件名。例如 folder/image.</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurl/</guid>
+      <description>创建一个签名的URL。使用签名的URL在固定时间内分享一个文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建一个带有签名的URL） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60) 案例2 （创建带有转换的签名URL） link 使用方法 const { data } = supabase .storage .from(&amp;#39;avatars&amp;#39;) .createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60, { transform: { width: 100, height: 100, } }) 案例3 （创建用于触发资源下载的签名URL） link 使用方法 const { data } = supabase .storage .from(&amp;#39;avatars&amp;#39;) .createSignedUrl(&amp;#39;folder/avatar1.png&amp;#39;, 60, { download: true, }) 参数说明 link 路径（path） [必要参数] string类型 文件路径，包括当前文件名。例如 folder/image.</description>
     </item>
     <item>
       <title>from.createSignedUrls()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurls/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurls/</guid>
-      <description>from.createSignedUrls()用于创建多个签名的URL。使用签名的URL在固定的时间内分享一个文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建多个带有签名的URL） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.storage&#xD;.from(&amp;#39;avatars&amp;#39;)&#xD;.createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60)&#xD;参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string[]类型（字符串数组）&#xD;要下载的文件路径，包括当前文件名。例如：[&amp;lsquo;folder/image.png&amp;rsquo;, &amp;lsquo;folder2/image2.png&amp;rsquo;]。&#xA;expiresIn&#xD;[必要参数]&#xD;数字类型&#xD;签名URL的过期时间，以秒为单位。例如，对于有效期为一分钟的URL，可以设置为 60。&#xA;选项（option）&#xD;[可选参数]&#xD;object类型&#xD;特性&#xD;download&#xD;[可选参数]&#xD;string | boolean&#xD;如果设置为 true，将触发文件下载。如果您希望使用不同的文件名触发下载，请将此参数设置为所需的文件名。</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-createsignedurls/</guid>
+      <description>from.createSignedUrls()用于创建多个签名的URL。使用签名的URL在固定的时间内分享一个文件。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：select权限 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （创建多个带有签名的URL） link 使用方法 const { data, error } = await supabase .storage .from(&amp;#39;avatars&amp;#39;) .createSignedUrls([&amp;#39;folder/avatar1.png&amp;#39;, &amp;#39;folder/avatar2.png&amp;#39;], 60) 参数说明 link 路径（path） [必要参数] string[]类型（字符串数组） 要下载的文件路径，包括当前文件名。例如：[&amp;lsquo;folder/image.png&amp;rsquo;, &amp;lsquo;folder2/image2.png&amp;rsquo;]。&#xA;expiresIn [必要参数] 数字类型 签名URL的过期时间，以秒为单位。例如，对于有效期为一分钟的URL，可以设置为 60。&#xA;选项（option） [可选参数] object类型 特性 download [可选参数] string | boolean 如果设置为 true，将触发文件下载。如果您希望使用不同的文件名触发下载，请将此参数设置为所需的文件名。</description>
     </item>
     <item>
       <title>from.getPublicUrl()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-getpublicurl/</link>
+      <link>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-getpublicurl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-getpublicurl/</guid>
-      <description>from.getPublicUrl()是用于获取公开存储桶中资源URL的函数。如果你不想使用这个函数，也可以通过将存储桶URL与资源路径拼接在一起来构建公开（public）URL。&#xA;这个函数不会验证存储桶是否为公开（public）。如果为非公开的存储桶创建了公开（public）URL，你将无法下载资源。&#xA;需要将存储桶设置为公开（public）状态，可以通过 updateBucket() 方法或者在 MemFireCloud应用控制台的存储页面中，选择你需要操作的存储桶，点击该存储桶的扩展按钮。选择编辑存储桶，然后选择公开存储桶按钮即可完成。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （返回公开存储桶中资源的URL） link&#xD;使用方法&#xD;const { data } = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;)&#xD;案例2 （返回公开存储桶中带有转换的资源的URL） link&#xD;使用方法&#xD;const { data } = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;, {&#xD;transform: {&#xD;width: 100,&#xD;height: 100,&#xD;}&#xD;})&#xD;案例3 （返回触发公开存储桶中资源下载的URL） link&#xD;使用方法&#xD;const { data } = supabase&#xD;.storage&#xD;.from(&amp;#39;public-bucket&amp;#39;)&#xD;.getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;, {&#xD;download: true,&#xD;})&#xD;参数说明 link&#xD;路径（path）&#xD;[必要参数]&#xD;string类型&#xD;文件路径，包括当前文件名。例如 folder/image.</description>
+      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/storage/storage-from-getpublicurl/</guid>
+      <description>from.getPublicUrl()是用于获取公开存储桶中资源URL的函数。如果你不想使用这个函数，也可以通过将存储桶URL与资源路径拼接在一起来构建公开（public）URL。&#xA;这个函数不会验证存储桶是否为公开（public）。如果为非公开的存储桶创建了公开（public）URL，你将无法下载资源。&#xA;需要将存储桶设置为公开（public）状态，可以通过 updateBucket() 方法或者在 MemFireCloud应用控制台的存储页面中，选择你需要操作的存储桶，点击该存储桶的扩展按钮。选择编辑存储桶，然后选择公开存储桶按钮即可完成。&#xA;需要RLS策略权限:&#xA;buckets表的权限: 无 objects表的权限：无 请参考存储指南中关于访问控制的工作方式。&#xA;案例教程 link案例1 （返回公开存储桶中资源的URL） link 使用方法 const { data } = supabase .storage .from(&amp;#39;public-bucket&amp;#39;) .getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;) 案例2 （返回公开存储桶中带有转换的资源的URL） link 使用方法 const { data } = supabase .storage .from(&amp;#39;public-bucket&amp;#39;) .getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;, { transform: { width: 100, height: 100, } }) 案例3 （返回触发公开存储桶中资源下载的URL） link 使用方法 const { data } = supabase .storage .from(&amp;#39;public-bucket&amp;#39;) .getPublicUrl(&amp;#39;folder/avatar1.png&amp;#39;, { download: true, }) 参数说明 link 路径（path） [必要参数] string类型 文件路径，包括当前文件名。例如 folder/image.</description>
     </item>
   </channel>
 </rss>

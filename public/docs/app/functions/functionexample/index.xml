@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>函数示例 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/functions/functionexample/</link>
-    <description>Recent content in 函数示例 on MemFire Cloud在线文档</description>
+    <title>函数示例 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/functions/functionexample/</link>
+    <description>Recent content in 函数示例 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/app/functions/functionexample/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/functions/functionexample/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>helloworld</title>
-      <link>https://docs.memfiredb.com/docs/app/functions/functionexample/helloworld/</link>
+      <link>https://github.com/docs/app/functions/functionexample/helloworld/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/functions/functionexample/helloworld/</guid>
-      <description>本文介绍如何在MemFire Cloud控制台快速开发一个简单的 Hello World应用。MemFire Cloud为您提供一个简单的Hello World示例，你可以在下载该示例到本地，并通过控制台使用该示例创建函数。创建成功后，您可以测试该函数，查看函数执行的结果。&#xA;使用说明 link关于以下示例的使用方法，请参见对应代码库的readme.md文件。&#xA;前提条件 link 拥有MemFire Cloud账号;&#xA;创建MemFire Cloud应用开发。&#xA;操作步骤 link步骤1：准备代码包 link准备好Hello World样例，并打包ZIP文件。&#xA;Helloword的代码包地址详见：MemFire / memfire-fc-helloworld · 极狐GitLab&#xA;编写的Hello World样例，只有一个index.js文件，代码如下：&#xA;var getRawBody = require(&amp;#39;raw-body&amp;#39;);&#xD;var getFormBody = require(&amp;#39;body/form&amp;#39;);&#xD;var body = require(&amp;#39;body&amp;#39;);&#xD;/*&#xD;please implement the initializer function as below：&#xD;exports.initializer = (context, callback) =&amp;gt; {&#xD;console.log(&amp;#39;initializing&amp;#39;);&#xD;callback(null, &amp;#39;&amp;#39;);&#xD;};&#xD;*/&#xD;exports.handler = (req, resp, context) =&amp;gt; {&#xD;console.log(&amp;#39;hello world&amp;#39;);&#xD;var params = {&#xD;path: req.</description>
+      <guid>https://github.com/docs/app/functions/functionexample/helloworld/</guid>
+      <description>本文介绍如何在MemFire Cloud控制台快速开发一个简单的 Hello World应用。MemFire Cloud为您提供一个简单的Hello World示例，你可以在下载该示例到本地，并通过控制台使用该示例创建函数。创建成功后，您可以测试该函数，查看函数执行的结果。&#xA;使用说明 link关于以下示例的使用方法，请参见对应代码库的readme.md文件。&#xA;前提条件 link 拥有MemFire Cloud账号;&#xA;创建MemFire Cloud应用开发。&#xA;操作步骤 link步骤1：准备代码包 link准备好Hello World样例，并打包ZIP文件。&#xA;Helloword的代码包地址详见：MemFire / memfire-fc-helloworld · 极狐GitLab&#xA;编写的Hello World样例，只有一个index.js文件，代码如下：&#xA;var getRawBody = require(&amp;#39;raw-body&amp;#39;); var getFormBody = require(&amp;#39;body/form&amp;#39;); var body = require(&amp;#39;body&amp;#39;); /* please implement the initializer function as below： exports.initializer = (context, callback) =&amp;gt; { console.log(&amp;#39;initializing&amp;#39;); callback(null, &amp;#39;&amp;#39;); }; */ exports.handler = (req, resp, context) =&amp;gt; { console.log(&amp;#39;hello world&amp;#39;); var params = { path: req.</description>
     </item>
     <item>
       <title>wechatpay</title>
-      <link>https://docs.memfiredb.com/docs/app/functions/functionexample/wechatpay/</link>
+      <link>https://github.com/docs/app/functions/functionexample/wechatpay/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/functions/functionexample/wechatpay/</guid>
-      <description>基于MemFire云函数实现微信支付&#xA;通过MemFire BaaS将原本后端的业务逻辑迁移到前端完成，的确会提高效率，但也不可避免的带来了一些安全隐患。&#xA;背景 link现在假设要求你使用MemFire的BaaS服务实现一个“极简的卖书”应用，你该怎么设计？本文会讲解如何简单又安全的实现这个应用。&#xA;业务分析 link应用的核心业务逻辑是：用户选择喜欢的图书，加入购物车后，能够通过微信完成支付。&#xA;我们将该业务逻辑的实体对象与操作拆解出来，分别是：用户，图书，支付&#xA;如何区分用户：应用可以要求用户登录，通过登录的身份标识来区分。因此我们可以利用MemFire BaaS服务提供的认证管理工作快速实现。 如何管理图书：应用创建后，可以通过新建一张图书的表，在该表中灌入图书的初始数据。 用户如何支付：根据选择书籍的总金额，利用微信支付的接口完成支付调用。 数据表设计 link 用户表：无需设计，BaaS服务自带 书籍表：books 我们将用户下单这个操作形成的结果叫做“创建交易”。交易表：transactions 该表中的uid关联的是auth.user表中的id字段，标识用户；表中的open_id代表微信用户，一样是标识用户的，不过只有使用微信小程序完成微信支付时才需要；status标识支付状态，默认为READY。&#xA;支付接口实现 link首先思考一个问题，如何保证支付信息是不可被恶意篡改的。简单点说，如果我们直接通过前端调用微信支付，那么支付金额可能被用户通过页面调试或网络劫持的方式篡改，那如何保证用户无法修改支付信息呢（包括支付金额，支付状态）。&#xA;再思考一个问题，类似于微信支付等许多第三方接口都是异步的，它们通过你提供的回调地址将异步操作的结果返回给你，那现在你的接口都是由BaaS服务提供的，你怎么创建回调函数呢？&#xA;为了解决上述说的两个问题，MemFire提供了云函数这个模块，它允许你通过编写JavaScript函数，实现接口服务的部署。&#xA;通过上传你的代码包，配置环境变量即可快速实现微信支付的接口部署。&#xA;我们打开微信支付代码包中的index.js文件，进行分析：&#xA;const { v4: uuidv4 } = require(&amp;#39;uuid&amp;#39;);&#xD;const WxPay = require(&amp;#39;wechatpay-node-v3&amp;#39;)&#xD;const sup = require(&amp;#39;@supabase/supabase-js&amp;#39;)&#xD;// 支付客户端和supabase客户端&#xD;let pay&#xD;let supabase&#xD;// 云函数生命周期，初始化时，初始化supabase和pay&#xD;exports.initializer = (context, callback) =&amp;gt; {&#xD;const publicKeyPem = process.env.publicKey&#xD;const privateKeyPem = process.env.privateKey&#xD;try {&#xD;// 初始化支付客户端&#xD;pay = new WxPay({&#xD;appid: process.</description>
+      <guid>https://github.com/docs/app/functions/functionexample/wechatpay/</guid>
+      <description>基于MemFire云函数实现微信支付&#xA;通过MemFire BaaS将原本后端的业务逻辑迁移到前端完成，的确会提高效率，但也不可避免的带来了一些安全隐患。&#xA;背景 link现在假设要求你使用MemFire的BaaS服务实现一个“极简的卖书”应用，你该怎么设计？本文会讲解如何简单又安全的实现这个应用。&#xA;业务分析 link应用的核心业务逻辑是：用户选择喜欢的图书，加入购物车后，能够通过微信完成支付。&#xA;我们将该业务逻辑的实体对象与操作拆解出来，分别是：用户，图书，支付&#xA;如何区分用户：应用可以要求用户登录，通过登录的身份标识来区分。因此我们可以利用MemFire BaaS服务提供的认证管理工作快速实现。 如何管理图书：应用创建后，可以通过新建一张图书的表，在该表中灌入图书的初始数据。 用户如何支付：根据选择书籍的总金额，利用微信支付的接口完成支付调用。 数据表设计 link 用户表：无需设计，BaaS服务自带 书籍表：books 我们将用户下单这个操作形成的结果叫做“创建交易”。交易表：transactions 该表中的uid关联的是auth.user表中的id字段，标识用户；表中的open_id代表微信用户，一样是标识用户的，不过只有使用微信小程序完成微信支付时才需要；status标识支付状态，默认为READY。&#xA;支付接口实现 link首先思考一个问题，如何保证支付信息是不可被恶意篡改的。简单点说，如果我们直接通过前端调用微信支付，那么支付金额可能被用户通过页面调试或网络劫持的方式篡改，那如何保证用户无法修改支付信息呢（包括支付金额，支付状态）。&#xA;再思考一个问题，类似于微信支付等许多第三方接口都是异步的，它们通过你提供的回调地址将异步操作的结果返回给你，那现在你的接口都是由BaaS服务提供的，你怎么创建回调函数呢？&#xA;为了解决上述说的两个问题，MemFire提供了云函数这个模块，它允许你通过编写JavaScript函数，实现接口服务的部署。&#xA;通过上传你的代码包，配置环境变量即可快速实现微信支付的接口部署。&#xA;我们打开微信支付代码包中的index.js文件，进行分析：&#xA;const { v4: uuidv4 } = require(&amp;#39;uuid&amp;#39;); const WxPay = require(&amp;#39;wechatpay-node-v3&amp;#39;) const sup = require(&amp;#39;@supabase/supabase-js&amp;#39;) // 支付客户端和supabase客户端 let pay let supabase // 云函数生命周期，初始化时，初始化supabase和pay exports.initializer = (context, callback) =&amp;gt; { const publicKeyPem = process.env.publicKey const privateKeyPem = process.env.privateKey try { // 初始化支付客户端 pay = new WxPay({ appid: process.</description>
     </item>
     <item>
       <title>抽奖示例</title>
-      <link>https://docs.memfiredb.com/docs/app/functions/functionexample/raffle/</link>
+      <link>https://github.com/docs/app/functions/functionexample/raffle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/functions/functionexample/raffle/</guid>
-      <description>本文介绍如何在MemFire Cloud控制台快速开发一个简单的抽奖应用。MemFire Cloud为您提供一个简单的抽奖示例，你可以在下载该示例到本地，并通过控制台使用该示例创建函数。创建成功后，您可以测试该函数，查看函数执行的结果。&#xA;使用说明 link关于以下示例的使用方法，请参见对应代码库的readme.md文件。&#xA;前提条件 link 拥有MemFire Cloud账号; 创建MemFire Cloud应用开发。 操作步骤 link步骤1：准备代码包 link准备好抽奖样例，并打包ZIP文件。&#xA;抽奖的代码包地址详见：https://github.com/LucaRao/Prize&#xA;编写的抽奖样例，只有一个index.js文件，代码如下：&#xA;const prizes = [&amp;#34;特等奖&amp;#34;, &amp;#34;一等奖&amp;#34;, &amp;#34;二等奖&amp;#34;, &amp;#34;三等奖&amp;#34;, &amp;#34;参与奖&amp;#34;];&#xD;exports.handler = (req, resp, context) =&amp;gt; {&#xD;// const dotenv = require(&amp;#34;dotenv&amp;#34;);&#xD;// dotenv.config();&#xD;// const { Client } = require(&amp;#39;pg&amp;#39;)&#xD;// const client = new Client({&#xD;// user: process.env.PGUSER,&#xD;// host: process.env.PGHOST,&#xD;// database: process.env.PGDATABASE,&#xD;// password: process.env.PGPASSWORD,&#xD;// port: process.env.PGPORT,&#xD;// })&#xD;// client.connect();&#xD;var params = {&#xD;path: req.</description>
+      <guid>https://github.com/docs/app/functions/functionexample/raffle/</guid>
+      <description>本文介绍如何在MemFire Cloud控制台快速开发一个简单的抽奖应用。MemFire Cloud为您提供一个简单的抽奖示例，你可以在下载该示例到本地，并通过控制台使用该示例创建函数。创建成功后，您可以测试该函数，查看函数执行的结果。&#xA;使用说明 link关于以下示例的使用方法，请参见对应代码库的readme.md文件。&#xA;前提条件 link 拥有MemFire Cloud账号; 创建MemFire Cloud应用开发。 操作步骤 link步骤1：准备代码包 link准备好抽奖样例，并打包ZIP文件。&#xA;抽奖的代码包地址详见：https://github.com/LucaRao/Prize&#xA;编写的抽奖样例，只有一个index.js文件，代码如下：&#xA;const prizes = [&amp;#34;特等奖&amp;#34;, &amp;#34;一等奖&amp;#34;, &amp;#34;二等奖&amp;#34;, &amp;#34;三等奖&amp;#34;, &amp;#34;参与奖&amp;#34;]; exports.handler = (req, resp, context) =&amp;gt; { // const dotenv = require(&amp;#34;dotenv&amp;#34;); // dotenv.config(); // const { Client } = require(&amp;#39;pg&amp;#39;) // const client = new Client({ // user: process.env.PGUSER, // host: process.env.PGHOST, // database: process.env.PGDATABASE, // password: process.env.PGPASSWORD, // port: process.env.PGPORT, // }) // client.connect(); var params = { path: req.</description>
     </item>
   </channel>
 </rss>

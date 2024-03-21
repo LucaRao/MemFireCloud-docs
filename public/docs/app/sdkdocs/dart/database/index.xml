@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/</link>
-    <description>Recent content in 数据库 on MemFire Cloud在线文档</description>
+    <title>数据库 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/sdkdocs/dart/database/</link>
+    <description>Recent content in 数据库 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/sdkdocs/dart/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Select 查询</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/select/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/select/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/select/</guid>
-      <description>select()用于对表格或视图执行SELECT查询。&#xA;默认情况下，Supabase项目将返回最多1,000行。这个设置可以在项目API设置中更改。建议将其保持较低，以限制意外或恶意请求的有效负载大小。您可以使用range()查询来分页处理数据。 select()可以与过滤器Filter组合使用 select()可以与修改器Modifier组合使用 如果您正在使用Supabase平台，apikey是一个保留关键字，应避免将其作为列名。 案例教程 link案例1 (获取您的数据) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;);&#xD;案例2 (选择特定的列) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;&amp;#39;&amp;#39;&#xD;name,&#xD;cities (&#xD;name&#xD;)&#xD;&amp;#39;&amp;#39;&amp;#39;);&#xD;你可以从你的表中选择特定的字段。&#xA;案例3 (查询外键表) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;&amp;#39;&amp;#39;&#xD;name,&#xD;cities (&#xD;name&#xD;)&#xD;&amp;#39;&amp;#39;&amp;#39;);&#xD;如果您的数据库有关联关系，您也可以查询相关的表。&#xA;案例4 (多次查询同一个外键表) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.from(&amp;#39;messages&amp;#39;)&#xD;.</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/select/</guid>
+      <description>select()用于对表格或视图执行SELECT查询。&#xA;默认情况下，Supabase项目将返回最多1,000行。这个设置可以在项目API设置中更改。建议将其保持较低，以限制意外或恶意请求的有效负载大小。您可以使用range()查询来分页处理数据。 select()可以与过滤器Filter组合使用 select()可以与修改器Modifier组合使用 如果您正在使用Supabase平台，apikey是一个保留关键字，应避免将其作为列名。 案例教程 link案例1 (获取您的数据) link 使用方法 &gt; final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name&amp;#39;); 案例2 (选择特定的列) link 使用方法 注意事项 &gt; final data = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;&amp;#39;&amp;#39; name, cities ( name ) &amp;#39;&amp;#39;&amp;#39;); 你可以从你的表中选择特定的字段。&#xA;案例3 (查询外键表) link 使用方法 注意事项 &gt; final data = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;&amp;#39;&amp;#39; name, cities ( name ) &amp;#39;&amp;#39;&amp;#39;); 如果您的数据库有关联关系，您也可以查询相关的表。&#xA;案例4 (多次查询同一个外键表) link 使用方法 注意事项 &gt; final data = await supabase .from(&amp;#39;messages&amp;#39;) .</description>
     </item>
     <item>
       <title>Insert 数据</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/insert/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/insert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/insert/</guid>
-      <description>insert()用于在表(table)或视图(view)执行 INSERT 操作。&#xA;案例教程 link案例1 (创建记录) link&#xD;使用方法&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.insert({&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554});&#xD;案例2 (批量创建) link&#xD;使用方法&#xD;&gt;&#xD;await supabase.from(&amp;#39;cities&amp;#39;).insert([&#xD;{&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554},&#xD;{&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555},&#xD;]);&#xD;案例3 (获取插入的记录) link&#xD;使用方法&#xD;&gt;&#xD;final List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data =&#xD;await supabase.from(&amp;#39;cities&amp;#39;).insert([&#xD;{&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554},&#xD;{&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555},&#xD;]).select();&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/insert/</guid>
+      <description>insert()用于在表(table)或视图(view)执行 INSERT 操作。&#xA;案例教程 link案例1 (创建记录) link 使用方法 &gt; await supabase .from(&amp;#39;cities&amp;#39;) .insert({&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554}); 案例2 (批量创建) link 使用方法 &gt; await supabase.from(&amp;#39;cities&amp;#39;).insert([ {&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554}, {&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555}, ]); 案例3 (获取插入的记录) link 使用方法 &gt; final List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data = await supabase.from(&amp;#39;cities&amp;#39;).insert([ {&amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39;, &amp;#39;country_id&amp;#39;: 554}, {&amp;#39;name&amp;#39;: &amp;#39;Rohan&amp;#39;, &amp;#39;country_id&amp;#39;: 555}, ]).select(); </description>
     </item>
     <item>
       <title>Update 数据</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/update/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/update/</guid>
-      <description>update()用于对表（table）或视图（view）执行 UPDATE 操作。&#xA;update()应该始终与筛选器Filters结合使用，以便定位您希望更新的项目。 案例教程 link案例1 (更新数据) link&#xD;使用方法&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.update({ &amp;#39;name&amp;#39;: &amp;#39;Middle Earth&amp;#39; })&#xD;.match({ &amp;#39;name&amp;#39;: &amp;#39;Auckland&amp;#39; });&#xD;案例2 (更新JSON数据) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;users&amp;#39;)&#xD;.update({&#xD;&amp;#39;address&amp;#39;: {&#xD;&amp;#39;street&amp;#39;: &amp;#39;Melrose Place&amp;#39;,&#xD;&amp;#39;postcode&amp;#39;: 90210&#xD;}&#xD;})&#xD;.eq(&amp;#39;address-&amp;gt;postcode&amp;#39;, 90210);&#xD;Postgres提供了一个 运算符的数量 用于处理JSON数据。现在，它只能更新整个JSON文档。 但我们正在研究更新单个键的想法。&#xA;案例3 (获取更新的行) link&#xD;使用方法&#xD;&gt;&#xD;final List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data = await supabase&#xD;.from(&amp;#39;users&amp;#39;)&#xD;.update({&#xD;&amp;#39;address&amp;#39;: {&amp;#39;street&amp;#39;: &amp;#39;Melrose Place&amp;#39;, &amp;#39;postcode&amp;#39;: 90210}&#xD;})&#xD;.eq(&amp;#39;address-&amp;gt;postcode&amp;#39;, 90210)&#xD;.</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/update/</guid>
+      <description>update()用于对表（table）或视图（view）执行 UPDATE 操作。&#xA;update()应该始终与筛选器Filters结合使用，以便定位您希望更新的项目。 案例教程 link案例1 (更新数据) link 使用方法 &gt; await supabase .from(&amp;#39;cities&amp;#39;) .update({ &amp;#39;name&amp;#39;: &amp;#39;Middle Earth&amp;#39; }) .match({ &amp;#39;name&amp;#39;: &amp;#39;Auckland&amp;#39; }); 案例2 (更新JSON数据) link 使用方法 注意事项 &gt; await supabase .from(&amp;#39;users&amp;#39;) .update({ &amp;#39;address&amp;#39;: { &amp;#39;street&amp;#39;: &amp;#39;Melrose Place&amp;#39;, &amp;#39;postcode&amp;#39;: 90210 } }) .eq(&amp;#39;address-&amp;gt;postcode&amp;#39;, 90210); Postgres提供了一个 运算符的数量 用于处理JSON数据。现在，它只能更新整个JSON文档。 但我们正在研究更新单个键的想法。&#xA;案例3 (获取更新的行) link 使用方法 &gt; final List&amp;lt;Map&amp;lt;String, dynamic&amp;gt;&amp;gt; data = await supabase .from(&amp;#39;users&amp;#39;) .update({ &amp;#39;address&amp;#39;: {&amp;#39;street&amp;#39;: &amp;#39;Melrose Place&amp;#39;, &amp;#39;postcode&amp;#39;: 90210} }) .eq(&amp;#39;address-&amp;gt;postcode&amp;#39;, 90210) .</description>
     </item>
     <item>
       <title>Upsert 数据</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/upsert/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/upsert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/upsert/</guid>
-      <description>upsert()用于对表（table）或视图（view）执行 UPSERT 操作。&#xA;在关系型数据库中，Upsert是一种结合了&amp;quot;插入（Insert）&amp;ldquo;和&amp;quot;更新（Update）&amp;ldquo;的操作,它允许我们在表或视图上执行插入或更新操作。 通常情况下，当我们想要向数据库中插入一行数据时，我们会使用INSERT语句。 但是，如果该行数据已经存在（通常通过主键来判断），我们可能希望更新该行数据而不是插入重复的数据。&#xA;Upsert通过传递列到onConflict方法，我们可以使用.upsert()来实现以下功能：&#xA;如果不存在具有相应onConflict列的行，则执行等效于.insert()的插入操作。 如果存在具有相应onConflict列的行，则根据ignoreDuplicates的设置执行另一种操作。 需要注意的是，为了使用upsert，必须在values中包含主键。主键是用于唯一标识表中每一行的一列或一组列，确保数据的唯一性和完整性。&#xA;案例教程 link案例1 (Upsert数据) link&#xD;使用方法&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;messages&amp;#39;)&#xD;.upsert({ &amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; });&#xD;案例2 (将数据Upsert到带有约束的表中) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;await supabase&#xD;.from(&amp;#39;users&amp;#39;)&#xD;.upsert({ &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; }, { &amp;#39;onConflict&amp;#39;: &amp;#39;username&amp;#39; });&#xD;运行以下代码将使 Supabase 进行数据的 UPSERT 操作到 &amp;ldquo;users&amp;rdquo; 表中。如果用户名 &amp;lsquo;supabot&amp;rsquo; 已经存在，onConflict 参数会告诉 Supabase 根据传递给 onConflict 的列来覆盖那一行的数据。&#xA;案例3 (返回确切的行数) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final res = await supabase.from(&amp;#39;users&amp;#39;).upsert(&#xD;{&amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39;},&#xD;options: const FetchOptions(count: CountOption.</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/upsert/</guid>
+      <description>upsert()用于对表（table）或视图（view）执行 UPSERT 操作。&#xA;在关系型数据库中，Upsert是一种结合了&amp;quot;插入（Insert）&amp;ldquo;和&amp;quot;更新（Update）&amp;ldquo;的操作,它允许我们在表或视图上执行插入或更新操作。 通常情况下，当我们想要向数据库中插入一行数据时，我们会使用INSERT语句。 但是，如果该行数据已经存在（通常通过主键来判断），我们可能希望更新该行数据而不是插入重复的数据。&#xA;Upsert通过传递列到onConflict方法，我们可以使用.upsert()来实现以下功能：&#xA;如果不存在具有相应onConflict列的行，则执行等效于.insert()的插入操作。 如果存在具有相应onConflict列的行，则根据ignoreDuplicates的设置执行另一种操作。 需要注意的是，为了使用upsert，必须在values中包含主键。主键是用于唯一标识表中每一行的一列或一组列，确保数据的唯一性和完整性。&#xA;案例教程 link案例1 (Upsert数据) link 使用方法 &gt; await supabase .from(&amp;#39;messages&amp;#39;) .upsert({ &amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; }); 案例2 (将数据Upsert到带有约束的表中) link 使用方法 注意事项 &gt; await supabase .from(&amp;#39;users&amp;#39;) .upsert({ &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39; }, { &amp;#39;onConflict&amp;#39;: &amp;#39;username&amp;#39; }); 运行以下代码将使 Supabase 进行数据的 UPSERT 操作到 &amp;ldquo;users&amp;rdquo; 表中。如果用户名 &amp;lsquo;supabot&amp;rsquo; 已经存在，onConflict 参数会告诉 Supabase 根据传递给 onConflict 的列来覆盖那一行的数据。&#xA;案例3 (返回确切的行数) link 使用方法 注意事项 &gt; final res = await supabase.from(&amp;#39;users&amp;#39;).upsert( {&amp;#39;id&amp;#39;: 3, &amp;#39;message&amp;#39;: &amp;#39;foo&amp;#39;, &amp;#39;username&amp;#39;: &amp;#39;supabot&amp;#39;}, options: const FetchOptions(count: CountOption.</description>
     </item>
     <item>
       <title>Delete 数据</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/delete/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/delete/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/delete/</guid>
-      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 (删除记录) link&#xD;使用方法&#xD;await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 });&#xD;案例2 (找回已删除的记录) link&#xD;使用方法&#xD;final List&amp;lt;Map&amp;lt;String,dynamic&amp;gt;&amp;gt; data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.delete()&#xD;.match({ &amp;#39;id&amp;#39;: 666 })&#xD;.select();&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/delete/</guid>
+      <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 (删除记录) link 使用方法 await supabase .from(&amp;#39;cities&amp;#39;) .delete() .match({ &amp;#39;id&amp;#39;: 666 }); 案例2 (找回已删除的记录) link 使用方法 final List&amp;lt;Map&amp;lt;String,dynamic&amp;gt;&amp;gt; data = await supabase .from(&amp;#39;cities&amp;#39;) .delete() .match({ &amp;#39;id&amp;#39;: 666 }) .select(); </description>
     </item>
     <item>
       <title>存储程序: rpc()</title>
-      <link>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/rpc/</link>
+      <link>https://github.com/docs/app/sdkdocs/dart/database/rpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/dart/database/rpc/</guid>
-      <description>你可以用&amp;quot;远程程序调用&amp;quot;的方式调用存储程序。&#xA;这是一种高级的说法，即你可以把一些逻辑放入数据库，然后从任何地方调用它。 这在逻辑很少更改的情况下特别有用，比如密码重置和更新等情况。&#xA;案例教程 link案例1 (调用一个没有参数的存储程序) link&#xD;使用方法&#xD;注意事项&#xD;&gt;&#xD;final data = await supabase&#xD;.rpc(&amp;#39;hello_world&amp;#39;);&#xD;这是一个调用存储过程的示例。&#xA;案例2 (调用一个带参数的存储程序) link&#xD;使用方法&#xD;&gt;&#xD;final data = await supabase&#xD;.rpc(&amp;#39;echo_city&amp;#39;, params: { &amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39; });&#xD;</description>
+      <guid>https://github.com/docs/app/sdkdocs/dart/database/rpc/</guid>
+      <description>你可以用&amp;quot;远程程序调用&amp;quot;的方式调用存储程序。&#xA;这是一种高级的说法，即你可以把一些逻辑放入数据库，然后从任何地方调用它。 这在逻辑很少更改的情况下特别有用，比如密码重置和更新等情况。&#xA;案例教程 link案例1 (调用一个没有参数的存储程序) link 使用方法 注意事项 &gt; final data = await supabase .rpc(&amp;#39;hello_world&amp;#39;); 这是一个调用存储过程的示例。&#xA;案例2 (调用一个带参数的存储程序) link 使用方法 &gt; final data = await supabase .rpc(&amp;#39;echo_city&amp;#39;, params: { &amp;#39;name&amp;#39;: &amp;#39;The Shire&amp;#39; }); </description>
     </item>
   </channel>
 </rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>动态与公告 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/announcement/</link>
-    <description>Recent content in 动态与公告 on MemFire Cloud在线文档</description>
+    <title>动态与公告 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/announcement/</link>
+    <description>Recent content in 动态与公告 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/app/announcement/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/announcement/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>公告</title>
-      <link>https://docs.memfiredb.com/docs/app/announcement/bulletins/</link>
+      <link>https://github.com/docs/app/announcement/bulletins/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/app/announcement/bulletins/</guid>
-      <description>尊敬的用户，您好！&#xA;为了给各位用户提供更加优质可靠的产品服务，MemFire Cloud应用开发计划在2023年12月11日正式推出计费套餐。目前统一采用基础套餐+按量付费的模式，开发者可先购买带有一定配额的基础套餐，超出套餐配额部分按使用量付费。&#xA;基础套餐 link我们的收费模式充分考虑了用户的实际需求和预算，提供了多样化的套餐选择，以满足不同用户的需求。 配额 免费版（限2个） 入门版 基础版 专业版 单位 云数据库容量 0.5 2 8 30 GB/月 数据备份容量 - 15 50 200 GB/月 对象存储容量 2 8 20 70 GB/月 静态托管容量 1 2 4 8 GB/月 云函数vCPU使用量 0.1 1 3 5 万vCPUs/月 云函数内存使用量 1 10 30 50 万GBs/月 调用次数 2 20 500 1000 万次/月 流量 1 4 16 20 GB/月 价格 ¥ 0.0 ¥ 19.9 ¥ 99 ¥ 299 /月 info&#xD;每个用户都可获得2个免费版应用体验期权益，超出配额后可选择是否进行按量付费。</description>
+      <guid>https://github.com/docs/app/announcement/bulletins/</guid>
+      <description>尊敬的用户，您好！&#xA;为了给各位用户提供更加优质可靠的产品服务，MemFire Cloud应用开发计划在2023年12月11日正式推出计费套餐。目前统一采用基础套餐+按量付费的模式，开发者可先购买带有一定配额的基础套餐，超出套餐配额部分按使用量付费。&#xA;基础套餐 link我们的收费模式充分考虑了用户的实际需求和预算，提供了多样化的套餐选择，以满足不同用户的需求。 配额 免费版（限2个） 入门版 基础版 专业版 单位 云数据库容量 0.5 2 8 30 GB/月 数据备份容量 - 15 50 200 GB/月 对象存储容量 2 8 20 70 GB/月 静态托管容量 1 2 4 8 GB/月 云函数vCPU使用量 0.1 1 3 5 万vCPUs/月 云函数内存使用量 1 10 30 50 万GBs/月 调用次数 2 20 500 1000 万次/月 流量 1 4 16 20 GB/月 价格 ¥ 0.0 ¥ 19.9 ¥ 99 ¥ 299 /月 info 每个用户都可获得2个免费版应用体验期权益，超出配额后可选择是否进行按量付费。</description>
     </item>
   </channel>
 </rss>

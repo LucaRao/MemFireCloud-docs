@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>云数据库 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/db/</link>
-    <description>Recent content in 云数据库 on MemFire Cloud在线文档</description>
+    <title>云数据库 on My New Hugo Site</title>
+    <link>https://github.com/docs/db/</link>
+    <description>Recent content in 云数据库 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/db/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>介绍</title>
-      <link>https://docs.memfiredb.com/docs/db/db-introduction/</link>
+      <link>https://github.com/docs/db/db-introduction/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/db-introduction/</guid>
-      <description>MemFire Cloud致力于提供一站式数据库自助服务，隐藏复杂、专业的工作（比如：复杂的配置、数据库扩展、备份、运维等），实现开箱即用、按需使用、动态扩容、运维托管。&#xA;了解功能 link&#xD;云数据库&#xA;兼容PG协议，开箱即用&#xA;数据备份与恢复&#xA;支持自动、手动恢复方式&#xA;在线SQL编辑器&#xA;简单的数据库操作入口&#xA;多种开发语言，轻松使用 link不论是那种编程语言或框架，都可以快速使用MemFire Cloud云数据库。&#xA;python示例&#xA;Java示例&#xA;Golang示例&#xA;Spring示例&#xA;Node示例&#xA;C++示例&#xA;C#示例</description>
+      <guid>https://github.com/docs/db/db-introduction/</guid>
+      <description>MemFire Cloud致力于提供一站式数据库自助服务，隐藏复杂、专业的工作（比如：复杂的配置、数据库扩展、备份、运维等），实现开箱即用、按需使用、动态扩容、运维托管。&#xA;了解功能 link 云数据库&#xA;兼容PG协议，开箱即用&#xA;数据备份与恢复&#xA;支持自动、手动恢复方式&#xA;在线SQL编辑器&#xA;简单的数据库操作入口&#xA;多种开发语言，轻松使用 link不论是那种编程语言或框架，都可以快速使用MemFire Cloud云数据库。&#xA;python示例&#xA;Java示例&#xA;Golang示例&#xA;Spring示例&#xA;Node示例&#xA;C++示例&#xA;C#示例</description>
     </item>
     <item>
       <title>数据库管理</title>
-      <link>https://docs.memfiredb.com/docs/db/database-management/</link>
+      <link>https://github.com/docs/db/database-management/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/database-management/</guid>
+      <guid>https://github.com/docs/db/database-management/</guid>
       <description>新用户完成注册登录后，可以自助式的获得数据库资源。MemFire Cloud用户可以根据需要自助的进行数据库管理，包括创建数据库、删除、连接、备份等功能。&#xA;创建数据库 link前置条件 link创建数据库前置条件：&#xA;用户名下需要有数据库账号，才可以创建数据库; 用户有足够的资源额度； 操作步骤 link 用户登录MemFire Cloud后，进入数据库管理页面； 单击“创建数据库”按钮，弹出“创建数据库”弹框； 输入要创建数据库名称，选择数据库账号，其中： 数据库名称由小写字母、大写字母、数字、下划线组成，以字母开头，字母或数字结尾，最多28个字符； 认证方式包括证书认证、密码认证两种。 前者需要下载证书并进行配置，采用加密的方式连接数据库； 后者采用账号+密码的方式连接数据库； 创建数据库名称不可重复; 选择数据库认证方式； 单击“创建”按钮，则可以完成数据库创建操作，并在列表中查看新建的数据库信息。 删除数据库 link前置条件 link删除数据库前提条件：&#xA;该数据库没有关联的备份计划； 该数据库处于“运行中”、“资源耗尽”、“异常”三种状态中任意一种； 操作步骤 link 选中要数据库列表中要删除的数据库所在行，单击数据库名称，进入数据库详情页面； 点击“释放按钮”，弹出“释放数据库”弹框； 单击“获取验证码”按钮，请在5min中内输入注册手机收到6位短信验证码； 单击“确定”按钮，完成数据库的删除操作，该数据库、数据库中所有数据表以及数据都将会被删除。 查看连接信息 link 用户登录MemFire Cloud后，进入数据库管理页面； 选中数据库列表中某个数据库所在列，单击“在线连接”按钮，弹出“连接信息”弹框； 若数据库为密码认证，则其连接信息如下所示： 当数据库为证书认证方式时，则提供证书下载链接，包括DER格式、PEM格式证书，默认勾选DER格式； ① 采用JAVA使用JDBC连接访问MemFire Cloud数据库时，请下载PEM格式证书； ② 其他方式连接访问MemFire Cloud数据库时，请下载DER格式证书； 查看数据库详情 link 用户登录MemFire Cloud后，进入数据库管理页面； 单击数据库列表中某个数据库名称，进入数据库详情页面。 数据库性能指标，最近1小时、最近6小时、最近12小时、最近1天、最近1周的读写OPS，平均延时； 数据库已用容量，数据表数目，备份计划数、 备份数量； | </description>
     </item>
     <item>
       <title>账号管理</title>
-      <link>https://docs.memfiredb.com/docs/db/account-management/</link>
+      <link>https://github.com/docs/db/account-management/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/account-management/</guid>
+      <guid>https://github.com/docs/db/account-management/</guid>
       <description>MemFire Cloud用户可以根据需要自助的进行账号管理，包括创建账号、删除账号、重置账号密码等功能，便于管理与维护。&#xA;创建账号 link 用户登录MemFire Cloud后，进入左侧导航栏账号管理页面； 单击“创建账号”按钮，弹出“创建账号弹框； 设置参数如下：&#xA;由小写字母、大写字母、数字、下划线组成，以字母开头，以字母或数字结尾，最多16个字符，且不能以pg开头; 小写字母、大写字母、数字、特殊字符占三种，长度为8－32位；特殊字符为! @ # $ % ^ &amp;amp; * () _ + - = ; 单击“确定”按钮，完成账号创建操作，可以在账号列表中查看新建的账号信息；&#xA;删除账号 link前置条件 link删除账号的前提条件：&#xA;当且仅当该数据库账号名下无绑定的数据库资源后，才能删除该账号； 数据库账号名下的资源包括，①平台中存在其名下的数据库资源，②名下有备份的数据库资源； 操作步骤 link 用户登录MemFire Cloud后，进入账号管理页面； 选中要删除账号列表中所在行，单击“删除”按钮，弹出“删除账号”弹框； 单击“确定”按钮，完成账号的删除操作； 重置账号密码 link 用户登录MemFire Cloud后，进入账号管理页面； 选中要删除账号列表中所在行，单击“重置密码”按钮，弹出“重置密码”弹框；&#xA;在输入框内输入新的账号密码，并进行二次确认； 密码必须是小写字母、大写字母、数字、特殊字符占三种，长度为8－32位；特殊字符为! @ # $ % ^ &amp;amp; * () _ + - =； 说明：两次输入密码必须一致; 单击“确定”按钮，完成账号的密码重置操作； </description>
     </item>
     <item>
       <title>备份恢复</title>
-      <link>https://docs.memfiredb.com/docs/db/backup-and-recovery/</link>
+      <link>https://github.com/docs/db/backup-and-recovery/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/backup-and-recovery/</guid>
+      <guid>https://github.com/docs/db/backup-and-recovery/</guid>
       <description>MemFire Cloud 提供灵活的数据备份计划，支持手动备份、自动备份两种方式，将关键核心的数据备份到第三方存储，为用户的云上数据库提供强有力的保护，保证数据不丢失。&#xA;手动备份 link 用户登录MemFire Cloud后，进入数据库管理页面； 选中数据库列表中某个数据库所在列，单击“备份”按钮，则将手动为该数据库创建一个备份任务； 完成创建操作后，备份任务将会立即执行，可在“备份恢复”-“数据备份”中查看任务进展；&#xA;设置备份计划 link 用户登录MemFire Cloud后，进入备份恢复页面； 单击“创建备份计划”按钮，弹出“创建备份计划”弹框； 在输入框内输入相关信息，包括： 备份计划名称:输入备份计划名称，最长为32个字符； 备份数据库名称: 选择一个备份的数据库名称； 备份周期: 周一，周二，周三，周四，周五，周六，周日，默认勾选周一，周三，周五，周日 备份时间段: 可选择一天中某个时间端运行备份任务;默认选择05：00-06：00； 保留天数: 正整数，默认7天 单击“确定”按钮，则完成创建备份计划操作； 修改备份计划 link 用户登录MemFire Cloud后，进入备份恢复页面； 选中要修改的备份计划，单击编辑图标； 弹出“编辑备份计划”弹框； 可编辑项如下： 备份周期: 周一，周二，周三，周四，周五，周六，周日，默认勾选周一，周三，周五，周日 备份时间段: 可选择一天中某个时间端运行备份任务;默认选择05：00-06：00; 保留天数: 正整数，默认7天; 单击“修改”按钮，则完成编辑备份计划操作； 删除备份计划 link当不需要定期进行数据备份时，普通用户可以删除自动备份计划；&#xA;用户登录MemFire Cloud后，进入备份恢复页面； 选中要删除的备份计划，单击删除图标； 单击“确认”，则可删除备份计划，该计划对应的数据库定期备份任务将不再执行； 恢复数据 link前置条件 link数据恢复的前提条件：数据备份为“成功”状态；&#xA;不同状态数据备份的操作说明：&#xA;*数据备份 恢复 手动删除 自动删除 “失败”备份 不支持 支持 仅支持删除自动备份操作后的“失败”的备份 “成功”备份 支持 支持 仅支持删除自动备份操作后的“成功”的备份 “删除中”备份 不支持 不支持 不支持 “备份中”备份 不支持 不支持 不支持 “恢复中”备份 不支持 不支持 不支持 操作步骤 link用户要恢复备份数据，可按照如下流程执行操作。</description>
     </item>
     <item>
       <title>在线SQL编辑器</title>
-      <link>https://docs.memfiredb.com/docs/db/online-sql-editor/</link>
+      <link>https://github.com/docs/db/online-sql-editor/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/online-sql-editor/</guid>
+      <guid>https://github.com/docs/db/online-sql-editor/</guid>
       <description>MemFire Cloud提供了在线可视化SQL编辑器，以树形结构来展示数据库，数据表结构信息，提供可视化SQL编辑界面，开发人员可便捷编辑SQL命令并执行，查看执行结果，将执行结果以CSV等多种结构导出到本地。&#xA;前置条件 link 注册MemFire Cloud账号; 存在已创建的数据库。 操作步骤 link 用户登录MemFire Cloud后，进入数据库管理页面； 单击“SQL查询”按钮, 在浏览器打开的新登录页面输入正确的数据库密码， 并点击“连接数据库”按钮； 连接在线SQL编辑器后，可以查看数据库中的表结构信息，并在SQL编辑界面输入SQL命令。&#xA;输入编辑SQL命令并执行，查看执行结果，将执行数据结果以CSV、xlsx、json格式导出到本地。 </description>
     </item>
     <item>
       <title>客户端工具</title>
-      <link>https://docs.memfiredb.com/docs/db/client-connection/</link>
+      <link>https://github.com/docs/db/client-connection/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/client-connection/</guid>
+      <guid>https://github.com/docs/db/client-connection/</guid>
       <description>MemFireDB兼容兼容PostgreSQL 11.2版本, MemFire Cloud几乎兼容所有PostgreSQL的客户端，目前已确认支持的客户端工具如下:&#xA;客户端名称 运行环境 安装、下载地址 psql Linux环境 命令：yum -y install postgresql11 DbGate Windows、Linux、MacOS环境 https://dbgate.org/ dbeaver Windows、MacOS环境 https://dbeaver.io/files/7.1.0/ datagrip Windows、Linux、MacOS环境 https://www.jetbrains.com/datagrip/download/#section=windows Navicat Premium Windows、Linux、MacOS环境 链接：https://pan.baidu.com/s/17r_oHwjeiC6Pqdq2c8yFLQ 提取码：s4l7 beekeeper-studio Windows、Linux、MacOS环境 https://www.beekeeperstudio.io/get HeidiSQL Windows环境 https://www.heidisql.com/ MemFire Cloud提供密码认证、证书认证两种云数据库服务，接下来本文会举例介绍不同的环境下，如何安装、配置客户端来连接访问MemFire Cloud数据库。&#xA;Windows环境 linkdbeaver使用SSL连接MemFireDB link以dbeaver7.1.0为例，介绍如何进行配置SSL连接MemFireDB。&#xA;下载软件。dbeaver7.1.0软件:下载地址&#xA;注册登录MemFire Cloud平台。 登录MemFire Cloud平台完成新用户的注册。&#xA;创建数据库。&#xA;进入数据库管理页面，点击“创建数据库”按钮，在”创建数据库“弹框中填写“数据库名称”，选择数据库账号，勾选“证书认证”，最后点击“确定”完成数据库创建操作。&#xA;备注说明： ① 创建数据库名称不能和已有数据库重复； ② 如果没有数据库账号，则先创建数据库账号; 取连接信息。&#xA;选中数据库列表中某个数据库所在列，点击“在线连接”按钮，弹出“连接信息”弹框；&#xA;可以查看该数据库的访问IP以及端口信息，当数据库为证书认证方式时，则提供证书下载链接，包括DER格式、PEM格式证书；&#xA;① 采用JAVA使用JDBC连接访问MemFire Cloud数据库时，请下载PEM格式证书；&#xA;② 其他方式连接访问MemFire Cloud数据库时，请下载DER格式证书；&#xA;鉴于dbeaver使用jdbc连接数据库，选择”PEM“的证书，点击”下载证书“按钮，将证书下载到本地。&#xA;解压下载证书。&#xA;解压文件中包括：“root.crt”，“memfiredb.crt”和“memfiredb.key”三个文件；&#xA;配置连接数据库。&#xA;在dbeaver中点击“数据库”-“新建连接”，驱动类型选择PostgreSQL。在“常规”下面填写主机、端口、数据库、用户名和密码。如下图：&#xA;在“SSL”标签下勾选“使用SSL”，证书一栏中选择之前下载的证书文件，“SSL模式”一栏中选择“verify-ca”，如下图： 点击“完成”创建数据库连接&#xA;最后，数据库连接建立之后，可以继续操作数据库。 dbeaver连接MemFireDB link以dbeaver7.1.0为例，介绍如何进行配置SSL连接MemFireDB。</description>
     </item>
     <item>
       <title>SQL操作入门</title>
-      <link>https://docs.memfiredb.com/docs/db/introduction-to-sql-operation/</link>
+      <link>https://github.com/docs/db/introduction-to-sql-operation/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/introduction-to-sql-operation/</guid>
-      <description>MemFireDB兼容PostgreSQL 11.2版本，具体可以参考兼容性说明。&#xA;新建数据库后，您可以使用在线编辑器、兼容的客户端工具连接数据库并执行SQL语句建表存储数据。&#xA;SQL 是一门声明性语言，它是数据库用户与数据库交互的方式。它更像是一种自然语言，好像在用英语与数据库进行对话。本文档介绍基本的SQL操作。&#xA;分类 linkSQL主要组件包括数据定义语言（DDL）、数据操作语言（DML）、数据控制语言（DCL）。&#xA;DDL (Data Definition Language)：数据定义语言，用来定义数据库对象，包括库、表、视图和索引等。DDL语句通过CREATE、ALTER和DROP命令来定义数据库中的结构、更改定义以及删除定义。 DML (Data Manipulation Language)：数据操作语言，用来操作和业务相关的记录。 DML语句主要包括增、删、查、改操作。 DCL (Data Control Language)：数据控制语言，用来定义访问权限和安全级别。 TCL（Transaction control language ）：TCL语句管理数据库上的操作事务。 创建、查看、删除表 link创建表 link要创建一个表，我们要用到CREATE TABLE命令。在这个命令中 我们需要为新表至少指定一个名字、列的名字及数据类型。例如：&#xA;让我们创建一个简单的表，如下所示。&#xA;CREATE TABLE employees (&#xD;employee_no integer,&#xD;name text,&#xD;department text&#xD;);&#xD;查询表结构 link要描述我们刚刚创建的表，请执行以下操作。&#xA;\d employees&#xD;输出：&#xA;Table &amp;#34;public.employees&amp;#34;&#xD;Column | Type | Collation | Nullable | Default -------------&amp;#43;---------&amp;#43;-----------&amp;#43;----------&amp;#43;---------&#xD;employee_no | integer | | | name | text | | | department | text | | | 删除表 link一个表能够拥有的列的数据是有限的，根据列的类型，这个限制介于250和1600之间。但是，极少会定义一个接近这个限制的表，即便有也是一个值的商榷的设计。 如果我们不再需要一个表，我们可以通过使用DROP TABLE命令来移除它。例如：</description>
+      <guid>https://github.com/docs/db/introduction-to-sql-operation/</guid>
+      <description>MemFireDB兼容PostgreSQL 11.2版本，具体可以参考兼容性说明。&#xA;新建数据库后，您可以使用在线编辑器、兼容的客户端工具连接数据库并执行SQL语句建表存储数据。&#xA;SQL 是一门声明性语言，它是数据库用户与数据库交互的方式。它更像是一种自然语言，好像在用英语与数据库进行对话。本文档介绍基本的SQL操作。&#xA;分类 linkSQL主要组件包括数据定义语言（DDL）、数据操作语言（DML）、数据控制语言（DCL）。&#xA;DDL (Data Definition Language)：数据定义语言，用来定义数据库对象，包括库、表、视图和索引等。DDL语句通过CREATE、ALTER和DROP命令来定义数据库中的结构、更改定义以及删除定义。 DML (Data Manipulation Language)：数据操作语言，用来操作和业务相关的记录。 DML语句主要包括增、删、查、改操作。 DCL (Data Control Language)：数据控制语言，用来定义访问权限和安全级别。 TCL（Transaction control language ）：TCL语句管理数据库上的操作事务。 创建、查看、删除表 link创建表 link要创建一个表，我们要用到CREATE TABLE命令。在这个命令中 我们需要为新表至少指定一个名字、列的名字及数据类型。例如：&#xA;让我们创建一个简单的表，如下所示。&#xA;CREATE TABLE employees ( employee_no integer, name text, department text ); 查询表结构 link要描述我们刚刚创建的表，请执行以下操作。&#xA;\d employees 输出：&#xA;Table &amp;#34;public.employees&amp;#34; Column | Type | Collation | Nullable | Default -------------&amp;#43;---------&amp;#43;-----------&amp;#43;----------&amp;#43;--------- employee_no | integer | | | name | text | | | department | text | | | 删除表 link一个表能够拥有的列的数据是有限的，根据列的类型，这个限制介于250和1600之间。但是，极少会定义一个接近这个限制的表，即便有也是一个值的商榷的设计。 如果我们不再需要一个表，我们可以通过使用DROP TABLE命令来移除它。例如：</description>
     </item>
     <item>
       <title>数据迁移</title>
-      <link>https://docs.memfiredb.com/docs/db/memfiredb-data-migration/</link>
+      <link>https://github.com/docs/db/memfiredb-data-migration/</link>
       <pubDate>Wed, 13 Dec 2023 17:39:49 +0800</pubDate>
-      <guid>https://docs.memfiredb.com/docs/db/memfiredb-data-migration/</guid>
+      <guid>https://github.com/docs/db/memfiredb-data-migration/</guid>
       <description>前言 linkMemFireDB支持数据表的导入导出操作。为了提升系统易用性，本文档主要针对客户端Navicat和DBeaver对MemFireDB的导入导出功能进行说明。重点关注csv文件的导入导出功能。&#xA;Navicat导入数据表 link 选择数据类型&#xA;打开Navicat客户端，根据MemFire Cloud给出的连接信息连接好数据库。&#xA;点击Navicat客户端的Table下的Import Wizard，选择导入数据的类型，可以看到Navicat支持txt、csv、xls、xml、json等多种文件类型导入，本文档主要针对csv类型进行说明： 选择待导入文件&#xA;点击“continue”，进入选择文件页面，如下所示。&#xA;点击“add file”按钮，选择上要导入的数据文件源，Navicat支持一次性导入多个文件。 格式选项修改&#xA;可对源文件定义一些附加选项，例如字段之间分隔符，若无特殊要求，可直接跳过。 选择目标表&#xA;选择源文件数据待导入的目标数据库表，可以选择已创建的数据表或者输入新的数据表名称。 设置字段映射&#xA;用户可以自定义源文件与目标数据表的字段映射关系。 (1) 目标表为已创建数据表时，可修改对应关系，例如：修改对应主键(Primary Key); (2) 目标表是待创建新表时，还可以修改对应列名。 选择导入模式&#xA;如果是新数据表的话，选择第一项。根据具体导入情况，选择不同的选项。 导入数据&#xA;开始导入源数据，导入结果受源文件内容影响。Navicat会展示数据导入的进度，包括数据表数目、错误数量、消耗时间等以及日志信息。 DBeaver导入数据表 link 选择数据类型&#xA;打开DBeaver客户端，根据MemFire Cloud给出的连接信息连接好数据库。&#xA;点击DBeaver客户端的Tables下的Import Data，选择导入数据的类型，目前DBeaver支持csv格式文件导入： 选择待导入文件&#xA;点击“next”，进入选择文件页面，配置待导入文件或目录，如下所示。&#xA;选择要导入的文件源，DBeaver支持一次性导入多个文件。 格式选项修改&#xA;可对源文件定义一些附加选项，若无特殊要求，可直接跳过。 导入数据&#xA;开始导入，导入结果受源文件内容影响。 Navicat导出数据表 link 选择导出数据类型 打开Navicat客户端，根据MemFire Cloud给出的连接信息连接好数据库。 (1) 点击选中待导出的数据表;&#xA;(2) 点击Export Wizard，选择待导出的文件类型，可以看到Navicat支持txt、csv、xls、xml、json等多种文件格式导出。本文档主要针对csv格式进行说明。 选择保存地址&#xA;用户可以点击“change”按钮， 选择导出文件的保存地址。 选择导出表项&#xA;用户可根据实际需求，灵活勾选要导出数据表中的那些字段列信息。 选择导出格式&#xA;可以自定义某些选中，包括出错是否继续、字段之间分隔符等。 导出数据 完成以上所有选择配置后，点击“start”按钮，开始进行数据表导出操作。 DBeaver导出数据表 link 选择导出数据类型 打开DBeaver客户端，根据MemFire Cloud给出的连接信息连接好数据库。 (1) 点击选中待导出的数据表; (2) 右击选择“import data”，选择待导出的文件类型，DBeaver导出操作与导入操作不同，支持txt、csv、SQL、html、xml、json等多种文件格式导出。 选择导出格式</description>
     </item>
   </channel>

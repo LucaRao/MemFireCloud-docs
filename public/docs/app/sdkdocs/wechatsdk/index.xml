@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>微信小程序 on MemFire Cloud在线文档</title>
-    <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/</link>
-    <description>Recent content in 微信小程序 on MemFire Cloud在线文档</description>
+    <title>微信小程序 on My New Hugo Site</title>
+    <link>https://github.com/docs/app/sdkdocs/wechatsdk/</link>
+    <description>Recent content in 微信小程序 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/docs/app/sdkdocs/wechatsdk/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
