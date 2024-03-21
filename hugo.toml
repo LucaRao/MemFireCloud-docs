@@ -1,6 +1,6 @@
-baseURL = 'https://github.com/'
+baseURL = 'https://docs.memfiredb.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'MemFire Cloud在线文档'
 
 [module]
     # uncomment line below for temporary local development of module
@@ -46,7 +46,7 @@ title = 'My New Hugo Site'
 
 
     [params.docs] # Parameters for the /docs 'template'
-        title           = "Lotus Docs Example Site"           # default html title for documentation pages/sections
+        title           = "MemFire Cloud在线文档"           # default html title for documentation pages/sections
 
         pathName        = "docs"                            # path name for documentation site | default "docs"
 
@@ -86,7 +86,7 @@ title = 'My New Hugo Site'
         # logoLinkURL = ""                                    # Set a custom URL destination for the top header logo link.
 
     [params.flexsearch] # Parameters for FlexSearch
-            enabled             = true
+            enabled             = false
             # tokenize            = "full"
             # optimize            = true
             # cache               = 100
@@ -95,9 +95,10 @@ title = 'My New Hugo Site'
             # searchSectionsIndex = []
 
     [params.docsearch] # Parameters for DocSearch
-        appID     = "7WE3B92RD7"                       # Algolia Application ID (or set env variable HUGO_PARAM_DOCSEARCH_appID)
-        apiKey    = "a6fc80560087af46ddea2c8b4e3c1b52" # Algolia Search-Only API (Public) Key (or set env variable HUGO_PARAM_DOCSEARCH_apiKey)
-        indexName = "memfire_doc"               # Index Name to perform search on (or set env variable HUGO_PARAM_DOCSEARCH_indexName)
+         enabled   = false
+      #  appID     = "7WE3B92RD7"                       # Algolia Application ID (or set env variable HUGO_PARAM_DOCSEARCH_appID)
+      #  apiKey    = "a6fc80560087af46ddea2c8b4e3c1b52" # Algolia Search-Only API (Public) Key (or set env variable HUGO_PARAM_DOCSEARCH_apiKey)
+      # indexName = "memfire_doc"               # Index Name to perform search on (or set env variable HUGO_PARAM_DOCSEARCH_indexName)
     
 
 

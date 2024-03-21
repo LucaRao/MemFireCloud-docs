@@ -14,7 +14,7 @@ createBucket()用于创建一个新的存储桶
   - `buckets`表的权限: `insert`表权限
   - `objects`表的权限：无
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 

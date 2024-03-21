@@ -1,0 +1,91 @@
+---
+    weight: 1417
+    title: "使用GitLab登录"
+    description: "将GitLab OAuth添加到Supabase项目"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+要为项目启用GitLab Auth，您需要设置一个GitLab OAuth应用程序，并将应用程序凭据添加到Supabase Dashboard。
+
+## 概述
+
+为应用程序设置GitLab登录由三部分组成：
+
+- 在[GitLab](https://gitlab.com)上创建和配置GitLab应用程序
+- 将GitLab应用程序密钥添加到[MemFire Cloud项目](https://cloud.memfiredb.com)
+- 将登录代码添加到[JS客户端应用程序](https://github.com/supabase/supabase-js)
+
+## 访问您的GitLab帐户
+
+- 进入 [gitlab.com](https://gitlab.com).
+- 单击右上角的`登录`以登录。
+
+<img src="../../../../img/guides/auth-gitlab/gitlab-portal.png">
+
+## 查找回调URL
+
+下一步需要回调URL，如下所示：
+
+`https://<project-ref>.supabase.co/auth/v1/callback`
+
+- 转到[MemFire Cloud项目仪表板](https://cloud.memfiredb.com).
+- 单击左侧边栏底部的`设置`图标。
+- 单击列表中的`API`。
+- 在Config/URL下，您将找到您的API URL，您可以单击`复制`将其复制到剪贴板。 
+- 现在只需在末尾添加`/auth/v1/callback`即可获得完整的`OAuth重定向URI`。
+
+<video width="99%" muted playsInline controls="true">
+  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+</video>
+
+## 创建GitLab应用程序
+
+- 单击右上角的`个人资料徽标`（头像）。
+- 选择`编辑配置文件`。
+- 在左侧边栏中，选择应用程序。
+- 输入应用程序的名称。
+- 在`重定向URI`框中，键入应用程序的回调URL。
+- 选中`机密`旁边的复选框（确保选中）。
+- 检查名为`read_user`的作用域（这是唯一需要的作用域）。
+- 单击底部的`保存应用程序`。
+- 复制并保存您稍后需要的`应用程序ID`（`client_ID`）和`机密`（`client _Secret`）。
+
+## 将您的GitLab凭据添加到Suabase项目中
+
+- 转到[MemFire Cloud项目仪表板](https://cloud.memfiredb.com).
+- 在左侧边栏中，单击`身份验证`图标（靠近顶部）。
+- 单击列表中的`设置`以转到`身份验证设置`页面。
+- 在`站点URL`下输入应用程序的最终（托管）URL（这很重要）。
+- 在`外部OAuth提供程序`下，将`GitLab Enabled`设置为ON。
+- 输入上一步中保存的`client_id`和`client_secret`。
+- 单击`保存`。
+
+## 将登录代码添加到客户端应用程序
+
+当您的用户登录时，调用[signInWithOAuth()](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth)，并将`gitlab`作为`provider`：
+
+```js
+async function signInWithGitLab() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'gitlab',
+  })
+}
+```
+
+当用户注销时，调用[signOut()](/docs/app/SDKdocs/JavaScript/auth/auth-signout)将其从浏览器会话和localStorage中删除：
+
+```js
+async function signout() {
+  const { error } = await supabase.auth.signOut()
+}
+```
+
+## 资源
+
+- [MemFire Cloud](https://cloud.memfiredb.com)
+- [JS客户端](https://github.com/supabase/supabase-js)
+- [Flutter客户端](https://github.com/supabase/supabase-flutter)
+
+

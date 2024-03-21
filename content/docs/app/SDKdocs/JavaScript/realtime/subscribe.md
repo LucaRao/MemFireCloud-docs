@@ -11,7 +11,7 @@ on().subscribe()创建一个事件处理程序，用于监听变更。
 
 
 * 默认情况下，广播（Broadcast）和在线状态（Presence）对所有项目都是启用的。
-* 对于新项目，默认情况下禁用了监听数据库变更，原因是出于数据库性能和安全方面的考虑。你可以通过管理实时数据的[复制功能](/docs/app/api/api#managing-realtime)来启用它。
+* 对于新项目，默认情况下禁用了监听数据库变更，原因是出于数据库性能和安全方面的考虑。你可以通过管理实时数据的[复制功能](/docs/app/development_guide/api/api#managing-realtime)来启用它。
 * 你可以通过将表的 `REPLICA IDENTITY` 设置为 `FULL`（例如，执行 `ALTER TABLE your_table REPLICA IDENTITY FULL`;），来接收更新和删除操作的"之前"的数据。
 * 删除语句(delete statements)不适用行级安全（Row level security）。当启用行级安全并将复制标识（replica identity）设置为 full 时，只有主键会被发送到客户端。
 

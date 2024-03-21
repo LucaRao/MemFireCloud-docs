@@ -41,7 +41,7 @@ npm install react-native-elements @react-native-async-storage/async-storage reac
 现在让我们创建一个辅助文件来初始化Supabase客户端。
 我们需要API URL和你[早些时候]复制的`anon`密钥（#get-the-api-keys）。
 这些变量将被暴露在浏览器上，这完全没有问题，因为我们有
-[行级安全](/docs/app/auth/auth#row-level-security)在我们的数据库上启用。
+[行级安全](/docs/app/development_guide/auth/auth#row-level-security)在我们的数据库上启用。
 
 ```ts title=lib/supabase.ts
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -320,7 +320,7 @@ npm start
 
 ## 简介照片
 
-每个Supabase项目都配置了[存储](/docs/app/storage/storage)，用于管理大型文件，如
+每个Supabase项目都配置了[存储](/docs/app/development_guide/storage/storage)，用于管理大型文件，如
 照片和视频。
 
 ### 额外的依赖安装

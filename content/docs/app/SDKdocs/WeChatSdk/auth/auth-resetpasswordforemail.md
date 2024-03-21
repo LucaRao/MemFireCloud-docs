@@ -15,7 +15,7 @@ resetPasswordForEmail() 方法会向一个电子邮件地址发送密码重置�
 
 * 当密码恢复链接被点击时，会触发一个 `SIGNED_IN` 和 `PASSWORD_RECOVERY` 事件。你可以使用 `onAuthStateChange()` 方法来监听这些事件，并在其上调用一个回调函数。
 
-* 当用户点击邮件中的重置链接后，他们将被重定向回您的应用程序。您可以通过 `redirectTo` 参数配置用户重定向的URL。请参阅[重定向URL和通配符](/docs/app/auth/auth)，以添加其他重定向URL到您的项目中。
+* 当用户点击邮件中的重置链接后，他们将被重定向回您的应用程序。您可以通过 `redirectTo` 参数配置用户重定向的URL。请参阅[重定向URL和通配符](/docs/app/development_guide/auth/auth)，以添加其他重定向URL到您的项目中。
 
 * 成功重定向用户后，提示他们输入一个新密码并调用 `updateUser()` ，使用方法如下：
 

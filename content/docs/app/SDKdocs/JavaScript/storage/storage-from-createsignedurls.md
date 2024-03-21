@@ -12,7 +12,7 @@ from.createSignedUrls()用于创建多个签名的URL。使用签名的URL在固
   - `buckets`表的权限: 无
   - `objects`表的权限：`select`权限
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 

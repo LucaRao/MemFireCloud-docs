@@ -12,7 +12,7 @@ from.move()用于将一个现有的文件移动到同一桶中的新路径。
   - `buckets`表的权限: 无
   - `objects`表的权限：`update`和`select`权限
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 ## 案例教程

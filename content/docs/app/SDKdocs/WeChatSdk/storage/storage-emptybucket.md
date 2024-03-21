@@ -14,7 +14,7 @@ emptyBucket()用于移除单个桶内的所有对象。
   - `buckets`表的权限: `select`
   - `objects`表的权限：`select`和`delet `
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 

@@ -12,7 +12,7 @@ from.update()用于实现一个新文件替换指定路径下的现有文件。.
   - `buckets`表的权限: 无
   - `objects`表的权限：`update`和`select`权限
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 对于使用 React Native 进行开发的情况，直接使用 Blob、File 或 FormData 对象来进行文件操作可能会无法达到预期的效果。
 相反，建议使用来自 base64 文件数据的 ArrayBuffer 来更新文件。可以参考提供的示例代码来了解如何以此方式进行文件更新操作。

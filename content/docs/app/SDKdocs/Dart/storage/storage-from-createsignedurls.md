@@ -25,7 +25,7 @@
 - 需要RLS策略权限。
   - `buckets`表的权限: 没有
   - `objects`表的权限: `select`.
-- 请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方法
+- 请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方法
 
 
 
