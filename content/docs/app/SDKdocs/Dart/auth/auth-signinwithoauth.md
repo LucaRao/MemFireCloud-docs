@@ -21,7 +21,7 @@ await supabase.auth.signInWithOAuth(Provider.github);
 ## Notes
 
 - 这种方法用于使用第三方提供商进行登录。
-- Supabase支持许多不同的[第三方提供商](https://supabase.com/docs/app/auth/auth#providers)。
+- Supabase支持许多不同的[第三方提供商](https://supabase.com/docs/app/development_guide/auth/auth#providers)。
 
 
 

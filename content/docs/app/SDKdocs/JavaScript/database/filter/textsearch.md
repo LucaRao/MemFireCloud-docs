@@ -12,7 +12,7 @@
 textSearch()作用是找到所有在指定列上的 tsvector 值与给定的 to_tsquery 查询条件匹配的记录。
 
 
-* 更多信息，请参见[Postgres全文搜索](/docs/app/database/full-text-search)。
+* 更多信息，请参见[Postgres全文搜索](/docs/app/development_guide/database/full-text-search)。
 
 
 

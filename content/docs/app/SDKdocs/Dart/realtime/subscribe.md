@@ -26,7 +26,7 @@ supabase.channel('*').on(
 
 ## Notes
 
-- 为了提高数据库性能和安全性，新项目的实时性默认是禁用的。你可以通过[管理复制](/docs/app/api/api#managing-realtime)打开它。
+- 为了提高数据库性能和安全性，新项目的实时性默认是禁用的。你可以通过[管理复制](/docs/app/development_guide/api/api#managing-realtime)打开它。
 - 如果你想在更新和删除时接收 "以前的"数据，你需要将`REPLICA IDENTITY`设置为`FULL`，像这样。`ALTER TABLE your_table REPLICA IDENTITY FULL;`。
 
 

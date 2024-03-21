@@ -17,7 +17,7 @@
 
 * 如果您使用手机号码，您可以配置是否要向用户发送一次性密码（OTP）。
 
-魔法链接的目标URL由 `SITE_URL` 决定。请查看[重定向URL和通配符](/docs/app/auth/auth)以向您的项目添加其他重定向URL。
+魔法链接的目标URL由 `SITE_URL` 决定。请查看[重定向URL和通配符](/docs/app/development_guide/auth/auth)以向您的项目添加其他重定向URL。
 
 魔法链接和OTP共享相同的实现。若要向用户发送一次性密码（OTP）而不是魔法链接，请修改魔法链接的[电子邮件模板](https://memfiredb.com/)，将 `{{ .ConfirmationURL }}` 替换为 `{{ .Token }}`。
 

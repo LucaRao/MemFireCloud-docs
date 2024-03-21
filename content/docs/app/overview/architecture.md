@@ -1,5 +1,5 @@
 ---
-    weight: 1003
+    weight: 1006
     title: "架构"
     description: "Supabase design and architecture"
     icon: "article"

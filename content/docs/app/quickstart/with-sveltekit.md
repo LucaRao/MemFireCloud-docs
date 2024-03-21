@@ -47,7 +47,7 @@ PUBLIC_SUPABASE_ANON_KEY="YOUR_SUPABASE_KEY"
 ```
 
 现在我们已经有了API凭证，让我们创建一个辅助文件来初始化Supabase客户端。这些变量将被暴露在
-在浏览器上，这完全没有问题，因为我们的数据库已经启用了[行级安全](/docs/app/auth/auth#row-level-security)。
+在浏览器上，这完全没有问题，因为我们的数据库已经启用了[行级安全](/docs/app/development_guide/auth/auth#row-level-security)。
 
 ```js title=src/lib/supabaseClient.ts
 import { createClient } from '@supabase/auth-helpers-sveltekit'
@@ -324,7 +324,7 @@ npm run dev
 
 ## 个人照片
 
-每个Supabase项目都配置了[存储](/docs/app/storage/storage)，用于管理照片和视频等大文件。
+每个Supabase项目都配置了[存储](/docs/app/development_guide/storage/storage)，用于管理照片和视频等大文件。
 
 ### 创建一个上传小组件
 

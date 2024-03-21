@@ -39,7 +39,7 @@ npm install @supabase/supabase-js
 
 最后我们要在`environment.ts`文件中保存环境变量。
 我们所需要的是API URL和你[早些时候]复制的`anon`密钥(#get-theapi-keys)。
-这些变量将暴露在浏览器上，这完全没有问题，因为我们在数据库上启用了[行级安全](/docs/app/auth/auth#row-level-security)。
+这些变量将暴露在浏览器上，这完全没有问题，因为我们在数据库上启用了[行级安全](/docs/app/development_guide/auth/auth#row-level-security)。
 
 ```ts title=environment.ts
 export const environment = {
@@ -399,7 +399,7 @@ npm run start
 
 ## 简介照片
 
-每个Supabase项目都配置了[存储](/docs/app/storage/storage)，用于管理照片和视频等大文件。
+每个Supabase项目都配置了[存储](/docs/app/development_guide/storage/storage)，用于管理照片和视频等大文件。
 
 ### 创建一个上传小部件
 

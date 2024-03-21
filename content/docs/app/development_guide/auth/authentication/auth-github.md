@@ -1,0 +1,104 @@
+---
+    weight: 1416
+    title: "使用GitHub登录"
+    description: "将GitHub OAuth添加到Supabase项目"
+    icon: "article"
+    draft: false
+    toc: true
+---
+
+要为项目启用GitHub Auth，您需要设置一个GitHub OAuth应用程序，并将应用程序凭据添加到Supabase Dashboard。
+
+## 概述
+
+为应用程序设置GitHub登录由三部分组成:
+
+- 在[GitHub](https://github.com)上创建和配置GitHub OAuth应用程序
+- 将GitHub OAuth密钥添加到[MemFire Cloud项目](https://cloud.memfiredb.com)
+- 将登录代码添加到[JS客户端应用程序](https://github.com/supabase/supabase-js)
+
+## 访问您的GitHub帐户
+
+- 进入 [github.com](https://github.com).
+- 单击右上角的`登录`以登录。
+
+<img src="../../../../img/guides/auth-github/github-portal.png">
+
+## 创建GitHub Oauth应用程序
+
+转到[GitHub开发者设置页面](https://github.com/settings/developers):
+
+- 单击右上方的个人资料照片
+- 单击菜单底部附近的设置
+- 在左侧边栏中，单击`开发人员设置`（靠近底部）
+- 在左侧边栏中，单击`OAuth Apps`
+
+## 查找回调URL
+
+下一步需要回调URL，如下所示：
+
+`https://<project-ref>.supabase.co/auth/v1/callback`
+
+- 转到[MemFire Cloud项目仪表板](https://cloud.memfiredb.com).
+- 单击左侧边栏底部的`设置`图标。
+- 单击列表中的`API`。
+- 在Config/URL下，您将找到您的API URL，您可以单击`复制`将其复制到剪贴板。
+- 现在只需在末尾添加`/auth/v1/callback`即可获得完整的`OAuth重定向URI`。
+
+<video width="99%" muted playsInline controls="true">
+  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+</video>
+
+## 注册新的OAuth应用程序
+
+- 单击`注册新应用程序`。如果您以前创建过应用程序，请单击此处的`新建OAuth应用程序`。
+- 在`应用程序名称`中，键入应用程序的名称。
+- 在`主页URL`中，键入应用程序网站的完整URL。
+- 在`授权回调URL`中，键入应用的回调URL。
+- 在`有效OAuth重定向URI`框中输入URL。
+- 单击右下角的`保存更改`。
+- 单击`注册应用程序`。
+
+复制新的OAuth凭据
+
+- 复制并保存`客户端ID`。
+- 单击`生成新客户端密钥`。
+- 复制并保存`客户端密码`。
+
+## 将您的GitHub凭据输入到Supabase项目中
+
+- 转到[MemFire Cloud项目仪表板](https://cloud.memfiredb.com)
+- 在左侧边栏中，单击`身份验证`图标（靠近顶部）
+- 单击列表中的`设置`以转到`身份验证设置`页面
+- 在`站点URL`下输入应用程序的最终（托管）URL（这很重要）
+- 在`外部OAuth提供程序`下，将`已启用GitHub`设置为ON
+- 输入上一步中保存的`GitHub客户端ID `和`GitHubClient Secret`
+- 单击`保存`
+
+## 将登录代码添加到客户端应用程序
+
+当您的用户登录时,调用[signInWithOAuth()](/docs/app/SDKdocs/JavaScript/auth/auth-signinwithoauth),将`github`作为`provider`:
+
+```js
+async function signInWithGitHub() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+  })
+}
+```
+
+当用户注销时，调用[signOut()](/docs/app/SDKdocs/JavaScript/auth/auth-signout)将其从浏览器会话和localStorage中删除：
+
+```js
+async function signout() {
+  const { error } = await supabase.auth.signOut()
+}
+```
+
+## 资源
+
+- [MemFire Cloud](https://cloud.memfiredb.com)
+- [JS客户端](https://github.com/supabase/supabase-js)
+- [Flutter客户端](https://github.com/supabase/supabase-flutter)
+
+

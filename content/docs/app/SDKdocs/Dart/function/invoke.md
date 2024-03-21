@@ -6,7 +6,7 @@
     toc: true
 ---
 
-调用一个Supabase函数。请参阅[指南](/docs/app/functions/functions)，了解关于编写函数的详细信息。
+调用一个Supabase函数。请参阅[指南](/docs/app/development_guide/functions/functions)，了解关于编写函数的详细信息。
 
 
 ```dart

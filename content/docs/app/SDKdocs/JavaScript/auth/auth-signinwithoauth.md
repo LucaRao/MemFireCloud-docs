@@ -10,7 +10,7 @@
 
 * 该方法用于使用第三方服务商进行登录。
 
-* MemFire Cloud支持许多不同的[第三方服务商](/docs/app/auth/auth)。
+* MemFire Cloud支持许多不同的[第三方服务商](/docs/app/development_guide/auth/auth)。
 
 
 
@@ -69,7 +69,7 @@ const { data, error } = await supabase.auth.signInWithOAuth({
 
 当第三方服务商成功验证用户后，服务商将用户重定向到`redirectTo`参数指定的URL。默认情况下，该参数为`SITE_URL`。调用此方法后不会立即重定向用户。
 
-请查看[重定向URL和通配符](/docs/app/auth/auth)以向您的项目添加其他重定向URL。
+请查看[重定向URL和通配符](/docs/app/development_guide/auth/auth)以向您的项目添加其他重定向URL。
 
 
 

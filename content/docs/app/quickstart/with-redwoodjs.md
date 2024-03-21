@@ -22,11 +22,11 @@ TLDR; Prisma目前不支持跨模式外键，所以由于你的Supabase `public`
 
 这个例子提供了使用Supabase和[RedwoodJS](https://redwoodjs.com/docs/introduction)建立一个简单的用户管理应用程序的步骤（从头开始！）。它包括。
 
-- MemFire Cloud [Database](/docs/app/database/database)：一个用于存储用户数据的Postgres数据库。
-- MemFire Cloud [Auth](/docs/app/auth/auth)：用户可以用魔法链接登录（没有密码，只有电子邮件）。
-- MemFire Cloud [Storage](/docs/app/storage/storage)：用户可以上传照片。
-- Instant [APIs](/docs/app/api/api)。当你创建你的数据库表时，API将自动生成。
-- [行级安全](/docs/app/auth/auth#row-level-security)：数据受到保护，个人只能访问自己的数据。
+- MemFire Cloud [Database](/docs/app/development_guide/database/database)：一个用于存储用户数据的Postgres数据库。
+- MemFire Cloud [Auth](/docs/app/development_guide/auth/auth)：用户可以用魔法链接登录（没有密码，只有电子邮件）。
+- MemFire Cloud [Storage](/docs/app/development_guide/storage/storage)：用户可以上传照片。
+- Instant [APIs](/docs/app/development_guide/api/api)。当你创建你的数据库表时，API将自动生成。
+- [行级安全](/docs/app/development_guide/auth/auth#row-level-security)：数据受到保护，个人只能访问自己的数据。
 
 在本指南结束时，你将拥有一个允许用户登录并更新一些基本资料细节的应用程序。
 
@@ -283,7 +283,7 @@ SUPABASE_JWT_SECRET=YOUR_SUPABASE_JWT_SECRET
 ```
 
 这些变量将暴露在浏览器上，这完全没有问题。
-它们允许你的Web应用程序使用你的公共匿名密钥初始化Supabase客户端因为我们在数据库中启用了 [行级安全](/docs/app/auth/auth#row-level-security) 。
+它们允许你的Web应用程序使用你的公共匿名密钥初始化Supabase客户端因为我们在数据库中启用了 [行级安全](/docs/app/development_guide/auth/auth#row-level-security) 。
 
 你会看到这些被用来在`web/src/App.js`中配置你的Supabase客户端。
 
@@ -624,7 +624,7 @@ yarn rw dev
 
 ## 个人照片
 
-每个Supabase项目都配置了[存储](/docs/app/storage/storage)，用于管理照片和视频等大文件。
+每个Supabase项目都配置了[存储](/docs/app/development_guide/storage/storage)，用于管理照片和视频等大文件。
 
 ### 创建一个上传小组件
 

@@ -13,7 +13,7 @@ from.upload()用于将一个文件上传到一个现有的桶。
   - `buckets`表的权限: 无
   - `objects`表的权限：仅在上传新文件时需要`插入insert`权限，以及在更新文件时需要`选择select`、`插入insert`和`更新updata`权限
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 对于 React Native，使用 `Blob`、`File` 或 `FormData` 并不能按预期工作。相反，应该使用来自 base64 文件数据的 `ArrayBuffer` 来上传文件，参见下面的示例。
 

@@ -18,7 +18,7 @@ from.getPublicUrl()是用于获取公开存储桶中资源URL的函数。如果�
   - `buckets`表的权限: 无
   - `objects`表的权限：无
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 ## 案例教程

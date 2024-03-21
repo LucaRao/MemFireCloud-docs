@@ -12,7 +12,7 @@ updateBucket()用于更新存储桶
   - `buckets`表的权限: `select`和`update`
   - `objects`表的权限：无
 
-请参考[存储指南](/docs/app/storage/storage#access-control)中关于访问控制的工作方式。
+请参考[存储指南](/docs/app/development_guide/storage/storage#access-control)中关于访问控制的工作方式。
 
 
 

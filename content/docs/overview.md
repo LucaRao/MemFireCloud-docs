@@ -2,7 +2,7 @@
 weight: 1
 title: "文档中心"
 description: ""
-icon: "article"
+icon: "dataset"
 date: "2023-12-13T17:39:49+08:00"
 lastmod: "2023-12-13T17:39:49+08:00"
 draft: false
@@ -18,8 +18,6 @@ toc: true
     </div>
     <img class="projection" src="../img/index_picture.png">
 </div>
-
-
 
 ## MemFire Cloud云数据库
 

@@ -143,7 +143,7 @@ const { data, error } = await supabase.auth.updateUser({
 
 
 
-场景：配合[微信登录](/docs/app/auth/mandateswechatAuth)一起使用
+场景：配合[微信登录](/docs/app/development_guide/auth/mandateswechatAuth)一起使用
 
 使用 SDK 操作如下：
 

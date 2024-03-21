@@ -1,5 +1,5 @@
 ---
-    weight: 1002
+    weight: 1005
     title: "功能"
     description: "MemFire Cloud features"
     icon: "article"
@@ -13,15 +13,15 @@
 
 ### Postgres数据库
 
-每个项目都是一个完整的Postgres数据库. [文档](/docs/app/database/database).
+每个项目都是一个完整的Postgres数据库. [文档](/docs/app/development_guide/database/database).
 
 ### 数据库扩展
 
-每个数据库都有一整套Postgres扩展. [文档](/docs/app/database/extensions/extensions).
+每个数据库都有一整套Postgres扩展. [文档](/docs/app/development_guide/database/extensions/extensions).
 
 ### 数据库函数
 
-创建可以从浏览器调用的自定义数据库函数. [文档](/docs/app/database/functions).
+创建可以从浏览器调用的自定义数据库函数. [文档](/docs/app/development_guide/database/functions).
 
 ### 数据库触发器
 
@@ -34,7 +34,7 @@
 
 ### 搜索
 
-使用Postgres全文搜索构建搜索功能. [文档](/docs/app/database/full-text-search).
+使用Postgres全文搜索构建搜索功能. [文档](/docs/app/development_guide/database/full-text-search).
 
 ### 密钥和加密
 
@@ -48,20 +48,20 @@
 
 ### 电子邮件和密码登录
 
-为您的应用程序或网站建立电子邮件登录. [文档](/docs/app/auth/authentication/auth-email).
+为您的应用程序或网站建立电子邮件登录. [文档](/docs/app/development_guide/auth/authentication/auth-email).
 
 ### 魔法链接
 
-为应用程序或网站建立无密码登录.[文档](/docs/app/auth/authentication/auth-magic-link).
+为应用程序或网站建立无密码登录.[文档](/docs/app/development_guide/auth/authentication/auth-magic-link).
 
 ### 社交登录
 
-提供社交登录-从苹果到GitHub，再到Slack. [文档](/docs/app/auth/authentication/auth-apple).
+提供社交登录-从苹果到GitHub，再到Slack. [文档](/docs/app/development_guide/auth/authentication/auth-apple).
 
 
 ### 行级别安全性
 
-使用Postgres策略控制每个用户可以访问的数据. [文档](/docs/app/auth/mandates/row-level-security).
+使用Postgres策略控制每个用户可以访问的数据. [文档](/docs/app/development_guide/auth/mandates/row-level-security).
 
 
 
@@ -71,23 +71,23 @@
 
 ### 自动生成的REST API
 
-RESTful API是从数据库自动生成的，无需一行代码. [文档](/docs/app/api/api#rest-api-overview).
+RESTful API是从数据库自动生成的，无需一行代码. [文档](/docs/app/development_guide/api/api#rest-api-overview).
 
 ### 自动生成的GraphQL API
 
-使用我们的自定义PostgresGraphQL扩展的快速GraphQL API. [文档](/docs/app/api/api#graphql-api-overview).
+使用我们的自定义PostgresGraphQL扩展的快速GraphQL API. [文档](/docs/app/development_guide/api/api#graphql-api-overview).
 
 ### 实时数据库变更
 
-通过websockets接收数据库更改. [文档](/docs/app/realtime/postgres-cdc).
+通过websockets接收数据库更改. [文档](/docs/app/development_guide/realtime/postgres-cdc).
 
 ### 用户广播
 
-通过websocket在连接的用户之间发送消息. [文档](/docs/app/realtime/realtime#broadcast).
+通过websocket在连接的用户之间发送消息. [文档](/docs/app/development_guide/realtime/realtime#broadcast).
 
 ### 用户状态
 
-跨用户同步共享状态，包括联机状态和键入指示符. [文档](/docs/app/realtime/realtime#presence).
+跨用户同步共享状态，包括联机状态和键入指示符. [文档](/docs/app/development_guide/realtime/realtime#presence).
 
 ### 客户端库
 
@@ -99,11 +99,11 @@ RESTful API是从数据库自动生成的，无需一行代码. [文档](/docs/a
 
 ### 大文件存储
 
-MemFire Cloud 存储使存储和服务大文件变得简单. [文档](/docs/app/storage/storage).
+MemFire Cloud 存储使存储和服务大文件变得简单. [文档](/docs/app/development_guide/storage/storage).
 
 ### 存储CDN
 
-使用MemFire Cloud CDN缓存大文件. [文档](/docs/app/storage/storage-cdn/).
+使用MemFire Cloud CDN缓存大文件. [文档](/docs/app/development_guide/storage/storage-cdn/).
 
 <br />
 
