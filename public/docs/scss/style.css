@@ -10545,7 +10545,7 @@ i.title-icon {
         .page-wrapper .sidebar-wrapper .sidebar-brand > a:focus {
           outline: none; }
         .page-wrapper .sidebar-wrapper .sidebar-brand > a svg {
-          height: 26px; }
+          height: 50px; }
       .page-wrapper .sidebar-wrapper .sidebar-brand #close-sidebar {
         cursor: pointer;
         font-size: 24px;

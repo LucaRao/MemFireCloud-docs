@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>数据库 on My New Hugo Site</title>
-    <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/</link>
-    <description>Recent content in 数据库 on My New Hugo Site</description>
+    <title>数据库 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/</link>
+    <description>Recent content in 数据库 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/docs/app/sdkdocs/javascript/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Select 查询</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/select/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/select/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/select/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/select/</guid>
       <description>在表(table)或视图(view)上执行 SELECT 查询。&#xA;默认情况下，Supabase项目返回最多1,000行数据。你可以在项目的API设置中更改此设置。建议将其保持较低，以限制意外或恶意请求的负载大小。你可以使用range()查询来对数据进行分页处理。 select()可以与过滤器(Filters)组合使用，用于过滤数据。 select()可以与修饰器(Modifiers)组合使用，用于对数据进行修改。 如果你使用Supabase平台，apikey是一个保留关键字，应避免将其用作列名。 案例教程 link案例1 (获取数据) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 (选择特定列) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>Insert 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/insert/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/insert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/insert/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/insert/</guid>
       <description>在表（table）或视图（view）执行 INSERT 操作。&#xA;案例教程 link案例1 （创建一个记录） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.insert({ id: 1, name: &amp;#39;Denmark&amp;#39; })&#xD;{&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例2 （创建一个记录并返回） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.insert({ id: 1, name: &amp;#39;Denmark&amp;#39; })&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Denmark&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例3 （批量创建） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;const { error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>Update 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/update/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/update/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/update/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/update/</guid>
       <description>在表（table）或视图（view）执行 UPDATE 更新数据操作。&#xA;update() 应该始终与筛选器 (Filters) 结合使用，以便定位您希望更新的项目。 案例教程 link案例1 （更新数据） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Taiwan&amp;#39;);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.update({ name: &amp;#39;Australia&amp;#39; })&#xD;.eq(&amp;#39;id&amp;#39;, 1)&#xD;{&#xD;&amp;#34;status&amp;#34;: 204,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;No Content&amp;#34;&#xD;}&#xD;案例2 （更新一个记录并返回） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Singapore&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>Upsert 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/upsert/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/upsert/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/upsert/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/upsert/</guid>
       <description>upsert()用于对表（table）或视图（view）执行 UPSERT 操作。&#xA;在关系型数据库中，Upsert是一种结合了&amp;quot;插入（Insert）&amp;ldquo;和&amp;quot;更新（Update）&amp;ldquo;的操作,它允许我们在表或视图上执行插入或更新操作。 通常情况下，当我们想要向数据库中插入一行数据时，我们会使用INSERT语句。 但是，如果该行数据已经存在（通常通过主键来判断），我们可能希望更新该行数据而不是插入重复的数据。&#xA;Upsert通过传递列到onConflict方法，我们可以使用.upsert()来实现以下功能：&#xA;如果不存在具有相应onConflict列的行，则执行等效于.insert()的插入操作。 如果存在具有相应onConflict列的行，则根据ignoreDuplicates的设置执行另一种操作。 需要注意的是，为了使用upsert，必须在values中包含主键。主键是用于唯一标识表中每一行的一列或一组列，确保数据的唯一性和完整性。&#xA;案例教程 link案例1 （Upsert数据） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.upsert({ id: 1, name: &amp;#39;Albania&amp;#39; })&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;案例2 （批量Upsert数据） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>Delete 数据</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/delete/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/delete/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/delete/</guid>
       <description>delete()用于在表（table）或视图（view）执行 DELETE 操作。&#xA;delete() 应始终与过滤器（filter）结合使用，以便定位要删除的项。 如果你在使用 delete() 时带有过滤器，并且启用了RLS（行级安全性），则只会删除通过 SELECT 策略可见的行。请注意，默认情况下没有行可见，因此你需要至少有一个 SELECT/ALL 策略来使行可见。 案例教程 link案例1 （删除记录） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Spain&amp;#39;);&#xD;const { error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.delete()&#xD;.eq(&amp;#39;id&amp;#39;, 1)&#xD;{&#xD;&amp;#34;status&amp;#34;: 204,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;No Content&amp;#34;&#xD;}&#xD;参数说明 link&#xD;选项（option）&#xD;[必要参数]&#xD;object类型&#xD;命名的参数&#xA;特性&#xD;count&#xD;optional&#xD;exact | planned | estimated&#xD;用来计算更新行的计数算法。&#xA;exact:可以精确计算行数，但执行速度较慢。执行 &amp;ldquo;COUNT(*)&amp;ldquo;操作。</description>
     </item>
     <item>
       <title>调用Postgres函数</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/rpc/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/rpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/rpc/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/javascript/database/rpc/</guid>
       <description>你可以将Postgres函数作为远程过程调用（Remote Procedure Calls）来调用，即你可以从任何地方执行数据库中的逻辑。 函数在逻辑很少更改时非常有用，比如用于密码重置和更新等情况。&#xA;下面是一个示例的 Postgres 函数定义：&#xA;create or replace function hello_world() returns text as $$&#xD;select &amp;#39;Hello world&amp;#39;;&#xD;$$ language sql;&#xD;这个函数叫做hello_world，它不带参数，返回一个text类型的结果。函数的逻辑很简单，就是返回字符串&amp;quot;Hello world&amp;quot;。 你可以从任何地方调用这个函数，并获得结果&amp;quot;Hello world&amp;quot;。&#xA;案例教程 link案例1 （调用一个没有参数的Postgres函数） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create function hello_world() returns text as $$&#xD;select &amp;#39;Hello world&amp;#39;;&#xD;$$ language sql;&#xD;const { data, error } = await supabase.rpc(&amp;#39;hello_world&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: &amp;#34;Hello world&amp;#34;,&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （调用一个带参数的Postgres函数） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create function echo(say text) returns text as $$&#xD;select say;&#xD;$$ language sql;&#xD;const { data, error } = await supabase.</description>
     </item>
   </channel>

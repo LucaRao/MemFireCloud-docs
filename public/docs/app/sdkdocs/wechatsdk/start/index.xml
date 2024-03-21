@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>开始 on My New Hugo Site</title>
-    <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/</link>
-    <description>Recent content in 开始 on My New Hugo Site</description>
+    <title>开始 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/</link>
+    <description>Recent content in 开始 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>微信小程序客户端</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/wechat/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/wechat/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/wechat/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/wechat/</guid>
       <description>本参考文献记录了Supabase的同构微信小程序客户端supabase-wechat-stable-v2中的每个对象和方法。&#xA;通过使用 supabase-wechat-stable-v2 你可以实现如下功能：&#xA;与你的Postgres数据库交互 听取数据库变化 建立登录和用户管理功能 管理大文件 </description>
     </item>
     <item>
       <title>安装</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/installing/</guid>
-      <description>supabase-wechat-stable-v2是由MemFire Cloud团队直接建立的。&#xA;supabase-wechat-stable-v2 link使用NPM安装&#xA;npm install supabase-wechat-stable-v2&#xD;使用Yarn安装&#xA;yarn add supabase-wechat-stable-v2&#xD;</description>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/installing/</guid>
+      <description>supabase-wechat-stable-v2是由MemFire Cloud团队直接建立的。&#xA;supabase-wechat-stable-v2 link使用NPM安装&#xA;npm install supabase-wechat-stable-v2-v2&#xD;使用Yarn安装&#xA;yarn add supabase-wechat-stable-v2&#xD;</description>
     </item>
     <item>
       <title>初始化客户端</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/initializing/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/initializing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/initializing/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/initializing/</guid>
       <description>你可以使用 createClient() 方法初始化一个新的 Supabase 客户端。&#xA;Supabase 客户端是你访问 Supabase 其他功能的入口是与我们在 Supabase 生态系统中提供的所有功能进行交互的最简单方法。&#xA;案例教程 link案例1 （createClient()） link&#xD;使用方法&#xD;如果密码超过72个字符，它将被截断为前72个字符。&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;// Create a single supabase client for interacting with your database&#xD;const supabase = createClient(&amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;使用自定义域名：&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;// Use a custom domain as the supabase URL&#xD;const supabase = createClient(&amp;#39;https://my-custom-domain.com&amp;#39;, &amp;#39;public-anon-key&amp;#39;)&#xD;案例2 （带附加参数的情况） link&#xD;使用方法&#xD;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;const options = {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true&#xD;},&#xD;global: {&#xD;headers: { &amp;#39;x-my-custom-header&amp;#39;: &amp;#39;my-app-name&amp;#39; },&#xD;},&#xD;}&#xD;const supabase = createClient(&amp;#34;https://xyzcompany.</description>
     </item>
     <item>
       <title>支持Typescript</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/typescript-support/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/typescript-support/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/typescript-support/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/typescript-support/</guid>
       <description>supabase-wechat-stable-v2支持Typescript。&#xA;生成类型 link你可以使用我们的CLI来生成类型。&#xA;supabase start&#xD;supabase gen types typescript --local &amp;gt; lib/database.types.ts&#xD;这些类型是直接从你的数据库中生成的。给定一个表public.movies，该定义将提供以下数据。&#xA;interface Database {&#xD;public: {&#xD;Tables: {&#xD;movies: {&#xD;Row: {} // The data expected to be returned from a &amp;#34;select&amp;#34; statement.&#xD;Insert: {} // The data expected passed to an &amp;#34;insert&amp;#34; statement.&#xD;Update: {} // The data expected passed to an &amp;#34;update&amp;#34; statement.&#xD;}&#xD;}&#xD;}&#xD;}&#xD;在 &amp;ldquo;选择&amp;rdquo;、&amp;ldquo;插入 &amp;ldquo;和 &amp;ldquo;更新 &amp;ldquo;之间是有区别的，因为通常你会在数据库中为特定的列设置默认值。 有了默认值，你就不需要通过网络发送任何数据，即使该列是一个 &amp;ldquo;必填 &amp;ldquo;字段。我们的类型系统是精细的 足以处理这些情况。</description>
     </item>
     <item>
       <title>版本说明</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/release-notes/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/release-notes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/start/release-notes/</guid>
-      <description>supabase-wechat-stable-v2 v2发布说明。&#xA;2.0.0 link用npm install supabase-wechat-stable-v2安装最新版本。&#xA;明确的构造器选项 link构造函数中的所有客户端特定选项都是键入库的。&#xA;const supabase = createClient(apiURL, apiKey, {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;storage: AsyncStorage,&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true,&#xD;},&#xD;realtime: {&#xD;channels,&#xD;endpoint,&#xD;},&#xD;global: {&#xD;fetch: customFetch,&#xD;headers: DEFAULT_HEADERS,&#xD;},&#xD;})&#xD;支持typescript link这些库现在支持typescript。&#xA;// v2 - definitions are injected in `createClient()`&#xD;import type { Database } from &amp;#39;./DatabaseDefinitions&amp;#39;&#xD;const supabase = createClient&amp;lt;Database&amp;gt;(SUPABASE_URL, ANON_KEY)&#xD;const { data } = await supabase.</description>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/start/release-notes/</guid>
+      <description>supabase-wechat-stable-v2 v2发布说明。&#xA;2.0.0 link用npm install supabase-wechat-stable-v2-v2安装最新版本。&#xA;明确的构造器选项 link构造函数中的所有客户端特定选项都是键入库的。&#xA;const supabase = createClient(apiURL, apiKey, {&#xD;db: {&#xD;schema: &amp;#39;public&amp;#39;,&#xD;},&#xD;auth: {&#xD;storage: AsyncStorage,&#xD;autoRefreshToken: true,&#xD;persistSession: true,&#xD;detectSessionInUrl: true,&#xD;},&#xD;realtime: {&#xD;channels,&#xD;endpoint,&#xD;},&#xD;global: {&#xD;fetch: customFetch,&#xD;headers: DEFAULT_HEADERS,&#xD;},&#xD;})&#xD;支持typescript link这些库现在支持typescript。&#xA;// v2 - definitions are injected in `createClient()`&#xD;import type { Database } from &amp;#39;./DatabaseDefinitions&amp;#39;&#xD;const supabase = createClient&amp;lt;Database&amp;gt;(SUPABASE_URL, ANON_KEY)&#xD;const { data } = await supabase.</description>
     </item>
   </channel>
 </rss>

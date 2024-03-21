@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>对象存储 on My New Hugo Site</title>
-    <link>http://localhost:1313/docs/app/storage/</link>
-    <description>Recent content in 对象存储 on My New Hugo Site</description>
+    <title>对象存储 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/storage/</link>
+    <description>Recent content in 对象存储 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/docs/app/storage/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://docs.memfiredb.com/docs/app/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>http://localhost:1313/docs/app/storage/storage/</link>
+      <link>https://docs.memfiredb.com/docs/app/storage/storage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/storage/storage/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/storage/storage/</guid>
       <description>Supabase存储使存储和服务大文件变得简单.&#xA;文件 link文件可以是任何类型的媒体文件。这包括图像、GIF和视频。由于文件的大小，最好将其存储在数据库之外。为了安全起见，HTML文件以纯文本形式返回。&#xA;文件夹 link文件夹是组织文件的一种方式（就像在计算机上一样）。 组织文件没有正确或错误的方法。您可以将它们存储在适合项目的任何文件夹结构中。&#xA;存储桶 linkBucket是文件和文件夹的不同容器。你可以把它们想象成“超级文件夹”。 通常，您会为不同的安全和访问规则创建不同的存储桶。例如，您可以将所有视频文件保存在&amp;quot;video&amp;quot; 桶中，并将个人资料图片保存在&amp;quot;avatar&amp;quot;桶中。&#xA;开始使用 link这是一个快速指南，介绍了Supabase Storage的基本功能。查找完整的GitHub中的示例应用程序, 您可以自行部署。&#xA;info&#xD;文件、文件夹和Bucket名称必须遵循AWS对象密钥命名指南并避免使用任何其他字符。&#xA;创建一个存储桶 link你可以使用Supabase仪表板创建一个存储桶。 由于存储可与Postgres数据库互操作，您还可以使用SQL或我们的客户端库。这里我们创建一个叫做 &amp;ldquo;avatars &amp;ldquo;的桶。&#xA;Dashboard&#xD;SQL&#xD;JavaScript&#xD;Dart&#xD;1.进入存储页面。&#xA;2.单击新建Bucket并输入Bucket的名称。&#xA;3.单击创建Bucket。&#xA;-- Use Postgres to create a bucket.&#xD;insert into storage.buckets (id, name)&#xD;values (&amp;#39;avatars&amp;#39;, &amp;#39;avatars&amp;#39;);&#xD;// Use the JS library to create a bucket.&#xD;const { data, error } = await supabase.storage.createBucket(&amp;#39;avatars&amp;#39;)&#xD;Reference.&#xA;void main() async {&#xD;final supabase = SupabaseClient(&amp;#39;supabaseUrl&amp;#39;, &amp;#39;supabaseKey&amp;#39;);&#xD;final storageResponse = await supabase&#xD;.</description>
+    </item>
+    <item>
+      <title>存储CDN</title>
+      <link>https://docs.memfiredb.com/docs/app/storage/storage-cdn/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/storage/storage-cdn/</guid>
+      <description>CDN 基础知识 link上传到存储空间的所有资产都缓存在内容分发网络（CDN）上。&#xA;为了改善世界各地用户的延迟，Supabase 使用了 CDN。CDN 是一组地理分布广泛的服务器或节点，用于缓存来自源服务器的内容。对于 Supabase 存储来说，原服务器就是运行在与项目所在地区相同的存储服务器。&#xA;让我们举例说明 CDN 如何帮助提高性能。为一个在新加坡启动的 Supabase 项目创建了一个新的存储桶。对 Supabase 存储 API 的所有请求都会首先进入 CDN。来自美国的用户请求一个对象，并被路由到美国 CDN。此时，该 CDN 节点的缓存中没有该对象，因此会 ping 新加坡的源服务器。另一个同样在美国的用户请求同一对象，并直接从美国的 CDN 缓存中获得服务，而不是将请求路由回新加坡。&#xA;除性能外，CDN 还能减轻分布式拒绝服务和其他应用程序攻击，从而提高安全性和可用性。&#xA;缓存持续时间 link默认情况下，资产在 CDN 和用户浏览器中的缓存时间为 1 小时。之后，CDN 节点会 ping 存储服务器，查看对象是否已更新。&#xA;在上传或更新对象时，您可以通过修改 &amp;ldquo;cacheControl &amp;ldquo;参数来修改缓存时间。&#xA;如果希望对象不会在给定 URL 上发生变化，最好设置较长的缓存持续时间。&#xA;如果需要更新存储在 CDN 中的对象版本，可以使用各种缓存破坏技术。最常见的方法是在 URL 中添加版本查询参数。例如，您可以在应用程序中使用类似 /storage/v1/object/sign/profile-pictures/cat.jpg?token=eyJh...&amp;amp;version=1这样的 URL，并设置 1 年的长时间缓存。当您想更新猫图片时，可以增加 URL 中的版本查询参数。CDN 会将 /storage/v1/object/sign/profile-pictures/cat.jpg?token=eyJh...&amp;amp;version=2视为一个新对象，并 ping 到原点以获取更新版本。&#xA;请注意，如果某个特定地区有一段时间没有请求您的对象，CDN 仍可能会将其从缓存中驱逐。例如，如果没有来自美国的用户请求您的对象，即使您设置了很长的缓存控制持续时间，它也会从 CDN 缓存中移除。&#xA;特定请求的缓存状态会在 cf-cache-status 头中发送。缓存状态为 &amp;ldquo;MISS &amp;ldquo;表示 CDN 节点的缓存中没有该对象，必须通过 ping 才能获取该对象。缓存状态为 &amp;ldquo;HIT &amp;ldquo;表示对象是直接从 CDN 发送的。</description>
     </item>
   </channel>
 </rss>

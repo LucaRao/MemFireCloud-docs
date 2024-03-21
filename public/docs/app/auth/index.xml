@@ -1,19 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>认证 on My New Hugo Site</title>
-    <link>http://localhost:1313/docs/app/auth/</link>
-    <description>Recent content in 认证 on My New Hugo Site</description>
+    <title>认证 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/auth/</link>
+    <description>Recent content in 认证 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/docs/app/auth/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://docs.memfiredb.com/docs/app/auth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>概述</title>
-      <link>http://localhost:1313/docs/app/auth/auth/</link>
+      <link>https://docs.memfiredb.com/docs/app/auth/auth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/auth/auth/</guid>
-      <description>概述 link每个认证系统都有两个部分。&#xA;认证：这个人应该被允许进入吗？如果是的话，他们是谁？ 授权：一旦他们进入，他们被允许做什么？ Supabase Auth被设计为既可以作为一个独立的产品，也可以与其他Supabase产品深度集成。 Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我们尽可能地利用Postgres的内置Auth功能。&#xA;下面是Supabase内置的Auth功能的2分钟快速浏览。&#xA;身份认证 link你可以通过几种方式来验证你的用户。&#xA;电子邮件和密码。 Magic links（一键登录）。 社交媒体登录认证服务商。 电话登录。 配置第三方服务商 link你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 &amp;gt; 设置 &amp;gt; Auth Providers，并为每个提供商输入你的 客户端ID和 密匙。&#xA;重定向URLs和通配符 link当使用第三方提供商时，Supabase客户端库将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到redirectTo参数中指定的URL。这个参数默认为SITE_URL。你可以修改SITE_URL或添加额外的重定向URL。&#xA;你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见支持模式的完整列表。&#xA;Netlify预览URLs link对于使用Netlify的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**--my_org.netlify.app/* Vercel预览网址 link对于使用Vercel的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**vercel.app/*/* Vercel为部署的URL提供了一个环境变量，称为NEXT_PUBLIC_VERCEL_URL。更多细节见Vercel docs。你可以使用这个变量，根据环境动态地重定向。&#xA;const { data, error } = await supabase.auth.signInWithOAuth({&#xD;provider: &amp;#39;github&amp;#39;&#xD;options: {&#xD;redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL&#xD;? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`&#xD;: &amp;#34;http://localhost:3000&amp;#34;&#xD;}&#xD;}&#xD;移动端深层链接 URI link对于移动应用程序，您可以使用深度链接URI。例如，对于您的SITE_URL，您可以指定类似于com.supabase://login-callback/的内容，如果需要额外的重定向URL，则可以使用类似于com.supabase.staging://login-callback/的内容。&#xA;授权 link当你需要细化的授权规则时，没有什么比PostgreSQL的行级安全（RLS）更重要了。&#xA;策略是PostgreSQL的规则引擎。它们是非常强大和灵活的，允许你编写复杂的SQL规则，以满足你独特的业务需求。&#xA;从我们的行级安全指南开始吧。&#xA;行级安全 link认证只解决了用户身份验证的问题，但并没有涉及用户在系统中的权限和访问级别。为了解决这个问题，您需要使用到PostgreSQL的行级安全性（RLS）的特性。该特性通过打开和关闭RLS选项，使得授权变得非常简单。&#xA;策略 link策略是PostgreSQL的规则引擎。它们非常强大和灵活，允许你编写复杂的SQL规则，以适应你独特的业务需求。&#xA;如果设置了策略(Policy)，你的数据库就成了规则引擎。就不需要编写如下复杂的查询语句：</description>
+      <guid>https://docs.memfiredb.com/docs/app/auth/auth/</guid>
+      <description>概述 link每个认证系统都有两个部分。&#xA;认证：这个人应该被允许进入吗？如果是的话，他们是谁？ 授权：一旦他们进入，他们被允许做什么？ Supabase Auth被设计为既可以作为一个独立的产品，也可以与其他Supabase产品深度集成。 Postgres是我们一切工作的核心，Auth系统也遵循这一原则。我们尽可能地利用Postgres的内置Auth功能。&#xA;下面是Supabase内置的Auth功能的2分钟快速浏览。&#xA;身份认证 link你可以通过几种方式来验证你的用户。&#xA;电子邮件和密码。 Magic links（一键登录）。 社交媒体登录认证服务商。 电话登录。 服务商 link我们提供了多种认证方式和登录方式，以及认证工具集合。认证帮助程序。&#xA;Email&#xA;Magic Links&#xA;Apple&#xA;GitHub&#xA;GitLab&#xA;配置第三方服务商 link你可以通过点击一个按钮来启用第三方提供商，方法是浏览认证 &amp;gt; 设置 &amp;gt; Auth Providers，并为每个提供商输入你的 客户端ID和 密匙。&#xA;重定向URLs和通配符 link当使用第三方提供商时，Supabase客户端库将用户重定向到提供商。当第三方服务商成功认证用户时，服务商将用户重定向到Supabase Auth回调URL，在那里他们将被进一步重定向到redirectTo参数中指定的URL。这个参数默认为SITE_URL。你可以修改SITE_URL或添加额外的重定向URL。&#xA;你可以使用通配符匹配模式来支持Netlify和Vercel等服务商的预览URL。见支持模式的完整列表。&#xA;Netlify预览URLs link对于使用Netlify的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**--my_org.netlify.app/* Vercel预览网址 link对于使用Vercel的部署，将SITE_URL设置为你的官方网站URL。为本地开发和部署预览添加以下额外的重定向URL。&#xA;http://localhost:3000/*/* https://**vercel.app/*/* Vercel为部署的URL提供了一个环境变量，称为NEXT_PUBLIC_VERCEL_URL。更多细节见Vercel docs。你可以使用这个变量，根据环境动态地重定向。&#xA;const { data, error } = await supabase.auth.signInWithOAuth({&#xD;provider: &amp;#39;github&amp;#39;&#xD;options: {&#xD;redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL&#xD;? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`&#xD;: &amp;#34;http://localhost:3000&amp;#34;&#xD;}&#xD;}&#xD;移动端深层链接 URI link对于移动应用程序，您可以使用深度链接URI。例如，对于您的SITE_URL，您可以指定类似于com.supabase://login-callback/的内容，如果需要额外的重定向URL，则可以使用类似于com.supabase.staging://login-callback/的内容。&#xA;授权 link当你需要细化的授权规则时，没有什么比PostgreSQL的行级安全（RLS）更重要了。</description>
+    </item>
+    <item>
+      <title>重定向 URL</title>
+      <link>https://docs.memfiredb.com/docs/app/auth/redirect-urls/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/auth/redirect-urls/</guid>
+      <description>概览 link使用无密码登录或第三方提供程序时，MemFire Cloud 客户端库方法提供 redirectTo 参数，以指定身份验证后将用户重定向到的位置。默认情况下，用户将被重定向到SITE_URL，但您可以修改SITE_URL或将其他重定向 URL 添加到允许列表。将必要的 URL 添加到允许列表后，可以在 redirectTo 参数中指定希望用户重定向到的 URL。&#xA;在重定向 URL 中使用通配符 linkMemFire Cloud 允许您在将重定向 URL 添加到允许列表时指定通配符。您可以使用通配符匹配模式来支持来自 Netlify 和 Vercel 等提供商的预览 URL。&#xA;Wildcard Description * 匹配任何非分隔符字符序列 ** 匹配任意字符序列 ? 匹配任何单个非分隔符 c 匹配字符 c （c ！= *， **， ？， \， [， {， }） \c 匹配字符 C [!{ character-range }] 匹配不在 { 字符范围 } 中的任何字符序列。例如，[!a-z] 将不匹配 a-z 范围内的任何字符。 URL 中的分隔符定义为 。和 /。使用此工具来测试您的模式。&#xA;info&#xD;虽然“globstar”(**) 对于本地开发和预览 URL 很有用，但我们建议为生产中的站点 URL 设置准确的重定向 URL 路径。</description>
+    </item>
+    <item>
+      <title>原生移动深度链接</title>
+      <link>https://docs.memfiredb.com/docs/app/auth/native-mobile-deep-linking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/auth/native-mobile-deep-linking/</guid>
+      <description>在某些身份验证情况下，您需要处理链接回应用程序以完成用户登录。&#xA;何时需要设置深层链接 link 魔法链接登录。 已启用 &amp;ldquo;确认电子邮件 &amp;ldquo;并正在使用电子邮件登录。 重设电子邮件登录密码。 调用 .signInWithOAuth() 方法。 Expo React Native&#xD;Flutter&#xD;要链接到开发构建或独立应用程序，您需要为应用程序指定自定义 URL 方案。您可以在应用程序配置（app.json、app.config.js）中注册一个方案，方法是在 scheme 键下添加一个字符串：&#xA;{&#xD;&amp;#34;expo&amp;#34;: {&#xD;&amp;#34;scheme&amp;#34;: &amp;#34;com.supabase&amp;#34;&#xD;}&#xD;}&#xD;在项目的 用户认证-&amp;gt; URL 配置 中添加重定向 URL，例如 com.supabase://***。&#xA;最后，实现 OAuth 和链接处理程序。有关在 React Native 中初始化 supabase-js 客户端的说明，请参阅 supabase-js 参考资料。&#xA;import { Button } from &amp;#34;react-native&amp;#34;;&#xD;import { makeRedirectUri } from &amp;#34;expo-auth-session&amp;#34;;&#xD;import * as QueryParams from &amp;#34;expo-auth-session/build/QueryParams&amp;#34;;&#xD;import * as WebBrowser from &amp;#34;expo-web-browser&amp;#34;;&#xD;import * as Linking from &amp;#34;expo-linking&amp;#34;;&#xD;import { supabase } from &amp;#34;app/utils/supabase&amp;#34;;&#xD;WebBrowser.</description>
+    </item>
+    <item>
+      <title>启用Captcha保护</title>
+      <link>https://docs.memfiredb.com/docs/app/auth/auth-captcha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/auth/auth-captcha/</guid>
+      <description>Supabase为您提供了在登录、注册和密码重置表单中添加captcha的选项。这使您的网站免受机器人和恶意脚本的攻击。Supabase身份验证支持hCaptcha。&#xA;注册hCaptcha link跳转到hCaptcha网站并注册帐户。在欢迎页面上，复制站点密钥和密钥。&#xA;如果您已经注册，并且没有从欢迎页面复制此信息，则可以从设置页面获取密钥。&#xA;站点密钥可以在您创建的活动站点的设置中找到。&#xA;在设置页面中，查找Sitekey部分并复制密钥。&#xA;为Suabase项目启用hCaptcha保护 link导航到身份验证页面，并在安全和保护部分下找到启用hCaptcha保护切换。&#xA;输入您的hCaptcha密钥，然后单击保存。&#xA;添加hCaptcha前端组件 link前端需要一些更改才能为用户提供屏幕上的captcha。本示例使用React和hCaptcha React组件，但hCaptch可以与任何JavaScript框架一起使用。&#xA;Install @hcaptcha/react-hcaptcha in your project as a dependency.&#xA;npm install @hcaptcha/react-hcaptcha&#xD;现在从@HCaptcha/react HCaptcha库导入HCaptcha组件。&#xA;import HCaptcha from &amp;#39;@hcaptcha/react-hcaptcha&amp;#39;&#xD;让我们创建一个空状态来存储captchaToken&#xA;const [captchaToken, setCaptchaToken] = useState()&#xD;现在让我们将HCaptcha组件添加到代码的JSX部分&#xA;&amp;lt;HCaptcha /&amp;gt;&#xD;我们将把从hCaptcha网站复制的sitekey作为一个属性以及一个onVerify属性传递给它，该属性接受回调函数。此回调函数将有一个标记作为其属性之一。让我们使用setCaptchaToken将令牌设置为状态&#xA;&amp;lt;HCaptcha&#xD;sitekey=&amp;#34;your-sitekey&amp;#34;&#xD;onVerify={(token) =&amp;gt; { setCaptchaToken(token) }&#xD;/&amp;gt;&#xD;现在让我们使用我们在Supabase signUp函数中接收的captcha令牌。&#xA;await supabase.auth.signUp({&#xD;email,&#xD;password,&#xD;options: { captchaToken },&#xD;})&#xD;调用上述函数后，我们还需要重置captcha挑战。&#xA;创建一个用于HCaptcha组件的引用。&#xA;const captcha = useRef()&#xD;让我们在HCaptcha组件上添加一个ref属性，并为其分配captcha常量。&#xA;&amp;lt;HCaptcha&#xD;ref={captcha}&#xD;sitekey=&amp;#34;your-sitekey&amp;#34;&#xD;onVerify={(token) =&amp;gt; {&#xD;setCaptchaToken(token)&#xD;}}&#xD;/&amp;gt;&#xD;使用以下代码调用signUp函数后重置captcha：</description>
+    </item>
+    <item>
+      <title>速率限制</title>
+      <link>https://docs.memfiredb.com/docs/app/auth/rate-limiting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/auth/rate-limiting/</guid>
+      <description>速率限制、资源分配和滥用预防 link MemFire Cloud采用了许多保护措施来防止传入流量的突发，以防止滥用，并帮助最大限度地提高整个平台的稳定性 如果您预计会出现高负载事件，包括生产启动或重负载测试，或长时间的高资源使用率，请至少提前 2 周通知我们。 身份验证速率限制 link 下表显示了以下身份验证终端节点上的速率限制配额。您可以在用户认证-&amp;gt; Rate Limits配置项目的身份验证速率限制。 Endpoint Path Limited By Rate Limit 发送电子邮件的所有结点 /auth/v1/signup /auth/v1/recover /auth/v1/user 合并请求的总和 默认为每小时 30 封电子邮件。截至 2023 年 7 月 14 日，这已更新为每小时 4 封电子邮件。可通过自定义 SMTP 设置进行自定义。 发送一次性密码 （OTP） 的所有结点 /auth/v1/otp 合并请求的总和 默认为每小时 30 个 OTP。是可定制的。 发送 OTP 或魔术链接 /auth/v1/otp 上次请求 默认为允许新请求之前的 60 秒窗口。是可定制的。 注册确认请求 /auth/v1/signup 上次请求 默认为允许新请求之前的 60 秒窗口。是可定制的。 密码重置请求 /auth/v1/recover 上次请求 默认为允许新请求之前的 60 秒窗口。是可定制的。 验证请求 /auth/v1/verify IP地址 每小时 360 个请求（最多 30 个请求） 令牌刷新请求 /auth/v1/token IP地址 每小时 1800 个请求（最多 30 个请求） 创建或验证 MFA 质询 /auth/v1/factors/:id/challenge /auth/v1/factors/:id/verify IP地址 每分钟 15 个请求（最多 30 个请求） 实时配额 link 查看实时配额。 如果您需要增加配额，可以随时联系支持人员.</description>
     </item>
   </channel>
 </rss>

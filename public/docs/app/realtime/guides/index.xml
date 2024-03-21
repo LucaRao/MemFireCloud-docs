@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>指南 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/realtime/guides/</link>
+    <description>Recent content in 指南 on MemFire Cloud在线文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://docs.memfiredb.com/docs/app/realtime/guides/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>限制消息</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/guides/client-side-throttling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/guides/client-side-throttling/</guid>
+      <description>MemFire Cloud 客户端包括限制消息的功能。&#xA;管理客户端限制 link您可以在创建客户端时自定义客户端限制：&#xA;JavaScript&#xD;Dart&#xD;Kotlin&#xD;import { createClient } from &amp;#39;@supabase/supabase-js&amp;#39;&#xD;const SUPABASE_URL = &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;&#xD;const SUPABASE_ANON_KEY = &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;&#xD;const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {&#xD;realtime: {&#xD;params: {&#xD;eventsPerSecond: 2,&#xD;},&#xD;},&#xD;})&#xD;import &amp;#39;package:supabase_flutter/supabase_flutter.dart&amp;#39;;&#xD;void main() async {&#xD;Supabase.initialize(&#xD;url: &amp;#39;https://&amp;lt;project&amp;gt;.supabase.co&amp;#39;,&#xD;anonKey: &amp;#39;&amp;lt;your-anon-key&amp;gt;&amp;#39;,&#xD;realtimeClientOptions: const RealtimeClientOptions(&#xD;eventsPerSecond: 2,&#xD;),&#xD;);&#xD;runApp(const MyApp());&#xD;}&#xD;final supabase = Supabase.instance.client;&#xD;val supabase = createSupabaseClient(&#xD;&amp;#34;https://&amp;lt;project&amp;gt;.supabase.co&amp;#34;,&#xD;&amp;#34;&amp;lt;your-anon-key&amp;gt;&amp;#34;&#xD;) {&#xD;install(Realtime) {&#xD;eventsPerSecond = 2&#xD;}&#xD;}&#xD;默认客户端限制 link默认情况下，Supabase 客户端将消息限制为每秒 10 条消息（每 100 毫秒 1 条消息）。这是在您开始时作为安全保障提供的软限制。您很少需要发送比这更多的消息。</description>
+    </item>
+    <item>
+      <title>Postgres 更改</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/guides/postgres-changes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/guides/postgres-changes/</guid>
+      <description>让我们探讨如何使用 Realtime 的 Postgres Changes 功能来监听数据库事件。&#xA;快速入门 link在此示例中，我们将设置一个数据库表，使用行级别安全性保护它，并使用 MemFire Cloud 客户端库订阅所有更改。&#xA;step1:使用“todos”表设置 MemFire Cloud 项目 link创建一个新项目.&#xA;项目准备就绪后，在MemFire Cloud数据库中创建一个表。您可以使用 Table 接口或 SQL 编辑器执行此操作。&#xA;SQL&#xD;Dashboard&#xD;-- Create a table called &amp;#34;todos&amp;#34;&#xD;-- with a column to store tasks.&#xD;create table todos (&#xD;id serial primary key,&#xD;task text&#xD;);&#xD;step2:允许匿名访问 link在此示例中，我们将为此表启用行级别安全性并允许匿名访问。在生产环境中，请务必使用适当的权限保护应用程序。&#xA;-- Turn on security&#xD;alter table &amp;#34;todos&amp;#34;&#xD;enable row level security;&#xD;-- Allow anonymous access&#xD;create policy &amp;#34;Allow anonymous access&amp;#34;&#xD;on todos&#xD;for select&#xD;to anon&#xD;using (true);&#xD;step3:启用 Postgres 复制 link转到项目的&amp;rsquo;数据库&amp;rsquo;-&amp;gt;[Replication]设置，然后在supabase_realtime下，打开要收听的表。</description>
+    </item>
+    <item>
+      <title>将 Realtime 与 Next.js 结合使用</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/guides/realtime-with-nextjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/guides/realtime-with-nextjs/</guid>
+      <description>在本指南中，我们将探讨使用 Next.js 应用程序接收实时 Postgres 更改的最佳方法。 我们将展示客户端和服务器端更新，并探讨哪个选项最好。</description>
+    </item>
+    <item>
+      <title>订阅数据库更改</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/guides/subscribing-to-database-changes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/guides/subscribing-to-database-changes/</guid>
+      <description>Supabase 允许您从客户端应用程序订阅数据库的实时更改。&#xA;您可以使用 Postgres Changes 扩展侦听数据库更改。 以下视频演示如何为表启用此功能。&#xA;例子 link&#xD;设置 linkYou&amp;rsquo;ll first need to create a supabase_realtime publication and add your tables (that you want to subscribe to) to the publication:&#xA;begin;&#xD;-- remove the supabase_realtime publication&#xD;drop&#xD;publication if exists supabase_realtime;&#xD;-- re-create the supabase_realtime publication with no tables&#xD;create publication supabase_realtime;&#xD;commit;&#xD;-- add a table called &amp;#39;messages&amp;#39; to the publication&#xD;-- (update this to match your tables)&#xD;alter&#xD;publication supabase_realtime add table messages;&#xD;流式插入 link可以使用 INSERT 事件对所有新行进行流式处理。</description>
+    </item>
+  </channel>
+</rss>

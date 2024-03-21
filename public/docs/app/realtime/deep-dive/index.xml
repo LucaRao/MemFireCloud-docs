@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>深入了解 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/realtime/deep-dive/</link>
+    <description>Recent content in 深入了解 on MemFire Cloud在线文档</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="https://docs.memfiredb.com/docs/app/realtime/deep-dive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>实时架构</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/deep-dive/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/deep-dive/architecture/</guid>
+      <description>Realtime 是一个全球分布的 Elixir 集群。客户端可以通过 WebSocket 连接到集群中的任何节点，并向连接到集群的任何其他客户端发送消息。&#xA;Realtime 是用 Elixir 编写的，Elixir 编译为 Erlang，并利用了 Phoenix Framework 提供的许多开箱即用的工具。&#xA;Elixir &amp;amp; Phoenix linkPhoenix 速度很快，能够处理数百万个并发连接。&#xA;Phoenix 可以处理许多并发连接，因为 Elixir 提供了轻量级进程（而不是操作系统进程）来使用。&#xA;面向客户端的 WebSocket 服务器需要处理许多并发连接。Elixir &amp;amp; Phoenix让Supabase Realtime集群可以轻松做到这一点。&#xA;渠道 link频道是使用 Phoenix Channels 实现的，Phoenix Channels 将 Phoenix.PubSub 与默认的 Phoenix.PubSub.PG2 适配器结合使用。&#xA;PG2 适配器利用 Erlang process groups来实现 PubSub 模型，在该模型中，发布者可以向多个订阅者发送消息。&#xA;全局集群 linkPresence 是由 CRDT 支持的内存中键值存储。当用户连接到集群时，该用户的状态将发送到所有连接的实时节点。&#xA;广播允许您从任何连接的客户端向频道发送消息。连接到同一通道的任何其他客户端都将收到该消息。&#xA;这在全球范围内都有效。连接到美国实时节点的客户端可以向连接到新加坡节点的另一个客户端发送消息。只需将两个客户端连接到同一个实时频道，它们就会收到相同的消息。&#xA;广播对于非常快速地将消息发送给同一位置的用户非常有用。如果一组客户端连接到新加坡的某个节点，则消息只需转到新加坡的该实时节点并返回。如果用户靠近实时节点，他们将在 ping 集群所需的时间内收到广播消息。&#xA;多亏了Realtime集群，您（一个了不起的Supabase用户）不必考虑您的客户连接到哪些区域。&#xA;如果您使用的是广播、状态或流式处理数据库更改，则消息将始终通过尽可能短的路径到达您的用户。&#xA;连接到数据库 linkRealtime 允许您监听 Postgres 数据库中的更改。当新客户端连接到实时并初始化postgres_changes实时扩展时，群集将连接到 Postgres 数据库，并开始从复制槽流式传输更改。&#xA;Realtime 知道您的数据库所在的区域，并从尽可能最近的区域连接到该区域。&#xA;每个实时区域至少有两个节点，因此如果一个节点脱机，另一个节点应重新连接并再次开始流式传输更改。</description>
+    </item>
+    <item>
+      <title>自带数据库</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/deep-dive/bring-your-own-database/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/deep-dive/bring-your-own-database/</guid>
+      <description>Realtime Database Changes 适用于任何启用了逻辑复制并安装了 wal2json 扩展的 Postgres 数据库。&#xA;info&#xD;为Realtime设置数据库后，如果您想将数据库与托管的Supabase Realtime一起使用。&#xA;以下步骤将确保您的数据库已正确设置为使用 Realtime。&#xA;wal2json 扩展 linkRealtime 依靠 wal2json Postgres 扩展将数据库更改格式化为 JSON，然后将其发送给 Realtime 订阅者。&#xA;由 AWS RDS 和 Google Cloud SQL 管理的 Postgres 数据库应已安装 wal2json。 请检查以确保您的 Postgres 数据库确实如此。&#xA;逻辑复制配置 linkRealtime 依靠 Postgres 的逻辑复制功能来获取数据库更改。请在数据库上启用逻辑复制并配置以下设置：&#xA;max_replication_slots: 我们建议使用 10 个，因为 Realtime 需要几个插槽以及满足非实时逻辑复制需求所需的插槽。 max_slot_wal_keep_size: 我们建议使用 1024 （MB），以便 Realtime 可以尝试提供存储在 Postgres 中的更多数据库更改。 请参阅计算加载项，了解根据我们用于自己的云产品/服务的值在不同实例大小下的建议max_replication_slots。&#xA;实时数据库设置 linksupabase_realtime 出版物 link创建supabase_realtime发布并添加您希望 Realtime 监听的表：&#xA;create publication supabase_realtime with (publish = &amp;#39;insert, update, delete&amp;#39;);&#xD;alter publication supabase_realtime add table messages, users;&#xD;info&#xD;如果有效负载包含 401 Unauthorized，则需要向要授权的数据库角色的表授予select权限，以接收数据库更改：</description>
+    </item>
+    <item>
+      <title>实时协议</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/deep-dive/protocol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/deep-dive/protocol/</guid>
+      <description>实时协议是一组消息格式，用于在实时客户端和服务器之间通过 WebSocket 连接进行通信。这些消息用于启动连接、更新访问令牌、接收系统状态更新以及从 Postgres 数据库接收实时更新。&#xA;连接 link在初始消息中，客户端发送一条消息，指定他们想要使用的功能（广播、状态、Postgres 更改）。&#xA;{&#xD;&amp;#34;event&amp;#34;: &amp;#34;phx_join&amp;#34;,&#xD;&amp;#34;topic&amp;#34;: string,&#xD;&amp;#34;payload&amp;#34;: {&#xD;&amp;#34;config&amp;#34;: {&#xD;&amp;#34;broadcast&amp;#34;: {&#xD;&amp;#34;self&amp;#34;: boolean&#xD;},&#xD;&amp;#34;presence&amp;#34;: {&#xD;&amp;#34;key&amp;#34;: string&#xD;},&#xD;&amp;#34;postgres_changes&amp;#34;: [&#xD;{&#xD;&amp;#34;event&amp;#34;: &amp;#34;*&amp;#34; | &amp;#34;INSERT&amp;#34; | &amp;#34;UPDATE&amp;#34; | &amp;#34;DELETE&amp;#34;,&#xD;&amp;#34;schema&amp;#34;: string,&#xD;&amp;#34;table&amp;#34;: string,&#xD;&amp;#34;filter&amp;#34;: string &amp;#43; &amp;#39;=&amp;#39; &amp;#43; &amp;#34;eq&amp;#34; | &amp;#34;neq&amp;#34; | &amp;#34;gt&amp;#34; | &amp;#34;gte&amp;#34; | &amp;#34;lt&amp;#34; | &amp;#34;lte&amp;#34; | &amp;#34;in&amp;#34; &amp;#43; &amp;#39;.&amp;#39; &amp;#43; string&#xD;}&#xD;]&#xD;}&#xD;},&#xD;&amp;#34;ref&amp;#34;: string&#xD;}&#xD;info&#xD;in 筛选器的格式为 COLUMN_NAME=in.</description>
+    </item>
+    <item>
+      <title>实时配额</title>
+      <link>https://docs.memfiredb.com/docs/app/realtime/deep-dive/quotas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://docs.memfiredb.com/docs/app/realtime/deep-dive/quotas/</guid>
+      <description>我们的集群支持数百万个并发连接和消息吞吐量，适用于生产工作负载。&#xA;info&#xD;升级您的计划以增加您的配额。如果没有支出上限或企业计划，一些配额仍然存在，以保护预算。所有配额均可按项目配置。如果您需要增加配额，请联系支持人员。&#xA;按计划划分的配额 link Free Pro Pro (no spend cap) Team Enterprise 并发客户端 200 500 10,000 10,000 10,000 每秒消息数 100 500 2,500 2,500 2,500 每秒通道加入数 100 500 2,500 2,500 2,500 每个客户端的通道数 100 100 100 100 100 每个对象的状态键 10 10 10 10 10 每秒状态消息数 20 50 1,000 1,000 1,000 广播有效负载大小 KB 256 3,000 3,000 3,000 3,000 Postgres 更改有效负载大小 KB (阅读更多) 1,024 1,024 1,024 1,024 1,024 除了免费和专业计划之外，您还可以通过联系支持人员来自定义配额。&#xA;客户端限制 link一些基本的 WebSocket 消息限制是在客户端实现的。有关更多详细信息，请参阅限制指南。</description>
+    </item>
+  </channel>
+</rss>

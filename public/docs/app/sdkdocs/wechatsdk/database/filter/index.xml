@@ -1,179 +1,179 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>过滤器 on My New Hugo Site</title>
-    <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/</link>
-    <description>Recent content in 过滤器 on My New Hugo Site</description>
+    <title>过滤器 on MemFire Cloud在线文档</title>
+    <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/</link>
+    <description>Recent content in 过滤器 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
+    <atom:link href="https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用过滤器</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/using-filters/</guid>
       <description>过滤器允许你只返回符合某些条件的记录。&#xA;过滤器可以用于select(), update(), upsert(), 和delete()查询。&#xA;如果一个Postgres函数返回一个表的响应，你也可以应用过滤器。&#xA;案例1 （应用过滤器） link&#xD;使用方法&#xD;注意事项&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;) // Correct&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;The Shire&amp;#39;) // Incorrect&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;过滤器必须在select(), update()、upsert()、delete()和rpc()之后，并在修改器之前应用。&#xA;案例2 （链式） link&#xD;使用方法&#xD;注意事项&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.gte(&amp;#39;population&amp;#39;, 1000)&#xD;.lt(&amp;#39;population&amp;#39;, 10000)&#xD;过滤器可以串联起来，产生高级查询。例如。 来查询人口在1,000和10,000之间的城市。&#xA;案例3 （条件链式） link&#xD;使用方法&#xD;注意事项&#xD;const filterByName = null&#xD;const filterPopLow = 1000&#xD;const filterPopHigh = 10000&#xD;let query = supabase&#xD;.</description>
     </item>
     <item>
       <title>eq()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/eq/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/eq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/eq/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/eq/</guid>
       <description>eq()用于匹配列值等于指定值的行。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;Albania&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;要检查column的值是否为NULL，你应该使用.is()来代替。&#xA;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>neq()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/neq/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/neq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/neq/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/neq/</guid>
       <description>neq()用于匹配列值不等于指定值的行。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.neq(&amp;#39;name&amp;#39;, &amp;#39;Albania&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>gt()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gt/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/gt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gt/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/gt/</guid>
       <description>gt()用于查找所有在所述列（column）上的值大于指定值（value）的记录。&#xA;案例教程 link案例1 （使用select） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.gt(&amp;#39;id&amp;#39;, 2)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;当使用保留字作为列名时，需要添加双引号，例如：.gt(&#39;&amp;quot;order&amp;quot;&#39;, 2)&#xA;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>gte()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gte/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/gte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/gte/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/gte/</guid>
       <description>gte()用于查找所有在所述列（column）上的值大于或等于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.gte(&amp;#39;id&amp;#39;, 2)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>lt()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lt/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/lt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lt/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/lt/</guid>
       <description>lt()用于查找所有在所述列（column）上的值小于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.lt(&amp;#39;id&amp;#39;, 2)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>lte()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lte/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/lte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/lte/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/lte/</guid>
       <description>lte()用于查找所有在所述列（column）上的值小于或等于指定值（value）的记录。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.lte(&amp;#39;id&amp;#39;, 2)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>like()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/like/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/like/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/like/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/like/</guid>
       <description>like()用于查找所有在所述列（column）上的值与提供的 模板（pattern）相符的记录（区分大小写）。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.like(&amp;#39;name&amp;#39;, &amp;#39;%Alba%&amp;#39;)&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;模式（pattern）&#xD;[必要参数]&#xD;string类型&#xD;与之匹配的模式</description>
     </item>
     <item>
       <title>ilike()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/ilike/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/ilike/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/ilike/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/ilike/</guid>
       <description>ilike()用于查找所有在所述列（column）上的值与提供的 模板（pattern）相符的记录（不区分大小写）。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.ilike(&amp;#39;name&amp;#39;, &amp;#39;%Alba%&amp;#39;)&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;模式（pattern）&#xD;[必要参数]&#xD;string类型&#xD;与之匹配的模式</description>
     </item>
     <item>
       <title>is()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/is/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/is/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/is/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/is/</guid>
       <description>仅匹配列值与指定值相等的行。&#xA;对于非boolean型列，这只与检查column的值是否为NULL有关。 column的值是NULL，通过设置value为null。&#xA;对于boolean型列，你也可以将value设置为true或false，它的行为与 它的行为与.eq()相同。&#xA;案例教程 link案例1 (检查是否为 null) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;null&amp;#39;),&#xD;(2, null);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.is(&amp;#39;name&amp;#39;, null)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;null&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;使用eq()筛选器在过滤null时不起作用。相反，您需要使用is()。&#xA;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;null或者boolean类型&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>in()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/in/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/in/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/in/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/in/</guid>
       <description>in_()用于查找所有在指定列（column）上数值存在于指定值列表（arry）中的记录&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.in(&amp;#39;name&amp;#39;, [&amp;#39;Albania&amp;#39;, &amp;#39;Algeria&amp;#39;])&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列&#xA;值（value）&#xD;[必要参数]&#xD;任意类型数组&#xD;用来过滤的值</description>
     </item>
     <item>
       <title>contains()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/contains/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/contains/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/contains/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/contains/</guid>
       <description>该方法仅用于在 jsonb、数组（array）和范围（range）列上进行过滤&#xA;contains()的作用是匹配包含指定元素的行。&#xA;换句话说，在指定列中，匹配出来的记录的值是给定数组（array）的子集。&#xA;也就是说，在指定列中，给定的数组（array）包含了匹配出记录的所有元素。&#xA;案例教程 link案例1 （关于数组列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;issues (&#xD;id int8 primary key,&#xD;title text,&#xD;tags text[]&#xD;);&#xD;insert into&#xD;issues (id, title, tags)&#xD;values&#xD;(1, &amp;#39;Cache invalidation is not working&amp;#39;, array[&amp;#39;is:open&amp;#39;, &amp;#39;severity:high&amp;#39;, &amp;#39;priority:low&amp;#39;]),&#xD;(2, &amp;#39;Use better names&amp;#39;, array[&amp;#39;is:open&amp;#39;, &amp;#39;severity:low&amp;#39;, &amp;#39;priority:medium&amp;#39;]);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;users&amp;#39;)&#xD;.select()&#xD;.contains(&amp;#39;tags&amp;#39;, [&amp;#39;is:open&amp;#39;, &amp;#39;severity:high&amp;#39;, &amp;#39;priority:low&amp;#39;]); {&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;title&amp;#34;: &amp;#34;Cache invalidation is not working&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （关于范围列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>containedBy()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/containedby/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/containedby/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/containedby/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/containedby/</guid>
       <description>该方法仅用于在 jsonb、数组（array）和范围（range）列上进行过滤&#xA;contains()的作用是匹配那些其中每个元素都被包含在指定的值中的行。&#xA;换句话说，在指定列中，给定的数组（array）是匹配出来的记录值的子集&#xA;也就是说，在指定列中，匹配出来的记录的值包含了给定的数组（array）的所有元素。&#xA;案例教程 link案例1 （关于数组列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;classes (&#xD;id int8 primary key,&#xD;name text,&#xD;days text[]&#xD;);&#xD;insert into&#xD;classes (id, name, days)&#xD;values&#xD;(1, &amp;#39;Chemistry&amp;#39;, array[&amp;#39;monday&amp;#39;, &amp;#39;friday&amp;#39;]),&#xD;(2, &amp;#39;History&amp;#39;, array[&amp;#39;monday&amp;#39;, &amp;#39;wednesday&amp;#39;, &amp;#39;thursday&amp;#39;]);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;classes&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.containedBy(&amp;#39;days&amp;#39;, [&amp;#39;monday&amp;#39;, &amp;#39;tuesday&amp;#39;, &amp;#39;wednesday&amp;#39;, &amp;#39;friday&amp;#39;])&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Chemistry&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （关于范围列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>rangeGt()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangegt/</guid>
       <description>仅适用于范围（range）列&#xA;仅匹配列中的每个元素都大于范围(range)中的任何元素的行。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;reservations&amp;#39;)&#xD;.select()&#xD;.rangeGt(&amp;#39;during&amp;#39;, &amp;#39;[2000-01-02 08:00, 2000-01-02 09:00)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;room_name&amp;#34;: &amp;#34;Topaz&amp;#34;,&#xD;&amp;#34;during&amp;#34;: &amp;#34;[\&amp;#34;2000-01-02 09:00:00\&amp;#34;,\&amp;#34;2000-01-02 10:00:00\&amp;#34;)&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;Postgres 支持多种范围类型。您可以使用范围值的字符串表示来过滤范围列。</description>
     </item>
     <item>
       <title>rangeGte()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangegte/</guid>
       <description>仅适用于范围（range）列&#xA;仅匹配列中的每个元素要么包含在范围(range)内，要么大于范围(range)中的任何元素的行。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;reservations&amp;#39;)&#xD;.select()&#xD;.rangeGte(&amp;#39;during&amp;#39;, &amp;#39;[2000-01-02 08:30, 2000-01-02 09:30)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;room_name&amp;#34;: &amp;#34;Topaz&amp;#34;,&#xD;&amp;#34;during&amp;#34;: &amp;#34;[\&amp;#34;2000-01-02 09:00:00\&amp;#34;,\&amp;#34;2000-01-02 10:00:00\&amp;#34;)&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;Postgres 支持多种范围类型。您可以使用范围值的字符串表示来过滤范围列。</description>
     </item>
     <item>
       <title>rangeLt()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangelt/</guid>
       <description>仅适用于范围列&#xA;仅匹配列中的每个元素都小于范围(range)中的任何元素的行。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;reservations&amp;#39;)&#xD;.select()&#xD;.rangeLt(&amp;#39;during&amp;#39;, &amp;#39;[2000-01-01 15:00, 2000-01-01 16:00)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;room_name&amp;#34;: &amp;#34;Emerald&amp;#34;,&#xD;&amp;#34;during&amp;#34;: &amp;#34;[\&amp;#34;2000-01-01 13:00:00\&amp;#34;,\&amp;#34;2000-01-01 15:00:00\&amp;#34;)&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;Postgres 支持多种范围类型。您可以使用范围值的字符串表示来过滤范围列。</description>
     </item>
     <item>
       <title>rangeLte()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangelte/</guid>
       <description>仅适用于范围列&#xA;仅匹配列中的每个元素要么包含在范围(range)内，要么小于范围(range)中的任何元素的行。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;reservations&amp;#39;)&#xD;.select()&#xD;.rangeLte(&amp;#39;during&amp;#39;, &amp;#39;[2000-01-01 14:00, 2000-01-01 16:00)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;room_name&amp;#34;: &amp;#34;Emerald&amp;#34;,&#xD;&amp;#34;during&amp;#34;: &amp;#34;[\&amp;#34;2000-01-01 13:00:00\&amp;#34;,\&amp;#34;2000-01-01 15:00:00\&amp;#34;)&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;Postgres 支持多种范围类型。您可以使用范围值的字符串表示来过滤范围列。</description>
     </item>
     <item>
       <title>rangeAdjacent()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/rangeadjacent/</guid>
       <description>仅适用于范围列&#xA;仅匹配列与范围(range)互斥且两个范围之间不能有任何元素的行。&#xA;案例教程 link案例1 (使用select) link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;reservations&amp;#39;)&#xD;.select()&#xD;.rangeAdjacent(&amp;#39;during&amp;#39;, &amp;#39;[2000-01-01 12:00, 2000-01-01 13:00)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;room_name&amp;#34;: &amp;#34;Emerald&amp;#34;,&#xD;&amp;#34;during&amp;#34;: &amp;#34;[\&amp;#34;2000-01-01 13:00:00\&amp;#34;,\&amp;#34;2000-01-01 15:00:00\&amp;#34;)&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;Postgres 支持多种范围类型。您可以使用范围值的字符串表示来过滤范围列。</description>
     </item>
     <item>
       <title>overlaps()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/overlaps/</guid>
       <description>仅适用于数组列和范围列&#xA;仅匹配列（column）和值（value）有一个共同元素的行。&#xA;案例教程 link案例1 （关于数组列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;issues (&#xD;id int8 primary key,&#xD;title text,&#xD;tags text[]&#xD;);&#xD;insert into&#xD;issues (id, title, tags)&#xD;values&#xD;(1, &amp;#39;Cache invalidation is not working&amp;#39;, array[&amp;#39;is:open&amp;#39;, &amp;#39;severity:high&amp;#39;, &amp;#39;priority:low&amp;#39;]),&#xD;(2, &amp;#39;Use better names&amp;#39;, array[&amp;#39;is:open&amp;#39;, &amp;#39;severity:low&amp;#39;, &amp;#39;priority:medium&amp;#39;]);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;issues&amp;#39;)&#xD;.select(&amp;#39;title&amp;#39;)&#xD;.overlaps(&amp;#39;tags&amp;#39;, [&amp;#39;is:closed&amp;#39;, &amp;#39;severity:high&amp;#39;])&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;title&amp;#34;: &amp;#34;Cache invalidation is not working&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （关于范围列） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;reservations (&#xD;id int8 primary key,&#xD;room_name text,&#xD;during tsrange&#xD;);&#xD;insert into&#xD;reservations (id, room_name, during)&#xD;values&#xD;(1, &amp;#39;Emerald&amp;#39;, &amp;#39;[2000-01-01 13:00, 2000-01-01 15:00)&amp;#39;),&#xD;(2, &amp;#39;Topaz&amp;#39;, &amp;#39;[2000-01-02 09:00, 2000-01-02 10:00)&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>textSearch()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/textsearch/</guid>
       <description>仅适用于文本和 tsvector 列。&#xA;textSearch()作用是找到所有在指定列上的 tsvector 值与给定的 to_tsquery 查询条件匹配的记录。&#xA;更多信息，请参见Postgres全文搜索。 案例教程 link案例1 （文本搜索） link&#xD;使用方法&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;quotes&amp;#39;)&#xD;.select(&amp;#39;catchphrase&amp;#39;)&#xD;.textSearch(&amp;#39;catchphrase&amp;#39;, `&amp;#39;fat&amp;#39; &amp;amp; &amp;#39;cat&amp;#39;`, {&#xD;config: &amp;#39;english&amp;#39;&#xD;})&#xD;案例2 （基本归一化） link&#xD;使用方法&#xD;注意事项&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;quotes&amp;#39;)&#xD;.select(&amp;#39;catchphrase&amp;#39;)&#xD;.textSearch(&amp;#39;catchphrase&amp;#39;, `&amp;#39;fat&amp;#39; &amp;amp; &amp;#39;cat&amp;#39;`, {&#xD;type: &amp;#39;plain&amp;#39;,&#xD;config: &amp;#39;english&amp;#39;&#xD;})&#xD;使用PostgreSQL的plainto_tsquery函数。&#xA;案例3 （全面归一化） link&#xD;使用方法&#xD;注意事项&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>match()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/match/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/match/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/match/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/match/</guid>
       <description>仅匹配每个查询(query)键中的列与其关联值相等的行。相当于多个 .eq() 的简写。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.match({ id: 2, name: &amp;#39;Albania&amp;#39; })&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;查询（query）&#xD;[必要参数]&#xD;Record类型&#xD;用于筛选的对象，其中列名作为键映射到它们的筛选值。</description>
     </item>
     <item>
       <title>not()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/not/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/not/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/not/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/not/</guid>
       <description>仅匹配不满足筛选条件的行。&#xA;not()函数要求您使用原始的PostgREST语法来表示筛选条件的值。&#xA;.not(&amp;#39;id&amp;#39;, &amp;#39;in&amp;#39;, &amp;#39;(5,6,7)&amp;#39;) // Use `()` for `in` filter&#xD;.not(&amp;#39;arraycol&amp;#39;, &amp;#39;cs&amp;#39;, &amp;#39;{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use `cs` for `contains()`, `{}` for array values&#xD;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;null&amp;#39;),&#xD;(2, null);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.not(&amp;#39;name&amp;#39;, &amp;#39;is&amp;#39;, null)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;null&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[必要参数]&#xD;string类型&#xD;要过滤的列</description>
     </item>
     <item>
       <title>or()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/or/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/or/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/or/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/or/</guid>
       <description>仅匹配满足至少一个过滤条件的行。&#xA;or() 期望您使用原始的 PostgREST语法 来指定过滤器的名称和值。&#xA;.or(&amp;#39;id.in.(5,6,7), arraycol.cs.{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use `()` for `in` filter, `{}` for array values and `cs` for `contains()`.&#xD;.or(&amp;#39;id.in.(5,6,7), arraycol.cd.{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use `cd` for `containedBy()`&#xD;案例教程 link案例1 （和select一起使用） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.or(&amp;#39;id.eq.2,name.eq.Algeria&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （与and一起使用or） link&#xD;建表&#xD;使用方法&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>filter()</title>
-      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/filter/</link>
+      <link>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/filter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/database/filter/filter/</guid>
+      <guid>https://docs.memfiredb.com/docs/app/sdkdocs/wechatsdk/database/filter/filter/</guid>
       <description>仅匹配满足过滤器条件的行。&#xA;尽管filter()函数是一种通用的筛选方式，但为了代码的可读性和维护性，官方建议优先使用特定的筛选方法，以利用更简洁和直观的筛选语法。 例如，使用eq()、gt()、lt()等特定的筛选方法，可以使查询更加清晰和易于理解。&#xA;filter() 期望您使用原始的 PostgREST语法 来指定过滤器的值。&#xA;.filter(&amp;#39;id&amp;#39;, &amp;#39;in&amp;#39;, &amp;#39;(5,6,7)&amp;#39;) // Use `()` for `in` filter&#xD;.filter(&amp;#39;arraycol&amp;#39;, &amp;#39;cs&amp;#39;, &amp;#39;{&amp;#34;a&amp;#34;,&amp;#34;b&amp;#34;}&amp;#39;) // Use `cs` for `contains()`, `{}` for array values&#xD;案例教程 link案例1 （和select一起使用） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.filter(&amp;#39;name&amp;#39;, &amp;#39;in&amp;#39;, &amp;#39;(&amp;#34;Algeria&amp;#34;,&amp;#34;Japan&amp;#34;)&amp;#39;)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （在外部表上） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;&gt;&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;create table&#xD;cities (&#xD;id int8 primary key,&#xD;country_id int8 not null references countries,&#xD;name text&#xD;);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Germany&amp;#39;),&#xD;(2, &amp;#39;Indonesia&amp;#39;);&#xD;insert into&#xD;cities (id, country_id, name)&#xD;values&#xD;(1, 2, &amp;#39;Bali&amp;#39;),&#xD;(2, 1, &amp;#39;Munich&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
   </channel>
