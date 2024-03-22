@@ -19,6 +19,59 @@ toc: true
     <img class="projection" src="../img/index_picture.png">
 </div>
 
+
+
+## MemFire Cloud应用开发
+
+MemFire Cloud推出的基于Supabase与MemFireDB打造的一站式后端服务，为应用开发者提供云数据库、云存储、自动生成API、用户认证与授权、静态托管等功能，加速移动/Web/IoT/游戏等应用的开发，并降低运维成本。
+
+
+<div class="row flex-xl-wrap pb-4">
+
+<div id="list-item" class="col-md-4 col-12 py-2">
+  <a class="text-decoration-none text-reset" href="../app/overview/overview/">
+  <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+      <!-- <span class="h1 icon-color">
+        <i class="material-icons align-middle">highlight</i>
+      </span> -->
+      <div class="card-body p-0 content">
+        <p class="fs-5  card-title mb-1">应用开发文档</p>
+        <p class="para card-text mb-0"> 查看MemFire Cloud应用开发产品的全部文档</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div id="list-item" class="col-md-4 col-12 py-2">
+  <a class="text-decoration-none text-reset" href="/docs/app/quickstart/with-vue-3/">
+    <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+      <!-- <span class="h1 icon-color">
+        <i class="material-icons align-middle">flight_land</i>
+      </span> -->
+      <div class="card-body p-0 content">
+        <p class="fs-5  card-title mb-1"> 应用开发快速上手</p>
+        <p class="para card-text mb-0"> 快速体验和上手MemFire Cloud应用开发</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+<div id="list-item" class="col-md-4 col-12 py-2">
+  <a class="text-decoration-none text-reset" href="../app/example/wechat/notclickwhite/">
+    <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
+      <!-- <span class="h1 icon-color">
+        <i class="material-icons align-middle">search</i>
+      </span> -->
+      <div class="card-body p-0 content">
+        <p class="fs-5  card-title mb-1"> 开发应用样例</p>
+        <p class="para card-text mb-0"> 学习应用样例，快速构建一个应用</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+</div>
+
 ## MemFire Cloud云数据库
 
 MemFire Cloud致力于提供一站式数据库自助服务，隐藏复杂、专业的工作（比如：复杂的配置、数据库扩展、备份、运维等），实现开箱即用、按需使用、动态扩容、运维托管。
@@ -71,56 +124,7 @@ MemFire Cloud致力于提供一站式数据库自助服务，隐藏复杂、专�
 
 </div>
 
-## MemFire Cloud应用开发
 
-MemFire Cloud推出的基于Supabase与MemFireDB打造的一站式后端服务，为应用开发者提供云数据库、云存储、自动生成API、用户认证与授权、静态托管等功能，加速移动/Web/IoT/游戏等应用的开发，并降低运维成本。
-
-
-<div class="row flex-xl-wrap pb-4">
-
-<div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="../app/overview/overview/">
-  <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
-      <!-- <span class="h1 icon-color">
-        <i class="material-icons align-middle">highlight</i>
-      </span> -->
-      <div class="card-body p-0 content">
-        <p class="fs-5  card-title mb-1">应用开发文档</p>
-        <p class="para card-text mb-0"> 查看MemFire Cloud应用开发产品的全部文档</p>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="/docs/app/quickstart/with-vue-3/">
-    <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
-      <!-- <span class="h1 icon-color">
-        <i class="material-icons align-middle">flight_land</i>
-      </span> -->
-      <div class="card-body p-0 content">
-        <p class="fs-5  card-title mb-1"> 应用开发快速上手</p>
-        <p class="para card-text mb-0"> 快速体验和上手MemFire Cloud应用开发</p>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div id="list-item" class="col-md-4 col-12 py-2">
-  <a class="text-decoration-none text-reset" href="../app/example/wechat/notclickwhite/">
-    <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
-      <!-- <span class="h1 icon-color">
-        <i class="material-icons align-middle">search</i>
-      </span> -->
-      <div class="card-body p-0 content">
-        <p class="fs-5  card-title mb-1"> 开发应用样例</p>
-        <p class="para card-text mb-0"> 学习应用样例，快速构建一个应用</p>
-      </div>
-    </div>
-  </a>
-</div>
-
-</div>
 
 
 

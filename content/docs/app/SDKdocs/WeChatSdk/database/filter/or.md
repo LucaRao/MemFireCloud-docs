@@ -27,8 +27,6 @@ or() 期望您使用原始的 [PostgREST语法](https://postgrest.org/en/stable/
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -97,8 +95,6 @@ const { data, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -145,8 +141,6 @@ const { data, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 

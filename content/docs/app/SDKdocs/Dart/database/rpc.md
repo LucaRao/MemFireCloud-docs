@@ -23,8 +23,6 @@
   
   
   
->
-
 {{% tab tabName="使用方法" %}}
 
 
@@ -57,8 +55,6 @@ final data = await supabase
   
   
   
->
-
 {{% tab tabName="使用方法" %}}
 
 
@@ -74,3 +70,8 @@ final data = await supabase
 
 
 {{< /tabs >}}
+
+
+## 参考资料
+
+  - [数据库函数](/docs/app/development_guide/database/functions/)

@@ -1,5 +1,5 @@
 ---
-weight: 3004
+weight: 2104
 title: "实名认证"
 description: ""
 icon: "clinical_notes"

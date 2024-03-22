@@ -514,7 +514,7 @@ const supabase = createClient("https://xyzcompany.supabase.co", "public-anon-key
 <li className="method-list-item">
   <h4 className="method-list-item-label">
     <span className="method-list-item-label-name">
-      realtime
+      实时数据库
     </span>
     <span className="method-list-item-label-badge false">
       [可选参数]

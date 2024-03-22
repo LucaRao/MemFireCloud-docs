@@ -1,6 +1,6 @@
 ---
 weight: 2860
-title: "realtime"
+title: "实时数据库"
 description: ""
 icon: "article"
 date: "2023-12-13T17:39:49+08:00"

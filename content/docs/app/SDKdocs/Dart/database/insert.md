@@ -17,8 +17,6 @@ insert()用于在表(table)或视图(view)执行 INSERT 操作。
   
   
   
->
-
 {{% tab tabName="使用方法" %}}
 
 
@@ -45,8 +43,6 @@ await supabase
   
   
   
->
-
 {{% tab tabName="使用方法" %}}
 
 
@@ -73,8 +69,6 @@ await supabase.from('cities').insert([
   
   
   
->
-
 {{% tab tabName="使用方法" %}}
 
 

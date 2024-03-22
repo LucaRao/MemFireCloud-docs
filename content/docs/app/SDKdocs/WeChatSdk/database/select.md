@@ -23,8 +23,6 @@
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -99,8 +97,6 @@ const { data, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -165,14 +161,16 @@ const { data, error } = await supabase
 
 ### 案例3 (查询外键表)
 
+如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+
+如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+
 {{< tabs tabTotal="34" >}}
 
   
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -260,6 +258,7 @@ const { data, error } = await supabase
 
 
 
+
 {{% /tab %}}
 
 {{< /tabs >}}
@@ -271,14 +270,15 @@ const { data, error } = await supabase
 
 ### 案例4 (通过连接表查询外键表)
 
+如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+
 {{< tabs tabTotal="34" >}}
 
   
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -392,14 +392,15 @@ values
 
 ### 案例5 (多次查询同一外键表)
 
+如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+
 {{< tabs tabTotal="34" >}}
 
   
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -487,14 +488,15 @@ const { data, error } = await supabase
 
 ### 案例6 (通过外键表进行筛选)
 
+如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+
 {{< tabs tabTotal="34" >}}
 
   
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -579,14 +581,15 @@ const { data, error } = await supabase
 
 ### 案例7 (使用COUNT对外键表进行查询)
 
+如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+
 {{< tabs tabTotal="34" >}}
 
   
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -672,8 +675,6 @@ const { data, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
@@ -743,8 +744,6 @@ const { count, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 

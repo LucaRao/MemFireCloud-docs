@@ -28,8 +28,6 @@ const { data, error } = await supabase
   
   
   
->
-
 {{% tab tabName="建表" %}}
 
 
