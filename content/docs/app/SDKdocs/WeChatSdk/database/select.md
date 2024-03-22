@@ -161,9 +161,9 @@ const { data, error } = await supabase
 
 ### 案例3 (查询外键表)
 
-如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+如需了解更多关于多表关联的信息，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
 
-如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+如需了解更多关于数据表的信息，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
 
 {{< tabs tabTotal="34" >}}
 
@@ -270,8 +270,9 @@ const { data, error } = await supabase
 
 ### 案例4 (通过连接表查询外键表)
 
-如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
-如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+如需了解更多关于多表关联的信息，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+
+如需了解更多关于数据表的信息，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
 
 {{< tabs tabTotal="34" >}}
 
@@ -392,8 +393,9 @@ values
 
 ### 案例5 (多次查询同一外键表)
 
-如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
-如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+如需了解更多关于多表关联的信息，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+
+如需了解更多关于数据表的信息，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
 
 {{< tabs tabTotal="34" >}}
 
@@ -488,8 +490,9 @@ const { data, error } = await supabase
 
 ### 案例6 (通过外键表进行筛选)
 
-如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
-如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+如需了解更多关于多表关联的信息，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+
+如需了解更多关于数据表的信息，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
 
 {{< tabs tabTotal="34" >}}
 
@@ -581,8 +584,9 @@ const { data, error } = await supabase
 
 ### 案例7 (使用COUNT对外键表进行查询)
 
-如果对多表关联还没有了解清楚，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
-如果对数据表还没有了解清楚，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
+如需了解更多关于多表关联的信息，可以查阅此文档：[多表关联](/docs/app/development_guide/database/associated-query/)
+
+如需了解更多关于数据表的信息，可以查阅此文档：[表格和数据](/docs/app/development_guide/database/tables/)
 
 {{< tabs tabTotal="34" >}}
 
