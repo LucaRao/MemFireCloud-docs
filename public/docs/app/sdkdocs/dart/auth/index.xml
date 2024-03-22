@@ -1,88 +1,88 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>认证 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/dart/auth/</link>
-    <description>Recent content in 认证 on My New Hugo Site</description>
+    <title>认证 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/</link>
+    <description>Recent content in 认证 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/docs/app/sdkdocs/dart/auth/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/auth/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>signUp()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-signup/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-signup/</guid>
-      <description>创建一个新的用户。&#xA;final AuthResponse res = await supabase.auth.signUp( email: &amp;#39;example@email.com&amp;#39;, password: &amp;#39;example-password&amp;#39;, ); final Session? session = res.session; final User? user = res.user; Notes link 默认情况下，用户在登录前需要验证他们的电子邮件地址。要关闭这个功能，请在你的项目中禁用确认电子邮件。 确认电子邮件决定了用户在注册后是否需要确认他们的电子邮件地址。 如果确认电子邮件被启用，将返回一个用户，但会话为空。 如果确认电子邮件被禁用，则同时返回一个用户&#39;和一个会话`。 当用户确认他们的电子邮件地址时，他们默认会被重定向到SITE_URL。你可以修改你的SITE_URL或在你的项目中添加额外的重定向URL。 如果为一个现有的确认用户调用signUp()。 如果在你的项目中启用了确认邮件，将返回一个混淆的/假的用户对象。 如果确认电子邮件被禁用，将返回错误信息 &amp;ldquo;用户已经注册&amp;rdquo;。 Examples linkSign up. link final AuthResponse res = await supabase.auth.signUp( email: &amp;#39;example@email.com&amp;#39;, password: &amp;#39;example-password&amp;#39;, ); final Session? session = res.session; final User? user = res.user; 与第三方供应商签约。 link如果你使用Flutter，你可以使用supabase_flutter上的signInWithOAuth()`方法与OAuth提供商签约。</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signup/</guid>
+      <description>创建一个新的用户。&#xA;final AuthResponse res = await supabase.auth.signUp(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;Notes link 默认情况下，用户在登录前需要验证他们的电子邮件地址。要关闭这个功能，请在你的项目中禁用确认电子邮件。 确认电子邮件决定了用户在注册后是否需要确认他们的电子邮件地址。 如果确认电子邮件被启用，将返回一个用户，但会话为空。 如果确认电子邮件被禁用，则同时返回一个用户&#39;和一个会话`。 当用户确认他们的电子邮件地址时，他们默认会被重定向到SITE_URL。你可以修改你的SITE_URL或在你的项目中添加额外的重定向URL。 如果为一个现有的确认用户调用signUp()。 如果在你的项目中启用了确认邮件，将返回一个混淆的/假的用户对象。 如果确认电子邮件被禁用，将返回错误信息 &amp;ldquo;用户已经注册&amp;rdquo;。 Examples linkSign up. link&#xD;final AuthResponse res = await supabase.auth.signUp(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;与第三方供应商签约。 link如果你使用Flutter，你可以使用supabase_flutter上的signInWithOAuth()`方法与OAuth提供商签约。</description>
     </item>
     <item>
       <title>signInWithPassword()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</guid>
-      <description>使用电子邮件或电话号码与密码登录现有用户。&#xA;final AuthResponse res = await supabase.auth.signInWithPassword( email: &amp;#39;example@email.com&amp;#39;, password: &amp;#39;example-password&amp;#39;, ); final Session? session = res.session; final User? user = res.user; Notes link 需要电子邮件和密码或电话号码和密码。 Examples link用电子邮件和密码登录 link final AuthResponse res = await supabase.auth.signInWithPassword( email: &amp;#39;example@email.com&amp;#39;, password: &amp;#39;example-password&amp;#39;, ); final Session? session = res.session; final User? user = res.user; 用电话和密码登录 link final AuthResponse res = await supabase.auth.signInWithPassword( phone: &amp;#39;&amp;#43;13334445555&amp;#39;, password: &amp;#39;example-password&amp;#39;, ); final Session? session = res.session; final User? user = res.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithpassword/</guid>
+      <description>使用电子邮件或电话号码与密码登录现有用户。&#xA;final AuthResponse res = await supabase.auth.signInWithPassword(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;Notes link 需要电子邮件和密码或电话号码和密码。 Examples link用电子邮件和密码登录 link&#xD;final AuthResponse res = await supabase.auth.signInWithPassword(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;用电话和密码登录 link&#xD;final AuthResponse res = await supabase.auth.signInWithPassword(&#xD;phone: &amp;#39;&amp;#43;13334445555&amp;#39;,&#xD;password: &amp;#39;example-password&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.</description>
     </item>
     <item>
       <title>signInWithOtp()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</guid>
-      <description> await supabase.auth.signInWithOtp( email: &amp;#39;example@email.com&amp;#39;, emailRedirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://signin-callback/&amp;#39;, ); Notes link 要求提供电子邮件或电话号码。 这种方法用于无密码登录，OTP被发送到用户的电子邮件或电话号码。 如果你使用电子邮件，你可以配置你是否想让用户收到一个魔术链接或OTP。 如果你使用电话，你可以配置你是否希望用户收到OTP。 魔法链接的目标URL是由SITE_URL决定的。你可以修改SITE_URL或在你的项目中添加额外的重定向url。 Examples link用电子邮件登录。 link用户将被发送一封电子邮件，其中包含一个magiclink或OTP或两者。默认情况下，一个用户每60秒只能请求一次OTP。 你可以通过emailRedirectTo和动态链接，使用户在点击魔法链接后回到你的应用程序。&#xA;await supabase.auth.signInWithOtp( email: &amp;#39;example@email.com&amp;#39;, emailRedirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://signin-callback/&amp;#39;, ); 用短信OTP登录。 link用户将被发送一条包含OTP的短信。默认情况下，一个特定的用户只能每60秒请求一次OTP。&#xA;await supabase.auth.signInWithOtp( phone: &amp;#39;&amp;#43;13334445555&amp;#39;, ); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithotp/</guid>
+      <description>&#xD;await supabase.auth.signInWithOtp(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;emailRedirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://signin-callback/&amp;#39;,&#xD;);&#xD;Notes link 要求提供电子邮件或电话号码。 这种方法用于无密码登录，OTP被发送到用户的电子邮件或电话号码。 如果你使用电子邮件，你可以配置你是否想让用户收到一个魔术链接或OTP。 如果你使用电话，你可以配置你是否希望用户收到OTP。 魔法链接的目标URL是由SITE_URL决定的。你可以修改SITE_URL或在你的项目中添加额外的重定向url。 Examples link用电子邮件登录。 link用户将被发送一封电子邮件，其中包含一个magiclink或OTP或两者。默认情况下，一个用户每60秒只能请求一次OTP。 你可以通过emailRedirectTo和动态链接，使用户在点击魔法链接后回到你的应用程序。&#xA;await supabase.auth.signInWithOtp(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;emailRedirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://signin-callback/&amp;#39;,&#xD;);&#xD;用短信OTP登录。 link用户将被发送一条包含OTP的短信。默认情况下，一个特定的用户只能每60秒请求一次OTP。&#xA;await supabase.auth.signInWithOtp(&#xD;phone: &amp;#39;&amp;#43;13334445555&amp;#39;,&#xD;);&#xD;</description>
     </item>
     <item>
       <title>signInWithOAuth()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</guid>
-      <description>使用第三方OAuth提供商对用户进行签名。&#xA;await supabase.auth.signInWithOAuth(Provider.github); Notes link 这种方法用于使用第三方提供商进行登录。 Supabase支持许多不同的第三方提供商。 Examples link使用第三方供应商登录 link await supabase.auth.signInWithOAuth(Provider.github); 使用 redirectTo link指定重定向链接，通过深层链接把用户带回来。 注意，对于Flutter Web，redirectTo应该是空的。&#xA;await supabase.auth.signInWithOAuth( Provider.github, redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;, ); 使用 scopes link如果你需要OAuth提供商的额外数据，你可以在你的请求中包括一个空格分隔的范围列表，以获得OAuth提供商的令牌。 你可能还需要在提供者的OAuth应用设置中指定范围，这取决于提供者。&#xA;await supabase.auth.signInWithOAuth( Provider.github, scopes: &amp;#39;repo gist notifications&amp;#39; ); ... // after user comes back from signin flow final Session? session = supabase.auth.currentSession; final String? oAuthToken = session?.providerToken; </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signinwithoauth/</guid>
+      <description>使用第三方OAuth提供商对用户进行签名。&#xA;await supabase.auth.signInWithOAuth(Provider.github);&#xD;Notes link 这种方法用于使用第三方提供商进行登录。 Supabase支持许多不同的第三方提供商。 Examples link使用第三方供应商登录 link&#xD;await supabase.auth.signInWithOAuth(Provider.github);&#xD;使用 redirectTo link指定重定向链接，通过深层链接把用户带回来。 注意，对于Flutter Web，redirectTo应该是空的。&#xA;await supabase.auth.signInWithOAuth(&#xD;Provider.github,&#xD;redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;,&#xD;);&#xD;使用 scopes link如果你需要OAuth提供商的额外数据，你可以在你的请求中包括一个空格分隔的范围列表，以获得OAuth提供商的令牌。 你可能还需要在提供者的OAuth应用设置中指定范围，这取决于提供者。&#xA;await supabase.auth.signInWithOAuth(&#xD;Provider.github,&#xD;scopes: &amp;#39;repo gist notifications&amp;#39;&#xD;);&#xD;...&#xD;// after user comes back from signin flow&#xD;final Session? session = supabase.auth.currentSession;&#xD;final String? oAuthToken = session?.providerToken;&#xD;</description>
     </item>
     <item>
       <title>signOut()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-signout/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-signout/</guid>
-      <description>退出当前用户，如果有一个登录的用户。&#xA;await supabase.auth.signOut(); Notes link 为了使用signOut()方法，用户需要先退出。 Examples linkSign out link await supabase.auth.signOut(); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-signout/</guid>
+      <description>退出当前用户，如果有一个登录的用户。&#xA;await supabase.auth.signOut();&#xD;Notes link 为了使用signOut()方法，用户需要先退出。 Examples linkSign out link&#xD;await supabase.auth.signOut();&#xD;</description>
     </item>
     <item>
       <title>verifyOtp()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-verifyotp/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-verifyotp/</guid>
-      <description>final AuthResponse res = await supabase.auth.verifyOTP( type: OtpType.sms, token: &amp;#39;111111&amp;#39;, phone: &amp;#39;&amp;#43;13334445555&amp;#39;, ); final Session? session = res.session; final User? user = res.user; Notes link verifyOtp方法接受不同的验证类型。如果使用电话号码，类型可以是sms或phone_change。如果使用的是电子邮件地址，类型可以是下列之一。signup, magiclink, recovery, invite 或 email_change. 使用的验证类型应该根据在verifyOtp之前调用的相应的auth方法来确定，以注册/登录一个用户。 Examples link验证短信一次性密码(OTP) link final AuthResponse res = await supabase.auth.verifyOTP( type: OtpType.sms, token: &amp;#39;111111&amp;#39;, phone: &amp;#39;&amp;#43;13334445555&amp;#39;, ); final Session? session = res.session; final User? user = res.user; 验证注册 一次性密码(OTP) link final AuthResponse res = await supabase.auth.verifyOTP( type: OtpType.signup, token: token, phone: &amp;#39;&amp;#43;13334445555&amp;#39;, ); final Session?</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-verifyotp/</guid>
+      <description>final AuthResponse res = await supabase.auth.verifyOTP(&#xD;type: OtpType.sms,&#xD;token: &amp;#39;111111&amp;#39;,&#xD;phone: &amp;#39;&amp;#43;13334445555&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;Notes link verifyOtp方法接受不同的验证类型。如果使用电话号码，类型可以是sms或phone_change。如果使用的是电子邮件地址，类型可以是下列之一。signup, magiclink, recovery, invite 或 email_change. 使用的验证类型应该根据在verifyOtp之前调用的相应的auth方法来确定，以注册/登录一个用户。 Examples link验证短信一次性密码(OTP) link&#xD;final AuthResponse res = await supabase.auth.verifyOTP(&#xD;type: OtpType.sms,&#xD;token: &amp;#39;111111&amp;#39;,&#xD;phone: &amp;#39;&amp;#43;13334445555&amp;#39;,&#xD;);&#xD;final Session? session = res.session;&#xD;final User? user = res.user;&#xD;验证注册 一次性密码(OTP) link&#xD;final AuthResponse res = await supabase.auth.verifyOTP(&#xD;type: OtpType.signup,&#xD;token: token,&#xD;phone: &amp;#39;&amp;#43;13334445555&amp;#39;,&#xD;);&#xD;final Session?</description>
     </item>
     <item>
       <title>currentSession</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-currentsession/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentsession/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-currentsession/</guid>
-      <description>如果有一个活动的会话，返回会话数据。&#xA;final Session? session = supabase.auth.currentSession; Examples link获取会话数据 link final Session? session = supabase.auth.currentSession; </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentsession/</guid>
+      <description>如果有一个活动的会话，返回会话数据。&#xA;final Session? session = supabase.auth.currentSession;&#xD;Examples link获取会话数据 link&#xD;final Session? session = supabase.auth.currentSession;&#xD;</description>
     </item>
     <item>
       <title>currentUser</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-currentuser/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentuser/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-currentuser/</guid>
-      <description>返回用户数据，如果有一个登录的用户。&#xA;final User? user = supabase.auth.currentUser; Examples link获取登录的用户 link final User? user = supabase.auth.currentUser; </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-currentuser/</guid>
+      <description>返回用户数据，如果有一个登录的用户。&#xA;final User? user = supabase.auth.currentUser;&#xD;Examples link获取登录的用户 link&#xD;final User? user = supabase.auth.currentUser;&#xD;</description>
     </item>
     <item>
       <title>updateUser()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-updateuser/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-updateuser/</guid>
-      <description>更新用户数据，如果有一个登录的用户。&#xA;final UserResponse res = await supabase.auth.updateUser( UserAttributes( email: &amp;#39;example@email.com&amp;#39;, ), ); final User? updatedUser = res.user; Notes link 为了使用updateUser()方法，用户需要先登录。 默认情况下，电子邮件更新会向用户的当前和新的电子邮件发送一个确认链接。 要想只向用户的新邮箱发送确认链接，请在你的项目的email auth provider settings中禁用安全的邮件变更。 Examples link更新已认证用户的电子邮件 link向新的电子邮件地址发送一封 &amp;ldquo;确认电子邮件变更 &amp;ldquo;的电子邮件。&#xA;final UserResponse res = await supabase.auth.updateUser( UserAttributes( email: &amp;#39;example@email.com&amp;#39;, ), ); final User? updatedUser = res.user; 更新一个已认证用户的密码 link final UserResponse res = await supabase.auth.updateUser( UserAttributes( password: &amp;#39;new password&amp;#39;, ), ); final User? updatedUser = res.user; 更新用户的元数据 link final UserResponse res = await supabase.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-updateuser/</guid>
+      <description>更新用户数据，如果有一个登录的用户。&#xA;final UserResponse res = await supabase.auth.updateUser(&#xD;UserAttributes(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;),&#xD;);&#xD;final User? updatedUser = res.user;&#xD;Notes link 为了使用updateUser()方法，用户需要先登录。 默认情况下，电子邮件更新会向用户的当前和新的电子邮件发送一个确认链接。 要想只向用户的新邮箱发送确认链接，请在你的项目的email auth provider settings中禁用安全的邮件变更。 Examples link更新已认证用户的电子邮件 link向新的电子邮件地址发送一封 &amp;ldquo;确认电子邮件变更 &amp;ldquo;的电子邮件。&#xA;final UserResponse res = await supabase.auth.updateUser(&#xD;UserAttributes(&#xD;email: &amp;#39;example@email.com&amp;#39;,&#xD;),&#xD;);&#xD;final User? updatedUser = res.user;&#xD;更新一个已认证用户的密码 link&#xD;final UserResponse res = await supabase.auth.updateUser(&#xD;UserAttributes(&#xD;password: &amp;#39;new password&amp;#39;,&#xD;),&#xD;);&#xD;final User? updatedUser = res.user;&#xD;更新用户的元数据 link&#xD;final UserResponse res = await supabase.</description>
     </item>
     <item>
       <title>onAuthStateChange()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</guid>
-      <description>每次发生认证事件时都会收到通知。&#xA;final authSubscription = supabase.auth.onAuthStateChange.listen((data) { final AuthChangeEvent event = data.event; final Session? session = data.session; }); Notes link 认证事件的类型: AuthChangeEvent.passwordRecovery, AuthChangeEvent.signedIn, AuthChangeEvent.signedOut, AuthChangeEvent.tokenRefreshed, AuthChangeEvent.userUpdatedand AuthChangeEvent.userDeleted Examples link监听认证变化 link final authSubscription = supabase.auth.onAuthStateChange.listen((data) { final AuthChangeEvent event = data.event; final Session? session = data.session; }); 监听一个特定的事件 link final authSubscription = supabase.auth.onAuthStateChange.listen((data) { final AuthChangeEvent event = data.event; if (event == AuthChangeEvent.signedIn) { // handle signIn } }); 退订自动订阅 link final authSubscription = supabase.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-onauthstatechange/</guid>
+      <description>每次发生认证事件时都会收到通知。&#xA;final authSubscription = supabase.auth.onAuthStateChange.listen((data) {&#xD;final AuthChangeEvent event = data.event;&#xD;final Session? session = data.session;&#xD;});&#xD;Notes link 认证事件的类型: AuthChangeEvent.passwordRecovery, AuthChangeEvent.signedIn, AuthChangeEvent.signedOut, AuthChangeEvent.tokenRefreshed, AuthChangeEvent.userUpdatedand AuthChangeEvent.userDeleted Examples link监听认证变化 link&#xD;final authSubscription = supabase.auth.onAuthStateChange.listen((data) {&#xD;final AuthChangeEvent event = data.event;&#xD;final Session? session = data.session;&#xD;});&#xD;监听一个特定的事件 link&#xD;final authSubscription = supabase.auth.onAuthStateChange.listen((data) {&#xD;final AuthChangeEvent event = data.event;&#xD;if (event == AuthChangeEvent.signedIn) {&#xD;// handle signIn&#xD;}&#xD;});&#xD;退订自动订阅 link&#xD;final authSubscription = supabase.</description>
     </item>
     <item>
       <title>resetPasswordForEmail()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</guid>
-      <description>向电子邮件地址发送重置请求。&#xA;redirectTo is used to open the app via deeplink when user opens the password reset email.&#xA;await supabase.auth.resetPasswordForEmail( &amp;#39;sample@email.com&amp;#39;, redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;, ); Notes link向一个电子邮件地址发送一个密码重置请求。当用户点击邮件中的重置链接时，他们会被重定向到你的应用程序。提示用户输入新的密码并调用auth.updateUser()。&#xA;await supabase.auth.resetPasswordForEmail( &amp;#39;sample@email.com&amp;#39;, redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;, ); Examples link重置Flutter的密码 linkredirectTo is used to open the app via deeplink when user opens the password reset email.&#xA;await supabase.auth.resetPasswordForEmail( &amp;#39;sample@email.com&amp;#39;, redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;, ); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/auth/auth-resetpasswordforemail/</guid>
+      <description>向电子邮件地址发送重置请求。&#xA;redirectTo is used to open the app via deeplink when user opens the password reset email.&#xA;await supabase.auth.resetPasswordForEmail(&#xD;&amp;#39;sample@email.com&amp;#39;,&#xD;redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;,&#xD;);&#xD;Notes link向一个电子邮件地址发送一个密码重置请求。当用户点击邮件中的重置链接时，他们会被重定向到你的应用程序。提示用户输入新的密码并调用auth.updateUser()。&#xA;await supabase.auth.resetPasswordForEmail(&#xD;&amp;#39;sample@email.com&amp;#39;,&#xD;redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;,&#xD;);&#xD;Examples link重置Flutter的密码 linkredirectTo is used to open the app via deeplink when user opens the password reset email.&#xA;await supabase.auth.resetPasswordForEmail(&#xD;&amp;#39;sample@email.com&amp;#39;,&#xD;redirectTo: kIsWeb ? null : &amp;#39;io.supabase.flutter://reset-callback/&amp;#39;,&#xD;);&#xD;</description>
     </item>
   </channel>
 </rss>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>函数 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/dart/function/</link>
-    <description>Recent content in 函数 on My New Hugo Site</description>
+    <title>函数 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/dart/function/</link>
+    <description>Recent content in 函数 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/docs/app/sdkdocs/dart/function/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/function/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>invoke()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/function/invoke/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/function/invoke/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/function/invoke/</guid>
-      <description>调用一个Supabase函数。请参阅指南，了解关于编写函数的详细信息。&#xA;final res = await supabase.functions.invoke(&amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;}); final data = res.data; Notes link 需要一个授权标头。 调用参数通常符合Fetch API规范。 Examples link基本调用。 link final res = await supabase.functions.invoke(&amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;}); final data = res.data; 指定响应类型。 link默认情况下，invoke()将把响应解析为JSON。你可以用以下格式解析响应。json, blob, text, 和arrayBuffer.&#xA;final res = await supabase.functions.invoke( &amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;}, responseType: ResponseType.text, ); final data = res.data; 解析自定义头信息。 link任何 headers信息都将被传递给该函数。一个常见的模式是将登录用户的JWT令牌作为授权标头传递。&#xA;final res = await supabase.functions.invoke( &amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;}, headers: { &amp;#39;Authorization&amp;#39;: &amp;#39;Bearer ${supabase.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/function/invoke/</guid>
+      <description>调用一个Supabase函数。请参阅指南，了解关于编写函数的详细信息。&#xA;final res = await supabase.functions.invoke(&amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;});&#xD;final data = res.data;&#xD;Notes link 需要一个授权标头。 调用参数通常符合Fetch API规范。 Examples link基本调用。 link&#xD;final res = await supabase.functions.invoke(&amp;#39;hello&amp;#39;, body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;});&#xD;final data = res.data;&#xD;指定响应类型。 link默认情况下，invoke()将把响应解析为JSON。你可以用以下格式解析响应。json, blob, text, 和arrayBuffer.&#xA;final res = await supabase.functions.invoke(&#xD;&amp;#39;hello&amp;#39;,&#xD;body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;},&#xD;responseType: ResponseType.text,&#xD;);&#xD;final data = res.data;&#xD;解析自定义头信息。 link任何 headers信息都将被传递给该函数。一个常见的模式是将登录用户的JWT令牌作为授权标头传递。&#xA;final res = await supabase.functions.invoke(&#xD;&amp;#39;hello&amp;#39;,&#xD;body: {&amp;#39;foo&amp;#39;: &amp;#39;baa&amp;#39;},&#xD;headers: {&#xD;&amp;#39;Authorization&amp;#39;: &amp;#39;Bearer ${supabase.</description>
     </item>
   </channel>
 </rss>

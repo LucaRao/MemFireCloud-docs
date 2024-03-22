@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>开始 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/dart/start/</link>
-    <description>Recent content in 开始 on My New Hugo Site</description>
+    <title>开始 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/dart/start/</link>
+    <description>Recent content in 开始 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/docs/app/sdkdocs/dart/start/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/start/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Flutter库</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/start/dart/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/start/dart/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/start/dart/</guid>
       <description>本参考文献记录了Supabase的同构Flutter库supabase-flutter中的每个对象和方法。&#xA;你可以使用supabase-flutter库来。&#xA;与您的Postgres数据库互动 听取数据库的变化 调用数据库函数 建立登录和用户管理功能 管理大文件 适用于非Flutter项目 link我们还有supabase-dart用于非Flutter Dart项目，如服务器端Dart或Angular-Dart。 supabase-dart与supabase-flutter共享大部分的API，而不依赖于Flutter，因此你可以在任何可以运行Dart的地方使用Supabase!&#xA;相关链接 link 源代码 已知的错误和问题 </description>
     </item>
     <item>
       <title>初始化</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/start/initializing/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/start/initializing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/start/initializing/</guid>
-      <description>在使用 Supabase 的功能之前，需要先对 Supabase 进行初始化。这可以通过调用 Supabase 类的静态方法 initialize() 来实现。这个方法可能需要提供一些配置参数，以便正确地连接到 Supabase 服务。&#xA;一旦完成初始化，Supabase 客户端就是您与 Supabase 服务进行交互的主要接口。通过客户端，您可以访问 Supabase 提供的各种功能和服务。这是与 Supabase 生态系统内的其他组件交互的最简单且主要的方式，使您能够轻松地使用 Supabase 提供的各种功能。&#xA;案例教程 link案例1 （Flutter项目） link 使用方法 Future&amp;lt;void&amp;gt; main() async { await Supabase.initialize( url: &amp;#39;https://xyzcompany.supabase.co&amp;#39;, anonKey: &amp;#39;public-anon-key&amp;#39;, ); runApp(MyApp()); } // Get a reference your Supabase client final supabase = Supabase.instance.client; 案例2 （其他Dart项目） link 使用方法 final supabase = SupabaseClient( &amp;#39;https://xyzcompany.supabase.co&amp;#39;, &amp;#39;public-anon-key&amp;#39;, ); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/start/initializing/</guid>
+      <description>在使用 Supabase 的功能之前，需要先对 Supabase 进行初始化。这可以通过调用 Supabase 类的静态方法 initialize() 来实现。这个方法可能需要提供一些配置参数，以便正确地连接到 Supabase 服务。&#xA;一旦完成初始化，Supabase 客户端就是您与 Supabase 服务进行交互的主要接口。通过客户端，您可以访问 Supabase 提供的各种功能和服务。这是与 Supabase 生态系统内的其他组件交互的最简单且主要的方式，使您能够轻松地使用 Supabase 提供的各种功能。&#xA;案例教程 link案例1 （Flutter项目） link&#xD;使用方法&#xD;Future&amp;lt;void&amp;gt; main() async {&#xD;await Supabase.initialize(&#xD;url: &amp;#39;https://xyzcompany.supabase.co&amp;#39;,&#xD;anonKey: &amp;#39;public-anon-key&amp;#39;,&#xD;);&#xD;runApp(MyApp());&#xD;}&#xD;// Get a reference your Supabase client&#xD;final supabase = Supabase.instance.client;&#xD;案例2 （其他Dart项目） link&#xD;使用方法&#xD;final supabase = SupabaseClient(&#xD;&amp;#39;https://xyzcompany.supabase.co&amp;#39;,&#xD;&amp;#39;public-anon-key&amp;#39;,&#xD;);&#xD;</description>
     </item>
     <item>
       <title>安装</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/start/installing/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/start/installing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/start/installing/</guid>
-      <description>Flutter项目 link对于Flutter项目，你可以使用supabase_flutter包。&#xA;flutter pub add supabase_flutter 其他Dart项目 link对于使用Dart的非Flutter项目，如服务器端Dart或Angular-Dart，你可以使用supabase包。&#xA;dart pub add supabase </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/start/installing/</guid>
+      <description>Flutter项目 link对于Flutter项目，你可以使用supabase_flutter包。&#xA;flutter pub add supabase_flutter&#xD;其他Dart项目 link对于使用Dart的非Flutter项目，如服务器端Dart或Angular-Dart，你可以使用supabase包。&#xA;dart pub add supabase&#xD;</description>
     </item>
     <item>
       <title>更新</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/start/upgrade-guide/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/start/upgrade-guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/start/upgrade-guide/</guid>
-      <description>supabase-flutter专注于改善开发者的体验，使其更容易使用。本指南将帮助你从supabase-flutter v0升级到v1。&#xA;升级客户端库 link更新你的pubspec.yaml文件中的软件包。&#xA;supabase_flutter: ^1.0.0 错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。&#xA;Before After final res = await supabase.from(&amp;#39;my_table&amp;#39;).select().execute(); final error = res.error; if (error != null) { // handle error } final data = res.data; try { final data = supabase.from(&amp;#39;my_table&amp;#39;).select(); } catch (error) { // handle error } Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。&#xA;Before After await Supabase.initialize( url: &amp;#39;SUPABASE_URL&amp;#39;, anonKey: &amp;#39;SUPABASE_ANON_KEY&amp;#39;, ); ... class AuthState&amp;lt;T extends StatefulWidget&amp;gt; extends SupabaseAuthState&amp;lt;T&amp;gt; { ... } ... class AuthRequiredState&amp;lt;T extends StatefulWidget&amp;gt; extends SupabaseAuthState&amp;lt;T&amp;gt; { .</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/start/upgrade-guide/</guid>
+      <description>supabase-flutter专注于改善开发者的体验，使其更容易使用。本指南将帮助你从supabase-flutter v0升级到v1。&#xA;升级客户端库 link更新你的pubspec.yaml文件中的软件包。&#xA;supabase_flutter: ^1.0.0&#xD;错误处理 linksupabase-flutter抛出错误的方式在v1中有所改变。在v1中，错误是以异常形式抛出的。这使得作为Flutter开发者处理错误时更加直观。&#xA;Before&#xD;After&#xD;final res = await supabase.from(&amp;#39;my_table&amp;#39;).select().execute();&#xD;final error = res.error;&#xD;if (error != null) {&#xD;// handle error&#xD;}&#xD;final data = res.data;&#xD;try {&#xD;final data = supabase.from(&amp;#39;my_table&amp;#39;).select();&#xD;} catch (error) {&#xD;// handle error&#xD;}&#xD;Auth类/方法 linkSupabaseAuthState和SupabaseAuthRequiredState类的用法 link在v0中，SupabaseAuthState和SupabaseAuthRequiredState是用来处理自动令牌刷新和监听认证状态变化的。在v1版本中，SupabaseAuthState和SupabaseAuthRequiredState被弃用，令牌刷新将通过初始化Supabase自动发生。onAuthStateChange可以用来对auth状态的变化采取行动。&#xA;Before&#xD;After&#xD;await Supabase.initialize(&#xD;url: &amp;#39;SUPABASE_URL&amp;#39;,&#xD;anonKey: &amp;#39;SUPABASE_ANON_KEY&amp;#39;,&#xD;);&#xD;...&#xD;class AuthState&amp;lt;T extends StatefulWidget&amp;gt; extends SupabaseAuthState&amp;lt;T&amp;gt; {&#xD;...&#xD;}&#xD;...&#xD;class AuthRequiredState&amp;lt;T extends StatefulWidget&amp;gt; extends SupabaseAuthState&amp;lt;T&amp;gt; {&#xD;.</description>
     </item>
   </channel>
 </rss>

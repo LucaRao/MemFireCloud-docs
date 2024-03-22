@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>修改器 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/</link>
-    <description>Recent content in 修改器 on My New Hugo Site</description>
+    <title>修改器 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/</link>
+    <description>Recent content in 修改器 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/app/sdkdocs/javascript/database/modifier/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用修改器</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/using-modifiers/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/using-modifiers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/using-modifiers/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/using-modifiers/</guid>
       <description>过滤器是在行的层面上工作的&amp;ndash;它们允许你在不改变行的形状的情况下，返回只符合特定条件的行。 只符合某些条件的行，而不改变行的形状。修改器是不符合该定义的一切，允许你改变响应的格式（例如，返回一个CSV字符串）。&#xA;修改器必须在过滤器之后指定。有些修改器只适用于一些修改器只适用于返回行的查询（例如，select()或rpc()在一个返回表的函数上返回表格响应的函数）。</description>
     </item>
     <item>
       <title>select()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-modifiers-select/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-modifiers-select/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-modifiers-select/</guid>
-      <description>对查询结果执行SELECT。&#xA;默认情况下，.insert(), .update(), .upsert(), 和 .delete()不会返回修改过的记录。通过调用这个方法，修改过的行会返回到data。&#xA;const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .upsert({ id: 1, name: &amp;#39;Algeria&amp;#39; }) .select() 案例教程 link案例1 link 建表 使用方法 返回结果 &gt; create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .upsert({ id: 1, name: &amp;#39;Algeria&amp;#39; }) .select() { &amp;#34;data&amp;#34;: [ { &amp;#34;id&amp;#34;: 1, &amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34; } ], &amp;#34;status&amp;#34;: 201, &amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34; } 参数说明 link 列（column） [可选参数] query类型 要检索的列，用逗号分隔</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-modifiers-select/</guid>
+      <description>对查询结果执行SELECT。&#xA;默认情况下，.insert(), .update(), .upsert(), 和 .delete()不会返回修改过的记录。通过调用这个方法，修改过的行会返回到data。&#xA;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.upsert({ id: 1, name: &amp;#39;Algeria&amp;#39; })&#xD;.select()&#xD;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.upsert({ id: 1, name: &amp;#39;Algeria&amp;#39; })&#xD;.select()&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 201,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Created&amp;#34;&#xD;}&#xD;参数说明 link&#xD;列（column）&#xD;[可选参数]&#xD;query类型&#xD;要检索的列，用逗号分隔</description>
     </item>
     <item>
       <title>order()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/order/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/order/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/order/</guid>
-      <description>按列对查询结果进行排序。&#xA;你可以多次调用这个方法来按多列排序。&#xA;你可以对外部表进行排序，但这并不影响对当前表的排序。&#xA;案例教程 link案例1 （使用select） link 建表 使用方法 返回结果 &gt; create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;id&amp;#39;, &amp;#39;name&amp;#39;) .order(&amp;#39;id&amp;#39;, { ascending: false }) { &amp;#34;data&amp;#34;: [ { &amp;#34;id&amp;#34;: 3, &amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34; }, { &amp;#34;id&amp;#34;: 2, &amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34; }, { &amp;#34;id&amp;#34;: 1, &amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34; } ], &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } 案例2 （在外部表） link 建表 使用方法 返回结果 注意事项 &gt; create table countries (id int8 primary key, name text); create table cities ( id int8 primary key, country_id int8 not null references countries, name text ); insert into countries (id, name) values (1, &amp;#39;United States&amp;#39;), (2, &amp;#39;Vanuatu&amp;#39;); insert into cities (id, country_id, name) values (1, 1, &amp;#39;Atlanta&amp;#39;), (2, 1, &amp;#39;New York City&amp;#39;); const { data, error } = await supabase .</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/order/</guid>
+      <description>按列对查询结果进行排序。&#xA;你可以多次调用这个方法来按多列排序。&#xA;你可以对外部表进行排序，但这并不影响对当前表的排序。&#xA;案例教程 link案例1 （使用select） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;id&amp;#39;, &amp;#39;name&amp;#39;)&#xD;.order(&amp;#39;id&amp;#39;, { ascending: false })&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;id&amp;#34;: 3,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Algeria&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 2,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;id&amp;#34;: 1,&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （在外部表） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;create table&#xD;cities (&#xD;id int8 primary key,&#xD;country_id int8 not null references countries,&#xD;name text&#xD;);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;United States&amp;#39;),&#xD;(2, &amp;#39;Vanuatu&amp;#39;);&#xD;insert into&#xD;cities (id, country_id, name)&#xD;values&#xD;(1, 1, &amp;#39;Atlanta&amp;#39;),&#xD;(2, 1, &amp;#39;New York City&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>limit()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/limit/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/limit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/limit/</guid>
-      <description>通过count限制查询结果。&#xA;案例教程 link案例1 （使用select） link 建表 使用方法 返回结果 create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;name&amp;#39;) .limit(1) { &amp;#34;data&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34; } ], &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } 案例2 （在外键表中） link 建表 使用方法 返回结果 create table countries (id int8 primary key, name text); create table cities ( id int8 primary key, country_id int8 not null references countries, name text ); insert into countries (id, name) values (1, &amp;#39;United States&amp;#39;); insert into cities (id, country_id, name) values (1, 1, &amp;#39;Atlanta&amp;#39;), (2, 1, &amp;#39;New York City&amp;#39;); const { data, error } = await supabase .</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/limit/</guid>
+      <description>通过count限制查询结果。&#xA;案例教程 link案例1 （使用select） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.limit(1)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;案例2 （在外键表中） link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;create table&#xD;cities (&#xD;id int8 primary key,&#xD;country_id int8 not null references countries,&#xD;name text&#xD;);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;United States&amp;#39;);&#xD;insert into&#xD;cities (id, country_id, name)&#xD;values&#xD;(1, 1, &amp;#39;Atlanta&amp;#39;),&#xD;(2, 1, &amp;#39;New York City&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.</description>
     </item>
     <item>
       <title>range()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/range/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/range/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/range/</guid>
-      <description>通过 from和 to来限制查询结果。&#xA;案例教程 link案例1 link 建表 使用方法 返回结果 create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;name&amp;#39;) .range(0, 1) { &amp;#34;data&amp;#34;: [ { &amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34; }, { &amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34; } ], &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } 参数说明 link from [必要参数] number类型 用于限制结果的起始索引&#xA;to [必要参数] number类型 限制结果的最后一个索引&#xA;选项（option） [可选参数] object类型 命名的参数</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/range/</guid>
+      <description>通过 from和 to来限制查询结果。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.range(0, 1)&#xD;{&#xD;&amp;#34;data&amp;#34;: [&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;},&#xD;{&#xD;&amp;#34;name&amp;#34;: &amp;#34;Albania&amp;#34;&#xD;}&#xD;],&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;参数说明 link&#xD;from&#xD;[必要参数]&#xD;number类型&#xD;用于限制结果的起始索引&#xA;to&#xD;[必要参数]&#xD;number类型&#xD;限制结果的最后一个索引&#xA;选项（option）&#xD;[可选参数]&#xD;object类型&#xD;命名的参数</description>
     </item>
     <item>
       <title>abortSignal()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-abortsignal/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-abortsignal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-abortsignal/</guid>
-      <description>设置获取请求的AbortSignal。&#xA;案例教程 link案例1 link 使用方法 返回结果 注意事项 const ac = new AbortController() ac.abort() const { data, error } = await supabase .from(&amp;#39;very_big_table&amp;#39;) .select() .abortSignal(ac.signal) { &amp;#34;error&amp;#34;: { &amp;#34;message&amp;#34;: &amp;#34;FetchError: The user aborted a request.&amp;#34;, &amp;#34;details&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;hint&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;code&amp;#34;: &amp;#34;&amp;#34; }, &amp;#34;status&amp;#34;: 400, &amp;#34;statusText&amp;#34;: &amp;#34;Bad Request&amp;#34; } 你可以使用 AbortController 来中止请求。 请注意，对于被中止的请求，状态 (status) 和状态文本 (statusText) 并不具有实际意义，因为请求未能完成。&#xA;参数说明 link signal [必要参数] AbortSignal类型 用于获取请求的AbortSignal</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-abortsignal/</guid>
+      <description>设置获取请求的AbortSignal。&#xA;案例教程 link案例1 link&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;const ac = new AbortController()&#xD;ac.abort()&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;very_big_table&amp;#39;)&#xD;.select()&#xD;.abortSignal(ac.signal)&#xD;{&#xD;&amp;#34;error&amp;#34;: {&#xD;&amp;#34;message&amp;#34;: &amp;#34;FetchError: The user aborted a request.&amp;#34;,&#xD;&amp;#34;details&amp;#34;: &amp;#34;&amp;#34;,&#xD;&amp;#34;hint&amp;#34;: &amp;#34;&amp;#34;,&#xD;&amp;#34;code&amp;#34;: &amp;#34;&amp;#34;&#xD;},&#xD;&amp;#34;status&amp;#34;: 400,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;Bad Request&amp;#34;&#xD;}&#xD;你可以使用 AbortController 来中止请求。 请注意，对于被中止的请求，状态 (status) 和状态文本 (statusText) 并不具有实际意义，因为请求未能完成。&#xA;参数说明 link&#xD;signal&#xD;[必要参数]&#xD;AbortSignal类型&#xD;用于获取请求的AbortSignal</description>
     </item>
     <item>
       <title>single()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/single/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/single/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/single/</guid>
-      <description>将数据(data)作为单个对象返回，而不是返回一个对象数组。&#xA;案例教程 link案例1 link 建表 使用方法 返回结果 create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;name&amp;#39;) .limit(1) .single() { &amp;#34;data&amp;#34;: { &amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34; }, &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/single/</guid>
+      <description>将数据(data)作为单个对象返回，而不是返回一个对象数组。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name&amp;#39;)&#xD;.limit(1)&#xD;.single()&#xD;{&#xD;&amp;#34;data&amp;#34;: {&#xD;&amp;#34;name&amp;#34;: &amp;#34;Afghanistan&amp;#34;&#xD;},&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;</description>
     </item>
     <item>
       <title>maybeSingle()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/maybesingle/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/maybesingle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/maybesingle/</guid>
-      <description>将数据(data)作为单个对象返回，而不是返回一个对象数组。&#xA;案例教程 link案例1 link 建表 使用方法 返回结果 create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select() .eq(&amp;#39;name&amp;#39;, &amp;#39;Singapore&amp;#39;) .maybeSingle() { &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/maybesingle/</guid>
+      <description>将数据(data)作为单个对象返回，而不是返回一个对象数组。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;Singapore&amp;#39;)&#xD;.maybeSingle()&#xD;{&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;</description>
     </item>
     <item>
       <title>csv()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-csv/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-csv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-csv/</guid>
-      <description>以 CSV 格式将数据（data）作为字符串返回。&#xA;案例教程 link案例1 link 建表 使用方法 返回结果 注意事项 create table countries (id int8 primary key, name text); insert into countries (id, name) values (1, &amp;#39;Afghanistan&amp;#39;), (2, &amp;#39;Albania&amp;#39;), (3, &amp;#39;Algeria&amp;#39;); const { data, error } = await supabase .from(&amp;#39;countries&amp;#39;) .select() .csv() { &amp;#34;data&amp;#34;: &amp;#34;id,name\n1,Afghanistan\n2,Albania\n3,Algeria&amp;#34;, &amp;#34;status&amp;#34;: 200, &amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34; } 默认情况下，数据以 JSON 格式返回，但也可以选择返回 CSV 格式。</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-csv/</guid>
+      <description>以 CSV 格式将数据（data）作为字符串返回。&#xA;案例教程 link案例1 link&#xD;建表&#xD;使用方法&#xD;返回结果&#xD;注意事项&#xD;create table&#xD;countries (id int8 primary key, name text);&#xD;insert into&#xD;countries (id, name)&#xD;values&#xD;(1, &amp;#39;Afghanistan&amp;#39;),&#xD;(2, &amp;#39;Albania&amp;#39;),&#xD;(3, &amp;#39;Algeria&amp;#39;);&#xD;const { data, error } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.csv()&#xD;{&#xD;&amp;#34;data&amp;#34;: &amp;#34;id,name\n1,Afghanistan\n2,Albania\n3,Algeria&amp;#34;,&#xD;&amp;#34;status&amp;#34;: 200,&#xD;&amp;#34;statusText&amp;#34;: &amp;#34;OK&amp;#34;&#xD;}&#xD;默认情况下，数据以 JSON 格式返回，但也可以选择返回 CSV 格式。</description>
     </item>
     <item>
       <title>returns()</title>
-      <link>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-returns/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-returns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/javascript/database/modifier/db-returns/</guid>
-      <description>覆盖返回数据（data）的类型。&#xA;案例教程 link案例1 (覆盖成功响应的类型) link 使用方法 返回结果 const { data } = await supabase .from(&amp;#39;countries&amp;#39;) .select() .returns&amp;lt;MyType&amp;gt;() let x: typeof data // MyType | null </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/javascript/database/modifier/db-returns/</guid>
+      <description>覆盖返回数据（data）的类型。&#xA;案例教程 link案例1 (覆盖成功响应的类型) link&#xD;使用方法&#xD;返回结果&#xD;const { data } = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select()&#xD;.returns&amp;lt;MyType&amp;gt;()&#xD;let x: typeof data // MyType | null&#xD;</description>
     </item>
   </channel>
 </rss>

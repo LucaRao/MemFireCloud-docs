@@ -1,5 +1,5 @@
 ---
-weight: 1000
+weight: 100
 title: "产品动向"
 description: ""
 icon: "article"

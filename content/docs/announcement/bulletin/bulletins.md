@@ -1,5 +1,5 @@
 ---
-weight: 1002
+weight: 111
 title: "【2024年01月03日】MemFire Cloud应用开发正式推出计费套餐"
 description: ""
 icon: "article"

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>函数 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/wechatsdk/function/</link>
-    <description>Recent content in 函数 on My New Hugo Site</description>
+    <title>函数 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/function/</link>
+    <description>Recent content in 函数 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Dec 2023 17:39:49 +0800</lastBuildDate>
-    <atom:link href="https://github.com/docs/app/sdkdocs/wechatsdk/function/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/wechatsdk/function/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>invoke()</title>
-      <link>https://github.com/docs/app/sdkdocs/wechatsdk/function/invoke/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/wechatsdk/function/invoke/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/wechatsdk/function/invoke/</guid>
-      <description>应用使用MemFire Cloud的云函数功能时，需要结合supabase-wechat-stable-v2与memfire-cloud-functions-js 这两个SDK进行云函数的调用。&#xA;使用方法 link在根目录下执行命令，安装依赖&#xA;npm install supabase-wechat-stable-v2-v2 添加一个js/ts文件与数据库建立连接，添加以下代码，并且将应用的URL和anon_key填写进去。&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39; const supabaseUrl = &amp;#39;&amp;#39; const supabaseAnonKey = &amp;#39;&amp;#39; export const supabase = createClient(supabaseUrl, supabaseAnonKey) 在需要使用云函数的页面调用，填写用户在MemFire Cloud创建的云函数生成的访问地址和访问方法。&#xA;const { data, error } = await functions.invoke( &amp;#39;访问地址&amp;#39;,{method:&amp;#39;访问方法&amp;#39;} ); 参数 link functionName required string 要调用的函数的名称&#xA;invokeOptions required FunctionInvokeOptions 未提供说明。&#xA;注释 link 需要一个授权标头。 调用参数通常符合Fetch API规范。 当你向函数传递一个body时，我们会自动附加 Blob、ArrayBuffer、File、FormData和 String的Content-Type标头。如果它不符合这些类型，会默认为json，将其序列化并附加Content-Type&#39;头为application/json。用户还可以自定义 Content-Type`。 响应会自动解析为json、blob或form-data，取决于你的函数发送的Content-Type头。默认情况下，响应被解析为text。 示例 link基本调用 link const { data, error } = await functions.</description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/wechatsdk/function/invoke/</guid>
+      <description>应用使用MemFire Cloud的云函数功能时，需要结合supabase-wechat-stable-v2与memfire-cloud-functions-js 这两个SDK进行云函数的调用。&#xA;使用方法 link在根目录下执行命令，安装依赖&#xA;npm install supabase-wechat-stable-v2-v2&#xD;添加一个js/ts文件与数据库建立连接，添加以下代码，并且将应用的URL和anon_key填写进去。&#xA;import { createClient } from &amp;#39;supabase-wechat-stable-v2&amp;#39;&#xD;const supabaseUrl = &amp;#39;&amp;#39;&#xD;const supabaseAnonKey = &amp;#39;&amp;#39;&#xD;export const supabase = createClient(supabaseUrl, supabaseAnonKey)&#xD;在需要使用云函数的页面调用，填写用户在MemFire Cloud创建的云函数生成的访问地址和访问方法。&#xA;const { data, error } = await functions.invoke(&#xD;&amp;#39;访问地址&amp;#39;,{method:&amp;#39;访问方法&amp;#39;}&#xD;);&#xD;参数 link&#xD;functionName&#xD;required&#xD;string&#xD;要调用的函数的名称&#xA;invokeOptions&#xD;required&#xD;FunctionInvokeOptions&#xD;未提供说明。&#xA;注释 link 需要一个授权标头。 调用参数通常符合Fetch API规范。 当你向函数传递一个body时，我们会自动附加 Blob、ArrayBuffer、File、FormData和 String的Content-Type标头。如果它不符合这些类型，会默认为json，将其序列化并附加Content-Type&#39;头为application/json。用户还可以自定义 Content-Type`。 响应会自动解析为json、blob或form-data，取决于你的函数发送的Content-Type头。默认情况下，响应被解析为text。 示例 link基本调用 link&#xD;const { data, error } = await functions.</description>
     </item>
   </channel>
 </rss>

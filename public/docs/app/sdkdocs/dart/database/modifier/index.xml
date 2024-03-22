@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>修改器 on My New Hugo Site</title>
-    <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/</link>
-    <description>Recent content in 修改器 on My New Hugo Site</description>
+    <title>修改器 on MemFire Cloud在线文档</title>
+    <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/</link>
+    <description>Recent content in 修改器 on MemFire Cloud在线文档</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <atom:link href="https://github.com/docs/app/sdkdocs/dart/database/modifier/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Using Modifiers</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/using-modifiers/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/using-modifiers/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/database/modifier/using-modifiers/</guid>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/using-modifiers/</guid>
       <description>过滤器在行的层面上工作&amp;ndash;它们允许你返回只符合某些条件的行，而不改变行的形状。 只符合某些条件的行，而不改变行的形状。 修改器是不符合该定义的一切，允许你 改变响应的格式（例如，返回一个CSV字符串）。&#xA;修改器必须在过滤器之后指定。有些修改器只适用于 一些修改器只适用于返回行的查询（例如，select()或rpc()在一个返回表的函数上 返回表格响应的函数）。</description>
     </item>
     <item>
       <title>order()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/order/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/order/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/database/modifier/order/</guid>
-      <description>用指定的列对结果进行排序。&#xA;final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .order(&amp;#39;id&amp;#39;, ascending: false ); Examples link使用 select() link final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .order(&amp;#39;id&amp;#39;, ascending: false ); 有嵌入式资源 link final data = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;name, cities(name)&amp;#39;) .eq(&amp;#39;name&amp;#39;, &amp;#39;United States&amp;#39;) .order(&amp;#39;name&amp;#39;, foreignTable: &amp;#39;cities&amp;#39;); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/order/</guid>
+      <description>用指定的列对结果进行排序。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.order(&amp;#39;id&amp;#39;, ascending: false );&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.order(&amp;#39;id&amp;#39;, ascending: false );&#xD;有嵌入式资源 link&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, cities(name)&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;United States&amp;#39;)&#xD;.order(&amp;#39;name&amp;#39;, foreignTable: &amp;#39;cities&amp;#39;);&#xD;</description>
     </item>
     <item>
       <title>limit()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/limit/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/limit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/database/modifier/limit/</guid>
-      <description>用指定的计数来限制结果。&#xA;final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .limit(1); Examples link使用 select() link final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .limit(1); 有嵌入式资源 link final data = await supabase .from(&amp;#39;countries&amp;#39;) .select(&amp;#39;name, cities(name)&amp;#39;) .eq(&amp;#39;name&amp;#39;, &amp;#39;United States&amp;#39;) .limit(1, foreignTable: &amp;#39;cities&amp;#39; ); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/limit/</guid>
+      <description>用指定的计数来限制结果。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.limit(1);&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.limit(1);&#xD;有嵌入式资源 link&#xD;final data = await supabase&#xD;.from(&amp;#39;countries&amp;#39;)&#xD;.select(&amp;#39;name, cities(name)&amp;#39;)&#xD;.eq(&amp;#39;name&amp;#39;, &amp;#39;United States&amp;#39;)&#xD;.limit(1, foreignTable: &amp;#39;cities&amp;#39; );&#xD;</description>
     </item>
     <item>
       <title>range()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/range/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/range/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/database/modifier/range/</guid>
-      <description>将结果限制在指定范围内的行，包括在内。&#xA;final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .range(0,3); Examples link使用 select() link final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .range(0,3); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/range/</guid>
+      <description>将结果限制在指定范围内的行，包括在内。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.range(0,3);&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.range(0,3);&#xD;</description>
     </item>
     <item>
       <title>single()</title>
-      <link>https://github.com/docs/app/sdkdocs/dart/database/modifier/single/</link>
+      <link>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/single/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/docs/app/sdkdocs/dart/database/modifier/single/</guid>
-      <description>只从结果中检索一条记录。结果必须是一行(例如,使用limit)，否则会导致错误。&#xA;final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .single(); Examples link使用 select() link final data = await supabase .from(&amp;#39;cities&amp;#39;) .select(&amp;#39;name, country_id&amp;#39;) .single(); </description>
+      <guid>http://localhost:1313/docs/app/sdkdocs/dart/database/modifier/single/</guid>
+      <description>只从结果中检索一条记录。结果必须是一行(例如,使用limit)，否则会导致错误。&#xA;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.single();&#xD;Examples link使用 select() link&#xD;final data = await supabase&#xD;.from(&amp;#39;cities&amp;#39;)&#xD;.select(&amp;#39;name, country_id&amp;#39;)&#xD;.single();&#xD;</description>
     </item>
   </channel>
 </rss>
