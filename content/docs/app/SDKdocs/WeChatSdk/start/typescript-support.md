@@ -10,12 +10,12 @@
 
 ## 生成类型
 
-你可以使用我们的CLI来生成类型。
+你可以在控制台的`api文档`->`表和视图`中下载类型。
 
-```bash
-supabase start
-supabase gen types typescript --local > lib/database.types.ts
-```
+
+<img src="../../../../img/types.png">  
+
+
 
 这些类型是直接从你的数据库中生成的。给定一个表`public.movies`，该定义将提供以下数据。
 

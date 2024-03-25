@@ -1,5 +1,5 @@
 ---
-    weight: 2716
+    weight: 2712
     title: "微信小程序客户端"
     icon: "article"
     draft: false
