@@ -1,5 +1,5 @@
 ---
-    weight: 1704
+    weight: 1705
     title: "环境变量"
     description: "Getting started with environment variable."
     icon: "article"
