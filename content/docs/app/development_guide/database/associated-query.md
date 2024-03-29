@@ -10,16 +10,16 @@
 多表关联是指在关系型数据库中，通过多个数据表之间的字段关联，实现数据的联合查询和统计分析。使用场景包括：复杂的数据统计分析、跨部门的数据共享和协作、多维度的数据查询和分析等。一般情况下，需要设计合适的数据模型和关联规则来确保查询效率和数据准确性。其中包括：
 
 
-1. [过滤查询：eq](/docs/app/database/associated-query#1条件过滤查询eq)   
-2. [自定义字段查询](/docs/app/database/associated-query#2自定义字段查询)   
-3. [查询所有关联数据](/docs/app/database/associated-query#3查询所有关联数据)   
-4. [条件过滤查询：filter](/docs/app/database/associated-query#4条件过滤查询filter)   
-5. [通过内关联/左关联查询](/docs/app/database/associated-query#5通过内关联左关联查询)   
-6. [连接运算符：or](/docs/app/database/associated-query#6连接运算符or)   
-7. [连接运算符：or & and](/docs/app/database/associated-query#7连接运算符or--and)   
-8. [数据排序：order](/docs/app/database/associated-query#8数据排序order)   
-9. [过滤数据的条数： count](/docs/app/database/associated-query#9过滤数据的条数count)   
-10. [限制返回的行数： limit](/docs/app/database/associated-query#10限制返回的行数limit)   
+1. [过滤查询：eq](/docs/app/development_guide/database/associated-query/#1条件过滤查询eq)   
+2. [自定义字段查询](/docs/app/development_guide/database/associated-query/#2自定义字段查询)   
+3. [查询所有关联数据](/docs/app/development_guide/database/associated-query/#3查询所有关联数据)   
+4. [条件过滤查询：filter](/docs/app/development_guide/database/associated-query/#4条件过滤查询filter)   
+5. [通过内关联/左关联查询](/docs/app/development_guide/database/associated-query/#5通过内关联左关联查询)   
+6. [连接运算符：or](/docs/app/development_guide/database/associated-query/#6连接运算符or)   
+7. [连接运算符：or & and](/docs/app/development_guide/database/associated-query/#7连接运算符or--and)   
+8. [数据排序：order](/docs/app/development_guide/database/associated-query/#8数据排序order)   
+9. [过滤数据的条数： count](/docs/app/development_guide/database/associated-query/#9过滤数据的条数count)   
+10. [限制返回的行数： limit](/docs/app/development_guide/database/associated-query/#10限制返回的行数limit)   
 
 
 本教程是通过数据表：学生课表信息表、课程信息表、学校信息表，三者之间存在的关联关系的示例来讲解如何通过JavaScript SDK的API进行多表关联查询数据的教程。
