@@ -121,49 +121,6 @@ function MyApp({
 
 现在，您可以通过检查 `useUser()`钩子返回的`user`对象是否已定义来确定用户是否已通过身份验证。
 
-## 使用TypeScript
-
-您可以将[使用Supabase CLI](/docs/app/sdkdocs/javascript/typescript-support#generating-types)生成的类型传递给Supabase客户端，以获得增强的类型安全性和自动完成：
-
-### 浏览器客户端
-
-创建新的Supabase数据库客户端对象：
-
-```tsx
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { Database } from '../database.types'
-
-const supabaseClient = createBrowserSupabaseClient<Database>()
-```
-
-从SessionContext中检索超级客户端对象：
-
-```tsx
-import { useSupabaseClient } from '@supabase/auth-helpers-react'
-import { Database } from '../database.types'
-
-const supabaseClient = useSupabaseClient<Database>()
-```
-
-### 服务器客户端
-
-```tsx
-// Creating a new supabase server client object (e.g. in API route):
-import type { NextApiRequest, NextApiResponse } from 'next'
-import type { Database } from 'types_db'
-
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const supabaseServerClient = createServerSupabaseClient<Database>({
-    req,
-    res,
-  })
-  const {
-    data: { user },
-  } = await supabaseServerClient.auth.getUser()
-
-  res.status(200).json({ name: user?.name ?? '' })
-}
-```
 
 ## 使用RLS获取客户端数据
 
