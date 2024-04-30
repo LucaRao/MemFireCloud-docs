@@ -1,6 +1,6 @@
 ---
     weight: 2793
-    title: "signInWithWechat()"
+    title: "getUnlimitedQRCode()"
     icon: "article"
     draft: false
     toc: true

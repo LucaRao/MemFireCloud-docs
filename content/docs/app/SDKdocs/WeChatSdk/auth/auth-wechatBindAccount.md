@@ -1,6 +1,6 @@
 ---
     weight: 2795
-    title: "signInWithWechat()"
+    title: "wechatBindAccount()"
     icon: "article"
     draft: false
     toc: true

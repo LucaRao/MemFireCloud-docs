@@ -17,7 +17,7 @@ supabase-wechat-stable-v2是由MemFire Cloud团队直接建立的。
 使用NPM安装
 
 ```bash
-npm install supabase-wechat-stable-v2-v2
+npm install supabase-wechat-stable-v2
 ```
 
 使用Yarn安装

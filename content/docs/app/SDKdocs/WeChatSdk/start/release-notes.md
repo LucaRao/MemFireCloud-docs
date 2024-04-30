@@ -10,7 +10,7 @@ supabase-wechat-stable-v2 v2发布说明。
 
 ## 2.0.0
 
-用`npm install supabase-wechat-stable-v2-v2`安装最新版本。
+用`npm install supabase-wechat-stable-v2`安装最新版本。
 
 ### 明确的构造器选项
 
