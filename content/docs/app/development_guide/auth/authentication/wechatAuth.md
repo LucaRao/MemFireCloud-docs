@@ -360,4 +360,6 @@ Page({
 
 更多api详情请参考[资料](https://supabase.github.io/gotrue-js/v2/classes/GoTrueClient.html)
 
+[微信小程序脚手架](/docs/app/example/scaffold/)
+
 

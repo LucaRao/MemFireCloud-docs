@@ -8,11 +8,11 @@
 ---
 
 
-MemFire Cloud提供了全面的前端框架的脚手架，包括`vue`/`react`/`uni-app微信小程序`/`taro微信小程序`/`微信原生小程序`。脚手架的功能和页面包括登录注册、个人中心、备忘录、聊天室、文件管理中心，也分别代表了MemFire Cloud不同的特性，其中包括用户认证、自动生成API、实时数据库、对象存储。
+MemFire Cloud提供了全面的前端框架的脚手架，包括`vue`/`react`/uni-app微信小程序/taro微信小程序/微信原生小程序。脚手架的功能和页面包括登录注册、个人中心、备忘录、聊天室、文件管理中心，也分别代表了MemFire Cloud不同的特性，其中包括用户认证、自动生成API、实时数据库、对象存储。
 
 脚手架提供一套基础的MemFire Cloud项目结构和配置，旨在以加快和简化项目的开发过程，不仅可以帮助用户快速启动项目、规范开发流程，集成常用工具和底层框架，并具有一定的定制性和扩展性，提高开发效率和代码质量，为用户提供全面的服务。
 
-   不同前端框架的项目代码
+## 以下是不同前端框架的项目代码(按需下载)
 
 ## **React**
 
@@ -31,18 +31,28 @@ vue create --preset memfire-cloud/memfire-vue-tempalte <your_project_name>
 ```JSON
 npx degit MemFire-Cloud/wechat-template <my-project>
 ```
+{{% alert context="info" %}}
+若微信小程序采用微信用户认证登录的登录方式，需要在MemFire Cloud配置微信小程序登录认证，[配置方法](/docs/app/development_guide/auth/authentication/wechatauth/)
+{{% /alert %}}
+
 
 ## **uni-app微信小程序模版**
 
 ```JSON
 npx degit MemFire-Cloud/uni-app-template <my-project>
 ```
+{{% alert context="info" %}}
+若微信小程序采用微信用户认证登录的登录方式，需要在MemFire Cloud配置微信小程序登录认证，[配置方法](/docs/app/development_guide/auth/authentication/wechatauth/)
+{{% /alert %}}
 
 ## **taro微信小程序模版**
 
 ```JSON
 npx degit MemFire-Cloud/memfire-taro-template <my-project>
 ```
+{{% alert context="info" %}}
+若微信小程序采用微信用户认证登录的登录方式，需要在MemFire Cloud配置微信小程序登录认证，[配置方法](/docs/app/development_guide/auth/authentication/wechatauth/)
+{{% /alert %}}
 
 根据项目的readme文件里的提示，在[MemFire Cloud](https://memfiredb.com/)创建应用后，将提供的sql脚本在该应用的SQL执行器里执行。
 
