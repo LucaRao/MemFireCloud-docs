@@ -3,7 +3,7 @@
     title: "全文搜索"
     description: "How to use full text search in PostgreSQL."
     icon: "article"
-    draft: false
+    draft: true
     toc: true
 ---
 

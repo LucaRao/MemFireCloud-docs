@@ -1,6 +1,6 @@
 ---
 weight: 4101
-title: "Python示例"
+title: "Python2示例"
 description: ""
 icon: "article"
 date: "2023-12-13T17:39:49+08:00"
@@ -22,9 +22,9 @@ MemFire Cloud 提供Python、Java、spring、golang、nodejs、小程序开发�
 
 **创建示例应用**   
 1、加密连接  
-•	登录cloud.memfiredb.com创建证书认证数据库test，并下载证书，python程序请选择“常规”类型的证书  
+•	登录cloud.memfiredb.com创建证书认证数据库test，并下载证书，python程序请选择“DER”类型的证书  
 •	下载证书时，会下载三个文件，有的浏览器可能会进行拦截，取消拦截即可  
-•	证书下载后上传的linux服务器之后，要确保memfiredb.key文件的权限是0600，否则程序会抛出异常  
+•	证书下载后上传到linux服务器之后，要确保memfiredb.key文件的权限是0600，否则程序会抛出异常  
 •	sslmode选择“verify-ca”  
 （1）编辑代码文件main.py，文件内容如下：  
 
