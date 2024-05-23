@@ -23,6 +23,7 @@ npm install memfire-cloud-functions-js
 ```js
 
 import { createClient } from '@supabase/supabase-js'
+import { FunctionsClient } from 'memfire-cloud-functions-js'
 
 const supabaseUrl = ''
 const supabaseAnonKey = ''
