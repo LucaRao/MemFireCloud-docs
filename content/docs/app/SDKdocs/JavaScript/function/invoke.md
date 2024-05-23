@@ -15,6 +15,7 @@
 ```js
 npm install @supabase/supabase-js
 
+npm install memfire-cloud-functions-js
 ```
 
 添加一个js/ts文件与数据库建立连接，添加以下代码，并且将应用的URL和anon_key填写进去。
@@ -27,6 +28,7 @@ const supabaseUrl = ''
 const supabaseAnonKey = ''
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const functions = new FunctionsClient(supabase)
 
 
 ```
