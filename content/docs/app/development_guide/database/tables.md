@@ -44,7 +44,7 @@ Supabase 为创建表提供了几个选项。你可以使用仪表板或直接�
 
 
 <video width="99%" muted playsInline controls="true">
-  <source src="../../videos/api/api-create-table-sm.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../videos/api/api-create-table-sm.mp4" type="video/mp4" muted playsInline />
 </video>
 
 1. 进入仪表板中的表编辑器页面。

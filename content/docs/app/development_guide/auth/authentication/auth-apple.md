@@ -69,7 +69,7 @@ Apple OAuth包括六大步骤：
 - 现在只需在末尾添加 `/auth/v1/callback` 即可获得完整的`OAuth重定向URI`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 配置服务ID

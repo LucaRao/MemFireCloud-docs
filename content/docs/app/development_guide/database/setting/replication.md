@@ -22,7 +22,7 @@
 4. 通过选择**源**和切换每个表来控制哪些表被发送变化。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="../../../videos/api/api-realtime.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../../videos/api/api-realtime.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 创建一个发布

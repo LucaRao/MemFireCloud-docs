@@ -46,7 +46,7 @@
 - 现在只需在末尾添加`/auth/v1/callback`即可获得完整的`OAuth重定向URI`。
 
 <video width="99%" muted playsInline controls="true">
-  <source src="../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
+  <source src="../../../../../videos/api/api-url-and-key.mp4" type="video/mp4" muted playsInline />
 </video>
 
 ## 注册新的OAuth应用程序

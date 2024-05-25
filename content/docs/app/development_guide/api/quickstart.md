@@ -38,7 +38,7 @@
 1. 单击**保存**。
 
 <video width="99%" muted playsInline controls="true">
-  <source src='../../videos/api/api-create-table-sm.mp4' type="video/mp4" muted playsInline />
+  <source src='../../../videos/api/api-create-table-sm.mp4' type="video/mp4" muted playsInline />
 </video>
 
 
@@ -73,7 +73,7 @@ create table todos (
 3. 在这个页面上找到你的API`URL`、`anon`和`service_role`键。
 
 <video width="99%" muted playsInline controls="true">
-  <source src='../../videos/api/api-url-and-key.mp4' type="video/mp4" muted playsInline />
+  <source src='../../../videos/api/api-url-and-key.mp4' type="video/mp4" muted playsInline />
 </video>
 
 REST API和GraphQL API都可以通过这个URL访问:
@@ -103,7 +103,7 @@ MemFire Cloud在[Dashboard](https://cloud.memfiredb.com/)中生成文档，当�
 3. 使用标签在JavaScript和cURL文档之间切换。
 
 <video width="99%" muted playsInline controls="true">
-  <source src='../../videos/api/api-docs.mp4' type="video/mp4" muted playsInline />
+  <source src='../../../videos/api/api-docs.mp4' type="video/mp4" muted playsInline />
 </video>
 
 #### GraphQL
@@ -268,7 +268,7 @@ curl --request POST '<SUPABASE_URL>/graphql/v1' \
 4. 通过选择**Source**和切换每个表来控制哪些表被发送变化。
 
 <video width="99%" muted playsInline controls="true">
-  <source src='../../videos/api/api-realtime.mp4' type="video/mp4" muted playsInline />
+  <source src='../../../videos/api/api-realtime.mp4' type="video/mp4" muted playsInline />
 </video>
 
 
