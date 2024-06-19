@@ -6,6 +6,10 @@
     toc: true
 ---
 
+通过MemFire Cloud，开发者可以轻松地为WEB应用添加微信扫码登录功能，为用户提供更加流畅、安全的登录体验。
+
+[传送门](/docs/app/development_guide/auth/authentication/wechatqrauth/)
+
 ## 第一种方式(推荐使用)
 
 此示例将为您设置一个非常常见的情况：用户可以注册或登录，然后使用公共个人资料信息（包括个人资料图片）更新其帐户。
