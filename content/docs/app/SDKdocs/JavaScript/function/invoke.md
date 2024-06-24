@@ -8,6 +8,11 @@
 
 应用使用MemFire Cloud的云函数功能时，需要结合@supabase/supabase-js与memfire-cloud-functions-js 这两个SDK进行云函数的调用。
 
+{{% alert context="info" %}}
+MemFire Cloud的云函数是MemFire Cloud独立开发的一套功能，需要结合@supabase/supabase-js与memfire-cloud-functions-js这两个SDK进行云函数的调用。在调用云函数时，需要填写完整的访问地址，与 supabase 的云函数使用方式略有不同，具体的使用方法请继续查阅以下文档。
+
+{{% /alert %}}
+
 ## 使用方法
 
 在根目录下执行命令，安装依赖
@@ -37,7 +42,7 @@ export const functions = new FunctionsClient(supabase)
 
 ```js
   const { data, error } = await functions.invoke(
-      '访问地址',{method:'访问方法'}
+      'https://functions1.memfiredb.com/xxxx/functionName',{method:'访问方法'}
     );
 ```
 
@@ -61,7 +66,7 @@ export const functions = new FunctionsClient(supabase)
   </h4>
   <div class="method-list-item-description">
 
-要调用的函数的名称
+要调用的函数的访问地址
 
   </div>
   
@@ -114,7 +119,7 @@ export const functions = new FunctionsClient(supabase)
 
 ```js
   const { data, error } = await functions.invoke(
-      '访问地址',{method:'访问方法'}
+      'https://functions1.memfiredb.com/xxxx/functionName',{method:'访问方法'}
     );
 ```
 
@@ -126,7 +131,7 @@ export const functions = new FunctionsClient(supabase)
 ```js
 import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from "@supabase/supabase-js";
 
-const { data, error } = await supabase.functions.invoke('访问地址', {
+const { data, error } = await supabase.functions.invoke('https://functions1.memfiredb.com/xxxx/functionName', {
   headers: {
     "my-custom-header": 'my-custom-header-value'
   },
