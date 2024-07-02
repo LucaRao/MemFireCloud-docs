@@ -1,6 +1,6 @@
 ---
     weight: 1413
-    title: "微信扫码登录认证"
+    title: "微信网站应用扫码登录"
     description: "微信扫码登录认证"
     icon: "article"
     draft: false
