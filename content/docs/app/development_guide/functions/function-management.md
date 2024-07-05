@@ -15,9 +15,11 @@
 {{< table "table-striped-columns" >}}
 | **运行环境** | **说明**       | **操作系统** | **架构** |
 | ------------ | -------------- | ------------ | -------- |
-| Node.js 12   | Node.js 12版本 | Linux        | x86_64   |
-| Node.js 14   | Node.js 14版本 | Linux        | x86_64   |
+| Node.js 20   | Node.js 20版本 | Linux        | x86_64   |
+| Node.js 18   | Node.js 18版本 | Linux        | x86_64   |
 | Node.js 16   | Node.js 16版本 | Linux        | x86_64   |
+| Node.js 14 (废弃)   | Node.js 14版本 (废弃) | Linux        | x86_64   |
+| Node.js 12 (废弃)  | Node.js 12版本 (废弃) | Linux        | x86_64   |
  {{< /table >}}
 
 
@@ -27,7 +29,7 @@
 {{< table "table-striped-columns" >}}
 | 运行环境   | CPU    | 内存   | 磁盘  | 并发运行数 |
 | ---------- | ------ | ------ | ----- | ---------- |
-| Node.js 14 | 0.2 核 | 256 MB | 512MB | 10         |
+| Node.js 20 | 0.2 核 | 256 MB | 512MB | 10         |
 
  {{< /table >}}
 
