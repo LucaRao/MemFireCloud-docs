@@ -16,7 +16,7 @@ Postgres 包括几个内置的外部数据封装器，例如 [`postgres_fdw`](ht
 
 Wrappers 引入了一些新的术语和不同的工作流程。
 
-![FDW](https://supabase.com/docs/_next/image?url=%2Fdocs%2Fimg%2Fdatabase%2Ffdw-light.png&w=3840&q=75)
+<!-- ![FDW](https://supabase.com/docs/_next/image?url=%2Fdocs%2Fimg%2Fdatabase%2Ffdw-light.png&w=3840&q=75) -->
 
 ### 远程服务器
 
